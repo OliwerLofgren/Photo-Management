@@ -7,5 +7,9 @@ fetch("https://api.pexels.com/v1/photos/2014422", { headers })
   .then((response) => response.json)
   .then((r) => console.log(r));
 
-const div_dom = document.createElement("img");
+const div_dom = document.createElement("div");
+
+div_dom.innerHTML = `
+<img src="${r.url}">
+`;
 document.querySelector("body").append(div_dom);
