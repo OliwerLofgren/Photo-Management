@@ -7,14 +7,10 @@ body {
     overflow: hidden;
 }
 
-main {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 main div {
-    height: fit-content;
-    display: flex;
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: auto auto auto;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto;
 }
