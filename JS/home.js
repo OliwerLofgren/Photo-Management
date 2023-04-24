@@ -5,6 +5,8 @@ const headers = {
 };
 
 async function getPhoto() {
+
+  // per page parameter should be a generated variable >
   const response = await fetch("https://api.pexels.com/v1/curated?per_page=2", {
     headers,
   });
