@@ -1,5 +1,11 @@
-import { createClient } from 'pexels';
+const api_key = "d7eBBdpVdN08nChtJhFZzudXealrUpI6Xz0FsfuK0d5klpBSt6XzL2Zm";
 
-const client = createClient('4Gkq0ZuJgevDtGOJesppgO5V4tZZ4TZLTBvtO1aX6fgmzxPXGIxmkFg0');
+const headers = {
+  authorization: api_key,
+};
+fetch("https://api.pexels.com/v1/photos/2014422", { headers })
+  .then((response) => response.json)
+  .then((r) => console.log(r));
 
-// All requests made with the client will be authenticated
+const div_dom = document.createElement("img");
+document.querySelector("body").append(div_dom);
