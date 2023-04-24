@@ -1,27 +1,26 @@
-const api_key = "d7eBBdpVdN08nChtJhFZzudXealrUpI6Xz0FsfuK0d5klpBSt6XzL2Zm";
+"use strict";
 
-const headers = {
-  authorization: api_key,
-};
+const mainHome = document.querySelector("main");
 
 async function getPhoto() {
 
-  // per page parameter should be a generated variable >
-  const response = await fetch("https://api.pexels.com/v1/curated?per_page=2", {
-    headers,
-  });
-  const resource = await response.json();
+  // NOTE, set per page parameter, + add result object to innerhtml 
+  const per_page = 2;
+  const url = `${prefix}curated?per_page=${per_page}`;
 
-  console.log(resource);
-  console.log(resource.photos[0].id);
+  const response = await fetch_resource(new Request(url, { headers }));
+  const resource = await response.json();
 
   const div_dom = document.createElement("div");
 
   div_dom.innerHTML = `
-      <p>${resource.photos[0].id}</p>
-        <img src="${resource.photos[0].src.medium}">
-        <img src="${resource.photos[1].src.medium}">
-        `;
-  document.querySelector("body").append(div_dom);
+      <img src="${resource.photos[0].src.medium}">
+      <img src="${resource.photos[1].src.medium}">
+    `;
+
+  mainHome.append(div_dom);
+
+  console.log(resource);
+  console.log(resource.photos[0]);
 }
 getPhoto();

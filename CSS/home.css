@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main div {
+    height: fit-content;
+    display: flex;
+}
