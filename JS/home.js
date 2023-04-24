@@ -5,16 +5,20 @@ const headers = {
 };
 
 async function getPhoto() {
-  const response = await fetch("https://api.pexels.com/v1/photos/2014422", {
+  const response = await fetch("https://api.pexels.com/v1/curated?per_page=2", {
     headers,
   });
   const resource = await response.json();
+
   console.log(resource);
+  console.log(resource.photos[0].id);
+
   const div_dom = document.createElement("div");
 
   div_dom.innerHTML = `
-      <p>${resource.id}</p>
-        <img src="${resource.src.medium}">
+      <p>${resource.photos[0].id}</p>
+        <img src="${resource.photos[0].src.medium}">
+        <img src="${resource.photos[1].src.medium}">
         `;
   document.querySelector("body").append(div_dom);
 }
