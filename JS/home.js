@@ -25,7 +25,7 @@ async function getPhoto() {
 
   mainHome.append(div_dom);
 
-  console.log(resource);
+
   console.log(resource.photos[0]);
 }
 
