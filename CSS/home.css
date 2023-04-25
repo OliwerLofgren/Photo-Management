@@ -8,9 +8,15 @@ body {
 }
 
 main div {
-    display: grid;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+div img {
     grid-template-columns: auto auto auto;
     grid-auto-flow: column;
     grid-template-rows: auto auto;
+    width: 200px;
+    object-fit: cover;
 }
