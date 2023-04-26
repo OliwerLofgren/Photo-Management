@@ -1,21 +1,66 @@
-const api_key = "d7eBBdpVdN08nChtJhFZzudXealrUpI6Xz0FsfuK0d5klpBSt6XzL2Zm";
+"use strict";
 
-const headers = {
-  authorization: api_key,
-};
+const mainHome = document.querySelector("main");
+
+renderHomePage();
 
 async function getPhoto() {
-  const response = await fetch("https://api.pexels.com/v1/photos/2014422", {
-    headers,
-  });
-  const resource = await response.json();
-  console.log(resource);
-  const div_dom = document.createElement("div");
+  // NOTE, set per page parameter, + add result object to innerhtml 
+  const per_page = 1;
+  const url = `${prefix}curated?per_page=${per_page}`;
 
-  div_dom.innerHTML = `
-      <p>${resource.id}</p>
-        <img src="${resource.src.medium}">
-        `;
-  document.querySelector("body").append(div_dom);
+  try {
+    const response = await fetch_resource(new Request(url, { headers }));
+    const resource = await response.json();
+
+    // display server message (temporary solution, see server_connection file)
+    displayServerMessage(response);
+
+    if (!response.ok) {
+      console.log("oops");
+    } else {
+      // create new array from Photo resource, extracting "photos" key 
+      const photosObject = resource.photos;
+      console.log(photosObject);
+
+      // create new array based on the photo resource extracting the "photo urls" key
+      const photoUrls = photosObject.map(object => {
+        return object.src.medium
+      })
+      console.log(photoUrls);
+
+      const photosWrapper = document.createElement("div");
+      // for each photo, create dom element
+      photoUrls.forEach(photo => {
+        const div_dom = document.createElement("div");
+        div_dom.innerHTML = `
+      <img src="${photo}">
+    `;
+        photosWrapper.append(div_dom);
+      });
+      mainHome.append(photosWrapper);
+    }
+
+  } catch (error) {
+    console.log("add server message to user here");
+  }
 }
-getPhoto();
+
+function renderHomePage() {
+
+  const header = document.querySelector("header");
+  header.innerHTML = `
+    <H1>PhOTO MANAGEMENT</H1>
+      <nav>
+        <button id="loginBtn">LOGIN</button>      
+        <button id="registerBTN">REGISTER</button>      
+    </nav>
+
+    <div id="divBar"></div>  
+  `
+  getPhoto();
+}
+
+document.querySelector("#loginBtn").addEventListener("click", renderLoginPage);
+
+document.querySelector("#registerBTN").addEventListener("click", renderRegisterPage);
