@@ -50,9 +50,10 @@ function renderHomePage() {
 
   const header = document.querySelector("header");
   header.innerHTML = `
-    <nav>
     <H1>PhOTO MANAGEMENT</H1>
-    <button id="loginBtn">LOGIN</button>       <button id="registerBtn">REGISTER</button> 
+      <nav>
+        <button id="loginBtn">LOGIN</button>      
+        <button id="registerBTN">REGISTER</button>      
     </nav>
 
     <div id="divBar"></div>  
@@ -60,6 +61,6 @@ function renderHomePage() {
   getPhoto();
 }
 
-const loginBtn = document.querySelector("#loginBtn");
+document.querySelector("#loginBtn").addEventListener("click", renderLoginPage);
 
-loginBtn.addEventListener("click", renderLoginPage);
+document.querySelector("#registerBTN").addEventListener("click", renderRegisterPage);
