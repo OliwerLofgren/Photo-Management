@@ -51,8 +51,9 @@ function renderHomePage() {
   const header = document.querySelector("header");
   header.innerHTML = `
     <H1>PhOTO MANAGEMENT</H1>
-    <nav>
-    <button id="loginBtn">LOGIN</button>       <button id="registerBtn">REGISTER</button> 
+      <nav>
+        <button id="loginBtn">LOGIN</button>      
+        <button id="registerBTN">REGISTER</button>      
     </nav>
 
     <div id="divBar"></div>  
