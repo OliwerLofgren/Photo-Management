@@ -1,3 +1,5 @@
+"use strict";
+
 function renderLoginPage() {
     mainHome.innerHTML = `
     <h2>Login</h2>
