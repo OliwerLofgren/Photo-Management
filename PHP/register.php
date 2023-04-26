@@ -7,6 +7,7 @@ $users = [];
 
 $input_data = json_decode(file_get_contents("php://input"), true);
 
+//If database-file dosent exist, create it otherwise decode it
 if (!file_exists($filename)) {
     file_put_contents($filename, $users);
 }else {
@@ -14,17 +15,19 @@ if (!file_exists($filename)) {
 }
 $request_method = $_SERVER["REQUEST_METHOD"];
 
+//Check if is a POST-method otherwise send a error message
 if ($request_method = "POST") {
     $username = $input_data["username"];
     $password = $input_data["password"];
 
+//If you are trying to register with a username that already exist in the database, error message
     foreach($users as $user){
         if ($user["username"] == $username) {
             $message = ["Conflict! Username is already taken, Please try again!"];
             sendJSON($message, 409);
         }
     }
-
+//If you are trying to register with empty username/password, error message
     if($username == "" or $username == ""){
         $message = ["message" => "You cant register with an empty Username or Password"];
         sendJSON($message, 404);
@@ -33,7 +36,7 @@ if ($request_method = "POST") {
         "username" => $username,
         "password" => $password
     ];
-
+//Saving the new user in the database and send a response if everything went OK
     $users[] = $new_user;
     $user_json = json_encode($users, JSON_PRETTY_PRINT);
     file_put_contents($filename, $user_json);
