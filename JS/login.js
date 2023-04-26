@@ -10,3 +10,4 @@ function renderLoginPage() {
     <button id=register>New to this? Sign up for free</button>
  `;
 }
+

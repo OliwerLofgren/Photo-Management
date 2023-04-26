@@ -52,11 +52,17 @@ function renderHomePage() {
   header.innerHTML = `
     <H1>PhOTO MANAGEMENT</H1>
     <nav>
-      <button>LOGIN</button>
-      <button>REGISTER</button>
+    <button id="loginBtn">LOGIN</button>       <button id="registerBtn">REGISTER</button> 
     </nav>
 
     <div id="divBar"></div>  
   `
   getPhoto();
 }
+
+const loginBtn = document.querySelector("#loginBtn");
+
+console.log(loginBtn);
+
+
+loginBtn.addEventListener("click", renderLoginPage);
