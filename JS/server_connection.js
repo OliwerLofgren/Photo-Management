@@ -11,3 +11,12 @@ const headers = {
 function fetch_resource(request) {
     return fetch(request);
 }
+
+// display server message (NOTE: temporary solution)
+function displayServerMessage(response) {
+    const message = document.createElement("p");
+    message.innerHTML = `
+        <p>${response.statusText}</p>
+    `
+    document.querySelector("main").appendChild(message);
+}

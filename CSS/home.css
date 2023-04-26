@@ -4,19 +4,22 @@
 
 body {
     height: 100vh;
-    overflow: hidden;
 }
 
-main div {
+main {
+    height: 90%;
+}
+
+main>div {
     margin: 0 auto;
     display: grid;
-    grid-template-columns: auto auto auto;
-}
-
-div img {
+    gap: 10px;
     grid-template-columns: auto auto auto;
     grid-auto-flow: column;
     grid-template-rows: auto auto;
-    width: 200px;
-    object-fit: cover;
+}
+
+div img {
+    height: fit-content;
+    width: fit-content;
 }
