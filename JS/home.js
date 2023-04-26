@@ -6,7 +6,7 @@ renderHomePage();
 
 async function getPhoto() {
   // NOTE, set per page parameter, + add result object to innerhtml 
-  const per_page = 6;
+  const per_page = 1;
   const url = `${prefix}curated?per_page=${per_page}`;
 
   try {
@@ -47,5 +47,16 @@ async function getPhoto() {
 }
 
 function renderHomePage() {
+
+  const header = document.querySelector("header");
+  header.innerHTML = `
+    <H1>PhOTO MANAGEMENT</H1>
+    <nav>
+      <button>LOGIN</button>
+      <button>REGISTER</button>
+    </nav>
+
+    <div id="divBar"></div>  
+  `
   getPhoto();
 }
