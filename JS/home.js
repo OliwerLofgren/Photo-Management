@@ -50,8 +50,8 @@ function renderHomePage() {
 
   const header = document.querySelector("header");
   header.innerHTML = `
-    <H1>PhOTO MANAGEMENT</H1>
     <nav>
+    <H1>PhOTO MANAGEMENT</H1>
     <button id="loginBtn">LOGIN</button>       <button id="registerBtn">REGISTER</button> 
     </nav>
 
@@ -61,8 +61,5 @@ function renderHomePage() {
 }
 
 const loginBtn = document.querySelector("#loginBtn");
-
-console.log(loginBtn);
-
 
 loginBtn.addEventListener("click", renderLoginPage);

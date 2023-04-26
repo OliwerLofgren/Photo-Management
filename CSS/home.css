@@ -19,6 +19,11 @@ button {
     /*border: none;*/
 }
 
+nav {
+    border-bottom: 2px solid black;
+    width: 100vw;
+}
+
 main>div {
     margin: 0 auto;
     display: grid;
@@ -31,11 +36,4 @@ main>div {
 div img {
     height: fit-content;
     width: fit-content;
-}
-
-#divBar {
-    background-color: black;
-    width: 100%;
-    height: 10px;
-
 }
