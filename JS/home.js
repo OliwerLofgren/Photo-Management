@@ -61,9 +61,6 @@ function renderHomePage() {
   getPhoto();
 }
 
-const loginBtn = document.querySelector("#loginBtn");
+document.querySelector("#loginBtn").addEventListener("click", renderLoginPage);
 
-console.log(loginBtn);
-
-
-loginBtn.addEventListener("click", renderLoginPage);
+document.querySelector("#registerBTN").addEventListener("click", renderRegisterPage);

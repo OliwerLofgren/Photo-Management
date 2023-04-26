@@ -1,6 +1,8 @@
 "use strict";
 
-function renderLoginPage() {
+document
+
+function renderRegisterPage() {
     mainHome.innerHTML = `
     <h2>Register</h2>
     <p id=message></p>
