@@ -13,11 +13,8 @@ function fetch_resource(request) {
 }
 
 
-// display server message (NOTE: temporary solution), using our own database resource object as the passed argument (needs to be extracted using variable later on, or will be displayed as undefined)
+// functionn to display server messages 
 function displayServerMessage(data) {
-    const serverMessage = document.createElement("p");
-    serverMessage.innerHTML = `
-        <p>${data.message}</p>
-    `
-    document.querySelector("main").appendChild(serverMessage);
+    const serverMessage = document.querySelector("#message");
+    serverMessage.textContent = data.message;
 }

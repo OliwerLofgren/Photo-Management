@@ -25,7 +25,7 @@ if ($request_method == "POST") {
     //If you are trying to register with a username that already exist in the database, error message
     foreach($users as $user){
         if ($user["username"] == $username) {
-            $message = ["Conflict! Username is already taken, Please try again!"];
+            $message = ["message" => "Conflict! Username is already taken, Please try again!"];
             sendJSON($message, 409);
         }
     }

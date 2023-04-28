@@ -15,7 +15,7 @@ async function getPhoto() {
     const resource = await response.json();
 
     // display server message (temporary solution, see server_connection file)
-    displayServerMessage(response);
+    // displayServerMessage(response);
 
     if (!response.ok) {
       console.log("oops");

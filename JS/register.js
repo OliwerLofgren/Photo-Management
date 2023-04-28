@@ -51,11 +51,9 @@ function createRegisterPage() {
             console.log(response);
 
             if (!response.ok) {
-                // display error message to the user
-                const message = document.createElement("p");
-                message.textContent = "An error occurred during registration. Please try again.";
+                displayServerMessage(data);
             } else {
-                displayServerMessage(data.message);
+
             }
 
         } catch (error) {
