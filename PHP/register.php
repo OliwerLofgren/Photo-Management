@@ -38,6 +38,9 @@ if ($request_method == "POST") {
         "username" => $username,
         "password" => $password
     ];
+
+    // add successfull registration message to user > 
+    
     //Saving the new user in the database and send a response if everything went OK
     $users[] = $new_user;
     $user_json = json_encode($users, JSON_PRETTY_PRINT);

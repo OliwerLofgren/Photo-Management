@@ -3,7 +3,7 @@
 // changed variable name to just "main"
 const main = document.querySelector("main");
 
-renderHomePage();
+createHomePage();
 
 async function getPhoto() {
   // NOTE, set per page parameter, + add result object to innerhtml 
@@ -14,21 +14,16 @@ async function getPhoto() {
     const response = await fetch_resource(new Request(url, { headers }));
     const resource = await response.json();
 
-    // display server message (temporary solution, see server_connection file)
-    // displayServerMessage(response);
-
     if (!response.ok) {
       console.log("oops");
     } else {
       // create new array from Photo resource, extracting "photos" key 
       const photosObject = resource.photos;
-      console.log(photosObject);
 
       // create new array based on the photo resource extracting the "photo urls" key
       const photoUrls = photosObject.map(object => {
         return object.src.medium
       })
-      console.log(photoUrls);
 
       const photosWrapper = document.createElement("div");
       // for each photo, create dom element
@@ -47,7 +42,7 @@ async function getPhoto() {
   }
 }
 
-function renderHomePage() {
+function createHomePage() {
 
   const header = document.querySelector("header");
   header.innerHTML = `

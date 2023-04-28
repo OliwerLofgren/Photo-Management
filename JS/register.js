@@ -24,7 +24,6 @@ function createRegisterPage() {
         registerUser(event);
     });
 
-
     async function registerUser(event) {
         event.preventDefault();
         /* oliwer säger kom ihåg att fetcha från mappen register.php */
@@ -51,13 +50,15 @@ function createRegisterPage() {
             console.log(response);
 
             if (!response.ok) {
-                displayServerMessage(data);
+                displayDatabaseMessage(data);
             } else {
 
             }
 
         } catch (error) {
-            console.log("oops");
+            console.log(error)
+            alert("Oops, something went wrong. Please try again later.");
+
         }
     }
 }
