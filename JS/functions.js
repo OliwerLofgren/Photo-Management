@@ -1,5 +1,11 @@
 "use strict";
 
+// clear attributes
+function clearElementAttributes(element) {
+    element.removeAttribute("id");
+    element.removeAttribute("class");
+}
+
 // function to display database server messages 
 function displayDatabaseMessage(data) {
     const serverMessage = document.querySelector("#message");

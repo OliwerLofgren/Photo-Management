@@ -1,0 +1,17 @@
+#login-main {
+    height: 90%;
+}
+
+#login-main>div {
+    margin: 0 auto;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto auto auto;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto;
+}
+
+div img {
+    height: fit-content;
+    width: fit-content;
+}

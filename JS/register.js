@@ -45,6 +45,13 @@ const registerUserListener = () => {
 };
 
 function createRegisterPage() {
+    clearElementAttributes(main);
+    main.setAttribute("id", "register-main");
+
+    document.querySelector("header").innerHTML = `
+    <H1>PHOTO MANAGEMENT</H1>
+      <nav></nav>
+  `
     main.innerHTML = `
     <h2>Register</h2>
     <p id=message></p>
@@ -53,7 +60,7 @@ function createRegisterPage() {
         <input type=password id=password placeholder=Password>
         <button type=submit>Register</button>
     </form>
-    <button id=login>Already go an account? Login here</button>
+    <button id=login>Already got an account? Login here</button>
  `;
     // redirect to login page if already registered
     addEventListenerById("login", "click", createLoginPage);

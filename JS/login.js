@@ -1,5 +1,4 @@
 "use strict";
-
 async function loginUser(event) {
     event.preventDefault();
 
@@ -44,7 +43,19 @@ const loginUserListener = () => {
     });
 };
 
-function createLoginPage() {
+async function createLoginPage() {
+    clearElementAttributes(main);
+    main.setAttribute("id", "login-main");
+
+    // create the photo elements 
+    const photosWrapper = await createPhotos();
+    document.querySelector("main").appendChild(photosWrapper);
+
+    document.querySelector("header").innerHTML = `
+    <H1>PHOTO MANAGEMENT</H1>
+      <nav></nav>
+  `
+
     main.innerHTML = `
     <h2>Login</h2>
     <p id=message></p>

@@ -1,5 +1,7 @@
 "use strict";
 const main = document.querySelector("main");
+clearElementAttributes(main);
+main.setAttribute("id", "home-main");
 
 createHomePage();
 
@@ -12,7 +14,7 @@ async function createHomePage() {
     <H1>PHOTO MANAGEMENT</H1>
       <nav>
         <button id="loginBtn">LOGIN</button>      
-        <button id="registerBtn">REGISTER</button>      
+        <button id="registerBtn">Sign Up</button>      
       </nav>
   `
   addEventListenerById("loginBtn", "click", createLoginPage);
