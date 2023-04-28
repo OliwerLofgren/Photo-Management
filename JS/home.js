@@ -1,40 +1,24 @@
 "use strict";
-
-// changed variable name to just "main"
 const main = document.querySelector("main");
 
 createHomePage();
 
 async function createHomePage() {
-  // Fetch the photo URLs
-  const photoUrls = await fetchPhoto();
+  // create the photo elements 
+  const photosWrapper = await createPhotos();
+  main.append(photosWrapper);
 
   document.querySelector("header").innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
       <nav>
         <button id="loginBtn">LOGIN</button>      
-        <button id="registerBTN">REGISTER</button>      
+        <button id="registerBtn">REGISTER</button>      
       </nav>
   `
-  addLoginEventListener();
-  addRegisterEventListener();
-
-
-  // Create the photos section
-  const photosWrapper = document.createElement("div");
-  photoUrls.forEach(photo => {
-    const div_dom = document.createElement("div");
-    div_dom.innerHTML = `<img src="${photo}">`;
-    photosWrapper.append(div_dom);
-  });
-  main.append(photosWrapper);
+  addEventListenerById("loginBtn", "click", createLoginPage);
+  addEventListenerById("registerBtn", "click", createRegisterPage);
 }
 
-const addLoginEventListener = () => {
-  document.querySelector("#loginBtn").addEventListener("click", createLoginPage);
-}
 
-const addRegisterEventListener = () => {
-  document.querySelector("#registerBTN").addEventListener("click", createRegisterPage);
-}
+
 

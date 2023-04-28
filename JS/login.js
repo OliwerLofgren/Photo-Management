@@ -5,8 +5,8 @@ async function loginUser(event) {
 
     try {
 
-        let username = document.querySelector("#username").value;
-        let password = document.querySelector("#password").value;
+        let username = getElement("#username").value;
+        let password = getElement("#password").value;
 
         const requestBody = {
             username: username,
@@ -33,14 +33,8 @@ async function loginUser(event) {
     } catch (error) {
         console.log(error)
         alert("Oops, something went wrong. Please try again later.");
-
     }
 }
-
-// Redirect to Register page if already registered
-const redirectToRegisterPage = () => {
-    document.querySelector("#register").addEventListener("click", createRegisterPage);
-};
 
 // Login user listener
 const loginUserListener = () => {
@@ -61,8 +55,8 @@ function createLoginPage() {
     </form>
     <button id=register>New to this? Sign up for free</button>
  `;
-
-    redirectToRegisterPage();
+    // redirect to register page instead
+    addEventListenerById("register", "click", createRegisterPage);
     loginUserListener();
 }
 

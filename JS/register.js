@@ -5,9 +5,8 @@ async function registerUser(event) {
     /* oliwer säger kom ihåg att fetcha från mappen register.php */
 
     try {
-
-        let username = document.querySelector("#username").value;
-        let password = document.querySelector("#password").value;
+        let username = getElement("#username").value;
+        let password = getElement("#password").value;
 
         const requestBody = {
             username: username,
@@ -34,14 +33,8 @@ async function registerUser(event) {
     } catch (error) {
         console.log(error)
         alert("Oops, something went wrong. Please try again later.");
-
     }
 }
-
-// Redirect to login page if already registered
-const redirectToLoginPage = () => {
-    document.querySelector("#login").addEventListener("click", createLoginPage);
-};
 
 // Register user listener
 const registerUserListener = () => {
@@ -62,7 +55,7 @@ function createRegisterPage() {
     </form>
     <button id=login>Already go an account? Login here</button>
  `;
-
-    redirectToLoginPage();
+    // redirect to login page if already registered
+    addEventListenerById("login", "click", createLoginPage);
     registerUserListener();
 }
