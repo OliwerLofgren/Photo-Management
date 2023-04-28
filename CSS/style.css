@@ -7,3 +7,7 @@ body {
     width: 100vw;
     overflow: hidden;
 }
+
+.api-photos {
+    border: 1px;
+}

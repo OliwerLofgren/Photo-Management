@@ -1,5 +1,4 @@
-//Here is where the POST request for profile to be
-//This is where the POST-method should be in, to upload your own files
+"use strict";
 
 document.querySelector("main").innerHTML = `
         <form id="upload" action="receiver.php" method="POST">
@@ -10,6 +9,9 @@ document.querySelector("main").innerHTML = `
         <p id="message"></p>
         <div id="result"></div>
 `;
+
+//Here is where the POST request for profile to be
+//This is where the POST-method should be in, to upload your own files
 
 //Code below is from a exercise from CHUNKS, needs to update
 const form = document.getElementById("upload");

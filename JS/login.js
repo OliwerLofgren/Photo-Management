@@ -1,4 +1,6 @@
 "use strict";
+const loginMain = document.querySelector("main");
+
 async function loginUser(event) {
     event.preventDefault();
 
@@ -44,19 +46,15 @@ const loginUserListener = () => {
 };
 
 async function createLoginPage() {
-    clearElementAttributes(main);
-    main.setAttribute("id", "login-main");
+    clearElementAttributes(loginMain);
+    setElementAttributes(loginMain, "login-main", "");
 
-    // create the photo elements 
-    const photosWrapper = await createPhotos();
-    document.querySelector("main").appendChild(photosWrapper);
-
-    document.querySelector("header").innerHTML = `
+    /*document.querySelector("header").innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
       <nav></nav>
-  `
+  `*/
 
-    main.innerHTML = `
+    loginMain.innerHTML = `
     <h2>Login</h2>
     <p id=message></p>
     <form id=loginForm>
@@ -66,6 +64,14 @@ async function createLoginPage() {
     </form>
     <button id=register>New to this? Sign up for free</button>
  `;
+
+    // create the photo elements 
+    const loginPhotoWrapper = await createPhotos();
+    loginMain.append(loginPhotoWrapper);
+
+    clearElementAttributes(loginPhotoWrapper);
+    setElementAttributes(loginPhotoWrapper, "login-photos", "api-photos");
+
     // redirect to register page instead
     addEventListenerById("register", "click", createRegisterPage);
     loginUserListener();

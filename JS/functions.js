@@ -6,6 +6,11 @@ function clearElementAttributes(element) {
     element.removeAttribute("class");
 }
 
+function setElementAttributes(element, id, className) {
+    element.setAttribute("id", id);
+    element.setAttribute("class", className);
+}
+
 // function to display database server messages 
 function displayDatabaseMessage(data) {
     const serverMessage = document.querySelector("#message");
@@ -38,5 +43,6 @@ async function createPhotos() {
         div_dom.innerHTML = `<img src="${photo}">`;
         photosWrapper.append(div_dom);
     });
+
     return photosWrapper;
 }

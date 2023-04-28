@@ -1,17 +1,17 @@
 #login-main {
     height: 90%;
+    overflow-y: scroll;
 }
 
-#login-main>div {
-    margin: 0 auto;
+#login-photos {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10px;
-    grid-template-columns: auto auto auto;
-    grid-auto-flow: column;
-    grid-template-rows: auto auto;
+    grid-auto-flow: dense;
 }
 
-div img {
-    height: fit-content;
-    width: fit-content;
+#home-photos>div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }

@@ -16,7 +16,7 @@ function fetch_resource(request) {
 
 async function fetchPhoto() {
     // NOTE, set per page parameter, + add result object to innerhtml 
-    const per_page = 1;
+    const per_page = 4;
     const url = `${prefix}curated?per_page=${per_page}`;
 
     try {

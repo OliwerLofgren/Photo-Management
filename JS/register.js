@@ -1,4 +1,5 @@
 "use strict";
+const registerMain = document.querySelector("main");
 
 async function registerUser(event) {
     event.preventDefault();
@@ -45,14 +46,15 @@ const registerUserListener = () => {
 };
 
 function createRegisterPage() {
-    clearElementAttributes(main);
-    main.setAttribute("id", "register-main");
+
+    clearElementAttributes(loginMain);
+    setElementAttributes(loginMain, "register-main", "");
 
     document.querySelector("header").innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
       <nav></nav>
   `
-    main.innerHTML = `
+    registerMain.innerHTML = `
     <h2>Register</h2>
     <p id=message></p>
     <form id=regForm>

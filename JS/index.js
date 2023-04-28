@@ -1,5 +1,7 @@
 "use strict";
 
+createHomePage();
+
 /*if (!window.localStorage.getItem("user")) {
     createHomePage();
 } else {
