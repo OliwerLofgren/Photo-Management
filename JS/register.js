@@ -31,8 +31,6 @@ function createRegisterPage() {
 
         try {
 
-            let response = await fetch_resource("../PHP/register.php");
-
             let username = document.querySelector("#username").value;
             let password = document.querySelector("#password").value;
 
@@ -47,12 +45,18 @@ function createRegisterPage() {
                 body: JSON.stringify(requestBody),
             };
 
-            let resource = await fetch("/PHP/register.php", post);
-            let data = await resource.json();
+            let response = await fetch("/PHP/register.php", post);
+            let data = await response.json();
 
-            // display success message to the user
-            const message = document.querySelector("#message");
-            message.textContent = "Registration successful!";
+            console.log(response);
+
+            if (!response.ok) {
+                // display error message to the user
+                const message = document.createElement("p");
+                message.textContent = "An error occurred during registration. Please try again.";
+            } else {
+                displayServerMessage(data.message);
+            }
 
         } catch (error) {
             console.log("oops");
