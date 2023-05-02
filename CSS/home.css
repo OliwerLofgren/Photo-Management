@@ -16,12 +16,16 @@ header {
 
 button {
     background: none;
-    /*border: none;*/
+    /* border: none; */
 }
 
 nav {
     border-bottom: 2px solid black;
     width: 100vw;
+}
+
+h1 {
+    border-bottom: 2px solid black;
 }
 
 main>div {

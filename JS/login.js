@@ -46,11 +46,16 @@ const loginUserListener = () => {
 
 function createLoginPage() {
     main.innerHTML = `
+    <div class ="center">
     <h2>Login</h2>
     <p id=message></p>
     <form id=loginForm>
-        <input type=text id=username placeholder=Username>
-        <input type=password id=password placeholder=Password>
+        <div class="txt_field">
+            <input type=text id=username placeholder=Username>
+        </div>
+        <div class="txt_field">
+            <input type=password id=password placeholder=Password>
+        </div>
         <button type=submit>Login</button>
     </form>
     <button id=register>New to this? Sign up for free</button>
