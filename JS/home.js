@@ -18,8 +18,7 @@ async function createHomePage() {
 
   <nav>
     <button id="loginBtn">LOGIN</button>      
-    <button id="registerBtn">Sign Up
-    </button>      
+    <button id="registerBtn">REGISTER</button>      
   </nav>
   `;
 

@@ -36,16 +36,18 @@ button {
 }
 
 form input {
-    border-radius: 15px;
+    border: none;
     padding: 5px 15px;
 }
 
 form button {
     background-color: #ff3131;
     color: white;
-    border-radius: 15px;
     padding: 5px 15px;
     border: none;
+    margin-left: 60px;
+    width: 80px;
+
 }
 
 .display-none {
