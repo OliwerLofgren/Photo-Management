@@ -37,3 +37,14 @@ div img {
     height: fit-content;
     width: fit-content;
 }
+
+#divBar {
+    background-color: black;
+    width: 100%;
+    height: 10px;
+
+}
+
+#message {
+    height: 30px;
+}
