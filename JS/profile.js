@@ -1,61 +1,63 @@
 "use strict";
 const profileMain = document.querySelector("main");
+const profileHeader = document.querySelector("header");
 
-async function createProfilePage() {
+async function createProfilePage(data) {
+  setupPage();
+  function setupPage() {
     clearElementAttributes(profileMain);
     setElementAttributes(profileMain, "profile-main", "profile-page");
+    clearElementAttributes(profileHeader);
+  }
 
-    // NOTE: current profile page needs to be marked in css 
-    document.querySelector("header").innerHTML = `
+  // NOTE: current profile page needs to be marked in css 
+  profileHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
       <nav>
         <button id="inspo-button">Inspo</button>      
         <button id="upload-button">Upload</button>      
       </nav>
-  `
-    addEventListenerById("upload-button", "click", createProfileUploadPage);
 
-    /*
-    fix parent element and display uploaded image to upload profile version instead
-    const profileSection = document.createElement("div");
-    profileSection.innerHTML = `
-        <div id="profile-img"> 
-            <!-- User's profile image -->
-        </div>
+      <nav>
+        <button id="discover-button">Discover</button>
+        <button id="logout-button">Logout</button>
+    </nav>
+  `;
+  profileMain.innerHTML = `
+    <section id="profile-section" class="section">
+      <div id="profile-photos" class="api-photos"></div>
+    </section>
+  `;
 
-        <nav>
-            <button id="discover-button">Discover</button>
-            <button id="logout-button">Logout</button>
-        </nav>
-    `;
-    document.body.appendChild(profileSection);*/
+  addEventListenerById("upload-button", "click", function () {
+    createProfileUploadPage(data)
+  });
 
-    addEventListenerById("discover-button", "click", createDiscoverPage);
+  addEventListenerById("discover-button", "click", function () { createDiscoverPage(data) });
 
-    // bug: username display home page
-    addEventListenerById("logout-button", "click", createHomePage);
+  addEventListenerById("logout-button", "click", createHomePage);
 
-    // create the photo elements 
-    const profilePhotosWrapper = await createPhotos();
-    profileMain.append(profilePhotosWrapper);
-
-    setElementAttributes(profilePhotosWrapper, "profile-photos", "api-photos");
+  /*setElementAttributes(profilePhotosWrapper, "profile-photos", "api-photos");*/
 }
 
 const uploadPageMain = document.querySelector("main");
-
-async function createProfileUploadPage() {
+async function createProfileUploadPage(data) {
+  setupPage();
+  function setupPage() {
     clearElementAttributes(uploadPageMain);
     setElementAttributes(uploadPageMain, "profile-upload-main", "profile-page");
+  }
 
-    addEventListenerById("inspo-button", "click", createProfilePage);
+  addEventListenerById("inspo-button", "click", function () {
+    createProfilePage(data);
+  });
 
-    addEventListenerById("discover-button", "click", createDiscoverPage);
+  addEventListenerById("discover-button", "click", function () {
+    createDiscoverPage(data);
+  });
 
-    // bug: username display home page
-    addEventListenerById("logout-button", "click", createHomePage);
+  addEventListenerById("logout-button", "click", createHomePage);
 }
-
 
 //Display all images that are saved from discover
 

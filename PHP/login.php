@@ -16,7 +16,7 @@ if ($request_method == "POST") {
     $username = $input_data["username"];
     $password = $input_data["password"];
 
-    // add error message for empty username/password input
+    // add error message for empty username/password input here >
 
     foreach($users as $user){
     //If the usename that you typed in is the same username that is registerd in the database

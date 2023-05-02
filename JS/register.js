@@ -1,5 +1,6 @@
 "use strict";
 const registerMain = document.querySelector("main");
+const registerHeader = document.querySelector("header");
 
 async function registerUser(event) {
     event.preventDefault();
@@ -46,25 +47,46 @@ const registerUserListener = () => {
 };
 
 function createRegisterPage() {
+    setupPage();
+    function setupPage() {
+        clearElementAttributes(registerMain);
+        setElementAttributes(registerMain, "register-main", "");
+        setElementAttributes(registerHeader, "", "display-none")
+    }
 
-    clearElementAttributes(loginMain);
-    setElementAttributes(loginMain, "register-main", "");
-
-    document.querySelector("header").innerHTML = `
-    <H1>PHOTO MANAGEMENT</H1>
-      <nav></nav>
-  `
     registerMain.innerHTML = `
-    <h2>Register</h2>
-    <p id=message></p>
-    <form id=regForm>
-        <input type=text id=username placeholder=Username>
-        <input type=password id=password placeholder=Password>
-        <button type=submit>Register</button>
-    </form>
-    <button id=login>Already got an account? Login here</button>
+    <section id="register-section" class="section">
+        <nav>
+            <button id="go-home-btn">&larr; Back to Home Page</button>
+        </nav>
+        <h2>Register</h2>
+        <p id="message"></p>
+        <form id="regForm">
+            <input type=text id="username" placeholder=Username>
+            <input type=password id="password" placeholder=Password>
+            <button type=submit>Register</button>
+        </form>
+        <button id="login">Already got an account? Login here</button>
+
+    </section>
  `;
-    // redirect to login page if already registered
-    addEventListenerById("login", "click", createLoginPage);
-    registerUserListener();
+
+    // set bg img from api photo
+    async function registerPhotos() {
+        let per_page = 1;
+        let imgSize = "original";
+
+        await fetchPhotosToDisplay(null, per_page, imgSize, true);
+    }
+    registerPhotos();
+
+    addEventListeners();
+    function addEventListeners() {
+        // redirect to login page if already registered
+        addEventListenerById("login", "click", createLoginPage);
+        addEventListenerById("go-home-btn", "click", createHomePage)
+        registerUserListener();
+    }
+
+
 }

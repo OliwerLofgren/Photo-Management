@@ -2,12 +2,57 @@
     margin: 0;
 }
 
-body {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+/* Animate the scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
-.api-photos {
-    border: 1px;
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+main {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.section {
+    height: 100vh;
+    /* set the height of each section to 100vh */
+    scroll-snap-align: start;
+    /* snap each section to the top of the viewport */
+}
+
+form {
+    width: 200px;
+}
+
+button {
+    cursor: pointer;
+}
+
+form input {
+    border-radius: 15px;
+    padding: 5px 15px;
+}
+
+form button {
+    background-color: #ff3131;
+    color: white;
+    border-radius: 15px;
+    padding: 5px 15px;
+    border: none;
+}
+
+.display-none {
+    display: none;
+    background-color: pink;
+}
+
+.display-block {
+    display: block;
 }

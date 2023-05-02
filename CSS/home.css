@@ -1,17 +1,16 @@
 #home-main {
-    height: 90%;
-    margin: 5px;
+    height: 100vh;
     overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    /* enable scroll snap */
 }
 
 header {
+    height: 50px;
+    background-color: #f0f0f0;
     display: flex;
-    border-bottom: 2px black solid;
-    margin-bottom: 10px;
-}
-
-h1 {
-    margin-bottom: 5px;
+    align-items: center;
+    gap: 17vw;
 }
 
 button {
@@ -21,13 +20,23 @@ button {
 
 #home-photos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 5px;
     grid-auto-flow: dense;
+}
+
+#home-photos>div {
+    overflow: hidden;
 }
 
 #home-photos>div img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+footer {
+    height: 50px;
+    /* set the height of the footer */
+    background-color: #f0f0f0;
 }

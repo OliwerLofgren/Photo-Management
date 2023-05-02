@@ -7,6 +7,10 @@
     background-color: pink;
 }
 
+#profile-photos>div {
+    overflow: hidden;
+}
+
 #profile-img {
     height: 50px;
     width: 50px;

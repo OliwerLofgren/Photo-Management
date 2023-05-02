@@ -1,10 +1,18 @@
 "use strict";
 
-createHomePage();
+let user = null;
+user = JSON.parse(window.localStorage.getItem("user"));
 
-/*if (!window.localStorage.getItem("user")) {
-    createHomePage();
+// bug: make sure that  PHP code checks whether both the username and password inputs are provided and valid before allowing a user to log in
+
+/* if ($user["username"] == $username && $user["password"] == $password) {    
+}
+ */
+
+if (user) {
+    document.addEventListener("DOMContentLoaded", () => {
+        createDiscoverPage(user)
+    })
 } else {
-    user = JSON.parse(window.localStorage.getItem("user"));
-    createDiscoverPage(username);
-}*/
+    document.addEventListener("DOMContentLoaded", createHomePage);
+}
