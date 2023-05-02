@@ -1,0 +1,19 @@
+#profile-main {
+    margin: 5px;
+}
+
+#profile-section {
+    height: 100px;
+    background-color: pink;
+}
+
+#profile-photos>div {
+    overflow: hidden;
+}
+
+#profile-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: beige;
+}

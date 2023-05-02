@@ -1,48 +1,37 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+#register-main {
     height: 100vh;
-    overflow: hidden;
+    overflow-y: scroll;
 }
 
-
-
-.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    display: inline-block;
-    text-align: center;
+/* Center all elements except nav */
+#register-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* Align elements vertically */
+    height: 100vh;
+    /* Make section fill entire viewport */
 }
 
-.center h2 {
-    text-align: center;
-    padding: 0 0 20px 0;
-
+#regForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-form {
-    padding: 0 40px;
-    box-sizing: border-box;
-}
-
-.txt_field {
-    position: relative;
-    border-bottom: 2px solid black;
-    margin: 30px 0;
-}
-
-.txt_field input {
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
-    font-size: 16px;
+#go-home-btn {
+    color: rgba(255, 255, 255, 0.816);
+    background: none;
+    color: white;
+    padding: 5px 15px;
     border: none;
+    cursor: pointer;
 }
 
-#login {
-    margin-top: 20px;
+
+footer {
+    height: 50px;
+    /* set the height of the footer */
+    background-color: #f0f0f0bc;
 }

@@ -1,65 +1,70 @@
 "use strict";
-const main = document.querySelector("main");
+const homeMain = document.querySelector("main");
+const homeHeader = document.querySelector("header");
 
-createHomePage();
 
 async function createHomePage() {
-  // create the photo elements 
-  const photosWrapper = await createPhotos();
-  main.append(photosWrapper);
 
-  try {
-    const response = await fetch_resource(new Request(url, { headers }));
-    const resource = await response.json();
-
-    // display server message (temporary solution, see server_connection file)
-    displayServerMessage(response);
-
-    if (!response.ok) {
-      console.log("oops");
-    } else {
-      // create new array from Photo resource, extracting "photos" key 
-      const photosObject = resource.photos;
-      console.log(photosObject);
-
-      // create new array based on the photo resource extracting the "photo urls" key
-      const photoUrls = photosObject.map(object => {
-        return object.src.medium
-      })
-      console.log(photoUrls);
-
-      const photosWrapper = document.createElement("div");
-      // for each photo, create dom element
-      photoUrls.forEach(photo => {
-        const div_dom = document.createElement("div");
-        div_dom.innerHTML = `
-      <img src="${photo}">
-    `;
-        photosWrapper.append(div_dom);
-      });
-      main.append(photosWrapper);
-    }
-
-  } catch (error) {
-    console.log("add server message to user here");
+  setupPage();
+  function setupPage() {
+    clearElementAttributes(homeMain);
+    setElementAttributes(homeMain, "home-main", "");
+    clearBackgroundImage();
+    clearElementAttributes(homeHeader);
   }
+
+  homeHeader.innerHTML = `
+  <H1>PHOTO MANAGEMENT</H1>
+
+  <nav>
+    <button id="loginBtn">LOGIN</button>      
+    <button id="registerBtn">Sign Up
+    </button>      
+  </nav>
+  `;
+
+  homeMain.innerHTML = `
+  <section id="home-section-one" class="section">
+    <div id="home-photos" class="api-photos"></div>
+  </section>
+
+  <section id="home-section-two" class="section">
+    <!-- content of the first -->
+  </section>
+
+  <section id="home-section-three" class="section">
+    <!-- content of the first -->
+  </section>
+  `;
+
+
+  // possible bug? query selector is null (dom element not created yet) -> 
+  /* document.addEventListener('DOMContentLoaded', (event) => {
+  add event listeners here ?
+  }); */
+
+  // create the photo element 
+  async function homePhotos() {
+    let per_page = 4;
+    let imgSize = "portrait";
+
+    await fetchPhotosToDisplay(false, per_page, imgSize, false);
+  }
+  homePhotos();
+
+  document.querySelector("footer").innerHTML = `<button id="about-us">ABOUT US</button>`;
+
+  function addEventListeners() {
+    addEventListenerById("loginBtn", "click", createLoginPage);
+    addEventListenerById("registerBtn", "click", createRegisterPage);
+  }
+  addEventListeners();
 }
 
-function renderHomePage() {
+document.addEventListener("DOMContentLoaded", createHomePage);
 
-  const header = document.querySelector("header");
-  header.innerHTML = `
-    <H1>PHOTO MANAGEMENT</H1>
-      <nav>
-        <button id="loginBtn">LOGIN</button> /     
-        <button id="registerBTN">REGISTER</button>      
-    </nav>
 
-    <div id="divBar"></div>  
-  `
-  addEventListenerById("loginBtn", "click", createLoginPage);
-  addEventListenerById("registerBtn", "click", createRegisterPage);
-}
+
 
 
 

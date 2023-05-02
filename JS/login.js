@@ -1,10 +1,11 @@
 "use strict";
+const loginMain = document.querySelector("main");
+const loginHeader = document.querySelector("header");
 
 async function loginUser(event) {
     event.preventDefault();
 
     try {
-
         let username = getElement("#username").value;
         let password = getElement("#password").value;
 
@@ -27,8 +28,9 @@ async function loginUser(event) {
         if (!response.ok) {
             displayDatabaseMessage(data);
         } else {
-            // add localstorage here
-            createDiscoverPage(username);
+            window.localStorage.setItem("user", JSON.stringify(data));
+            let user = data;
+            createDiscoverPage(user);
         }
     } catch (error) {
         console.log(error)
@@ -44,26 +46,46 @@ const loginUserListener = () => {
     });
 };
 
-function createLoginPage() {
-    main.innerHTML = `
-    <div class ="center">
-    <h2>Login</h2>
-    <p id=message></p>
-    <form id=loginForm>
-        <div class="txt_field">
-            <input type=text id=username placeholder=Username>
-        </div>
-        <div class="txt_field">
-            <input type=password id=password placeholder=Password>
-        </div>
-        <button type=submit>Login</button>
-    </form>
-    <button id=register>New to this? Sign up for free</button>
- `;
-    // redirect to register page instead
-    addEventListenerById("register", "click", createRegisterPage);
-    loginUserListener();
+async function createLoginPage() {
+    setupPage();
+    function setupPage() {
+        clearElementAttributes(loginMain);
+        setElementAttributes(loginMain, "login-main", "");
+        setElementAttributes(loginHeader, "", "display-none");
+    }
+
+    loginMain.innerHTML = ` 
+    <section id="login-section" class="section"> 
+        <nav>
+            <button id="go-home-btn">&larr; Back to Home Page</button>
+        </nav>
+
+        <h2>Login</h2>
+        <p id="message"></p>
+
+        <form id="loginForm">
+            <input type=text id="username" placeholder=Username>
+            <input type=password id="password" placeholder=Password>
+            <button type=submit>Log in</button>
+        </form>
+        <button id="register">New to this? Sign up for free</button>
+    </section>
+    `;
+
+    // set bg img from api photo
+    async function loginPhotos() {
+        let per_page = 1;
+        let imgSize = "original";
+
+        await fetchPhotosToDisplay(null, per_page, imgSize, true);
+    }
+    loginPhotos();
+
+    addEventListeners();
+    function addEventListeners() {
+        // redirect to register page instead
+        addEventListenerById("go-home-btn", "click", createHomePage)
+        addEventListenerById("register", "click", createRegisterPage);
+        loginUserListener();
+    }
 }
-
-
-
