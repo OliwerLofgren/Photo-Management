@@ -2,10 +2,10 @@
 const profileMain = document.querySelector("main");
 const profileHeader = document.querySelector("header");
 
-async function createProfilePage(data) {
+// creates profileSaved dom elements
+async function createProfileCollectionsPage(data) {
   setupPage();
   function setupPage() {
-    clearElementAttributes(profileMain);
     setElementAttributes(profileMain, "profile-main", "profile-page");
     clearElementAttributes(profileHeader);
   }
@@ -14,8 +14,8 @@ async function createProfilePage(data) {
   profileHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
       <nav>
-        <button id="inspo-button">Inspo</button>      
-        <button id="upload-button">Upload</button>      
+        <button id="collections-profile-button">My Collections</button>      
+        <button id="portfolio-profile-button">Profile</button>      
       </nav>
 
       <nav>
@@ -29,8 +29,8 @@ async function createProfilePage(data) {
     </section>
   `;
 
-  addEventListenerById("upload-button", "click", function () {
-    createProfileUploadPage(data)
+  addEventListenerById("portfolio-profile-button", "click", function () {
+    createProfilePortfolioPage(data)
   });
 
   addEventListenerById("discover-button", "click", function () { createDiscoverPage(data) });
@@ -41,15 +41,15 @@ async function createProfilePage(data) {
 }
 
 const uploadPageMain = document.querySelector("main");
-async function createProfileUploadPage(data) {
+async function createProfilePortfolioPage(data) {
   setupPage();
   function setupPage() {
     clearElementAttributes(uploadPageMain);
     setElementAttributes(uploadPageMain, "profile-upload-main", "profile-page");
   }
 
-  addEventListenerById("inspo-button", "click", function () {
-    createProfilePage(data);
+  addEventListenerById("collections-profile-button", "click", function () {
+    createProfileCollectionsPage(data);
   });
 
   addEventListenerById("discover-button", "click", function () {
