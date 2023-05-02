@@ -2,6 +2,7 @@
 const loginMain = document.querySelector("main");
 const loginHeader = document.querySelector("header");
 
+// handles request
 async function loginUser(event) {
     event.preventDefault();
 
@@ -38,7 +39,7 @@ async function loginUser(event) {
     }
 }
 
-// Login user listener
+// Login user event listener
 const loginUserListener = () => {
     const loginForm = document.querySelector("#loginForm");
     loginForm.addEventListener("submit", (event) => {
@@ -46,10 +47,10 @@ const loginUserListener = () => {
     });
 };
 
+// creates page dom elements
 async function createLoginPage() {
     setupPage();
     function setupPage() {
-        clearElementAttributes(loginMain);
         setElementAttributes(loginMain, "login-main", "");
         setElementAttributes(loginHeader, "", "display-none");
     }
@@ -73,13 +74,14 @@ async function createLoginPage() {
     `;
 
     // set bg img from api photo
-    async function loginPhotos() {
+    async function loginPagePhotos() {
         let per_page = 1;
         let imgSize = "original";
 
         await fetchPhotosToDisplay(null, per_page, imgSize, true);
     }
-    loginPhotos();
+    loginPagePhotos();
+
 
     addEventListeners();
     function addEventListeners() {

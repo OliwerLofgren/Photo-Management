@@ -5,7 +5,6 @@ const discoverHeader = document.querySelector("header");
 async function createDiscoverPage(data) {
     setupPage();
     function setupPage() {
-        clearElementAttributes(discoverMain);
         setElementAttributes(discoverMain, "discover-main", "");
         clearElementAttributes(discoverHeader);
     }
@@ -14,7 +13,7 @@ async function createDiscoverPage(data) {
     <H1>PHOTO MANAGEMENT</H1>
     <nav>
         <p>Username: ${data.username}</p>
-        <button id="profile-button">Profile</button>
+        <button id="collections-profile-button">My Collections</button>
         <button id="logout-button">Logout</button>
     </nav>
     `;
@@ -34,8 +33,8 @@ async function createDiscoverPage(data) {
         createHomePage();
     });
 
-    addEventListenerById("profile-button", "click", function () {
-        createProfilePage(data);
+    addEventListenerById("collections-profile-button", "click", function () {
+        createProfileCollectionsPage(data);
     });
 
     /*clearElementAttributes(discoverPhotoWrapper);

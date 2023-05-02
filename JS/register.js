@@ -2,9 +2,12 @@
 const registerMain = document.querySelector("main");
 const registerHeader = document.querySelector("header");
 
+// handles request
 async function registerUser(event) {
     event.preventDefault();
-    /* oliwer säger kom ihåg att fetcha från mappen register.php */
+    /* oliwer säger kom ihåg att fetcha från mappen register.php
+    note: register allows registration w/o password */
+
 
     try {
         let username = getElement("#username").value;
@@ -28,17 +31,23 @@ async function registerUser(event) {
 
         if (!response.ok) {
             displayDatabaseMessage(data);
-        } else {
-            // Registration successful
-        }
+        } else { // Registration successful
 
-    } catch (error) {
+            // display modal
+            let clickedButton = document.querySelector("#regForm button");
+            clickedButton.onClick = displayModalWindow("Successfully registered!");
+
+            // close modal
+            document.querySelector(".modal-button").addEventListener("click", closeModalWindow);
+        }
+    }
+    catch (error) {
         console.log(error)
         alert("Oops, something went wrong. Please try again later.");
     }
 }
 
-// Register user listener
+// Register user event listener
 const registerUserListener = () => {
     const regForm = document.querySelector("#regForm");
     regForm.addEventListener("submit", (event) => {
@@ -46,10 +55,10 @@ const registerUserListener = () => {
     });
 };
 
+// creates page dom elements
 function createRegisterPage() {
     setupPage();
     function setupPage() {
-        clearElementAttributes(registerMain);
         setElementAttributes(registerMain, "register-main", "");
         setElementAttributes(registerHeader, "", "display-none")
     }
@@ -72,13 +81,13 @@ function createRegisterPage() {
  `;
 
     // set bg img from api photo
-    async function registerPhotos() {
+    async function registerPagePhotos() {
         let per_page = 1;
         let imgSize = "original";
 
         await fetchPhotosToDisplay(null, per_page, imgSize, true);
     }
-    registerPhotos();
+    registerPagePhotos();
 
     addEventListeners();
     function addEventListeners() {
@@ -87,6 +96,4 @@ function createRegisterPage() {
         addEventListenerById("go-home-btn", "click", createHomePage)
         registerUserListener();
     }
-
-
 }
