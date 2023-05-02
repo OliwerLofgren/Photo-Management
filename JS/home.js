@@ -16,12 +16,6 @@ async function createHomePage() {
   homeHeader.innerHTML = `
   <H1>PHOTO MANAGEMENT</H1>
 
-  <form id="search-form" >
-    <label for="search-field"></label>
-    <input id="search-field" name="search" type="text">
-    <button type="submit">Search</button>
-  </form>
-
   <nav>
     <button id="loginBtn">LOGIN</button>      
     <button id="registerBtn">Sign Up
@@ -51,10 +45,10 @@ async function createHomePage() {
 
   // create the photo element 
   async function homePhotos() {
-    let per_page = 12;
+    let per_page = 4;
     let imgSize = "portrait";
 
-    await fetchPhotosToDisplay(true, per_page, imgSize, false);
+    await fetchPhotosToDisplay(false, per_page, imgSize, false);
   }
   homePhotos();
 
