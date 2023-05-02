@@ -1,6 +1,7 @@
 "use strict";
 
-const mainHome = document.querySelector("main");
+// changed variable name to just "main"
+const main = document.querySelector("main");
 
 renderHomePage();
 
@@ -38,7 +39,7 @@ async function getPhoto() {
     `;
         photosWrapper.append(div_dom);
       });
-      mainHome.append(photosWrapper);
+      main.append(photosWrapper);
     }
 
   } catch (error) {
@@ -61,6 +62,6 @@ function renderHomePage() {
   getPhoto();
 }
 
-document.querySelector("#loginBtn").addEventListener("click", renderLoginPage);
+document.querySelector("#loginBtn").addEventListener("click", createLoginPage);
 
-document.querySelector("#registerBTN").addEventListener("click", renderRegisterPage);
+document.querySelector("#registerBTN").addEventListener("click", createRegisterPage);
