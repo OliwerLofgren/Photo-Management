@@ -59,13 +59,11 @@ function createRegisterPage() {
         <button type=submit>Register</button>
     </form>
     <button id=login>Already go an account? Login here</button>
-<<<<<<< Updated upstream
  `;
     // redirect to login page if already registered
     addEventListenerById("login", "click", createLoginPage);
     registerUserListener();
-=======
-    </div> `;
+
 
     // redirect to login page if already registered (+ add spicy transitions here)
     document.querySelector("#login").addEventListener("click", () => {
@@ -112,5 +110,4 @@ function createRegisterPage() {
             console.log("oops");
         }
     }
->>>>>>> Stashed changes
 }

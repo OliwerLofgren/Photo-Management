@@ -8,14 +8,6 @@ async function createHomePage() {
   const photosWrapper = await createPhotos();
   main.append(photosWrapper);
 
-<<<<<<< Updated upstream
-  document.querySelector("header").innerHTML = `
-    <H1>PHOTO MANAGEMENT</H1>
-      <nav>
-        <button id="loginBtn">LOGIN</button>      
-        <button id="registerBtn">REGISTER</button>      
-      </nav>
-=======
   try {
     const response = await fetch_resource(new Request(url, { headers }));
     const resource = await response.json();
@@ -64,7 +56,6 @@ function renderHomePage() {
     </nav>
 
     <div id="divBar"></div>  
->>>>>>> Stashed changes
   `
   addEventListenerById("loginBtn", "click", createLoginPage);
   addEventListenerById("registerBtn", "click", createRegisterPage);
