@@ -7,7 +7,6 @@ async function createHomePage() {
 
   setupPage();
   function setupPage() {
-    clearElementAttributes(homeMain);
     setElementAttributes(homeMain, "home-main", "");
     clearBackgroundImage();
     clearElementAttributes(homeHeader);
@@ -15,6 +14,12 @@ async function createHomePage() {
 
   homeHeader.innerHTML = `
   <H1>PHOTO MANAGEMENT</H1>
+
+  <form id="search-form" >
+    <label for="search-field"></label>
+    <input id="search-field" name="search" type="text">
+    <button type="submit">Search</button>
+  </form>
 
   <nav>
     <button id="loginBtn">LOGIN</button>      
@@ -44,20 +49,20 @@ async function createHomePage() {
 
   // create the photo element 
   async function homePhotos() {
-    let per_page = 4;
+    let per_page = 16;
     let imgSize = "portrait";
 
-    await fetchPhotosToDisplay(false, per_page, imgSize, false);
+    await fetchPhotosToDisplay(true, per_page, imgSize, false);
   }
   homePhotos();
 
   document.querySelector("footer").innerHTML = `<button id="about-us">ABOUT US</button>`;
 
+  addEventListeners();
   function addEventListeners() {
     addEventListenerById("loginBtn", "click", createLoginPage);
     addEventListenerById("registerBtn", "click", createRegisterPage);
   }
-  addEventListeners();
 }
 
 document.addEventListener("DOMContentLoaded", createHomePage);
