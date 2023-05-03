@@ -27,23 +27,22 @@ async function createHomePage() {
 
   homeMain.innerHTML = `
   <section id="home-section-one" class="section">
+    <!-- content of the first section -->
     <div id="home-photos" class="api-photos"></div>
   </section>
 
   <section id="home-section-two" class="section">
-    <!-- content of the first -->
+    <div id="home-photos" class="api-photos"></div>
   </section>
 
   <section id="home-section-three" class="section">
-    <!-- content of the first -->
   </section>
   `;
-
-  async function homePhotos() {
+  function homePhotos() {
     let per_page = 12;
     let imgSize = "portrait";
-    await displayCuratedPhotos(per_page, imgSize);
-    await displaySearchTermPhotos(per_page, imgSize);
+    displayCuratedPhotos(per_page, imgSize);
+    displaySearchTermPhotos(per_page, imgSize);
   }
   homePhotos();
 

@@ -40,12 +40,11 @@ async function createProfileCollectionsPage(data) {
   </section>
 `;
 
-  async function profileCollectionsPhotos() {
-
+  function profileCollectionsPhotos() {
     let per_page = 2;
     let imgSize = "portrait";
-    await displayCuratedPhotos(per_page, imgSize);
-    await displaySearchTermPhotos(per_page, imgSize);
+    displayCuratedPhotos(per_page, imgSize);
+    displaySearchTermPhotos(per_page, imgSize);
   }
   profileCollectionsPhotos();
 

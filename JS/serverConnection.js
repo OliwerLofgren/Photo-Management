@@ -12,7 +12,7 @@ const headers = {
 function fetch_resource(request) {
     return fetch(request);
 }
-
+let likes;
 // returns array of select keys: photographer name, photourl, etc
 async function fetchCuratedPhotos(per_page, imgSize) {
     const url = `${prefix}curated?per_page=${per_page}`;
@@ -40,7 +40,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
                 photo: photo.src[imgSize],
                 photographerName: photo.photographer,
                 photographerUrl: photo.photographer_url,
-                liked: photo.liked,
+                likes: likes,
                 alt: photo.alt
             };
         }); console.log(customPhotoDataArray);
@@ -48,7 +48,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
 
     } catch (error) {
         console.log(error);
-        return [];
+        return []; // return empty array instead of throwing error 
         // add message to user here
     }
 }
@@ -80,7 +80,7 @@ async function fetchSearchedPhotos(per_page, imgSize) {
                 photo: photo.src[imgSize],
                 photographerName: photo.photographer,
                 photographerUrl: photo.photographer_url,
-                liked: photo.liked,
+                likes: likes,
                 alt: photo.alt
             };
         });
@@ -88,14 +88,14 @@ async function fetchSearchedPhotos(per_page, imgSize) {
 
     } catch (error) {
         console.log(error);
-        return [];
+        return []; // return empty array instead of throwing error
         // add message to user here
     }
 }
 
 async function displayCuratedPhotos(per_page, imgSize) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
-    return createPhotoSection(customPhotoDataArray);
+    return createPhotoDomContainer(customPhotoDataArray);
 }
 
 // displays search term api photos
@@ -109,7 +109,7 @@ async function displaySearchTermPhotos(per_page, imgSize) {
             customPhotoDataArray = await fetchSearchedPhotos(per_page, imgSize);
             // clear already loaded and displayed api photos and show the searched photos instead
             document.querySelector(".api-photos").innerHTML = "";
-            return createPhotoSection(customPhotoDataArray);
+            return createPhotoDomContainer(customPhotoDataArray);
         })
     }
 }
@@ -123,8 +123,9 @@ async function displayApiBackgroundImage(per_page, imgSize) {
 /** (NOTE: don't forget to add class .api-photos to dom element to display photos)
 * Creates a DOM element for each photo in the array and appends them to the ".api-photos" element,
 */
-function createPhotoSection(array) {
+function createPhotoDomContainer(array) {
     const photoWrapper = document.querySelector(".api-photos");
+    // if try-catch error handler returned empty array (ex: request with empty search field)
     if (array === undefined) {
         console.log("array is undefined");
         return;
@@ -132,35 +133,56 @@ function createPhotoSection(array) {
     // create dom element
     array.forEach(object => {
         const divDom = document.createElement("div");
-        const photoInteractionOverlay = document.createElement("div");
-        photoInteractionOverlay.innerHTML = `
-        <button class="collect-button">Collect</button>
-        <button class="like-button">&hearts;</button>
-
-        <div class="photographer-info>Photographer info goes here</div>
-        `;
 
         const apiPhoto = document.createElement("img");
         apiPhoto.src = object.photo;
         // add an alt attribute to the img element to improve accessibility
         apiPhoto.alt = object.alt;
 
+        const photographer = object.photographerName;
+        // buttons over the api photos 
+        const photoInteractionOverlay = document.createElement("div");
+        photoInteractionOverlay.innerHTML = `
+        <button class="collect-button">Collect</button>
+        <button class="like-button">&hearts;</button>
 
-        divDom.appendChild(photoInteractionOverlay);
-        divDom.appendChild(apiPhoto);
+        <div class="photographer-info">${photographer}</div>
+        `;
+
+        divDom.append(photoInteractionOverlay);
+        divDom.append(apiPhoto);
         photoWrapper.appendChild(divDom);
 
-        // dataset extra info (object som sträng, stringify
-        //  skapa knapp som likar bild och skickze object till databasen )
+        // var finns filen? urlet
+        //  skapa knapp som likar/collectar bild och skicka object till databasen, (object som sträng, stringify )
+        //put inside submit eventlistener: collectPhoto(object);
     });
 }
+// handles post request, post the bookmarked photo object to database
+/*async function postPhotoObjectToDatabase(object) {
+    try {
+        const post = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(object),
+        };
+
+        let response = await fetch("/PHP/profile.php", post);
+        let photo = await response.json();
+
+        console.log(response);
+        console.log(photo);
+    } catch (error) {
+        console.log(console.error);
+    }
+}*/
 
 function setMainBackgroundImageFromApi(array) {
     array.forEach(object => {
         // Set img as background image 
         let backgroundImg = object.photo;
-        let main = document.querySelector("main");
-        main.style.backgroundImage = `url(${backgroundImg}`;
+        let dom = document.querySelector("main");
+        dom.style.backgroundImage = `url(${backgroundImg}`;
     })
 }
 
@@ -180,8 +202,14 @@ function photoApiResponseCodes(resource) {
     }
 }
 
+// increase like count
+function likePhoto() {
+    likes++;
+    console.log(likes);
+}
 
-// var finns filen? urlet,
+
+
 
 
 

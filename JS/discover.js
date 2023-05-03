@@ -33,11 +33,11 @@ async function createDiscoverPage(data) {
     </section>
     `;
 
-    async function discoverPhotos() {
+    function discoverPhotos() {
         let per_page = 12;
         let imgSize = "medium";
-        await displayCuratedPhotos(per_page, imgSize);
-        await displaySearchTermPhotos(per_page, imgSize)
+        displayCuratedPhotos(per_page, imgSize);
+        displaySearchTermPhotos(per_page, imgSize)
     }
     discoverPhotos();
 
@@ -50,5 +50,9 @@ async function createDiscoverPage(data) {
     addEventListenerById("collections-profile-button", "click", function () {
         createProfileCollectionsPage(data);
     });
-
 }
+
+/*document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".like-button").addEventListener("click", likePhoto);
+})*/
+

@@ -64,10 +64,10 @@ function createRegisterPage() {
     }
 
     // set bg img from api photo
-    async function registerPagePhotos() {
+    function registerPagePhotos() {
         let per_page = 1;
         let imgSize = "original";
-        displayApiBackgroundImage(per_page, imgSize);
+        displayApiBackgroundImage(per_page, imgSize, "main");
     }
     registerPagePhotos();
 

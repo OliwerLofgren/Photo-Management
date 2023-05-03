@@ -59,7 +59,7 @@ async function createLoginPage() {
     async function loginPagePhotos() {
         let per_page = 1;
         let imgSize = "original";
-        displayApiBackgroundImage(per_page, imgSize);
+        displayApiBackgroundImage(per_page, imgSize, "main");
     }
     loginPagePhotos();
 
