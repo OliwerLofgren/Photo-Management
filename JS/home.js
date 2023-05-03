@@ -11,15 +11,8 @@ async function createHomePage() {
     clearElementAttributes(homeHeader);
   }
 
-<<<<<<< Updated upstream
   homeHeader.innerHTML = `
   <H1>PHOTO MANAGEMENT</H1>
-=======
-async function getPhoto() {
-  // NOTE, set per page parameter, + add result object to innerhtml
-  const per_page = 20;
-  const url = `${prefix}curated?per_page=${per_page}`;
->>>>>>> Stashed changes
 
   <form id="search-form" >
     <label for="search-field"></label>
@@ -34,7 +27,6 @@ async function getPhoto() {
   </nav>
   `;
 
-<<<<<<< Updated upstream
   homeMain.innerHTML = `
   <section id="home-section-one" class="section">
     <div id="home-photos" class="api-photos"></div>
@@ -74,37 +66,3 @@ document.addEventListener("DOMContentLoaded", createHomePage);
 
 
 
-=======
-    if (!response.ok) {
-      console.log("oops");
-    } else {
-      // create new array from Photo resource, extracting "photos" key
-      const photosObject = resource.photos;
-      console.log(photosObject);
-
-      // create new array based on the photo resource extracting the "photo urls" key
-      const photoUrls = photosObject.map((object) => {
-        return object.src.medium;
-      });
-      console.log(photoUrls);
-
-      const photosWrapper = document.createElement("div");
-      // for each photo, create dom element
-      photoUrls.forEach((photo) => {
-        const div_dom = document.createElement("div");
-        div_dom.innerHTML = `
-      <img src="${photo}">
-    `;
-        photosWrapper.append(div_dom);
-      });
-      mainHome.append(photosWrapper);
-    }
-  } catch (error) {
-    console.log("add server message to user here");
-  }
-}
-
-function renderHomePage() {
-  getPhoto();
-}
->>>>>>> Stashed changes
