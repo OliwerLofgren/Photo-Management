@@ -1,0 +1,37 @@
+#register-main {
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+/* Center all elements except nav */
+#register-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* Align elements vertically */
+    height: 100vh;
+    /* Make section fill entire viewport */
+}
+
+#regForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#go-home-btn {
+    color: rgba(255, 255, 255, 0.816);
+    background: none;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+
+footer {
+    height: 50px;
+    /* set the height of the footer */
+    background-color: #f0f0f0bc;
+}
