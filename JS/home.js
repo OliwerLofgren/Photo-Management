@@ -2,7 +2,6 @@
 const homeMain = document.querySelector("main");
 const homeHeader = document.querySelector("header");
 
-
 async function createHomePage() {
 
   setupPage();
@@ -42,18 +41,11 @@ async function createHomePage() {
   </section>
   `;
 
-
-  // possible bug? query selector is null (dom element not created yet) -> 
-  /* document.addEventListener('DOMContentLoaded', (event) => {
-  add event listeners here ?
-  }); */
-
-  // create the photo element 
   async function homePhotos() {
-    let per_page = 16;
+    let per_page = 12;
     let imgSize = "portrait";
-
-    await fetchPhotosToDisplay(true, per_page, imgSize, false);
+    await displayCuratedPhotos(per_page, imgSize);
+    await displaySearchTermPhotos(per_page, imgSize)
   }
   homePhotos();
 

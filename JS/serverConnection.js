@@ -13,15 +13,6 @@ function fetch_resource(request) {
     return fetch(request);
 }
 
-/* display created page when img loads..
-function loadImage(url, callback) {
-    const img = new Image();
-    img.onload = () => {
-        callback(img);
-    };
-    img.src = url;
-}*/
-
 // returns array of select keys: photographer name, photourl, etc
 async function fetchCuratedPhotos(per_page, imgSize) {
     const url = `${prefix}curated?per_page=${per_page}`;
@@ -62,8 +53,8 @@ async function fetchCuratedPhotos(per_page, imgSize) {
     }
 }
 
-async function fetchSearchedPhotos(searchTerm, per_page, imgSize) {
-    searchTerm = getElement("#search-field").value;
+async function fetchSearchedPhotos(per_page, imgSize) {
+    let searchTerm = getElement("#search-field").value;
     const searchEndPointUrl = `${prefix}search?query=${searchTerm}&per_page=${per_page}`;
 
     try {
@@ -102,47 +93,52 @@ async function fetchSearchedPhotos(searchTerm, per_page, imgSize) {
     }
 }
 
-async function fetchPhotosToDisplay(searchTerm, per_page, imgSize, backgroundImage) {
+async function displayCuratedPhotos(per_page, imgSize) {
+    let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
+    return createPhotoSection(customPhotoDataArray);
+}
+
+// displays search term api photos
+async function displaySearchTermPhotos(per_page, imgSize) {
     let customPhotoDataArray;
-    if (searchTerm) {
-        let searchForm = document.querySelector("#search-form");
+    let searchForm = document.querySelector("#search-form");
+    // check if search form exists 
+    if (searchForm != null) {
         searchForm.addEventListener("submit", async function (event) {
             event.preventDefault();
-            customPhotoDataArray = await fetchSearchedPhotos(searchTerm, per_page, imgSize);
+            customPhotoDataArray = await fetchSearchedPhotos(per_page, imgSize);
             // clear already loaded and displayed api photos and show the searched photos instead
             document.querySelector(".api-photos").innerHTML = "";
             return createPhotoSection(customPhotoDataArray);
         })
     }
-    customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
-    createPhotoSection(customPhotoDataArray);
+}
 
-    if (backgroundImage) {
-        setMainBackgroundImageFromApi(customPhotoDataArray);
-    }
+// sets bg image from api, set per_page = to 1 photo from api
+async function displayApiBackgroundImage(per_page, imgSize) {
+    let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
+    return setMainBackgroundImageFromApi(customPhotoDataArray);
 }
 
 /** (NOTE: don't forget to add class .api-photos to dom element to display photos)
- * Creates a DOM element for each photo in the array and appends them to the ".api-photos" element,
- * but only if the array has more than one item (because one photo item means it is intended to be set as a background image (calling setMainBackgroundImageFromApi function) and should not be displayed as a regular photo)
- */
+* Creates a DOM element for each photo in the array and appends them to the ".api-photos" element,
+*/
 function createPhotoSection(array) {
+    const photoWrapper = document.querySelector(".api-photos");
     if (array === undefined) {
         console.log("array is undefined");
         return;
     }
     // create dom element
-    if (array.length > 1) {
-        array.forEach(object => {
-            const divDom = document.createElement("div");
-            const apiPhoto = document.createElement("img");
-            apiPhoto.src = object.photo;
-            // add an alt attribute to the img element to improve accessibility
-            apiPhoto.alt = object.alt;
-            divDom.appendChild(apiPhoto);
-            document.querySelector(".api-photos").appendChild(divDom);
-        });
-    }
+    array.forEach(object => {
+        const divDom = document.createElement("div");
+        const apiPhoto = document.createElement("img");
+        apiPhoto.src = object.photo;
+        // add an alt attribute to the img element to improve accessibility
+        apiPhoto.alt = object.alt;
+        divDom.appendChild(apiPhoto);
+        photoWrapper.appendChild(divDom);
+    });
 }
 
 function setMainBackgroundImageFromApi(array) {
@@ -170,6 +166,64 @@ function photoApiResponseCodes(resource) {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* display created page when img loads..
+function loadImage(url, callback) {
+    const img = new Image();
+    img.onload = () => {
+        callback(img);
+    };
+    img.src = url;
+}*/
+
+// old version
+/*async function fetchPhotosToDisplay(searchTerm, per_page, imgSize, backgroundImage) {
+    let customPhotoDataArray;
+    if (searchTerm) {
+        let searchForm = document.querySelector("#search-form");
+        searchForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            customPhotoDataArray = await fetchSearchedPhotos(searchTerm, per_page, imgSize);
+            // clear already loaded and displayed api photos and show the searched photos instead
+            document.querySelector(".api-photos").innerHTML = "";
+            return createPhotoSection(customPhotoDataArray);
+        })
+    } else {
+        customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
+        return createPhotoSection(customPhotoDataArray);
+    }
+    if (backgroundImage) {
+        setMainBackgroundImageFromApi(customPhotoDataArray);
+    }
+}*/
 
 
 
