@@ -1,51 +1,51 @@
 #home-main {
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    /* enable scroll snap */
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  /* enable scroll snap */
 }
 
 header {
-    height: 50px;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    gap: 17vw;
+  height: 50px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 17vw;
 }
 
 button {
-    background: none;
-    /* border: none; */
+  background: none;
+  /* border: none; */
 }
 
 nav {
-    border-bottom: 2px solid black;
-    width: 100vw;
+  border-bottom: 2px solid black;
+  width: 100vw;
 }
 
 h1 {
-    border-bottom: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 #home-photos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 5px;
-    grid-auto-flow: dense;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 5px;
+  grid-auto-flow: dense;
 }
 
-#home-photos>div {
-    overflow: hidden;
+#home-photos > div {
+  overflow: hidden;
 }
 
-#home-photos>div img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+#home-photos > div img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 footer {
-    height: 50px;
-    /* set the height of the footer */
-    background-color: #f0f0f0;
+  height: 50px;
+  /* set the height of the footer */
+  background-color: #f0f0f0;
 }

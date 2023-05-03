@@ -10,12 +10,13 @@ async function createProfileCollectionsPage(data) {
     clearElementAttributes(profileHeader);
   }
 
-  // NOTE: current profile page needs to be marked in css 
+  // NOTE: current profile page needs to be marked in css
   profileHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
       <nav>
         <button id="collections-profile-button">My Collections</button>      
-        <button id="portfolio-profile-button">Profile</button>      
+        <button id="portfolio-profile-button">Profile</button>     
+         
       </nav>
 
       <nav>
@@ -30,10 +31,12 @@ async function createProfileCollectionsPage(data) {
   `;
 
   addEventListenerById("portfolio-profile-button", "click", function () {
-    createProfilePortfolioPage(data)
+    createProfilePortfolioPage(data);
   });
 
-  addEventListenerById("discover-button", "click", function () { createDiscoverPage(data) });
+  addEventListenerById("discover-button", "click", function () {
+    createDiscoverPage(data);
+  });
 
   addEventListenerById("logout-button", "click", createHomePage);
 
@@ -44,6 +47,45 @@ const uploadPageMain = document.querySelector("main");
 async function createProfilePortfolioPage(data) {
   setupPage();
   function setupPage() {
+    profileHeader.innerHTML = `
+    <form id="upload" action="/PHP/profile.php" method="POST">
+                <input type="file" name="upload">
+                <button type="submit">Upload</button>
+            </form>
+            <div id="result"></div>
+    `;
+    const result = document.getElementById("result");
+    const form = document.getElementById("upload");
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      // Remove previously uploaded image
+
+      const formData = new FormData(form);
+      const request = new Request("../PHP/profile.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      fetch(request)
+        .then((response) => response.json())
+        .then((datas) => {
+          // This simply resets the form.
+          form.reset();
+
+          if (datas.error) {
+            document.querySelector("body").textContent =
+              "An error occurred: " + datas.error;
+          } else {
+            document.querySelector("body").textContent =
+              "Successfully uploaded the image";
+            const img = document.createElement("img");
+            // Assign the source to the image we just uploaded and
+            // received from the API
+            img.src = datas.src;
+            result.appendChild(img);
+          }
+        });
+    });
     clearElementAttributes(uploadPageMain);
     setElementAttributes(uploadPageMain, "profile-upload-main", "profile-page");
   }
