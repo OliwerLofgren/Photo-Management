@@ -1,6 +1,12 @@
+#navRegister {
+    border-bottom: 2px solid black;
+    width: 100vw;
+}
+
+
 #register-main {
-    height: 100vh;
-    overflow-y: scroll;
+    height: calc(100vh - 50px);
+    /* overflow-y: scroll; */
 }
 
 /* Center all elements except nav */
@@ -13,6 +19,7 @@
     height: 100vh;
     /* Make section fill entire viewport */
     gap: 20px;
+    overflow: hidden;
 }
 
 #regForm {
@@ -20,6 +27,7 @@
     flex-direction: column;
     gap: 10px;
 }
+
 
 #go-home-btn {
     color: rgba(255, 255, 255, 0.816);
@@ -30,9 +38,10 @@
     cursor: pointer;
 }
 
-
+/* 
 footer {
     height: 50px;
-    /* set the height of the footer */
     background-color: #f0f0f0bc;
-}
+} */
+
+/* #navRegister {} */

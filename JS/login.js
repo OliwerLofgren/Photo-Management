@@ -65,7 +65,7 @@ async function createLoginPage() {
 
     loginMain.innerHTML = ` 
     <section id="login-section" class="section"> 
-        <nav>
+        <nav id="navLogin">
             <button id="go-home-btn">&larr; Back to Home Page</button>
         </nav>
 

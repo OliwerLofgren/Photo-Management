@@ -28,7 +28,7 @@ main {
 }
 
 .section {
-    height: 100vh;
+    height: calc(100vh - 50px);
     /* set the height of each section to 100vh */
     scroll-snap-align: start;
     /* snap each section to the top of the viewport */
@@ -43,16 +43,18 @@ button {
 }
 
 form input {
-    border-radius: 15px;
+    border: none;
     padding: 5px 15px;
 }
 
 form button {
     background-color: #ff3131;
     color: white;
-    border-radius: 15px;
     padding: 5px 15px;
     border: none;
+    margin-left: 60px;
+    width: 80px;
+
 }
 
 /*Modal styles*/
