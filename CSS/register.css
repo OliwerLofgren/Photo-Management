@@ -12,6 +12,7 @@
     /* Align elements vertically */
     height: 100vh;
     /* Make section fill entire viewport */
+    gap: 20px;
 }
 
 #regForm {
