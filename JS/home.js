@@ -3,7 +3,6 @@ const homeMain = document.querySelector("main");
 const homeHeader = document.querySelector("header");
 
 async function createHomePage() {
-
   setupPage();
   function setupPage() {
     setElementAttributes(homeMain, "home-main", "");
@@ -45,11 +44,13 @@ async function createHomePage() {
     let per_page = 12;
     let imgSize = "portrait";
     await displayCuratedPhotos(per_page, imgSize);
-    await displaySearchTermPhotos(per_page, imgSize)
+    await displaySearchTermPhotos(per_page, imgSize);
   }
   homePhotos();
 
-  document.querySelector("footer").innerHTML = `<button id="about-us">ABOUT US</button>`;
+  document.querySelector(
+    "footer"
+  ).innerHTML = `<button id="about-us">ABOUT US</button>`;
 
   addEventListeners();
   function addEventListeners() {
@@ -59,10 +60,3 @@ async function createHomePage() {
 }
 
 document.addEventListener("DOMContentLoaded", createHomePage);
-
-
-
-
-
-
-

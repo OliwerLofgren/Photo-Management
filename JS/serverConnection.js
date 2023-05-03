@@ -43,7 +43,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
                 liked: photo.liked,
                 alt: photo.alt
             };
-        });
+        }); console.log(customPhotoDataArray);
         return customPhotoDataArray;
 
     } catch (error) {
@@ -138,6 +138,8 @@ function createPhotoSection(array) {
         apiPhoto.alt = object.alt;
         divDom.appendChild(apiPhoto);
         photoWrapper.appendChild(divDom);
+        // dataset extra info (object som sträng, stringify
+        //  skapa knapp som likar bild och skickze object till databasen )
     });
 }
 
@@ -167,8 +169,7 @@ function photoApiResponseCodes(resource) {
 }
 
 
-
-
+// var finns filen? urlet,
 
 
 
