@@ -132,12 +132,24 @@ function createPhotoSection(array) {
     // create dom element
     array.forEach(object => {
         const divDom = document.createElement("div");
+        const photoInteractionOverlay = document.createElement("div");
+        photoInteractionOverlay.innerHTML = `
+        <button class="collect-button">Collect</button>
+        <button class="like-button">&hearts;</button>
+
+        <div class="photographer-info>Photographer info goes here</div>
+        `;
+
         const apiPhoto = document.createElement("img");
         apiPhoto.src = object.photo;
         // add an alt attribute to the img element to improve accessibility
         apiPhoto.alt = object.alt;
+
+
+        divDom.appendChild(photoInteractionOverlay);
         divDom.appendChild(apiPhoto);
         photoWrapper.appendChild(divDom);
+
         // dataset extra info (object som sträng, stringify
         //  skapa knapp som likar bild och skickze object till databasen )
     });

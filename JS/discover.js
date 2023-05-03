@@ -27,10 +27,14 @@ async function createDiscoverPage(data) {
         </div>
         <div id="discover-photos" class="api-photos"></div>
     </section>
+
+    <section id="discover-section-two" class="section">
+        <div id="discover-photos" class="api-photos"></div>
+    </section>
     `;
 
     async function discoverPhotos() {
-        let per_page = 1;
+        let per_page = 12;
         let imgSize = "medium";
         await displayCuratedPhotos(per_page, imgSize);
         await displaySearchTermPhotos(per_page, imgSize)

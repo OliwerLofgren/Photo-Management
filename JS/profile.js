@@ -23,13 +23,38 @@ async function createProfileCollectionsPage(data) {
         <button id="logout-button">Logout</button>
     </nav>
   `;
+
   profileMain.innerHTML = `
-    <section id="profile-section" class="section">
+  <section id="collections-section-one" class="section">
+  <!-- Insert user profile photo here -->
+    <div id="profile-picture" class="profile-photo">-user profile photo here</div>
+
+    <nav>
+      <button id="collections-button">My Collections</button>      
+      <button id="portfolio-button">Profile</button>      
+    </nav>
+  </section>
+
+  <section id="collections-section-two" class="section">
       <div id="profile-photos" class="api-photos"></div>
-    </section>
-  `;
+  </section>
+`;
+
+  async function profileCollectionsPhotos() {
+
+    let per_page = 2;
+    let imgSize = "portrait";
+    await displayCuratedPhotos(per_page, imgSize);
+    await displaySearchTermPhotos(per_page, imgSize);
+  }
+  profileCollectionsPhotos();
+
 
   addEventListenerById("portfolio-profile-button", "click", function () {
+    createProfilePortfolioPage(data)
+  });
+
+  addEventListenerById("portfolio-button", "click", function () {
     createProfilePortfolioPage(data)
   });
 
@@ -48,7 +73,23 @@ async function createProfilePortfolioPage(data) {
     setElementAttributes(uploadPageMain, "profile-upload-main", "profile-page");
   }
 
-  addEventListenerById("collections-profile-button", "click", function () {
+  document.querySelector("#profile-upload-main").innerHTML = `
+  
+  <section id="portfolio-section-one" class="section">
+  <!-- Insert user profile photo here -->
+    <div id="profile-picture" class="profile-photo">-user profile photo here</div>
+
+    <nav>
+      <button id="collections-button">My Collections</button>      
+      <button id="portfolio-button">Profile</button>      
+    </nav>
+  </section>
+
+  <section id="portfolio-section-two" class="section">
+      <div id="profile-photos" class="api-photos"></div>
+  </section>`
+
+  addEventListenerById("collections-button", "click", function () {
     createProfileCollectionsPage(data);
   });
 
