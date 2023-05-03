@@ -55,13 +55,21 @@ async function createLoginPage() {
         setElementAttributes(loginHeader, "", "display-none");
     }
 
+    // set bg img from api photo
+    async function loginPagePhotos() {
+        let per_page = 1;
+        let imgSize = "original";
+        displayApiBackgroundImage(per_page, imgSize);
+    }
+    loginPagePhotos();
+
     loginMain.innerHTML = ` 
     <section id="login-section" class="section"> 
         <nav>
             <button id="go-home-btn">&larr; Back to Home Page</button>
         </nav>
 
-        <h2>Login</h2>
+        <h2>Log in</h2>
         <p id="message"></p>
 
         <form id="loginForm">
@@ -72,16 +80,6 @@ async function createLoginPage() {
         <button id="register">New to this? Sign up for free</button>
     </section>
     `;
-
-    // set bg img from api photo
-    async function loginPagePhotos() {
-        let per_page = 1;
-        let imgSize = "original";
-
-        await fetchPhotosToDisplay(null, per_page, imgSize, true);
-    }
-    loginPagePhotos();
-
 
     addEventListeners();
     function addEventListeners() {

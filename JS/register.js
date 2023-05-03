@@ -35,7 +35,7 @@ async function registerUser(event) {
 
             // display modal
             let clickedButton = document.querySelector("#regForm button");
-            clickedButton.onClick = displayModalWindow("Successfully registered!");
+            clickedButton.onClick = displayModalWindow("Successfully registered! Proceed to Log in page");
 
             // close modal
             document.querySelector(".modal-button").addEventListener("click", closeModalWindow);
@@ -63,12 +63,20 @@ function createRegisterPage() {
         setElementAttributes(registerHeader, "", "display-none")
     }
 
+    // set bg img from api photo
+    async function registerPagePhotos() {
+        let per_page = 1;
+        let imgSize = "original";
+        displayApiBackgroundImage(per_page, imgSize);
+    }
+    registerPagePhotos();
+
     registerMain.innerHTML = `
     <section id="register-section" class="section">
         <nav>
             <button id="go-home-btn">&larr; Back to Home Page</button>
         </nav>
-        <h2>Register</h2>
+        <h2>Sign up</h2>
         <p id="message"></p>
         <form id="regForm">
             <input type=text id="username" placeholder=Username>
@@ -79,16 +87,6 @@ function createRegisterPage() {
 
     </section>
  `;
-
-    // set bg img from api photo
-    async function registerPagePhotos() {
-        let per_page = 1;
-        let imgSize = "original";
-
-        await fetchPhotosToDisplay(null, per_page, imgSize, true);
-    }
-    registerPagePhotos();
-
     addEventListeners();
     function addEventListeners() {
         // redirect to login page if already registered
