@@ -10,7 +10,9 @@ header {
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
-    gap: 22vw;
+    gap: 17vw;
+    padding: 30px;
+    border: 2px solid black;
 }
 
 button {
@@ -18,13 +20,17 @@ button {
     /* border: none; */
 }
 
-nav {
-    border-bottom: 2px solid black;
-    width: 100vw;
+h1 {
+    margin-left: 20px;
 }
 
-h1 {
-    border-bottom: 2px solid black;
+#navHome {
+    position: relative;
+    top: 20px;
+    border: none;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #home-photos {
