@@ -1,6 +1,11 @@
+#navLogin {
+    border-bottom: 2px solid black;
+    width: 100vw;
+}
+
 #login-main {
-    height: 100vh;
-    overflow-y: scroll;
+    height: calc(100vh - 50px);
+    /* overflow-y: scroll; */
 }
 
 /* Center all elements except nav */
@@ -13,6 +18,7 @@
     height: 100vh;
     /* Make section fill entire viewport */
     gap: 20px;
+    overflow: hidden;
 }
 
 #loginForm {
@@ -21,7 +27,7 @@
     gap: 10px;
 }
 
-#login-photos {
+/* #login-photos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 10px;
@@ -42,10 +48,4 @@
     display: flex;
     height: 25px;
     gap: 10px;
-}
-
-footer {
-    height: 50px;
-    /* set the height of the footer */
-    background-color: #f0f0f0;
-}
+} */

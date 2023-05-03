@@ -21,8 +21,8 @@ async function createHomePage() {
     <button type="submit">Search</button>
   </form>
 
-  <nav>
-    <button id="loginBtn">LOGIN</button>      
+  <nav id="navHome">
+    <button id="loginBtn">LOGIN</button> /     
     <button id="registerBtn">REGISTER</button>      
   </nav>
   `;
