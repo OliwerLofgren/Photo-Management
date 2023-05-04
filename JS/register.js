@@ -59,13 +59,7 @@ function createRegisterPage() {
         setElementAttributes(registerHeader, "", "display-none")
     }
 
-    // set bg img from api photo
-    function registerPagePhotos() {
-        let per_page = 1;
-        let imgSize = "original";
-        displayApiBackgroundImage(per_page, imgSize, "main");
-    }
-    registerPagePhotos();
+
 
     registerMain.innerHTML = `
     <section id="register-section" class="section">
@@ -83,6 +77,18 @@ function createRegisterPage() {
 
     </section>
  `;
+
+    // set bg img from api photo
+    function registerPagePhotos() {
+        // check if current page is register page
+        const registerPage = document.getElementById("register-main");
+        if (registerPage) {
+            let per_page = 1;
+            let imgSize = "original";
+            displayApiBackgroundImage(per_page, imgSize, "main");
+        }
+    } registerPagePhotos();
+
 
     addEventListeners();
     function addEventListeners() {

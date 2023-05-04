@@ -35,14 +35,17 @@ async function createProfileCollectionsPage(data) {
   </section>
 `;
 
+  // set bg img from api photo
   function profileCollectionsPhotos() {
-    let per_page = 2;
-    let imgSize = "portrait";
-    displayCuratedPhotos(per_page, imgSize);
-    displaySearchTermPhotos(per_page, imgSize);
-  }
-  profileCollectionsPhotos();
-
+    // check if current page is profile page
+    const profilePage = document.getElementById("profile-main");
+    if (profilePage) {
+      let per_page = 2;
+      let imgSize = "portrait";
+      displayCuratedPhotos(per_page, imgSize);
+      displaySearchTermPhotos(per_page, imgSize);
+    }
+  } profileCollectionsPhotos();
 
   addEventListeners();
   function addEventListeners() {

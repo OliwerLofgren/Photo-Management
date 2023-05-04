@@ -44,20 +44,21 @@ async function createHomePage() {
   <section id="home-section-three" class="section">
   </section>
   `;
+
+  // set bg img from api photo
   function homePhotos() {
-    let per_page = 12;
-    let imgSize = "portrait";
+    // check if current page is home page to prevent unnecessary requests
+    const homePage = document.getElementById("home-main");
+    if (homePage) {
+      let per_page = 12;
+      let imgSize = "portrait";
+      // photo dom element creation
+      displayCuratedPhotos(per_page, imgSize);
+      displaySearchTermPhotos(per_page, imgSize);
+    }
+  } homePhotos();
 
-    // photo dom element creation
-    displayCuratedPhotos(per_page, imgSize);
-    displaySearchTermPhotos(per_page, imgSize);
-  }
-  homePhotos();
-
-  document.querySelector(
-    "footer"
-  ).innerHTML = `<button id="about-us">ABOUT US</button>`;
-
+  document.querySelector("footer").innerHTML = `<button id="about-us">ABOUT US</button>`;
 
   addEventListeners();
   function addEventListeners() {

@@ -1,7 +1,8 @@
 "use strict";
 // API stuff
 const prefix = "https://api.pexels.com/v1/";
-const apiKey = "4Gkq0ZuJgevDtGOJesppgO5V4tZZ4TZLTBvtO1aX6fgmzxPXGIxmkFg0";
+const apiKey = "d7eBBdpVdN08nChtJhFZzudXealrUpI6Xz0FsfuK0d5klpBSt6XzL2Zm";
+//"4Gkq0ZuJgevDtGOJesppgO5V4tZZ4TZLTBvtO1aX6fgmzxPXGIxmkFg0";
 
 const headers = {
     authorization: apiKey,
@@ -29,7 +30,6 @@ async function fetchCuratedPhotos(per_page, imgSize) {
         }
 
         let photoResourceArray = resource.photos;
-        console.log(photoResourceArray);
         if (!photoResourceArray || photoResourceArray.length === 0) {
             console.log("No photos found");
             return;
@@ -49,8 +49,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
                 liked: false,
                 alt: photo.alt,
             };
-        }); console.log(customPhotoDataArray);
-        return customPhotoDataArray;
+        }); return customPhotoDataArray;
 
     } catch (error) {
         console.log(error);
@@ -65,7 +64,6 @@ async function fetchSearchedPhotos(per_page, imgSize) {
 
     try {
         const response = await fetch_resource(new Request(searchEndPointUrl, { headers }));
-
         const resource = await response.json();
 
         if (!response.ok) {
@@ -73,7 +71,6 @@ async function fetchSearchedPhotos(per_page, imgSize) {
             photoApiResponseCodes(resource);
             return;
         }
-
         let photoResourceArray = resource.photos;
         if (!photoResourceArray || photoResourceArray.length === 0) {
             console.log("No photos found");
@@ -93,8 +90,7 @@ async function fetchSearchedPhotos(per_page, imgSize) {
                 photographer_id: photo.photographer_id,
                 alt: photo.alt,
             };
-        });
-        return customPhotoDataArray;
+        }); return customPhotoDataArray;
 
     } catch (error) {
         console.log(error);
@@ -106,61 +102,71 @@ async function fetchSearchedPhotos(per_page, imgSize) {
 /*** photo dom element creation and display ***/
 
 // (NOTE: don't forget to add class .api-photos to dom element to display photos) creates photo dom element and handles buttons event listeners
-function createPhotoDomContainer(array) {
+function createPhotoContainer(array) {
     const photoWrapper = document.querySelector(".api-photos");
     // if try-catch error handler returned empty array (ex: request with empty search field)
     if (array === undefined) {
         console.log("array is undefined");
         return;
-    } else { // else create dom elements
-        array.forEach(photoObject => {
-            const divDom = document.createElement("div");
+    }
 
-            const apiPhoto = document.createElement("img");
-            apiPhoto.src = photoObject.photo;
-            // add an alt attribute to the img element to improve accessibility
-            apiPhoto.alt = photoObject.alt;
+    // create dom elements
+    array.forEach(photoObject => {
+        const photoContainer = document.createElement("div");
 
-            // extract photographer name key to display it later
-            const photographer = photoObject.photographerName;
+        const photoImage = document.createElement("img");
+        photoImage.src = photoObject.photo;
+        // add an alt attribute to the img element to improve accessibility
+        photoImage.alt = photoObject.alt;
 
-            // create buttons over the api photos 
-            const photoInteractions = document.createElement("div");
-            photoInteractions.innerHTML = `
+        // handle image loading errors
+        photoImage.addEventListener("error", () => {
+            // replace the failed image with a default image
+            photoImage.src = "path.jpg";
+        });
+
+
+        // extract photographer name key to display it later
+        const photographerName = photoObject.photographerName;
+
+        // create buttons over the api photos 
+        const photoInteractionsContainer = document.createElement("div");
+        photoInteractionsContainer.innerHTML = `
             <button class="collect-button">Collect</button>
             <button class="like-button">&hearts;</button>
 
-            <div class="photographer-info">${photographer}</div>
+            <div class="photographer-info">${photographerName}</div>
             `;
 
-            /* notes från handledningen: var finns filen? urlet
-                skapa knapp som likar/collectar bild och skicka object till databasen, (object som sträng, stringify )
-                put inside eventlistener: collectPhoto(object);
-            */
+        /* notes från handledningen: var finns filen? urlet
+            skapa knapp som likar/collectar bild och skicka object till databasen, (object som sträng, stringify )
+            put inside eventlistener: collectPhoto(object);
+        */
 
-            // query select and add event listeners to the buttons on "this" current photoObject only
-            const collectButton = photoInteractions.querySelector(".collect-button");
-            const likeButton = photoInteractions.querySelector(".like-button");
+        // query select and add event listeners to the buttons on "this" current photoObject only
+        const collectButton = photoInteractionsContainer.querySelector(".collect-button");
+        const likeButton = photoInteractionsContainer.querySelector(".like-button");
 
-            // post the collected photo to db, (async await y/n?)
-            collectButton.addEventListener("click", () => {
-                postPhotoObjectToDatabase(photoObject)
-            });
 
-            // toggle the liked state and update like count on the clicked photo
-            likeButton.addEventListener("click", () => toggleLikesOnPhoto(postedPhotoObject));
+        // post the collected photo to db.
+        async function postPhotoToDB() {
+            await postPhotoObjectToDatabase(photoObject);
+        }
+        collectButton.addEventListener("click", postPhotoToDB);
 
-            divDom.append(photoInteractions);
-            divDom.append(apiPhoto);
-            photoWrapper.appendChild(divDom);
-        });
-    }
+        // toggle the liked state and update like count on the clicked photo
+        likeButton.addEventListener("click", () => toggleLikesOnPhoto(postedPhotoObject));
+
+        photoContainer.append(photoInteractionsContainer);
+        photoContainer.append(photoImage);
+        photoWrapper.appendChild(photoContainer);
+    });
 }
 
 // displays search term api photos
 async function displayCuratedPhotos(per_page, imgSize) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
-    return createPhotoDomContainer(customPhotoDataArray);
+    return createPhotoContainer(customPhotoDataArray);
 }
 
 // displays search term api photos
@@ -174,7 +180,7 @@ async function displaySearchTermPhotos(per_page, imgSize) {
             customPhotoDataArray = await fetchSearchedPhotos(per_page, imgSize);
             // clear already loaded and displayed api photos and show the searched photos instead
             document.querySelector(".api-photos").innerHTML = "";
-            return createPhotoDomContainer(customPhotoDataArray);
+            return createPhotoContainer(customPhotoDataArray);
         })
     }
 }

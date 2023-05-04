@@ -33,20 +33,25 @@ async function createDiscoverPage(user) {
     </section>
     `;
 
+    // set bg img from api photo
     function discoverPhotos() {
-        let per_page = 12;
-        let imgSize = "medium";
-        displayCuratedPhotos(per_page, imgSize);
-        displaySearchTermPhotos(per_page, imgSize)
-    }
-    discoverPhotos();
+        // check if current page is discover page
+        const discoverPage = document.getElementById("discover-main");
+        if (discoverPage) {
+            let per_page = 20;
+            let imgSize = "portrait";
+            // photo dom element creation
+            displayCuratedPhotos(per_page, imgSize);
+            displaySearchTermPhotos(per_page, imgSize);
+        }
+    } discoverPhotos();
+
 
 
     document.addEventListener("click", function (event) {
         if (event.target.id === "collections-profile-button") {
             createProfileCollectionsPage(user);
         }
-
         if (event.target.id === "logout-button") {
             localStorage.removeItem("user");
             user = null;
