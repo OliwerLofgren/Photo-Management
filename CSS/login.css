@@ -1,0 +1,51 @@
+#navLogin {
+    border-bottom: 2px solid black;
+    width: 100vw;
+}
+
+#login-main {
+    height: calc(100vh - 50px);
+    /* overflow-y: scroll; */
+}
+
+/* Center all elements except nav */
+#login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* Align elements vertically */
+    height: 100vh;
+    /* Make section fill entire viewport */
+    gap: 20px;
+    overflow: hidden;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* #login-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+    grid-auto-flow: dense;
+}
+
+#login-photos>div {
+    overflow: hidden;
+}
+
+#login-photos>div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#search-form {
+    display: flex;
+    height: 25px;
+    gap: 10px;
+} */

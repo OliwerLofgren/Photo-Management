@@ -1,0 +1,18 @@
+#profile-main {
+    margin: 5px;
+}
+
+#collections-section-one {
+    height: 50px;
+}
+
+#profile-photos>div {
+    overflow: hidden;
+}
+
+#profile-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: beige;
+}

@@ -1,66 +1,60 @@
 "use strict";
+const homeMain = document.querySelector("main");
+const homeHeader = document.querySelector("header");
 
-const mainHome = document.querySelector("main");
+async function createHomePage() {
+  setupPage();
+  function setupPage() {
+    setElementAttributes(homeMain, "home-main", "");
+    clearBackgroundImage();
+    clearElementAttributes(homeHeader);
+  }
 
-renderHomePage();
+  homeHeader.innerHTML = `
+  <H1>PHOTO MANAGEMENT</H1>
 
-async function getPhoto() {
-  // NOTE, set per page parameter, + add result object to innerhtml 
-  const per_page = 1;
-  const url = `${prefix}curated?per_page=${per_page}`;
+  <form id="search-form" >
+    <label for="search-field"></label>
+    <input id="search-field" name="search" type="text">
+    <button type="submit">Search</button>
+  </form>
 
-  try {
-    const response = await fetch_resource(new Request(url, { headers }));
-    const resource = await response.json();
+  <nav id="navHome">
+    <button id="loginBtn">LOGIN</button> /     
+    <button id="registerBtn">REGISTER</button>      
+  </nav>
+  `;
 
-    // display server message (temporary solution, see server_connection file)
-    displayServerMessage(response);
+  homeMain.innerHTML = `
+  <section id="home-section-one" class="section">
+    <!-- content of the first section -->
+    <div id="home-photos" class="api-photos"></div>
+  </section>
 
-    if (!response.ok) {
-      console.log("oops");
-    } else {
-      // create new array from Photo resource, extracting "photos" key 
-      const photosObject = resource.photos;
-      console.log(photosObject);
+  <section id="home-section-two" class="section">
+    <div id="home-photos" class="api-photos"></div>
+  </section>
 
-      // create new array based on the photo resource extracting the "photo urls" key
-      const photoUrls = photosObject.map(object => {
-        return object.src.medium
-      })
-      console.log(photoUrls);
+  <section id="home-section-three" class="section">
+  </section>
+  `;
+  function homePhotos() {
+    let per_page = 12;
+    let imgSize = "portrait";
+    displayCuratedPhotos(per_page, imgSize);
+    displaySearchTermPhotos(per_page, imgSize);
+  }
+  homePhotos();
 
-      const photosWrapper = document.createElement("div");
-      // for each photo, create dom element
-      photoUrls.forEach(photo => {
-        const div_dom = document.createElement("div");
-        div_dom.innerHTML = `
-      <img src="${photo}">
-    `;
-        photosWrapper.append(div_dom);
-      });
-      mainHome.append(photosWrapper);
-    }
+  document.querySelector(
+    "footer"
+  ).innerHTML = `<button id="about-us">ABOUT US</button>`;
 
-  } catch (error) {
-    console.log("add server message to user here");
+  addEventListeners();
+  function addEventListeners() {
+    addEventListenerById("loginBtn", "click", createLoginPage);
+    addEventListenerById("registerBtn", "click", createRegisterPage);
   }
 }
 
-function renderHomePage() {
-
-  const header = document.querySelector("header");
-  header.innerHTML = `
-    <H1>PhOTO MANAGEMENT</H1>
-      <nav>
-        <button id="loginBtn">LOGIN</button>      
-        <button id="registerBTN">REGISTER</button>      
-    </nav>
-
-    <div id="divBar"></div>  
-  `
-  getPhoto();
-}
-
-document.querySelector("#loginBtn").addEventListener("click", renderLoginPage);
-
-document.querySelector("#registerBTN").addEventListener("click", renderRegisterPage);
+document.addEventListener("DOMContentLoaded", createHomePage);
