@@ -75,12 +75,13 @@ async function createLoginPage() {
     // set bg img from api photo
     loginPagePhotos();
     function loginPagePhotos() {
+        let domElement = document.querySelector("main");
         // check if current page is login page
         const loginPage = document.getElementById("login-main");
         if (loginPage) {
             let per_page = 1;
             let imgSize = "original";
-            displayApiBackgroundImage(per_page, imgSize, "main");
+            displayApiBackgroundImage(per_page, imgSize, domElement);
         }
     } loginPagePhotos();
 

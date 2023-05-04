@@ -15,7 +15,8 @@ async function createDiscoverPage(user) {
     <H1>PHOTO MANAGEMENT</H1>
     <nav>
         <p>Username: ${user.username}</p>
-        <button id="collections-profile-button">My Collections</button>
+        <button id="collections-button">My Collections</button>
+        <button id="portfolio-button">Profile</button>
         <button id="logout-button">Logout</button>
     </nav>
     `;
@@ -46,16 +47,20 @@ async function createDiscoverPage(user) {
         }
     } discoverPhotos();
 
-
-
-    document.addEventListener("click", function (event) {
-        if (event.target.id === "collections-profile-button") {
+    addEventListeners();
+    function addEventListeners() {
+        document.getElementById("collections-button").addEventListener("click", function () {
             createProfileCollectionsPage(user);
-        }
-        if (event.target.id === "logout-button") {
+        });
+
+        document.getElementById("portfolio-button").addEventListener("click", function () {
+            createProfilePortfolioPage(user);
+        });
+
+        document.getElementById("logout-button").addEventListener("click", function () {
             localStorage.removeItem("user");
             user = null;
             createHomePage();
-        }
-    });
-}
+        });
+    }
+};

@@ -45,12 +45,11 @@ async function createHomePage() {
   </section>
   `;
 
-  // set bg img from api photo
   function homePhotos() {
     // check if current page is home page to prevent unnecessary requests
     const homePage = document.getElementById("home-main");
     if (homePage) {
-      let per_page = 12;
+      let per_page = 1;
       let imgSize = "portrait";
       // photo dom element creation
       displayCuratedPhotos(per_page, imgSize);
@@ -66,4 +65,4 @@ async function createHomePage() {
     document.getElementById("registerBtn").addEventListener("click", createRegisterPage);
   }
 }
-document.addEventListener("DOMContentLoaded", createHomePage);
+

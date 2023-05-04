@@ -66,12 +66,20 @@ async function createProfileCollectionsPage(data) {
 }
 
 const portfolioPageMain = document.querySelector("main");
-async function createProfilePortfolioPage(data) {
+async function createProfilePortfolioPage(user) {
   setupPage();
   function setupPage() {
     clearElementAttributes(portfolioPageMain);
     setElementAttributes(portfolioPageMain, "profile-portfolio-main", "profile-page");
   }
+
+  profileHeader.innerHTML = `
+  <H1>PHOTO MANAGEMENT</H1>
+    <nav>
+      <button id="discover-button">Discover</button>
+      <button id="logout-button">Logout</button>
+    </nav>
+`;
 
   document.querySelector("#profile-portfolio-main").innerHTML = `
   <section id="portfolio-section-one" class="section">
@@ -92,11 +100,11 @@ async function createProfilePortfolioPage(data) {
   addEventListeners();
   function addEventListeners() {
     document.getElementById("collections-button").addEventListener("click", function () {
-      createProfileCollectionsPage(data);
+      createProfileCollectionsPage(user);
     });
 
     document.getElementById("discover-button").addEventListener("click", function () {
-      createDiscoverPage(data);
+      createDiscoverPage(user);
     });
 
     document.getElementById("logout-button").addEventListener("click", function () {
@@ -105,6 +113,8 @@ async function createProfilePortfolioPage(data) {
       createHomePage();
     });
   }
+
+
 }
 
 //Display all images that are saved from discover

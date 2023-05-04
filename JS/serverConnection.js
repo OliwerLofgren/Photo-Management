@@ -147,7 +147,6 @@ function createPhotoContainer(array) {
         const collectButton = photoInteractionsContainer.querySelector(".collect-button");
         const likeButton = photoInteractionsContainer.querySelector(".like-button");
 
-
         // post the collected photo to db.
         async function postPhotoToDB() {
             await postPhotoObjectToDatabase(photoObject);
@@ -185,19 +184,15 @@ async function displaySearchTermPhotos(per_page, imgSize) {
     }
 }
 
-// extract then set a bg image from api, set per_page = to 1 photo from api
-async function displayApiBackgroundImage(per_page, imgSize) {
-    let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
+// set per_page = to 1 photo from api
+async function displayApiBackgroundImage(per_page, imgSize, domElement) {
+    let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize, domElement);
     // set dom bg img 
-    function setMainBackgroundImageFromApi(array) {
-        array.forEach(object => {
-            // Set img as background image 
-            let backgroundImg = object.photo;
-            let dom = document.querySelector("main");
-            dom.style.backgroundImage = `url(${backgroundImg}`;
-        })
-    }
-    return setMainBackgroundImageFromApi(customPhotoDataArray);
+    customPhotoDataArray.forEach(photo => {
+        // Set img as background image 
+        let backgroundImg = photo.photo;
+        domElement.style.backgroundImage = `url(${backgroundImg})`;
+    })
 }
 
 function photoApiResponseCodes(resource) {
