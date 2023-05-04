@@ -1,12 +1,12 @@
 "use strict";
-
 /***  internal database request handlers ***/
 
-// handles post request, post the photo object to database on interaction (collected)
+// handles post request, (photo object)
 async function postPhotoObjectToDatabase(photoObject) {
 
-    // format post data (api photo object) and add liked/likesCount count keys
+    // format data and add some keys
     const photoObjectForDatabase = {
+        id: photoObject.id, // add id to the object
         photoObject: photoObject,
         liked: false,
         likesCount: photoObject.likesCount
@@ -39,6 +39,7 @@ async function postPhotoObjectToDatabase(photoObject) {
 async function patchPhotoObjectToDatabase(postedPhotoObject) {
     // patch data
     const photoObjectForDatabase = {
+        id: postedPhotoObject.id, // id of the object
         liked: postedPhotoObject.liked,
         likesCount: postedPhotoObject.likesCount,
     }
@@ -50,13 +51,14 @@ async function patchPhotoObjectToDatabase(postedPhotoObject) {
     };
 
     try {
-        const response = await fetch("/PHP/profile.php", options);
+        const response = await fetch(`/PHP/profile.php?id=${photoObjectForDatabase.id}`, options); // url includes id of the photo object 
         const patchedPhotoObject = await response.json();
 
         if (!response.ok) {
             console.log("Error patching photo object");
         } else {
             console.log("Photo object patched successfully:", patchedPhotoObject);
+            return patchedPhotoObject; // return the newly patched object 
         }
     } catch (error) {
         console.error("Error patching photo object:", error);

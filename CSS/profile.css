@@ -16,3 +16,20 @@
     border-radius: 50%;
     background-color: beige;
 }
+
+#profile-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 5px;
+    grid-auto-flow: dense;
+}
+
+#profile-photos>div {
+    overflow: hidden;
+}
+
+#profile-photos>div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

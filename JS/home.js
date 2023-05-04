@@ -8,6 +8,13 @@ async function createHomePage() {
     setElementAttributes(homeMain, "home-main", "");
     clearBackgroundImage();
     clearElementAttributes(homeHeader);
+
+    // check to see if the user is logged in
+    const user = JSON.parse(window.localStorage.getItem("user"));
+    if (user) {
+      createDiscoverPage(user);
+      return;
+    }
   }
 
   homeHeader.innerHTML = `

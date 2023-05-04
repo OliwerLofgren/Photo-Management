@@ -14,11 +14,6 @@ async function createProfileCollectionsPage(data) {
   profileHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
       <nav>
-        <button id="collections-profile-button">My Collections</button>      
-        <button id="portfolio-profile-button">Profile</button>      
-      </nav>
-
-      <nav>
         <button id="discover-button">Discover</button>
         <button id="logout-button">Logout</button>
     </nav>
