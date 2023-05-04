@@ -1,19 +1,24 @@
 #profile-main {
-    margin: 5px;
+  margin: 5px;
 }
 
 #profile-section {
-    height: 100px;
-    background-color: pink;
+  height: 100px;
+  background-color: pink;
 }
 
-#profile-photos>div {
-    overflow: hidden;
+#profile-photos > div {
+  overflow: hidden;
 }
 
 #profile-img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: beige;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: beige;
+}
+main {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(191, 232, 248);
 }

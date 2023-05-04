@@ -1,8 +1,15 @@
-[
-    {
+{
+    "0": {
         "username": "Oliwer",
         "password": "123",
         "uploaded_photos": [],
         "saved_photos": []
-    }
-]
+    },
+    "uploaded_photos": [
+        [
+            {
+                "src": "..\/PHP\/my_photos\/dog.jpg"
+            }
+        ]
+    ]
+}

@@ -48,14 +48,14 @@ async function createProfilePortfolioPage(data) {
   setupPage();
   function setupPage() {
     profileHeader.innerHTML = `
-    <form id="upload" action="/PHP/profile.php" method="POST">
+    <form id="form_upload" action="/PHP/profile.php" method="POST" enctype="multipart/form-data">
                 <input type="file" name="upload">
                 <button type="submit">Upload</button>
             </form>
             <div id="result"></div>
     `;
     const result = document.getElementById("result");
-    const form = document.getElementById("upload");
+    const form = document.getElementById("form_upload");
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       // Remove previously uploaded image
@@ -68,21 +68,22 @@ async function createProfilePortfolioPage(data) {
 
       fetch(request)
         .then((response) => response.json())
-        .then((datas) => {
+        .then((data) => {
           // This simply resets the form.
           form.reset();
+          console.log(data);
+          console.log(data[0].src);
 
-          if (datas.error) {
-            document.querySelector("body").textContent =
-              "An error occurred: " + datas.error;
+          if (data.error) {
+            result.textContent = "An error occurred: " + data.error;
           } else {
-            document.querySelector("body").textContent =
-              "Successfully uploaded the image";
+            result.textContent = "Successfully uploaded the image";
+            const img_container = document.createElement("div");
             const img = document.createElement("img");
-            // Assign the source to the image we just uploaded and
-            // received from the API
-            img.src = datas.src;
-            result.appendChild(img);
+
+            img.src = data[0].src;
+            img_container.appendChild(img);
+            result.appendChild(img_container);
           }
         });
     });

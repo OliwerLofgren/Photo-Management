@@ -9,30 +9,34 @@
     $request_method = $_SERVER["REQUEST_METHOD"];
     $input_data = json_decode(file_get_contents("php://input"), true);
 
-    ?>
-
     
-
-    <?php 
     //This section is for uploading new images
     if ($request_method == "POST") {
-        $photo_database = "../JSON/photos.json";
+        
         $photos = [];
-        $photos = json_decode(file_get_contents($photo_database), true);
     
         if(isset($_FILES["upload"])){
-        $source = $_FILES["upload"]["tmp_name"];
-        $destination = "../my_photos/" . $_FILES["upload"]["name"];
-    
-        if (move_uploaded_file($source, $destination)) {
-            $photos[] = ["src" => $destination];
-            file_put_contents($photo_database, json_encode($photos, JSON_PRETTY_PRINT));
+            $tmp_name = $_FILES["upload"]["tmp_name"];
+            $name = $_FILES["upload"]["name"];
             
-            foreach ($photos as $photo) {
-                    $src = $photo["src"];
-                    echo "<img src='$src'>";
-                }
-                sendJSON($photos);
+            $allowed_extensions = ["jpg", "jpeg", "png", "gif"];
+            $extension = pathinfo($name, PATHINFO_EXTENSION);
+    
+    
+        if (!in_array(strtolower($extension), $allowed_extensions)) {
+            $message = ["message" => "Invalid file type"];
+            sendJSON($message, 400);
+        }
+        
+        $destination = "../PHP/my_photos/" . $name;
+        
+        if (move_uploaded_file($tmp_name, $destination)) {
+          
+            $photos[] = ["src" => rtrim($destination, "/")];
+            $users["uploaded_photos"][] = $photos;
+          
+            file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
+            sendJSON($photos);
        
         }else{
             $message = ["message" => "Unable to upload file!"];
@@ -42,5 +46,9 @@
     }
     // $message = ["message" => "Wrong kind of method!"];
     // sendJSON($message, 400);
-    ?> 
+    ?>
+
+    
+
+ 
     
