@@ -54,11 +54,6 @@ function displayServerLoadingMessage() {
     //loggin in... message, etc
 }
 
-function addEventListenerById(id, event, func) {
-    const element = document.querySelector(`#${id}`);
-    element.addEventListener(event, func);
-}
-
 function getElement(selector) {
     return document.querySelector(selector);
 }

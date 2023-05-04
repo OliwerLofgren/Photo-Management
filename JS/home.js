@@ -3,6 +3,12 @@ const homeMain = document.querySelector("main");
 const homeHeader = document.querySelector("header");
 
 async function createHomePage() {
+  // check to see if the user is logged in
+  const user = JSON.parse(window.localStorage.getItem("user"));
+  if (user) {
+    createDiscoverPage(user);
+    return;
+  }
   setupPage();
   function setupPage() {
     setElementAttributes(homeMain, "home-main", "");
@@ -38,23 +44,25 @@ async function createHomePage() {
   <section id="home-section-three" class="section">
   </section>
   `;
-  function homePhotos() {
-    let per_page = 12;
-    let imgSize = "portrait";
-    displayCuratedPhotos(per_page, imgSize);
-    displaySearchTermPhotos(per_page, imgSize);
-  }
-  homePhotos();
 
-  document.querySelector(
-    "footer"
-  ).innerHTML = `<button id="about-us">ABOUT US</button>`;
+  function homePhotos() {
+    // check if current page is home page to prevent unnecessary requests
+    const homePage = document.getElementById("home-main");
+    if (homePage) {
+      let per_page = 1;
+      let imgSize = "portrait";
+      // photo dom element creation
+      displayCuratedPhotos(per_page, imgSize);
+      displaySearchTermPhotos(per_page, imgSize);
+    }
+  } homePhotos();
+
+  document.querySelector("footer").innerHTML = `<button id="about-us">ABOUT US</button>`;
 
   addEventListeners();
   function addEventListeners() {
-    addEventListenerById("loginBtn", "click", createLoginPage);
-    addEventListenerById("registerBtn", "click", createRegisterPage);
+    document.getElementById("loginBtn").addEventListener("click", createLoginPage);
+    document.getElementById("registerBtn").addEventListener("click", createRegisterPage);
   }
 }
 
-document.addEventListener("DOMContentLoaded", createHomePage);

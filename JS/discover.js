@@ -3,7 +3,7 @@
 const discoverMain = document.querySelector("main");
 const discoverHeader = document.querySelector("header");
 
-async function createDiscoverPage(data) {
+async function createDiscoverPage(user) {
     setupPage();
     function setupPage() {
         setElementAttributes(discoverMain, "discover-main", "");
@@ -14,8 +14,9 @@ async function createDiscoverPage(data) {
     document.querySelector("header").innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav>
-        <p>Username: ${data.username}</p>
-        <button id="collections-profile-button">My Collections</button>
+        <p>Username: ${user.username}</p>
+        <button id="collections-button">My Collections</button>
+        <button id="portfolio-button">Profile</button>
         <button id="logout-button">Logout</button>
     </nav>
     `;
@@ -33,26 +34,33 @@ async function createDiscoverPage(data) {
     </section>
     `;
 
+    // set bg img from api photo
     function discoverPhotos() {
-        let per_page = 12;
-        let imgSize = "medium";
-        displayCuratedPhotos(per_page, imgSize);
-        displaySearchTermPhotos(per_page, imgSize)
+        // check if current page is discover page
+        const discoverPage = document.getElementById("discover-main");
+        if (discoverPage) {
+            let per_page = 20;
+            let imgSize = "portrait";
+            // photo dom element creation
+            displayCuratedPhotos(per_page, imgSize);
+            displaySearchTermPhotos(per_page, imgSize);
+        }
+    } discoverPhotos();
+
+    addEventListeners();
+    function addEventListeners() {
+        document.getElementById("collections-button").addEventListener("click", function () {
+            createProfileCollectionsPage(user);
+        });
+
+        document.getElementById("portfolio-button").addEventListener("click", function () {
+            createProfilePortfolioPage(user);
+        });
+
+        document.getElementById("logout-button").addEventListener("click", function () {
+            localStorage.removeItem("user");
+            user = null;
+            createHomePage();
+        });
     }
-    discoverPhotos();
-
-    addEventListenerById("logout-button", "click", function () {
-        localStorage.removeItem("user");
-        data = null;
-        createHomePage();
-    });
-
-    addEventListenerById("collections-profile-button", "click", function () {
-        createProfileCollectionsPage(data);
-    });
-}
-
-/*document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector(".like-button").addEventListener("click", likePhoto);
-})*/
-
+};
