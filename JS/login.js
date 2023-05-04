@@ -83,8 +83,8 @@ async function createLoginPage() {
     addEventListeners();
     function addEventListeners() {
         // redirect to register page instead
-        addEventListenerById("go-home-btn", "click", createHomePage)
-        addEventListenerById("register", "click", createRegisterPage);
+        document.getElementById("go-home-btn").addEventListener("click", createHomePage);
+        document.getElementById("register").addEventListener("click", createRegisterPage);
         loginUserListener();
     }
 }

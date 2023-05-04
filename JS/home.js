@@ -3,18 +3,17 @@ const homeMain = document.querySelector("main");
 const homeHeader = document.querySelector("header");
 
 async function createHomePage() {
+  // check to see if the user is logged in
+  const user = JSON.parse(window.localStorage.getItem("user"));
+  if (user) {
+    createDiscoverPage(user);
+    return;
+  }
   setupPage();
   function setupPage() {
     setElementAttributes(homeMain, "home-main", "");
     clearBackgroundImage();
     clearElementAttributes(homeHeader);
-
-    // check to see if the user is logged in
-    const user = JSON.parse(window.localStorage.getItem("user"));
-    if (user) {
-      createDiscoverPage(user);
-      return;
-    }
   }
 
   homeHeader.innerHTML = `
@@ -59,11 +58,11 @@ async function createHomePage() {
     "footer"
   ).innerHTML = `<button id="about-us">ABOUT US</button>`;
 
+
   addEventListeners();
   function addEventListeners() {
-    addEventListenerById("loginBtn", "click", createLoginPage);
-    addEventListenerById("registerBtn", "click", createRegisterPage);
+    document.getElementById("loginBtn").addEventListener("click", createLoginPage);
+    document.getElementById("registerBtn").addEventListener("click", createRegisterPage);
   }
 }
-
 document.addEventListener("DOMContentLoaded", createHomePage);

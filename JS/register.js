@@ -83,11 +83,12 @@ function createRegisterPage() {
 
     </section>
  `;
+
     addEventListeners();
     function addEventListeners() {
         // redirect to login page if already registered
-        addEventListenerById("login", "click", createLoginPage);
-        addEventListenerById("go-home-btn", "click", createHomePage)
+        document.getElementById("login").addEventListener("click", createLoginPage);
+        document.getElementById("go-home-btn").addEventListener("click", createHomePage)
         registerUserListener();
     }
 }
