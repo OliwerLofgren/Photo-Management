@@ -41,6 +41,8 @@ async function createHomePage() {
   function homePhotos() {
     let per_page = 12;
     let imgSize = "portrait";
+
+    // photo dom element creation
     displayCuratedPhotos(per_page, imgSize);
     displaySearchTermPhotos(per_page, imgSize);
   }

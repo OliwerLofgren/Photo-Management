@@ -7,34 +7,31 @@ async function registerUser(event) {
     event.preventDefault();
     /* oliwer säger kom ihåg att fetcha från mappen register.php
     note: register allows registration w/o password */
+    let username = getElement("#username").value;
+    let password = getElement("#password").value;
 
+    const userData = {
+        username: username,
+        password: password
+    };
+
+    const post = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+    };
 
     try {
-        let username = getElement("#username").value;
-        let password = getElement("#password").value;
-
-        const requestBody = {
-            username: username,
-            password: password
-        };
-
-        const post = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(requestBody),
-        };
-
-        let response = await fetch("/PHP/register.php", post);
-        let data = await response.json();
-
-        console.log(response);
+        const response = await fetch("/PHP/register.php", post);
+        const data = await response.json();
 
         if (!response.ok) {
             displayDatabaseMessage(data);
         } else { // Registration successful
+            console.log("registered successfully:", data);
 
             // display modal
-            let clickedButton = document.querySelector("#regForm button");
+            const clickedButton = document.querySelector("#regForm button");
             clickedButton.onClick = displayModalWindow("Successfully registered! Proceed to Log in page");
 
             // close modal
@@ -42,8 +39,7 @@ async function registerUser(event) {
         }
     }
     catch (error) {
-        console.log(error)
-        alert("Oops, something went wrong. Please try again later.");
+        console.log("Error registering:", error);
     }
 }
 

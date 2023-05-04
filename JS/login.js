@@ -6,36 +6,35 @@ const loginHeader = document.querySelector("header");
 async function loginUser(event) {
     event.preventDefault();
 
+    let username = getElement("#username").value;
+    let password = getElement("#password").value;
+
+    const userData = {
+        username: username,
+        password: password
+    };
+
+    const post = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+    };
+
     try {
-        let username = getElement("#username").value;
-        let password = getElement("#password").value;
-
-        const requestBody = {
-            username: username,
-            password: password
-        };
-
-        const post = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(requestBody),
-        };
-
-        let response = await fetch("/PHP/login.php", post);
-        let data = await response.json();
-
-        console.log(response);
+        const response = await fetch("/PHP/login.php", post);
+        const data = await response.json();
 
         if (!response.ok) {
             displayDatabaseMessage(data);
         } else {
+            console.log("log in successful:", data);
+
             window.localStorage.setItem("user", JSON.stringify(data));
             let user = data;
             createDiscoverPage(user);
         }
     } catch (error) {
-        console.log(error)
-        alert("Oops, something went wrong. Please try again later.");
+        console.log("Error login:", error); s
     }
 }
 
