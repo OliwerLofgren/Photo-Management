@@ -143,13 +143,6 @@ async function createProfileGalleryPage(user) {
           result.textContent = "An error occurred: " + data.error;
         } else {
           result.textContent = "Successfully uploaded the image";
-          // const img_container = document.createElement("div");
-
-          // const img = document.createElement("img");
-
-          // img.src = data[0].src;
-          // img_container.appendChild(img);
-          // profileMain.appendChild(img_container);
         }
       });
   });
@@ -161,13 +154,15 @@ async function createProfileGalleryPage(user) {
 
       for (let i = 0; i < uploadedPhotos.length; i++) {
         const photo = uploadedPhotos[i];
-        const img = document.createElement("img");
-        img.src = photo.src;
-        img.alt = `Photo ${i + 1}`;
-        const img_container = document.createElement("div");
-        img_container.classList.add("grid-item");
-        img_container.appendChild(img);
-        profileMain.appendChild(img_container);
+        if (photo.src) {
+          const img = document.createElement("img");
+          img.src = photo.src;
+          img.alt = `Photo ${i + 1}`;
+          const img_container = document.createElement("div");
+          img_container.classList.add("grid-item");
+          img_container.appendChild(img);
+          profileMain.appendChild(img_container);
+        }
       }
     });
 
