@@ -3,7 +3,7 @@ const profileMain = document.querySelector("main");
 const profileHeader = document.querySelector("header");
 
 // creates profileSaved dom elements
-async function createProfileCollectionsPage(data) {
+async function createProfileCollectionsPage(user) {
   setupPage();
   function setupPage() {
     setElementAttributes(profileMain, "profile-main", "profile-page");
@@ -53,13 +53,13 @@ async function createProfileCollectionsPage(data) {
     document
       .getElementById("gallery-button")
       .addEventListener("click", function () {
-        createProfileGalleryPage(data);
+        createProfileGalleryPage(user);
       });
 
     document
       .getElementById("discover-button")
       .addEventListener("click", function () {
-        createDiscoverPage(data);
+        createDiscoverPage(user);
       });
 
     document
@@ -111,7 +111,7 @@ async function createProfileGalleryPage(user) {
   </section >
 
     <section id="gallery-section-two" class="section">
-      <div id="profile-photos" class="api-photos"></div>
+      <div id="gallery-photos" class="gallery-photos"></div>
     </section>
   `;
 

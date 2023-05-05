@@ -56,11 +56,12 @@ async function createLoginPage() {
     }
 
     loginMain.innerHTML = ` 
+    <H1>PHOTO MANAGEMENT</H1>
+    <nav id="navLogin">
+        <button id="register-btn">REGISTER</button>
+    </nav>
+    
     <section id="login-section" class="section"> 
-        <nav id="navLogin">
-            <button id="go-home-btn">&larr; Back to Home Page</button>
-        </nav>
-
         <h2>Log in</h2>
         <p id="message"></p>
 
@@ -69,7 +70,6 @@ async function createLoginPage() {
             <input type=password id="password" placeholder=Password>
             <button type=submit>Log in</button>
         </form>
-        <button id="register">New to this? Sign up for free</button>
     </section>
     `;
 
@@ -89,8 +89,7 @@ async function createLoginPage() {
     addEventListeners();
     function addEventListeners() {
         // redirect to register page instead
-        document.getElementById("go-home-btn").addEventListener("click", createHomePage);
-        document.getElementById("register").addEventListener("click", createRegisterPage);
+        document.getElementById("register-btn").addEventListener("click", createRegisterPage);
         loginUserListener();
     }
 }
