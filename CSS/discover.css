@@ -20,10 +20,11 @@ button {
     height: 50vh;
 }
 
+
 #discover-photos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 10px;
+    gap: 5px;
     grid-auto-flow: dense;
 }
 
@@ -31,7 +32,7 @@ button {
     overflow: hidden;
 }
 
-#home-photos>div img {
+#discover-photos>div img {
     height: 100%;
     width: 100%;
     object-fit: cover;

@@ -54,14 +54,6 @@ async function createLoginPage() {
         setElementAttributes(loginHeader, "", "display-none");
     }
 
-    // set bg img from api photo
-    async function loginPagePhotos() {
-        let per_page = 1;
-        let imgSize = "original";
-        displayApiBackgroundImage(per_page, imgSize, "main");
-    }
-    loginPagePhotos();
-
     loginMain.innerHTML = ` 
     <H1>PHOTO MANAGEMENT</H1>
     <nav id="navLogin">
@@ -79,6 +71,19 @@ async function createLoginPage() {
         </form>
     </section>
     `;
+
+    // set bg img from api photo
+    loginPagePhotos();
+    function loginPagePhotos() {
+        let domElement = document.querySelector("main");
+        // check if current page is login page
+        const loginPage = document.getElementById("login-main");
+        if (loginPage) {
+            let per_page = 1;
+            let imgSize = "original";
+            displayApiBackgroundImage(per_page, imgSize, domElement);
+        }
+    } loginPagePhotos();
 
     addEventListeners();
     function addEventListeners() {

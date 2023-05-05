@@ -59,14 +59,6 @@ function createRegisterPage() {
         // setElementAttributes(registerHeader, "", "display-none")
     }
 
-    // set bg img from api photo
-    function registerPagePhotos() {
-        let per_page = 1;
-        let imgSize = "original";
-        displayApiBackgroundImage(per_page, imgSize, "main");
-    }
-    registerPagePhotos();
-
     registerMain.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
 
@@ -86,6 +78,17 @@ function createRegisterPage() {
     </form>
   </section>
  `;
+    // set bg img from api photo
+    function registerPagePhotos() {
+        let per_page = 1;
+        let imgSize = "original";
+        let domElement = document.querySelector("main");
+        // check if current page is register page
+        const registerPage = document.getElementById("register-main");
+        if (registerPage) {
+            displayApiBackgroundImage(per_page, imgSize, domElement);
+        }
+    } registerPagePhotos();
 
     addEventListeners();
     function addEventListeners() {
