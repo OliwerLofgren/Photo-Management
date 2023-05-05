@@ -95,7 +95,7 @@ function createRegisterPage() {
     addEventListeners();
     function addEventListeners() {
         // redirect to login page if already registered
-        addEventListenerById("login-btn", "click", createLoginPage)
+        document.getElementById("login-btn").addEventListener("click", createLoginPage);
         registerUserListener();
     }
 }

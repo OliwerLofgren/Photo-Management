@@ -89,7 +89,7 @@ async function createLoginPage() {
     addEventListeners();
     function addEventListeners() {
         // redirect to register page instead
-        addEventListenerById("register-btn", "click", createRegisterPage)
+        document.getElementById("register-btn").addEventListener("click", createRegisterPage);
         loginUserListener();
     }
 }
