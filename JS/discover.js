@@ -47,6 +47,10 @@ async function createDiscoverPage(user) {
         }
     } discoverPhotos();
 
+
+    document.getElementById("collections-button").addEventListener("click", function () {
+        createProfileCollectionsPage(user);
+    });
     document.getElementById("gallery-button").addEventListener("click", function () {
         createProfileGalleryPage(user);
     });
