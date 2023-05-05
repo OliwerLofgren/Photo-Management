@@ -7,6 +7,11 @@
                 {
                     "src": "..\/PHP\/my_photos\/dog.jpg"
                 }
+            ],
+            [
+                {
+                    "src": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
+                }
             ]
         ],
         "saved_photos": []

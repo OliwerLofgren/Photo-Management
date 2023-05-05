@@ -113,7 +113,63 @@ async function createProfileGalleryPage(user) {
     <section id="gallery-section-two" class="section">
       <div id="gallery-photos" class="gallery-photos"></div>
     </section>
+
+    <form id="form_upload" action="/PHP/profile.php" method="POST" enctype="multipart/form-data">
+      <input type="file" name="upload">
+      <button type="submit">Upload</button>
+    </form>
   `;
+
+  const result = document.getElementById("result");
+  const form = document.getElementById("form_upload");
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    // Remove previously uploaded image
+
+    const formData = new FormData(form);
+    const request = new Request("../PHP/profile.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    fetch(request)
+      .then((response) => response.json())
+      .then((data) => {
+        // This simply resets the form.
+        form.reset();
+        console.log(data);
+
+        if (data.error) {
+          result.textContent = "An error occurred: " + data.error;
+        } else {
+          result.textContent = "Successfully uploaded the image";
+          // const img_container = document.createElement("div");
+
+          // const img = document.createElement("img");
+
+          // img.src = data[0].src;
+          // img_container.appendChild(img);
+          // profileMain.appendChild(img_container);
+        }
+      });
+  });
+
+  fetch("../JSON/users.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const uploadedPhotos = data[0].uploaded_photos;
+
+      for (let i = 0; i < uploadedPhotos.length; i++) {
+        const photo = uploadedPhotos[i];
+        const img = document.createElement("img");
+        img.src = photo.src;
+        img.alt = `Photo ${i + 1}`;
+        const img_container = document.createElement("div");
+        img_container.classList.add("grid-item");
+        img_container.appendChild(img);
+        profileMain.appendChild(img_container);
+      }
+    });
 
   addEventListenerById("portfolio-profile-button", "click", function () {
     createProfilePortfolioPage(data);
@@ -132,49 +188,6 @@ const uploadPageMain = document.querySelector("main");
 async function createProfilePortfolioPage(data) {
   setupPage();
   function setupPage() {
-    profileHeader.innerHTML = `
-    <form id="form_upload" action="/PHP/profile.php" method="POST" enctype="multipart/form-data">
-                <input type="file" name="upload">
-                <button type="submit">Upload</button>
-            </form>
-            <div id="result"></div>
-    `;
-    const result = document.getElementById("result");
-    const form = document.getElementById("form_upload");
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      // Remove previously uploaded image
-
-      const formData = new FormData(form);
-      const request = new Request("../PHP/profile.php", {
-        method: "POST",
-        body: formData,
-      });
-
-      fetch(request)
-        .then((response) => response.json())
-        .then((data) => {
-          // This simply resets the form.
-          form.reset();
-          console.log(data);
-
-          if (data.error) {
-            result.textContent = "An error occurred: " + data.error;
-          } else {
-            result.textContent = "Successfully uploaded the image";
-            const img_container = document.createElement("div");
-
-            const uploaded_photos = data.uploaded_photos;
-            uploaded_photos.forEach((photo) => {
-              const img = document.createElement("img");
-              img.src = photo.src;
-
-              img_container.appendChild(img);
-              profileMain.appendChild(img_container);
-            });
-          }
-        });
-    });
     clearElementAttributes(uploadPageMain);
     setElementAttributes(uploadPageMain, "profile-upload-main", "profile-page");
     addEventListeners();
