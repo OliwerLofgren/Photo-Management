@@ -5,6 +5,14 @@
     /* enable scroll snap */
 }
 
+#home-section-one {
+    height: calc(100vh - 6vh);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 header {
     background-color: #f0f0f0;
     display: flex;
@@ -55,4 +63,8 @@ footer {
     height: 10vh;
     /* set the height of the footer */
     background-color: #f0f0f0;
+}
+
+#search-field {
+    border: 1px rgb(155, 149, 149) solid;
 }

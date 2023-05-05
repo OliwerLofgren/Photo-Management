@@ -5,6 +5,7 @@
 
 * {
     margin: 0;
+    box-sizing: border-box;
 }
 
 /* Animate the scrolling */
@@ -13,28 +14,17 @@ html {
 }
 
 body {
-    box-sizing: border-box;
+    height: 100vh;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
     font-family: "Neue Montreal-Bold";
-}
-
-header {
-    height: 10vh;
-}
-
-main {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 80vh;
+    overflow-y: scroll;
 }
 
 
 .section {
-    height: calc(100vh - 50px);
-    /* set the height of each section to 100vh */
+    height: 100%;
     scroll-snap-align: start;
     /* snap each section to the top of the viewport */
 }
