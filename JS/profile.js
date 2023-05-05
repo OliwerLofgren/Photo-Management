@@ -83,7 +83,7 @@ async function createProfilePortfolioPage(data) {
 
             img.src = data[0].src;
             img_container.appendChild(img);
-            result.appendChild(img_container);
+            profileMain.appendChild(img_container);
           }
         });
     });
