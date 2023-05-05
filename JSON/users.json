@@ -20,5 +20,11 @@
             ]
         ],
         "saved_photos": []
+    },
+    {
+        "username": "a",
+        "password": "a",
+        "uploaded_photos": [],
+        "saved_photos": []
     }
 ]
