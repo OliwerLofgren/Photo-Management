@@ -35,14 +35,17 @@ async function createProfileCollectionsPage(data) {
   </section>
 `;
 
+  // set bg img from api photo
   function profileCollectionsPhotos() {
-    let per_page = 2;
-    let imgSize = "portrait";
-    displayCuratedPhotos(per_page, imgSize);
-    displaySearchTermPhotos(per_page, imgSize);
-  }
-  profileCollectionsPhotos();
-
+    // check if current page is profile page
+    const profilePage = document.getElementById("profile-main");
+    if (profilePage) {
+      let per_page = 2;
+      let imgSize = "portrait";
+      displayCuratedPhotos(per_page, imgSize);
+      displaySearchTermPhotos(per_page, imgSize);
+    }
+  } profileCollectionsPhotos();
 
   addEventListeners();
   function addEventListeners() {
@@ -80,28 +83,28 @@ async function createProfileGalleryPage(user) {
 
   document.querySelector("#profile-gallery-main").innerHTML = `
   <section id="gallery-section-one" class="section">
-  <!-- Insert user profile photo here -->
+  < !--Insert user profile photo here-- >
     <div id="profile-picture" class="profile-photo">-user profile photo here</div>
 
     <nav>
       <button id="collections-button">My Collections</button>      
       <button id="gallery-button">Gallery</button>      
     </nav>
-  </section>
+  </section >
 
-  <section id="gallery-section-two" class="section">
+    <section id="gallery-section-two" class="section">
       <div id="profile-photos" class="api-photos"></div>
-  </section>
+    </section>
   `;
 
   addEventListeners();
   function addEventListeners() {
     document.getElementById("collections-button").addEventListener("click", function () {
-      createProfileCollectionsPage(data);
+      createProfileCollectionsPage(user);
     });
 
     document.getElementById("discover-button").addEventListener("click", function () {
-      createDiscoverPage(data);
+      createDiscoverPage(user);
     });
 
     document.getElementById("logout-button").addEventListener("click", function () {
@@ -110,6 +113,8 @@ async function createProfileGalleryPage(user) {
       createHomePage();
     });
   }
+
+
 }
 
 //Display all images that are saved from discover

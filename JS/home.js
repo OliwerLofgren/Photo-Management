@@ -94,4 +94,4 @@ async function createHomePage() {
     document.getElementById("registerBtn").addEventListener("click", createRegisterPage);
   }
 }
-document.addEventListener("DOMContentLoaded", createHomePage);
+
