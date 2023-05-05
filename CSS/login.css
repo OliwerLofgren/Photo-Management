@@ -1,11 +1,11 @@
 #navLogin {
     border-bottom: 2px solid black;
     width: 100vw;
-}
-
-#login-main {
-    height: calc(100vh - 50px);
-    /* overflow-y: scroll; */
+    position: relative;
+    top: 20px;
+    border: none;
+    display: flex;
+    justify-content: flex-end;
 }
 
 /* Center all elements except nav */
@@ -15,16 +15,27 @@
     align-items: center;
     flex-direction: column;
     /* Align elements vertically */
-    height: 100vh;
-    /* Make section fill entire viewport */
     gap: 20px;
     overflow: hidden;
+    height: 80vh;
 }
 
 #loginForm {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+#h1 {
+    border-bottom: 2px solid black;
+}
+
+#register-btn {
+    color: black;
+    background: none;
+    padding: 5px 15px;
+    border: none;
+    cursor: pointer;
 }
 
 /* #login-photos {

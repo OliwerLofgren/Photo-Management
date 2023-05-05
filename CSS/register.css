@@ -1,12 +1,17 @@
 #navRegister {
     border-bottom: 2px solid black;
     width: 100vw;
+    position: relative;
+    top: 20px;
+    border: none;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
 }
 
 
 #register-main {
-    height: calc(100vh - 50px);
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
 }
 
 /* Center all elements except nav */
@@ -16,7 +21,7 @@
     align-items: center;
     flex-direction: column;
     /* Align elements vertically */
-    height: 100vh;
+    height: calc(100vh - 90px);
     /* Make section fill entire viewport */
     gap: 20px;
     overflow: hidden;
@@ -29,14 +34,16 @@
 }
 
 
-#go-home-btn {
-    color: rgba(255, 255, 255, 0.816);
+#login-btn {
+    color: black;
     background: none;
-    color: white;
     padding: 5px 15px;
     border: none;
     cursor: pointer;
 }
+
+
+
 
 /* 
 footer {

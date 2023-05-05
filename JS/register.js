@@ -60,7 +60,7 @@ function createRegisterPage() {
     setupPage();
     function setupPage() {
         setElementAttributes(registerMain, "register-main", "");
-        setElementAttributes(registerHeader, "", "display-none")
+        // setElementAttributes(registerHeader, "", "display-none")
     }
 
     // set bg img from api photo
@@ -72,26 +72,28 @@ function createRegisterPage() {
     registerPagePhotos();
 
     registerMain.innerHTML = `
-    <section id="register-section" class="section">
-        <nav id="navRegister">
-            <button id="go-home-btn">&larr; Back to Home Page</button>
-        </nav>
-        <h2>Sign up</h2>
-        <p id="message"></p>
-        <form id="regForm">
-            <input type=text id="username" placeholder=Username>
-            <input type=password id="password" placeholder=Password>
-            <button type=submit>Register</button>
-        </form>
-        <button id="login">Already got an account? Login here</button>
+    <H1>PHOTO MANAGEMENT</H1>
 
-    </section>
+    <nav id="navRegister">
+        <button id="login-btn">LOGIN</button>
+    </nav>
+
+    <section id="register-section" class="section">
+    <h2>Register</h2>
+
+    <p id="message"></p>
+
+    <form id="regForm">
+      <input type=text id="username" placeholder=Username>
+      <input type=password id="password" placeholder=Password>
+      <button type=submit>Register</button>
+    </form>
+  </section>
  `;
     addEventListeners();
     function addEventListeners() {
         // redirect to login page if already registered
-        addEventListenerById("login", "click", createLoginPage);
-        addEventListenerById("go-home-btn", "click", createHomePage)
+        addEventListenerById("login-btn", "click", createLoginPage)
         registerUserListener();
     }
 }
