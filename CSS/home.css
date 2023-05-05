@@ -1,51 +1,66 @@
 #home-main {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  /* enable scroll snap */
+    height: calc(100vh - 6vh);
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    /* enable scroll snap */
+}
+
+#home-section-one {
+    height: calc(100vh - 6vh);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 header {
-  height: 50px;
-  background-color: #f0f0f0;
-  display: flex;
-  align-items: center;
-  gap: 17vw;
+    height: calc(100vh - 94vh);
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 17vw;
+    padding: 30px;
+    border: 2px solid black;
 }
 
 button {
-  background: none;
-  /* border: none; */
-}
-
-nav {
-  border-bottom: 2px solid black;
-  width: 100vw;
+    background: none;
+    /* border: none; */
 }
 
 h1 {
-  border-bottom: 2px solid black;
+    margin-left: 20px;
+}
+
+#navHome {
+    position: relative;
+    top: 20px;
+    border: none;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #home-photos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 5px;
-  grid-auto-flow: dense;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 5px;
+    grid-auto-flow: dense;
 }
 
-#home-photos > div {
-  overflow: hidden;
+#home-photos>div {
+    overflow: hidden;
 }
 
-#home-photos > div img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+#home-photos>div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-footer {
-  height: 50px;
-  /* set the height of the footer */
-  background-color: #f0f0f0;
+#search-field {
+    border: 1px rgb(155, 149, 149) solid;
 }
+
+
+footer {}

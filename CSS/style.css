@@ -5,6 +5,7 @@
 
 * {
     margin: 0;
+    box-sizing: border-box;
 }
 
 /* Animate the scrolling */
@@ -13,23 +14,16 @@ html {
 }
 
 body {
-    box-sizing: border-box;
+    height: 100vh;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
     font-family: "Neue Montreal-Bold";
-}
-
-main {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
+    overflow-y: scroll;
 }
 
 .section {
-    height: 100vh;
-    /* set the height of each section to 100vh */
+    height: 100%;
     scroll-snap-align: start;
     /* snap each section to the top of the viewport */
 }
@@ -43,16 +37,18 @@ button {
 }
 
 form input {
-    border-radius: 15px;
+    border: none;
     padding: 5px 15px;
 }
 
 form button {
     background-color: #ff3131;
     color: white;
-    border-radius: 15px;
     padding: 5px 15px;
     border: none;
+    margin-left: 60px;
+    width: 80px;
+
 }
 
 /*Modal styles*/
