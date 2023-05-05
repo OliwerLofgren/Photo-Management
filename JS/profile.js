@@ -45,23 +45,30 @@ async function createProfileCollectionsPage(data) {
       displayCuratedPhotos(per_page, imgSize);
       displaySearchTermPhotos(per_page, imgSize);
     }
-  } profileCollectionsPhotos();
+  }
+  profileCollectionsPhotos();
 
   addEventListeners();
   function addEventListeners() {
-    document.getElementById("gallery-button").addEventListener("click", function () {
-      createProfileGalleryPage(data);
-    });
+    document
+      .getElementById("gallery-button")
+      .addEventListener("click", function () {
+        createProfileGalleryPage(data);
+      });
 
-    document.getElementById("discover-button").addEventListener("click", function () {
-      createDiscoverPage(data);
-    });
+    document
+      .getElementById("discover-button")
+      .addEventListener("click", function () {
+        createDiscoverPage(data);
+      });
 
-    document.getElementById("logout-button").addEventListener("click", function () {
-      localStorage.removeItem("user");
-      user = null;
-      createHomePage();
-    });
+    document
+      .getElementById("logout-button")
+      .addEventListener("click", function () {
+        localStorage.removeItem("user");
+        user = null;
+        createHomePage();
+      });
   }
 }
 
@@ -70,7 +77,11 @@ async function createProfileGalleryPage(user) {
   setupPage();
   function setupPage() {
     clearElementAttributes(galleryPageMain);
-    setElementAttributes(galleryPageMain, "profile-gallery-main", "profile-page");
+    setElementAttributes(
+      galleryPageMain,
+      "profile-gallery-main",
+      "profile-page"
+    );
   }
 
   profileHeader.innerHTML = `
@@ -84,6 +95,13 @@ async function createProfileGalleryPage(user) {
   document.querySelector("#profile-gallery-main").innerHTML = `
   <section id="gallery-section-one" class="section">
   < !--Insert user profile photo here-- >
+  
+  <form id="form_upload" action="/PHP/profile.php" method="POST" enctype="multipart/form-data">
+              <input type="file" name="upload">
+              <button type="submit">Upload</button>
+          </form>
+          <div id="result"></div>
+  
     <div id="profile-picture" class="profile-photo">-user profile photo here</div>
 
     <nav>
@@ -156,43 +174,27 @@ async function createProfilePortfolioPage(data) {
     });
     clearElementAttributes(uploadPageMain);
     setElementAttributes(uploadPageMain, "profile-upload-main", "profile-page");
-  addEventListeners();
-  function addEventListeners() {
-    document.getElementById("collections-button").addEventListener("click", function () {
-      createProfileCollectionsPage(user);
-    });
+    addEventListeners();
+    function addEventListeners() {
+      document
+        .getElementById("collections-button")
+        .addEventListener("click", function () {
+          createProfileCollectionsPage(user);
+        });
 
-    document.getElementById("discover-button").addEventListener("click", function () {
-      createDiscoverPage(user);
-    });
+      document
+        .getElementById("discover-button")
+        .addEventListener("click", function () {
+          createDiscoverPage(user);
+        });
 
-    document.getElementById("logout-button").addEventListener("click", function () {
-      localStorage.removeItem("user");
-      user = null;
-      createHomePage();
-    });
+      document
+        .getElementById("logout-button")
+        .addEventListener("click", function () {
+          localStorage.removeItem("user");
+          user = null;
+          createHomePage();
+        });
+    }
   }
-
-
 }
-
-//Display all images that are saved from discover
-
-//Display all images that you have uploaded
-
-//This php-code should is intended for index.html
-
-// $filename = "photo.json";
-// $photos = [];
-
-// if (file_exists($filename)) {
-//     $json = file_get_contents($filename);
-//     $photos = json_decode($json, true);
-// }
-
-// foreach ($photos as $photo) {
-//     $src = $photo["src"];
-//     echo "<img src='$src'>";
-// }
-
-//Display your profile picture

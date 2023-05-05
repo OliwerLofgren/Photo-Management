@@ -30,7 +30,7 @@ if ($request_method == "POST") {
         }
     }
     //If you are trying to register with empty username/password, error message
-    if($username == "" or $username == ""){
+    if($username == "" or $password == ""){
         $message = ["message" => "You cant register with an empty Username or Password"];
         sendJSON($message, 404);
     }
