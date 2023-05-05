@@ -2,16 +2,17 @@
 // API stuff
 const prefix = "https://api.pexels.com/v1/";
 const apiKey = "4Gkq0ZuJgevDtGOJesppgO5V4tZZ4TZLTBvtO1aX6fgmzxPXGIxmkFg0";
-// "d7eBBdpVdN08nChtJhFZzudXealrUpI6Xz0FsfuK0d5klpBSt6XzL2Zm"
 
 const headers = {
     authorization: apiKey,
 };
-
 // fetch function
 function fetch_resource(request) {
     return fetch(request);
 }
+
+
+/*** external api request handlers ****/
 
 // returns array of select keys: photographer name, photourl, etc
 async function fetchCuratedPhotos(per_page, imgSize) {
@@ -37,18 +38,23 @@ async function fetchCuratedPhotos(per_page, imgSize) {
         // Return an array of photo objects containing the photo URL and photographer name, and some other relevant keys
         let customPhotoDataArray = photoResourceArray.map(photo => {
             return {
+                id: photo.id,
+                width: photo.width,
+                height: photo.height,
+                avg_color: photo.avg_color,
                 photo: photo.src[imgSize],
                 photographerName: photo.photographer,
                 photographerUrl: photo.photographer_url,
-                liked: photo.liked,
-                alt: photo.alt
+                photographer_id: photo.photographer_id,
+                liked: false,
+                alt: photo.alt,
             };
         }); console.log(customPhotoDataArray);
         return customPhotoDataArray;
 
     } catch (error) {
         console.log(error);
-        return [];
+        return []; // return empty array instead of crashing page 
         // add message to user here
     }
 }
@@ -77,25 +83,84 @@ async function fetchSearchedPhotos(per_page, imgSize) {
         // Return an array of photo objects containing the photo URL and photographer name, and some other relevant keys
         let customPhotoDataArray = photoResourceArray.map(photo => {
             return {
+                id: photo.id,
+                width: photo.width,
+                height: photo.height,
+                avg_color: photo.avg_color,
                 photo: photo.src[imgSize],
                 photographerName: photo.photographer,
                 photographerUrl: photo.photographer_url,
-                liked: photo.liked,
-                alt: photo.alt
+                photographer_id: photo.photographer_id,
+                alt: photo.alt,
             };
         });
         return customPhotoDataArray;
 
     } catch (error) {
         console.log(error);
-        return [];
+        return []; // return empty array instead of crashing page
         // add message to user here
     }
 }
 
+/*** photo dom element creation and display ***/
+
+// (NOTE: don't forget to add class .api-photos to dom element to display photos) creates photo dom element and handles buttons event listeners
+function createPhotoDomContainer(array) {
+    const photoWrapper = document.querySelector(".api-photos");
+    // if try-catch error handler returned empty array (ex: request with empty search field)
+    if (array === undefined) {
+        console.log("array is undefined");
+        return;
+    } else { // else create dom elements
+        array.forEach(photoObject => {
+            const divDom = document.createElement("div");
+
+            const apiPhoto = document.createElement("img");
+            apiPhoto.src = photoObject.photo;
+            // add an alt attribute to the img element to improve accessibility
+            apiPhoto.alt = photoObject.alt;
+
+            // extract photographer name key to display it later
+            const photographer = photoObject.photographerName;
+
+            // create buttons over the api photos 
+            const photoInteractions = document.createElement("div");
+            photoInteractions.innerHTML = `
+            <button class="collect-button">Collect</button>
+            <button class="like-button">&hearts;</button>
+
+            <div class="photographer-info">${photographer}</div>
+            `;
+
+            /* notes från handledningen: var finns filen? urlet
+                skapa knapp som likar/collectar bild och skicka object till databasen, (object som sträng, stringify )
+                put inside eventlistener: collectPhoto(object);
+            */
+
+            // query select and add event listeners to the buttons on "this" current photoObject only
+            const collectButton = photoInteractions.querySelector(".collect-button");
+            const likeButton = photoInteractions.querySelector(".like-button");
+
+            // post the collected photo to db, (async await y/n?)
+            collectButton.addEventListener("click", () => {
+                postPhotoObjectToDatabase(photoObject)
+            });
+
+            // toggle the liked state and update like count on the clicked photo
+            likeButton.addEventListener("click", () => toggleLikesOnPhoto(postedPhotoObject));
+
+            divDom.append(photoInteractions);
+            divDom.append(apiPhoto);
+            photoWrapper.appendChild(divDom);
+        });
+    }
+}
+
+// displays search term api photos
 async function displayCuratedPhotos(per_page, imgSize) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
-    return createPhotoSection(customPhotoDataArray);
+    return createPhotoDomContainer(customPhotoDataArray);
 }
 
 // displays search term api photos
@@ -109,59 +174,24 @@ async function displaySearchTermPhotos(per_page, imgSize) {
             customPhotoDataArray = await fetchSearchedPhotos(per_page, imgSize);
             // clear already loaded and displayed api photos and show the searched photos instead
             document.querySelector(".api-photos").innerHTML = "";
-            return createPhotoSection(customPhotoDataArray);
+            return createPhotoDomContainer(customPhotoDataArray);
         })
     }
 }
 
-// sets bg image from api, set per_page = to 1 photo from api
+// extract then set a bg image from api, set per_page = to 1 photo from api
 async function displayApiBackgroundImage(per_page, imgSize) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
-    return setMainBackgroundImageFromApi(customPhotoDataArray);
-}
-
-/** (NOTE: don't forget to add class .api-photos to dom element to display photos)
-* Creates a DOM element for each photo in the array and appends them to the ".api-photos" element,
-*/
-function createPhotoSection(array) {
-    const photoWrapper = document.querySelector(".api-photos");
-    if (array === undefined) {
-        console.log("array is undefined");
-        return;
+    // set dom bg img 
+    function setMainBackgroundImageFromApi(array) {
+        array.forEach(object => {
+            // Set img as background image 
+            let backgroundImg = object.photo;
+            let dom = document.querySelector("main");
+            dom.style.backgroundImage = `url(${backgroundImg}`;
+        })
     }
-    // create dom element
-    array.forEach(object => {
-        const divDom = document.createElement("div");
-        const photoInteractionOverlay = document.createElement("div");
-        photoInteractionOverlay.innerHTML = `
-        <button class="collect-button">Collect</button>
-        <button class="like-button">&hearts;</button>
-
-        <div class="photographer-info>Photographer info goes here</div>
-        `;
-
-        const apiPhoto = document.createElement("img");
-        apiPhoto.src = object.photo;
-        // add an alt attribute to the img element to improve accessibility
-        apiPhoto.alt = object.alt;
-
-
-        divDom.appendChild(photoInteractionOverlay);
-        divDom.appendChild(apiPhoto);
-        photoWrapper.appendChild(divDom);
-
-        // dataset extra info (object som sträng, stringify
-        //  skapa knapp som likar bild och skickze object till databasen )
-    });
-}
-
-function setMainBackgroundImageFromApi(array) {
-    array.forEach(object => {
-        // Set img as background image 
-        let backgroundImg = object.photo;
-        let main = document.querySelector("main");
-        main.style.backgroundImage = `url(${backgroundImg}`;
-    })
+    return setMainBackgroundImageFromApi(customPhotoDataArray);
 }
 
 function photoApiResponseCodes(resource) {
@@ -180,9 +210,25 @@ function photoApiResponseCodes(resource) {
     }
 }
 
+/*** photo interactions ***/
 
-// var finns filen? urlet,
+// toggle like count
+async function toggleLikesOnPhoto(postedPhotoObject) {
+    console.log("you have liked the photo!", postedPhotoObject);
 
+    // toggle the liked state
+    postedPhotoObject.liked = !photoObject.liked;
+
+    // update the like count
+    if (postedPhotoObject.liked) {
+        postedPhotoObject.likesCount++;
+    } else {
+        postedPhotoObject.likesCount--;
+    }
+
+    // patch the updated photo object to the database
+    await patchPhotoObjectToDatabase(postedPhotoObject);
+}
 
 
 

@@ -14,11 +14,6 @@ async function createProfileCollectionsPage(data) {
   profileHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
       <nav>
-        <button id="collections-profile-button">My Collections</button>      
-        <button id="portfolio-profile-button">Profile</button>      
-      </nav>
-
-      <nav>
         <button id="discover-button">Discover</button>
         <button id="logout-button">Logout</button>
     </nav>
@@ -40,41 +35,42 @@ async function createProfileCollectionsPage(data) {
   </section>
 `;
 
-  async function profileCollectionsPhotos() {
-
+  function profileCollectionsPhotos() {
     let per_page = 2;
     let imgSize = "portrait";
-    await displayCuratedPhotos(per_page, imgSize);
-    await displaySearchTermPhotos(per_page, imgSize);
+    displayCuratedPhotos(per_page, imgSize);
+    displaySearchTermPhotos(per_page, imgSize);
   }
   profileCollectionsPhotos();
 
 
-  addEventListenerById("portfolio-profile-button", "click", function () {
-    createProfilePortfolioPage(data)
-  });
+  addEventListeners();
+  function addEventListeners() {
+    document.getElementById("portfolio-button").addEventListener("click", function () {
+      createProfilePortfolioPage(data);
+    });
 
-  addEventListenerById("portfolio-button", "click", function () {
-    createProfilePortfolioPage(data)
-  });
+    document.getElementById("discover-button").addEventListener("click", function () {
+      createDiscoverPage(data);
+    });
 
-  addEventListenerById("discover-button", "click", function () { createDiscoverPage(data) });
-
-  addEventListenerById("logout-button", "click", createHomePage);
-
-  /*setElementAttributes(profilePhotosWrapper, "profile-photos", "api-photos");*/
+    document.getElementById("logout-button").addEventListener("click", function () {
+      localStorage.removeItem("user");
+      user = null;
+      createHomePage();
+    });
+  }
 }
 
-const uploadPageMain = document.querySelector("main");
+const portfolioPageMain = document.querySelector("main");
 async function createProfilePortfolioPage(data) {
   setupPage();
   function setupPage() {
-    clearElementAttributes(uploadPageMain);
-    setElementAttributes(uploadPageMain, "profile-upload-main", "profile-page");
+    clearElementAttributes(portfolioPageMain);
+    setElementAttributes(portfolioPageMain, "profile-portfolio-main", "profile-page");
   }
 
-  document.querySelector("#profile-upload-main").innerHTML = `
-  
+  document.querySelector("#profile-portfolio-main").innerHTML = `
   <section id="portfolio-section-one" class="section">
   <!-- Insert user profile photo here -->
     <div id="profile-picture" class="profile-photo">-user profile photo here</div>
@@ -87,17 +83,25 @@ async function createProfilePortfolioPage(data) {
 
   <section id="portfolio-section-two" class="section">
       <div id="profile-photos" class="api-photos"></div>
-  </section>`
+  </section>
+  `;
 
-  addEventListenerById("collections-button", "click", function () {
-    createProfileCollectionsPage(data);
-  });
+  addEventListeners();
+  function addEventListeners() {
+    document.getElementById("collections-button").addEventListener("click", function () {
+      createProfileCollectionsPage(data);
+    });
 
-  addEventListenerById("discover-button", "click", function () {
-    createDiscoverPage(data);
-  });
+    document.getElementById("discover-button").addEventListener("click", function () {
+      createDiscoverPage(data);
+    });
 
-  addEventListenerById("logout-button", "click", createHomePage);
+    document.getElementById("logout-button").addEventListener("click", function () {
+      localStorage.removeItem("user");
+      user = null;
+      createHomePage();
+    });
+  }
 }
 
 //Display all images that are saved from discover

@@ -3,7 +3,7 @@
 const discoverMain = document.querySelector("main");
 const discoverHeader = document.querySelector("header");
 
-async function createDiscoverPage(data) {
+async function createDiscoverPage(user) {
     setupPage();
     function setupPage() {
         setElementAttributes(discoverMain, "discover-main", "");
@@ -14,7 +14,7 @@ async function createDiscoverPage(data) {
     document.querySelector("header").innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav>
-        <p>Username: ${data.username}</p>
+        <p>Username: ${user.username}</p>
         <button id="collections-profile-button">My Collections</button>
         <button id="logout-button">Logout</button>
     </nav>
@@ -33,22 +33,24 @@ async function createDiscoverPage(data) {
     </section>
     `;
 
-    async function discoverPhotos() {
+    function discoverPhotos() {
         let per_page = 12;
         let imgSize = "medium";
-        await displayCuratedPhotos(per_page, imgSize);
-        await displaySearchTermPhotos(per_page, imgSize)
+        displayCuratedPhotos(per_page, imgSize);
+        displaySearchTermPhotos(per_page, imgSize)
     }
     discoverPhotos();
 
-    addEventListenerById("logout-button", "click", function () {
-        localStorage.removeItem("user");
-        data = null;
-        createHomePage();
-    });
 
-    addEventListenerById("collections-profile-button", "click", function () {
-        createProfileCollectionsPage(data);
-    });
+    document.addEventListener("click", function (event) {
+        if (event.target.id === "collections-profile-button") {
+            createProfileCollectionsPage(user);
+        }
 
+        if (event.target.id === "logout-button") {
+            localStorage.removeItem("user");
+            user = null;
+            createHomePage();
+        }
+    });
 }
