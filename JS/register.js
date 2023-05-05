@@ -1,6 +1,7 @@
 "use strict";
 const registerMain = document.querySelector("main");
 const registerHeader = document.querySelector("header");
+const footer = document.querySelector("footer");
 
 // handles request
 async function registerUser(event) {
@@ -57,6 +58,7 @@ function createRegisterPage() {
     function setupPage() {
         setElementAttributes(registerMain, "register-main", "");
         setElementAttributes(registerHeader, "", "display-none")
+        setElementAttributes(footer, "", "display-none");
     }
 
     // set bg img from api photo

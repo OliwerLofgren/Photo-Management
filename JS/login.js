@@ -52,6 +52,7 @@ async function createLoginPage() {
     function setupPage() {
         setElementAttributes(loginMain, "login-main", "");
         setElementAttributes(loginHeader, "", "display-none");
+        setElementAttributes(footer, "", "display-none");
     }
 
     // set bg img from api photo

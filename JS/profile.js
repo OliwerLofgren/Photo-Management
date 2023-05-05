@@ -26,7 +26,7 @@ async function createProfileCollectionsPage(data) {
 
     <nav>
       <button id="collections-button">My Collections</button>      
-      <button id="portfolio-button">Profile</button>      
+      <button id="gallery-button">Gallery</button>      
     </nav>
   </section>
 
@@ -46,8 +46,8 @@ async function createProfileCollectionsPage(data) {
 
   addEventListeners();
   function addEventListeners() {
-    document.getElementById("portfolio-button").addEventListener("click", function () {
-      createProfilePortfolioPage(data);
+    document.getElementById("gallery-button").addEventListener("click", function () {
+      createProfileGalleryPage(data);
     });
 
     document.getElementById("discover-button").addEventListener("click", function () {
@@ -62,26 +62,34 @@ async function createProfileCollectionsPage(data) {
   }
 }
 
-const portfolioPageMain = document.querySelector("main");
-async function createProfilePortfolioPage(data) {
+const galleryPageMain = document.querySelector("main");
+async function createProfileGalleryPage(user) {
   setupPage();
   function setupPage() {
-    clearElementAttributes(portfolioPageMain);
-    setElementAttributes(portfolioPageMain, "profile-portfolio-main", "profile-page");
+    clearElementAttributes(galleryPageMain);
+    setElementAttributes(galleryPageMain, "profile-gallery-main", "profile-page");
   }
 
-  document.querySelector("#profile-portfolio-main").innerHTML = `
-  <section id="portfolio-section-one" class="section">
+  profileHeader.innerHTML = `
+  <H1>PHOTO MANAGEMENT</H1>
+    <nav>
+      <button id="discover-button">Discover</button>
+      <button id="logout-button">Logout</button>
+    </nav>
+`;
+
+  document.querySelector("#profile-gallery-main").innerHTML = `
+  <section id="gallery-section-one" class="section">
   <!-- Insert user profile photo here -->
     <div id="profile-picture" class="profile-photo">-user profile photo here</div>
 
     <nav>
       <button id="collections-button">My Collections</button>      
-      <button id="portfolio-button">Profile</button>      
+      <button id="gallery-button">Gallery</button>      
     </nav>
   </section>
 
-  <section id="portfolio-section-two" class="section">
+  <section id="gallery-section-two" class="section">
       <div id="profile-photos" class="api-photos"></div>
   </section>
   `;

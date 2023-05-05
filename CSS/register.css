@@ -3,10 +3,11 @@
     width: 100vw;
 }
 
-
 #register-main {
-    height: calc(100vh - 50px);
-    /* overflow-y: scroll; */
+    height: calc(100vh);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 /* Center all elements except nav */
@@ -16,10 +17,9 @@
     align-items: center;
     flex-direction: column;
     /* Align elements vertically */
-    height: 100vh;
+    height: 100%;
     /* Make section fill entire viewport */
     gap: 20px;
-    overflow: hidden;
 }
 
 #regForm {
