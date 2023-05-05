@@ -157,18 +157,21 @@ async function createProfilePortfolioPage(data) {
           // This simply resets the form.
           form.reset();
           console.log(data);
-          console.log(data[0].src);
 
           if (data.error) {
             result.textContent = "An error occurred: " + data.error;
           } else {
             result.textContent = "Successfully uploaded the image";
             const img_container = document.createElement("div");
-            const img = document.createElement("img");
 
-            img.src = data[0].src;
-            img_container.appendChild(img);
-            profileMain.appendChild(img_container);
+            const uploaded_photos = data.uploaded_photos;
+            uploaded_photos.forEach((photo) => {
+              const img = document.createElement("img");
+              img.src = photo.src;
+
+              img_container.appendChild(img);
+              profileMain.appendChild(img_container);
+            });
           }
         });
     });
