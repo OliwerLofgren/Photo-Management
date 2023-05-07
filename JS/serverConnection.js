@@ -131,6 +131,7 @@ function createPhotoContainer(array) {
 
         // create buttons over the api photos 
         const photoInteractionsContainer = document.createElement("div");
+        photoInteractionsContainer.classList.add("interaction-container")
         photoInteractionsContainer.innerHTML = `
             <button class="collect-button">Collect</button>
             <button class="like-button">&hearts;</button>

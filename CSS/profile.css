@@ -4,6 +4,11 @@
 
 #collections-section-one {
     height: 50px;
+    width: calc(100vw - 10vw);
+}
+
+#collection-section-two {
+    width: calc(100vw - 10vw);
 }
 
 #profile-photos>div {
@@ -49,4 +54,19 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+#nav-collection {
+    width: 10vw;
+    background-color: white;
+    position: absolute;
+    height: 100vh;
+    border-right: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+#nav-collection button {
+    transform: rotate(-90deg);
 }

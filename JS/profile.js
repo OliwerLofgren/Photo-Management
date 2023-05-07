@@ -12,14 +12,14 @@ async function createProfileCollectionsPage(user) {
 
   // NOTE: current profile page needs to be marked in css 
   profileHeader.innerHTML = `
-    <H1>PHOTO MANAGEMENT</H1>
-      <nav>
-        <button id="discover-button">Discover</button>
-        <button id="logout-button">Logout</button>
-    </nav>
+    <H1>PHOTO MANAGEMENT</H1>   
   `;
 
   profileMain.innerHTML = `
+  <nav id="nav-collection">
+  <button id="logout-button">Logout</button>
+    <button id="discover-button">Discover</button>
+</nav>
   <section id="collections-section-one" class="section">
   <!-- Insert user profile photo here -->
     <div id="profile-picture" class="profile-photo">-user profile photo here</div>
