@@ -134,7 +134,7 @@ function createPhotoContainer(array) {
         photoInteractionsContainer.classList.add("interaction-container")
         photoInteractionsContainer.innerHTML = `
             <button class="collect-button">Collect</button>
-            <button class="like-button">&hearts;</button>
+            <i class="likebtn fa-regular fa-heart" style="color: #000000;"></i>
 
             <div class="photographer-info">${photographerName}</div>
             `;
@@ -146,7 +146,7 @@ function createPhotoContainer(array) {
 
         // query select and add event listeners to the buttons on "this" current photoObject only
         const collectButton = photoInteractionsContainer.querySelector(".collect-button");
-        const likeButton = photoInteractionsContainer.querySelector(".like-button");
+        const likeButton = photoInteractionsContainer.querySelector(".likebtn");
 
         // post the collected photo to db.
         async function postPhotoToDB() {
@@ -155,7 +155,9 @@ function createPhotoContainer(array) {
         collectButton.addEventListener("click", postPhotoToDB);
 
         // toggle the liked state and update like count on the clicked photo
-        likeButton.addEventListener("click", () => toggleLikesOnPhoto(postedPhotoObject));
+        // deleted argument postedObjectPhoto in toggleLikesOnPhoto
+        likeButton.addEventListener("click", () => toggleLikesOnPhoto());
+        console.log("Going to toggleLikesOnPhoto");
 
         photoContainer.append(photoInteractionsContainer);
         photoContainer.append(photoImage);
@@ -217,6 +219,19 @@ function photoApiResponseCodes(resource) {
 // toggle like count
 async function toggleLikesOnPhoto(postedPhotoObject) {
     console.log("you have liked the photo!", postedPhotoObject);
+
+    const icon = document.querySelector("i");
+
+    if (icon.classList.contains("fa-regular")) {
+        icon.classList.remove("fa-regular");
+        icon.classList.add("fa-solid");
+        icon.style.color = "#e83030";
+    } else {
+        icon.classList.remove("fa-solid");
+        icon.classList.add("fa-regular");
+        icon.style.color = "#000000";
+    }
+
 
     // toggle the liked state
     postedPhotoObject.liked = !photoObject.liked;
