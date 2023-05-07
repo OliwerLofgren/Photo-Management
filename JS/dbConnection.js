@@ -6,7 +6,7 @@ async function postPhotoObjectToDatabase(photoObject) {
 
     // format data and add some keys
     const photoObjectForDatabase = {
-        id: photoObject.id, // add id to the object
+        id: photoObject.id, // add id to the photo 
         photoObject: photoObject,
         liked: false,
         likesCount: photoObject.likesCount
@@ -51,7 +51,7 @@ async function patchPhotoObjectToDatabase(postedPhotoObject) {
     };
 
     try {
-        const response = await fetch(`/PHP/profile.php?id=${photoObjectForDatabase.id}`, options); // url includes id of the photo object 
+        const response = await fetch(`/PHP/profile.php?id=${photoObjectForDatabase.id}`, options); // url includes id of the photo  
         const patchedPhotoObject = await response.json();
 
         if (!response.ok) {

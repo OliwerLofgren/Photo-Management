@@ -33,3 +33,20 @@
     width: 100%;
     object-fit: cover;
 }
+
+#gallery-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 5px;
+    grid-auto-flow: dense;
+}
+
+#gallery-photos>div {
+    overflow: hidden;
+}
+
+#gallery-photos>div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

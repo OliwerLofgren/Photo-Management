@@ -1,6 +1,7 @@
 "use strict";
 const registerMain = document.querySelector("main");
 const registerHeader = document.querySelector("header");
+const footer = document.querySelector("footer");
 
 // handles request
 async function registerUser(event) {
@@ -57,23 +58,27 @@ function createRegisterPage() {
     function setupPage() {
         setElementAttributes(registerMain, "register-main", "");
         setElementAttributes(registerHeader, "", "display-none")
+        setElementAttributes(footer, "", "display-none");
     }
 
     registerMain.innerHTML = `
-    <section id="register-section" class="section">
-        <nav id="navRegister">
-            <button id="go-home-btn">&larr; Back to Home Page</button>
-        </nav>
-        <h2>Sign up</h2>
-        <p id="message"></p>
-        <form id="regForm">
-            <input type=text id="username" placeholder=Username>
-            <input type=password id="password" placeholder=Password>
-            <button type=submit>Register</button>
-        </form>
-        <button id="login">Already got an account? Login here</button>
+    <H1>PHOTO MANAGEMENT</H1>
 
-    </section>
+    <nav id="navRegister">
+        <button id="login-btn">LOGIN</button>
+    </nav>
+
+    <section id="register-section" class="section">
+    <h2>Register</h2>
+
+    <p id="message"></p>
+
+    <form id="regForm">
+      <input type=text id="username" placeholder=Username>
+      <input type=password id="password" placeholder=Password>
+      <button type=submit>Register</button>
+    </form>
+  </section>
  `;
     // set bg img from api photo
     function registerPagePhotos() {
@@ -90,8 +95,7 @@ function createRegisterPage() {
     addEventListeners();
     function addEventListeners() {
         // redirect to login page if already registered
-        document.getElementById("login").addEventListener("click", createLoginPage);
-        document.getElementById("go-home-btn").addEventListener("click", createHomePage)
+        document.getElementById("login-btn").addEventListener("click", createLoginPage);
         registerUserListener();
     }
 }

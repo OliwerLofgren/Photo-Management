@@ -1,27 +1,36 @@
 #home-main {
-    height: 100vh;
+    height: 80vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     /* enable scroll snap */
 }
 
+#home-section-one {
+    height: calc(100vh - 6vh);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 header {
-    height: 50px;
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
     gap: 17vw;
     padding: 30px;
-    border: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 button {
     background: none;
-    /* border: none; */
+    border: none;
 }
 
 h1 {
-    margin-left: 20px;
+    border-left: 2px solid black;
+    /* height: 80px;
+    padding: 30px 0 30px 10px; */
 }
 
 #navHome {
@@ -51,7 +60,11 @@ h1 {
 }
 
 footer {
-    height: 50px;
+    height: 10vh;
     /* set the height of the footer */
     background-color: #f0f0f0;
+}
+
+#search-field {
+    border: 1px rgb(155, 149, 149) solid;
 }
