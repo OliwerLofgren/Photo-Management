@@ -10,9 +10,34 @@
     $input_data = json_decode(file_get_contents("php://input"), true);
 
     
-    //This section is for uploading new images
     if ($request_method == "POST") {
+        //This section is for Collect
+        $id = $input_data["id"];
+        $obj = $input_data["photoObject"];
+        $liked = $input_data["liked"];
+        $likes_count = $input_data["likesCount"];
         
+        if ($id == null && $obj == null && $liked == null && $likes_count == null) {
+            $message = ["message" => "Array is null!"];
+            sendJSON($message, 400);
+        }
+        if ($id == "" && $obj == "" && $liked == "" && $likes_count == "") {
+            $message = ["message" => "Array is empty!"];
+            sendJSON($message, 400);
+        }
+        
+        $new_data = [
+            "id" => $id,
+            "photoObject" => $obj,
+            "liked" => $liked,
+            "likesCount" => $likes_count
+        ];
+        $users[0]["saved_photos"][] = $new_data;
+        file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
+        sendJSON($new_data);
+        
+        
+        //This section is for uploading new images
         if(isset($_FILES["upload"])){
             $tmp_name = $_FILES["upload"]["tmp_name"];
             $name = $_FILES["upload"]["name"];
@@ -41,9 +66,20 @@
             sendJSON($message, 400);
         }
         }
+
     }
-    // $message = ["message" => "Wrong kind of method!"];
-    // sendJSON($message, 400);
+    if ($request_method == "PATCH") {
+        foreach($users as $user){
+            if($user[0]["saved_photos"]["id"] == $input_data["id"]){
+                $new_data = [
+                    "id" => $input_data["id"],
+                    "liked" => $input_data["liked"],
+                    "likesCount" => $input_data["likesCount"]
+                ];
+            }
+            sendJSON($new_data);
+        }
+    }
     ?>
 
     

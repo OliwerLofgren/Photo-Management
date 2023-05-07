@@ -19,7 +19,25 @@
                 }
             ]
         ],
-        "saved_photos": []
+        "saved_photos": [
+            {
+                "id": 16549110,
+                "photoObject": {
+                    "id": 16549110,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#68685C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16549110\/pexels-photo-16549110.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Nati",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@nati-87264186",
+                    "photographer_id": 87264186,
+                    "liked": false,
+                    "alt": ""
+                },
+                "liked": false,
+                "likesCount": null
+            }
+        ]
     },
     {
         "username": "a",
