@@ -1,12 +1,12 @@
 #discover-main {
-    height: 100vh;
+    height: calc(100vh - 5vh);
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     /* enable scroll snap */
 }
 
 header {
-    height: 50px;
+    height: 5vh;
     background-color: #f0f0f0;
     display: flex;
 }
@@ -36,10 +36,4 @@ button {
     height: 100%;
     width: 100%;
     object-fit: cover;
-}
-
-footer {
-    height: 50px;
-    /* set the height of the footer */
-    background-color: #f0f0f0;
 }
