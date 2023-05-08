@@ -3,24 +3,6 @@
         "username": "Oliwer",
         "password": "123",
         "uploaded_photos": [],
-        "saved_photos": [
-            {
-                "id": 16553909,
-                "photoObject": {
-                    "id": 16553909,
-                    "width": 3837,
-                    "height": 5116,
-                    "avg_color": "#474C50",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16553909\/pexels-photo-16553909.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Fatih Turan",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@fatih-turan-63325184",
-                    "photographer_id": 63325184,
-                    "liked": false,
-                    "alt": ""
-                },
-                "liked": false,
-                "likesCount": null
-            }
-        ]
+        "saved_photos": []
     }
 ]

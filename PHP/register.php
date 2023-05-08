@@ -48,7 +48,10 @@ if ($request_method == "POST") {
     $user_json = json_encode($users, JSON_PRETTY_PRINT);
     file_put_contents($filename, $user_json);
     sendJSON($new_user);
+    $message = ["message" => "Success"];
+    sendJSON($message, 200);
+
 }
 $message = ["message" => "Wrong kind of method"];
-sendJSON($message, 400)
+sendJSON($message, 400);
 ?>
