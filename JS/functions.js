@@ -57,3 +57,9 @@ function displayServerLoadingMessage() {
 function getElement(selector) {
     return document.querySelector(selector);
 }
+
+function scrollIntoView(selector) {
+    const element = document.getElementById(selector);
+    element.scrollIntoView();
+}
+

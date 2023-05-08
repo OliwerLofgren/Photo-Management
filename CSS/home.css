@@ -1,19 +1,24 @@
 #home-main {
-    height: 80vh;
+    height: calc(100vh - 11vh);
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     /* enable scroll snap */
 }
 
 #home-section-one {
-    height: calc(100vh - 6vh);
+    height: 100%;
     object-fit: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
+#home-section-one {
+    height: 100%;
+}
+
 header {
+    height: calc(100vh - 89vh);
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
@@ -57,12 +62,6 @@ h1 {
     height: 100%;
     width: 100%;
     object-fit: cover;
-}
-
-footer {
-    height: 10vh;
-    /* set the height of the footer */
-    background-color: #f0f0f0;
 }
 
 #search-field {

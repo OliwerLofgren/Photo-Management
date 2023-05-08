@@ -12,7 +12,6 @@ function fetch_resource(request) {
     return fetch(request);
 }
 
-
 /*** external api request handlers ****/
 
 // returns array of select keys: photographer name, photourl, etc
@@ -36,7 +35,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
         }
 
         // Return an array of photo objects containing the photo URL and photographer name, and some other relevant keys
-        let customPhotoDataArray = photoResourceArray.map(photo => {
+        const customPhotoDataArray = photoResourceArray.map(photo => {
             return {
                 id: photo.id,
                 width: photo.width,
@@ -53,13 +52,12 @@ async function fetchCuratedPhotos(per_page, imgSize) {
 
     } catch (error) {
         console.log(error);
-        return []; // return empty array instead of crashing page 
+        return [];
         // add message to user here
     }
 }
 
-async function fetchSearchedPhotos(per_page, imgSize) {
-    let searchTerm = getElement("#search-field").value;
+async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
     const searchEndPointUrl = `${prefix}search?query=${searchTerm}&per_page=${per_page}`;
 
     try {
@@ -77,8 +75,7 @@ async function fetchSearchedPhotos(per_page, imgSize) {
             return;
         }
 
-        // Return an array of photo objects containing the photo URL and photographer name, and some other relevant keys
-        let customPhotoDataArray = photoResourceArray.map(photo => {
+        let customSearchPhotoDataArray = photoResourceArray.map(photo => {
             return {
                 id: photo.id,
                 width: photo.width,
@@ -90,12 +87,92 @@ async function fetchSearchedPhotos(per_page, imgSize) {
                 photographer_id: photo.photographer_id,
                 alt: photo.alt,
             };
-        }); return customPhotoDataArray;
+        }); return customSearchPhotoDataArray;
 
     } catch (error) {
         console.log(error);
-        return []; // return empty array instead of crashing page
+        return [];
         // add message to user here
+    }
+}
+
+async function fetchFeaturedCollectionObjects(per_page) {
+    const url = `${prefix}collections/featured?per_page=${per_page}`;
+
+    try {
+        const response = await fetch_resource(new Request(url, { headers }));
+        const resource = await response.json();
+
+        if (!response.ok) {
+            console.log("oops");
+            photoApiResponseCodes(resource);
+            return;
+        }
+
+        if (!resource || resource.length === 0) {
+            console.log("No Collections found");
+            return;
+        }
+        return resource;
+    } catch (error) {
+        console.log(error);
+        return [];
+        // add message to user here
+    }
+}
+async function fetchCollectionsMedia(type, per_page, id, imgSize) {
+
+    const collectionTitlesandIds = await getCollectionsIds();
+    console.log(collectionTitlesandIds);
+
+    const url = `${prefix}collections/${id}?per_page=${per_page}&type=${type}`;
+
+    try {
+        const response = await fetch_resource(new Request(url, { headers }));
+        const resource = await response.json();
+
+        console.log(resource);
+
+        if (!response.ok) {
+            console.log("oops");
+            photoApiResponseCodes(resource);
+            return;
+        }
+
+        if (!resource || resource.length === 0) {
+            console.log("No collection media found");
+            return;
+        }
+
+        const arrayOfMediaObjects = resource.media;
+        const mediaCollectionObject = arrayOfMediaObjects.map(media => {
+            return {
+                avg_color: media.avg_color,
+                photo: media.src[imgSize],
+                photographerName: media.photographer,
+                photographerUrl: media.photographer_url,
+            };
+        });
+
+        console.log(mediaCollectionObject);
+
+    } catch (error) {
+        console.log(error);
+        return [];
+        // add message to user here
+    }
+
+    async function getCollectionsIds() {
+        let resource = await fetchFeaturedCollectionObjects(1);
+        const arrayOfCollectionObjects = resource.collections;
+
+        // array of ids and titles
+        const collections = arrayOfCollectionObjects.map(collection => {
+            return {
+                id: collection.id,
+                title: collection.title
+            };
+        }); return collections;
     }
 }
 
@@ -104,7 +181,6 @@ async function fetchSearchedPhotos(per_page, imgSize) {
 // (NOTE: don't forget to add class .api-photos to dom element to display photos) creates photo dom element and handles buttons event listeners
 function createPhotoContainer(array) {
     const photoWrapper = document.querySelector(".api-photos");
-    // if try-catch error handler returned empty array (ex: request with empty search field)
     if (array === undefined) {
         console.log("array is undefined");
         return;
@@ -125,7 +201,6 @@ function createPhotoContainer(array) {
             photoImage.src = "path.jpg";
         });
 
-
         // extract photographer name key to display it later
         const photographerName = photoObject.photographerName;
 
@@ -137,24 +212,18 @@ function createPhotoContainer(array) {
 
             <div class="photographer-info">${photographerName}</div>
             `;
-
-        /* notes från handledningen: var finns filen? urlet
-            skapa knapp som likar/collectar bild och skicka object till databasen, (object som sträng, stringify )
-            put inside eventlistener: collectPhoto(object);
-        */
-
-        // query select and add event listeners to the buttons on "this" current photoObject only
+        // query select and add event listeners to the buttons on current photoObject only
         const collectButton = photoInteractionsContainer.querySelector(".collect-button");
         const likeButton = photoInteractionsContainer.querySelector(".like-button");
 
-        // post the collected photo to db.
+        // post the collected photo to db
         async function postPhotoToDB() {
             await postPhotoObjectToDatabase(photoObject);
         }
         collectButton.addEventListener("click", postPhotoToDB);
 
         // toggle the liked state and update like count on the clicked photo
-        likeButton.addEventListener("click", () => toggleLikesOnPhoto(postedPhotoObject));
+        // likeButton.addEventListener("click", () => toggleLikesOnPhoto(postedPhotoObject));
 
         photoContainer.append(photoInteractionsContainer);
         photoContainer.append(photoImage);
@@ -165,22 +234,27 @@ function createPhotoContainer(array) {
 // displays search term api photos
 async function displayCuratedPhotos(per_page, imgSize) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
-    return createPhotoContainer(customPhotoDataArray);
+    console.log(customPhotoDataArray);
+    createPhotoContainer(customPhotoDataArray);
+    return customPhotoDataArray;
 }
 
 // displays search term api photos
 async function displaySearchTermPhotos(per_page, imgSize) {
-    let customPhotoDataArray;
+    let customSearchPhotoDataArray;
     let searchForm = document.querySelector("#search-form");
-    // check if search form exists 
     if (searchForm != null) {
         searchForm.addEventListener("submit", async function (event) {
             event.preventDefault();
-            customPhotoDataArray = await fetchSearchedPhotos(per_page, imgSize);
-            // clear already loaded and displayed api photos and show the searched photos instead
+            let searchTerm = getElement("#search-field").value.trim();
+            createSearchOrCollectionsPage(searchTerm);
+
+            // clear already loaded photos and display searched photos instead
             document.querySelector(".api-photos").innerHTML = "";
-            return createPhotoContainer(customPhotoDataArray);
-        })
+            customSearchPhotoDataArray = await fetchSearchedPhotos(per_page, imgSize, searchTerm);
+            return createPhotoContainer(customSearchPhotoDataArray);
+
+        });
     }
 }
 
@@ -230,60 +304,3 @@ async function toggleLikesOnPhoto(postedPhotoObject) {
     // patch the updated photo object to the database
     await patchPhotoObjectToDatabase(postedPhotoObject);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* display created page when img loads..
-function loadImage(url, callback) {
-    const img = new Image();
-    img.onload = () => {
-        callback(img);
-    };
-    img.src = url;
-}*/
-
-// old version
-/*async function fetchPhotosToDisplay(searchTerm, per_page, imgSize, backgroundImage) {
-    let customPhotoDataArray;
-    if (searchTerm) {
-        let searchForm = document.querySelector("#search-form");
-        searchForm.addEventListener("submit", async function (event) {
-            event.preventDefault();
-            customPhotoDataArray = await fetchSearchedPhotos(searchTerm, per_page, imgSize);
-            // clear already loaded and displayed api photos and show the searched photos instead
-            document.querySelector(".api-photos").innerHTML = "";
-            return createPhotoSection(customPhotoDataArray);
-        })
-    } else {
-        customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
-        return createPhotoSection(customPhotoDataArray);
-    }
-    if (backgroundImage) {
-        setMainBackgroundImageFromApi(customPhotoDataArray);
-    }
-}*/
-
-
-
