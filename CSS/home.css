@@ -1,11 +1,31 @@
 #home-main {
-    height: 80vh;
+    height: calc(100vh - 11vh);
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     /* enable scroll snap */
 }
 
 #home-section-one {
+    height: 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#home-section-one h1 {
+    text-align: center;
+}
+
+#home-section-two h1 {
+    text-align: center;
+}
+
+#home-section-three h1 {
+    text-align: center;
+}
+
+#home-section-three {
     height: calc(100vh - 6vh);
     object-fit: cover;
     background-repeat: no-repeat;
@@ -14,12 +34,14 @@
 }
 
 header {
+    height: calc(100vh - 89vh);
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
     gap: 17vw;
     padding: 30px;
     border-bottom: 2px solid black;
+    height: 10vh;
 }
 
 button {
@@ -27,10 +49,10 @@ button {
     border: none;
 }
 
-h1 {
+.headerTitle {
     border-left: 2px solid black;
-    /* height: 80px;
-    padding: 30px 0 30px 10px; */
+    margin-left: 90px;
+    padding-left: 10px;
 }
 
 #navHome {
@@ -47,6 +69,7 @@ h1 {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 5px;
     grid-auto-flow: dense;
+    z-index: 1;
 }
 
 #home-photos>div {
@@ -65,6 +88,19 @@ footer {
     background-color: #f0f0f0;
 }
 
+#search-form {
+    position: relative;
+    left: 40%;
+
+}
+
 #search-field {
     border: 1px rgb(155, 149, 149) solid;
+    margin-top: 10px;
+}
+
+.interaction-container {
+    position: relative;
+    top: 40px;
+    z-index: 2;
 }

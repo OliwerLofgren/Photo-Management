@@ -3,6 +3,21 @@
     src: url("../fonts/Neue-montreal-free-demo_pangram-pangram_030418/NeueMontreal-Bold.otf");
 }
 
+@font-face {
+    font-family: "Neue Montreal-Medium";
+    src: url("../fonts/Neue-montreal-free-demo_pangram-pangram_030418/NeueMontreal-Medium.otf");
+}
+
+@font-face {
+    font-family: "NeueMontreal-Regular";
+    src: url("../fonts/Neue-montreal-free-demo_pangram-pangram_030418/NeueMontreal-Regular.otf");
+}
+
+@font-face {
+    font-family: "NeueMontreal-Light";
+    src: url("../fonts/Neue-montreal-free-demo_pangram-pangram_030418/NeueMontreal-Light.otf");
+}
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -14,14 +29,20 @@ html {
 }
 
 body {
-    height: 100vh;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    font-family: "Neue Montreal-Bold";
     overflow-y: scroll;
+    font-family: "NeueMontreal-Regular";
 }
 
+h1 {
+    font-family: "Neue Montreal-Bold";
+}
+
+h2 {
+    font-family: "Neue Montreal-Medium";
+}
 
 .section {
     height: 100%;
@@ -31,10 +52,6 @@ body {
 
 form {
     width: 200px;
-}
-
-button {
-    cursor: pointer;
 }
 
 form input {
@@ -47,9 +64,13 @@ form button {
     color: white;
     padding: 5px 15px;
     border: none;
-    margin-left: 60px;
+    margin: 10px 0 0 45px;
     width: 80px;
 
+}
+
+button {
+    cursor: pointer;
 }
 
 /*Modal styles*/
@@ -77,21 +98,32 @@ form button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    height: 10%;
-    width: 30%;
+    width: 25%;
     border-radius: 5px;
     border: 1px solid #888;
     background-color: #fefefe;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
+    padding: 50px;
+    text-align: center;
 }
 
 /* The Close Button */
 .close {
     color: #aaaaaa;
-    float: right;
+    /* float: right; */
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    top: -1px;
+    right: 13px;
+}
+
+.modal-button {
+    position: absolute;
+    top: 24px;
+    right: 3px;
+
 }
 
 .close:hover,
