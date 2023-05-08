@@ -3,6 +3,7 @@
 const homeMain = document.querySelector("main");
 const homeHeader = document.querySelector("header");
 
+
 async function createHomePage() {
   // check to see if the user is logged in
   const user = JSON.parse(window.localStorage.getItem("user"));
@@ -36,36 +37,30 @@ async function createHomePage() {
     `;
 
     homeMain.innerHTML = `
-      <section id="home-section-one" class="section">
+      <section id="home-section-one" class="section bg-img">
         <!-- content of the first section -->
-        <div id="intro">
-          <h1>Unleash your creativity and discover endless creative possibilities with our vast collection of images</h1>
-
-          <form id="search-form" >
-          <label for="search-field"></label>
-          <input id="search-field" name="search" type="text" placeholder="Search for stuff">
-          <button type="submit">Search</button>
-        </form>
-    
-        <div>
-        <p id="">Title: 
-        <button>text</button> 
-        <button>text</button>
-        <button>text</button>
-        <button>text</button>
-        </div>
+        
+        <h1>Unleash your creativity</h1>  
 
       <button>Learn more</button>
-        </div>
+       
       </section>
 
       <section id="home-section-two" class="section"> 
-      <h1></h1>
+      <h1>Discover endless creative possibilities with our vast collection of images</h1>
+          <form id="search-form" >
+          <label for="search-field"></label>
+          <input id="search-field" name="search" type="text" placeholder="Explore our collection of photos">
+          <button type="submit">Search</button>
+        </form>
 
+        <div>
+        <h3 id="">Title:</h3> 
+        </div>
         <div id="home-photos" class="api-photos"></div>
-    </section>
+      </section>
 
-      <section id="home-section-three" class="section">
+      <section id="home-section-three" class="section bg-img">
         <h1>Create your own visual world: upload your images, discover new ones, and organize your inspiration</h1>
       </section>
 
@@ -94,7 +89,7 @@ async function createHomePage() {
     const homePage = document.getElementById("home-main");
     if (homePage) {
       // photo dom element creation
-      displayCuratedPhotos(1, "portrait");
+      displayCuratedPhotos(3, "portrait");
       displaySearchTermPhotos(1, "portrait");
     }
   }
@@ -117,3 +112,4 @@ async function createHomePage() {
     handlePhotoClickInteractions();
   }
 }
+

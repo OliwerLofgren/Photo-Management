@@ -1,10 +1,9 @@
 #discover-main {
-    height: calc(100vh - 5vh);
+    height: calc(100vh - 11vh);
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     /* enable scroll snap */
 }
-
 
 button {
     background: none;
@@ -12,7 +11,7 @@ button {
 }
 
 #discover-section-one {
-    height: 50vh;
+    height: 100%;
 }
 
 #discover-photos {
@@ -20,10 +19,7 @@ button {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 5px;
     grid-auto-flow: dense;
-}
-
-#discover-photos>div {
-    overflow: hidden;
+    z-index: 1;
 }
 
 #discover-photos>div img {

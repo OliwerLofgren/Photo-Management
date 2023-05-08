@@ -50,9 +50,25 @@ function closeModalWindow() {
 }
 
 function displayServerLoadingMessage() {
-    // loading images...
-    //loggin in... message, etc
+    // add the loading class to the .section element
+    const loadingPhotos = document.querySelector(".section");
+    loadingPhotos.classList.add("loading");
+    // create the loader line element
+    loadingPhotos.innerHTML = `
+    <div class="loader-line"></div>
+  `;
 }
+
+function hideServerLoadingMessage() {
+    // remove the loader line element
+    const loaderLine = document.querySelector(".loader-line");
+    if (loaderLine) {
+        loaderLine.remove();
+    }
+    // remove the loading class from the element
+    document.querySelector(".section").classList.remove("loading");
+}
+
 
 function getElement(selector) {
     return document.querySelector(selector);
@@ -70,12 +86,8 @@ function displayPhotoInteractionButtons(photoInteractionsContainer, photoObject)
     photoInteractionsContainer.classList.add("interaction-container");
 
     photoInteractionsContainer.innerHTML = `
-  
-
     <i class="collect-btn fa-regular fa-bookmark" style="color: #000000;"></i>
-
     <i class="likebtn fa-regular fa-heart" style="color: #000000;"></i>
-
     <div class="photographer-info">${photographerName}</div>
     `;
 }
@@ -90,7 +102,6 @@ function toggleLikedStyleOnPhoto() {
         hearticon.classList.add("fa-solid");
         hearticon.classList.add("fa-fade");
         hearticon.style.color = "#e83030";
-
         // Stop the fade animation after 2 seconds
         setTimeout(() => {
             hearticon.classList.remove("fa-fade");
@@ -107,8 +118,6 @@ function toggleBookmarkStyleOnPhoto() {
         bookmarkicon.classList.add("fa-solid");
         bookmarkicon.classList.add("fa-bounce");
         bookmarkicon.classList.remove("fa-regular");
-
-
         // Stop the bounce animation after 2 seconds
         setTimeout(() => {
             bookmarkicon.classList.remove("fa-bounce");
