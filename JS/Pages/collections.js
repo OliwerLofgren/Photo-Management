@@ -1,48 +1,50 @@
 "use strict";
-const profileMain = document.querySelector("main");
-const profileHeader = document.querySelector("header");
+const collectionsPageMain = document.querySelector("main");
+const collectionsHeader = document.querySelector("header");
 
 // creates dom elements
 async function createProfileCollectionsPage(user) {
   setupPage();
-  // display photos
-  // profileCollectionsPhotos();
-  addEventListeners();
   addEventListeners();
 
   function setupPage() {
-    setElementAttributes(profileMain, "profile-main", "profile-page");
-    clearElementAttributes(profileHeader);
+    setElementAttributes(collectionsPageMain, "collections-page-main", "user-page-main");
+    clearElementAttributes(collectionsHeader);
+    setElementAttributes(collectionsHeader, "collections-header", "user-page-header")
 
     // NOTE: current profile page needs to be marked in css
-    profileHeader.innerHTML = `
-  <H1>PHOTO MANAGEMENT</H1>
+    collectionsHeader.innerHTML = `
+  <H1>P</H1>
     <nav>
       <button id="discover-button">Discover</button>
+      <button id="upload-button">Upload</button>
       <button id="logout-button">Logout</button>
   </nav>
   `;
-    profileMain.innerHTML = `
-    <section id="collections-section-one" class="section">
+    collectionsPageMain.innerHTML = `
+    <section id="collections-section-one" class="section user-section-one">
       <!-- Insert user profile photo here -->
-      <div id="profile-picture" class="profile-photo">-user profile photo here</div>
-
-      <div id="home-photos" class="api-photos"></div>
-
-      <nav>
-        <button id="collections-button">Your Collections</button>      
-        <button id="gallery-button">Profile</button>      
-      </nav>
+      <div id="profile-bar">
+      <div id="profile-picture" class="profile-photo">user profile photo here</div>
+      <button>"Change photo" form goes here</button>
+      <h3>username placeholder: ${user.username}</h3>
+      </div> 
     </section>
 
-  <section id="collections-section-two" class="section">
+  <section id="collections-section-two" class="section user-section-two"> 
+  <nav  profile-or-collections-nav>
+  <button id="collections-button">Your Collections</button>      
+  <button id="profile-button">Profile</button>      
+    </nav>
+
+    <div id="profile-photos" class="user-photos"></div>
   </section>`;
   }
 
-  async function profileCollectionsPhotos() {
+  async function displayprofileCollectionsPhotos() {
     // check if current page is profile page
-    const profilePage = document.getElementById("profile-main");
-    if (profilePage) {
+    const collectionsPage = document.getElementById("collections-page-main");
+    if (collectionsPage) {
       await displayCuratedPhotos(2, "portrait");
       await displaySearchTermPhotos(2, "portrait");
     }
@@ -50,7 +52,7 @@ async function createProfileCollectionsPage(user) {
 
   function addEventListeners() {
     document
-      .getElementById("gallery-button")
+      .getElementById("profile-button")
       .addEventListener("click", function () {
         createProfileGalleryPage(user);
       });
