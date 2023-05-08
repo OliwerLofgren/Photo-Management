@@ -3,6 +3,24 @@
         "username": "Oliwer",
         "password": "123",
         "uploaded_photos": [],
-        "saved_photos": []
+        "saved_photos": [
+            {
+                "id": 16557877,
+                "photoObject": {
+                    "id": 16557877,
+                    "width": 4160,
+                    "height": 6240,
+                    "avg_color": "#757978",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16557877\/pexels-photo-16557877.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Ozan \u00c7ulha",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@ozanculha",
+                    "photographer_id": 1512687,
+                    "liked": false,
+                    "alt": ""
+                },
+                "liked": false,
+                "src": null
+            }
+        ]
     }
 ]

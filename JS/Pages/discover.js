@@ -4,19 +4,19 @@ const discoverMain = document.querySelector("main");
 const discoverHeader = document.querySelector("header");
 
 async function createDiscoverPage(user) {
-    // setup page
-    setupPage();
-    // display photos 
-    displaySectionOnePhotos();
-    // add event listeners
-    addEventListeners();
+  // setup page
+  setupPage();
+  // display photos
+  displaySectionOnePhotos();
+  // add event listeners
+  addEventListeners();
 
-    function setupPage() {
-        setElementAttributes(discoverMain, "discover-main", "");
-        clearBackgroundImage();
-        clearElementAttributes(discoverHeader);
+  function setupPage() {
+    setElementAttributes(discoverMain, "discover-main", "");
+    clearBackgroundImage();
+    clearElementAttributes(discoverHeader);
 
-        discoverHeader.innerHTML = `
+    discoverHeader.innerHTML = `
         <H1>PHOTO MANAGEMENT</H1>
         <nav>
             <p>Username: ${user.username}</p>
@@ -26,7 +26,7 @@ async function createDiscoverPage(user) {
         </nav>
         `;
 
-        discoverMain.innerHTML = ` 
+    discoverMain.innerHTML = ` 
         <section id="discover-section-one" class="section">
             <div id="discover">
                 <h2>DISCOVER NEW INSPIRATION</h2>
@@ -45,30 +45,35 @@ async function createDiscoverPage(user) {
             <div id="discover-photos" class="api-photos"></div>
         </section>
         `;
-    }
+  }
 
-    // set bg img from api photo
-    function displaySectionOnePhotos() {
-        // check if current page is discover page
-        const discoverPage = document.getElementById("discover-main");
-        if (discoverPage) {
-            // photo dom element creation
-            displayCuratedPhotos(2, "portrait");
-            displaySearchTermPhotos(5, "medium");
-        }
+  // set bg img from api photo
+  function displaySectionOnePhotos() {
+    // check if current page is discover page
+    const discoverPage = document.getElementById("discover-main");
+    if (discoverPage) {
+      // photo dom element creation
+      displayCuratedPhotos(20, "portrait");
+      displaySearchTermPhotos(5, "medium");
     }
-    function addEventListeners() {
-        document.getElementById("collections-button").addEventListener("click", function () {
-            createProfileCollectionsPage(user);
-        });
-        document.getElementById("gallery-button").addEventListener("click", function () {
-            createProfileGalleryPage(user);
-        });
-        document.getElementById("logout-button").addEventListener("click", function () {
-            localStorage.removeItem("user");
-            user = null;
-            createHomePage();
-        })
-    }
-};
-
+  }
+  function addEventListeners() {
+    document
+      .getElementById("collections-button")
+      .addEventListener("click", function () {
+        createProfileCollectionsPage(user);
+      });
+    document
+      .getElementById("gallery-button")
+      .addEventListener("click", function () {
+        createProfileGalleryPage(user);
+      });
+    document
+      .getElementById("logout-button")
+      .addEventListener("click", function () {
+        localStorage.removeItem("user");
+        user = null;
+        createHomePage();
+      });
+  }
+}
