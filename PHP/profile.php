@@ -16,6 +16,8 @@
         $obj = $input_data["photoObject"];
         $liked = $input_data["liked"];
         $likes_count = $input_data["likesCount"];
+        $followers = $input_data["followers"];
+        $following = $input_data["following"];
         
         if ($id == null && $obj == null && $liked == null && $likes_count == null) {
             $message = ["message" => "Array is null!"];
@@ -30,7 +32,10 @@
             "id" => $id,
             "photoObject" => $obj,
             "liked" => $liked,
-            "likesCount" => $likes_count
+            "likesCount" => $likes_count,
+            "followers" => $followers,
+            "following" => $following
+
         ];
         $users[0]["saved_photos"][] = $new_data;
         file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));

@@ -35,6 +35,9 @@ async function createProfileGalleryPage(user) {
       </section>
     `;
   }
+  const result = document.getElementById("result");
+  const form = document.getElementById("form_upload");
+
   profileHeader.innerHTML = `
   <form id="form_upload" action="../PHP/profile.php" method="POST" enctype="multipart/form-data">
     <input type="file" name="upload">
