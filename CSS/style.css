@@ -33,10 +33,6 @@ form {
     width: 200px;
 }
 
-button {
-    cursor: pointer;
-}
-
 form input {
     border: none;
     padding: 5px 15px;
@@ -50,6 +46,10 @@ form button {
     margin-left: 60px;
     width: 80px;
 
+}
+
+button {
+    cursor: pointer;
 }
 
 /*Modal styles*/
@@ -77,21 +77,32 @@ form button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    height: 10%;
-    width: 30%;
+    width: 25%;
     border-radius: 5px;
     border: 1px solid #888;
     background-color: #fefefe;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
+    padding: 50px;
+    text-align: center;
 }
 
 /* The Close Button */
 .close {
     color: #aaaaaa;
-    float: right;
+    /* float: right; */
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    top: -1px;
+    right: 13px;
+}
+
+.modal-button {
+    position: absolute;
+    top: 24px;
+    right: 3px;
+
 }
 
 .close:hover,
