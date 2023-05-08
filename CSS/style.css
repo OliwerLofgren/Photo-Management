@@ -31,8 +31,6 @@ body {
 
 form {
     width: 200px;
-    position: relative;
-    left: 40%;
 }
 
 form input {

@@ -13,6 +13,18 @@
     background-size: cover;
 }
 
+#home-section-one h1 {
+    text-align: center;
+}
+
+#home-section-two h1 {
+    text-align: center;
+}
+
+#home-section-three h1 {
+    text-align: center;
+}
+
 #home-section-three {
     height: calc(100vh - 6vh);
     object-fit: cover;
@@ -40,10 +52,6 @@ button {
     border-left: 2px solid black;
     margin-left: 90px;
     padding-left: 10px;
-}
-
-h1 {
-    text-align: center;
 }
 
 #navHome {
@@ -77,6 +85,12 @@ footer {
     height: 10vh;
     /* set the height of the footer */
     background-color: #f0f0f0;
+}
+
+#search-form {
+    position: relative;
+    left: 40%;
+
 }
 
 #search-field {

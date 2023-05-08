@@ -51,8 +51,8 @@ async function createLoginPage() {
     setupPage();
     function setupPage() {
         setElementAttributes(loginMain, "login-main", "");
-        setElementAttributes(loginHeader, "", "display-none");
-        setElementAttributes(footer, "", "display-none");
+        // setElementAttributes(loginHeader, "", "display-none");
+        // setElementAttributes(footer, "", "display-none");
     }
 
     loginMain.innerHTML = ` 
