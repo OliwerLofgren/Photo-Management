@@ -12,7 +12,7 @@ async function createProfileCollectionsPage(user) {
 
   // NOTE: current profile page needs to be marked in css 
   profileHeader.innerHTML = `
-    <H1>PHOTO MANAGEMENT</H1>   
+    <H1 class="headerTitle">PHOTO MANAGEMENT</H1>   
   `;
 
   profileMain.innerHTML = `
@@ -74,7 +74,7 @@ async function createProfileGalleryPage(user) {
   }
 
   profileHeader.innerHTML = `
-  <H1>PHOTO MANAGEMENT</H1>
+  <H1 class="headerTitle">PHOTO MANAGEMENT</H1>
     <nav>
       <button id="discover-button">Discover</button>
       <button id="logout-button">Logout</button>

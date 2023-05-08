@@ -62,7 +62,7 @@ function createRegisterPage() {
     }
 
     registerMain.innerHTML = `
-    <H1>PHOTO MANAGEMENT</H1>
+    <H1 class="headerTitle">PHOTO MANAGEMENT</H1>
 
     <nav id="navRegister">
         <button id="login-btn">LOGIN</button>

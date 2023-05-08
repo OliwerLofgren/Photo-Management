@@ -12,7 +12,7 @@ async function createDiscoverPage(user) {
     }
 
     document.querySelector("header").innerHTML = `
-    <H1>PHOTO MANAGEMENT</H1>
+    <H1 class="headerTitle">PHOTO MANAGEMENT</H1>
     <nav>
         <p>Username: ${user.username}</p>
         <button id="collections-button">My Collections</button>

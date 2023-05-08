@@ -17,7 +17,7 @@ async function createHomePage() {
   }
 
   homeHeader.innerHTML = `
-  <H1>PHOTO MANAGEMENT</H1>
+  <H1 class="headerTitle">PHOTO MANAGEMENT</H1>
   <nav id="navHome">
     <button id="loginBtn">LOGIN</button> /     
     <button id="registerBtn">REGISTER</button>      

@@ -31,6 +31,8 @@ body {
 
 form {
     width: 200px;
+    position: relative;
+    left: 40%;
 }
 
 form input {
@@ -43,7 +45,7 @@ form button {
     color: white;
     padding: 5px 15px;
     border: none;
-    margin-left: 60px;
+    margin: 10px 0 0 45px;
     width: 80px;
 
 }

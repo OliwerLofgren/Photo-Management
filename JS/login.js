@@ -56,7 +56,7 @@ async function createLoginPage() {
     }
 
     loginMain.innerHTML = ` 
-    <H1>PHOTO MANAGEMENT</H1>
+    <H1 class="headerTitle">PHOTO MANAGEMENT</H1>
     <nav id="navLogin">
         <button id="register-btn">REGISTER</button>
     </nav>
