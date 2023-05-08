@@ -20,6 +20,7 @@
 
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -28,12 +29,23 @@ html {
     scroll-behavior: smooth;
 }
 
+.bg-img {
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 body {
+    width: 100vw;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    overflow-y: scroll;
     font-family: "NeueMontreal-Regular";
+}
+
+header {
+    background-color: #f0f0f0;
 }
 
 h1 {
@@ -50,18 +62,10 @@ h2 {
     /* snap each section to the top of the viewport */
 }
 
-form {
-    width: 200px;
-}
-
-form input {
-    border: none;
-    padding: 5px 15px;
-}
-
 i,
 button {
     cursor: pointer;
+    font-family: "NeueMontreal-Regular";
 }
 
 /*Modal styles*/
@@ -107,8 +111,6 @@ button {
     position: absolute;
     top: -1px;
     right: 13px;
-
-
 }
 
 .modal-button {
@@ -127,9 +129,41 @@ button {
 
 .display-none {
     display: none;
-    background-color: pink;
 }
 
 .display-block {
     display: block;
+}
+
+#profile-picture {
+    background-color: palegreen;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.user-page-header {
+    height: 5vh;
+}
+
+.user-page-main {
+    height: calc(100vh - 5vh);
+}
+
+.user-section-one {
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-section-two {
+    border-top: 1px rgba(0, 0, 0, 0.442) solid;
+}
+
+.mini-profile-photo {
+    background-color: palegreen;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }
