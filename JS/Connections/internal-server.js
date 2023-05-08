@@ -10,7 +10,7 @@ async function postPhotoObjectToDatabase(photoObject) {
         id: photoObject.id, // add id to the photo
         photoObject: photoObject,
         src: photoObject.photo,
-        liked: false, // toggleable liked state
+        liked: false, // this key can be removed 
     };
 
     const post = {
@@ -36,13 +36,14 @@ async function postPhotoObjectToDatabase(photoObject) {
     }
 }
 
-// patch posted photo object (patch toggle like count)
+// patch posted photo object
+// NOTE: needs to receive the posted object in some way 
 async function patchPhotoObjectToDatabase(postedPhotoObject) {
     // patch data
     const photoObjectForDatabase = {
         id: postedPhotoObject.id, // id of the object
-        liked: postedPhotoObject.liked,
-        likesCount: postedPhotoObject.likesCount,
+        liked: postedPhotoObject.liked,// can be removed
+        likesCount: postedPhotoObject.likesCount,// can be removed
     };
 
     const options = {
@@ -53,7 +54,7 @@ async function patchPhotoObjectToDatabase(postedPhotoObject) {
 
     try {
         const response = await fetch(
-            `/PHP/profile.php?id=${photoObjectForDatabase.id}`,
+            `/PHP/profile.php?id=${options.id}`,
             options
         ); // url includes id of the photo
         const patchedPhotoObject = await response.json();
