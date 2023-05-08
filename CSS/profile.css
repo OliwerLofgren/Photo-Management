@@ -47,6 +47,14 @@
     grid-auto-flow: dense;
 }
 
+#collections-section-two {
+    height: 60%;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    gap: 2vw;
+}
+
 #gallery-photos>div {
     overflow: hidden;
 }

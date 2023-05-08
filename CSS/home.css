@@ -1,12 +1,12 @@
 #home-main {
-    height: 80vh;
+    height: calc(100vh - 11vh);
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     /* enable scroll snap */
 }
 
 #home-section-one {
-    height: calc(100vh - 6vh);
+    height: 100%;
     object-fit: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -34,6 +34,7 @@
 }
 
 header {
+    height: calc(100vh - 89vh);
     background-color: #f0f0f0;
     display: flex;
     align-items: center;

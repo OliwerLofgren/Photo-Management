@@ -1,15 +1,19 @@
 "use strict";
 /***  internal database request handlers ***/
 
-// handles post request, (photo object)
+// handles post request
 async function postPhotoObjectToDatabase(photoObject) {
 
-    // format data and add some keys
+    // add check if object exists ->
+
+    // format data we want to send to our database and add some keys
     const photoObjectForDatabase = {
         id: photoObject.id, // add id to the photo 
         photoObject: photoObject,
-        liked: false,
-        likesCount: photoObject.likesCount
+        liked: false, // toggleable liked state
+        likesCount: photoObject.likesCount,
+        followers: followers,
+        following: following
     }
 
     const post = {
@@ -18,7 +22,7 @@ async function postPhotoObjectToDatabase(photoObject) {
         body: JSON.stringify(photoObjectForDatabase),
     };
 
-    // post request
+    // post the data to database  
     try {
         const response = await fetch("/PHP/profile.php", post);
         const postedPhotoObject = await response.json();
@@ -30,12 +34,12 @@ async function postPhotoObjectToDatabase(photoObject) {
 
             return postedPhotoObject; // return the newly created photo object
         }
-
     } catch (error) {
         console.log("error posting photo object:", error);
     }
 }
 
+// patch posted photo object (patch toggle like count)
 async function patchPhotoObjectToDatabase(postedPhotoObject) {
     // patch data
     const photoObjectForDatabase = {
