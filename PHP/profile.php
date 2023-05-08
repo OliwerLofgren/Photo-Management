@@ -68,6 +68,7 @@
         }
 
     }
+    //This section is for update content
     if ($request_method == "PATCH") {
         foreach($users as $user){
             if($user[0]["saved_photos"]["id"] == $input_data["id"]){
@@ -80,6 +81,24 @@
             sendJSON($new_data);
         }
     }
+    // $message = ["message" => "Wrong kind of method!"];
+    // sendJSON($message, 400);
+    
+     //This section is for deleting a current image
+     if($request_method == "DELETE"){
+        //You need to add id:s to every image
+            $id = $input_data["id"];
+    
+            foreach($users as $index => $user){
+                if ($user["id"] == $id) {
+                    array_splice($users, $index, 1);
+                    file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
+                    sendJSON($users);
+                }
+            }
+        }
+        // $message = ["message" => "Wrong kind of method!"];
+        // sendJSON($message, 400);
     ?>
 
     

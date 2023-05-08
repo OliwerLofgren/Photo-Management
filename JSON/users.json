@@ -2,35 +2,19 @@
     {
         "username": "Oliwer",
         "password": "123",
-        "uploaded_photos": [
-            [
-                {
-                    "src": "..\/PHP\/my_photos\/dog.jpg"
-                }
-            ],
-            [
-                {
-                    "src": "..\/PHP\/my_photos\/dog.jpg"
-                }
-            ],
-            [
-                {
-                    "src": "..\/PHP\/my_photos\/dog.jpg"
-                }
-            ]
-        ],
+        "uploaded_photos": [],
         "saved_photos": [
             {
-                "id": 16549110,
+                "id": 16553909,
                 "photoObject": {
-                    "id": 16549110,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#68685C",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16549110\/pexels-photo-16549110.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Nati",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@nati-87264186",
-                    "photographer_id": 87264186,
+                    "id": 16553909,
+                    "width": 3837,
+                    "height": 5116,
+                    "avg_color": "#474C50",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16553909\/pexels-photo-16553909.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Fatih Turan",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@fatih-turan-63325184",
+                    "photographer_id": 63325184,
                     "liked": false,
                     "alt": ""
                 },
@@ -38,11 +22,5 @@
                 "likesCount": null
             }
         ]
-    },
-    {
-        "username": "a",
-        "password": "a",
-        "uploaded_photos": [],
-        "saved_photos": []
     }
 ]
