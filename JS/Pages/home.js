@@ -109,6 +109,6 @@ async function createHomePage() {
   function addEventListeners() {
     document.getElementById("loginBtn").addEventListener("click", createLoginPage);
     document.getElementById("registerBtn").addEventListener("click", createRegisterPage);
-    document.getElementById("footer").addEventListener("click", createAboutUsPage);
+    document.getElementById("about-us").addEventListener("click", createAboutUsPage);
   }
 }
