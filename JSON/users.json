@@ -86,5 +86,11 @@
         "password": "YES",
         "uploaded_photos": [],
         "saved_photos": []
+    },
+    {
+        "username": "hej",
+        "password": "hej",
+        "uploaded_photos": [],
+        "saved_photos": []
     }
 ]

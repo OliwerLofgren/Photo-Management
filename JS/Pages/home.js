@@ -29,7 +29,7 @@ async function createHomePage() {
     homeHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
       <nav id="navHome">
-      <button id="about-us">About Us</button> /
+      <button id="aboutBtn">About Us</button> /
         <button id="loginBtn">Log In</button> /     
         <button id="registerBtn">Sign Up</button>      
       </nav>
@@ -115,5 +115,10 @@ async function createHomePage() {
       .getElementById("registerBtn")
       .addEventListener("click", createRegisterPage);
     handlePhotoClickInteractions();
+    document
+      .getElementById("aboutBtn")
+      .addEventListener("click", createAboutUsPage);
+
+
   }
 }

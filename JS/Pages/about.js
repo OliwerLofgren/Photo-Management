@@ -38,10 +38,7 @@ function createAboutUsPage() {
         aboutusHeader.innerHTML = `
         <H1>PHOTO MANAGEMENT</H1>
         <nav>
-            <p>Username: ${user.username}</p>
-            <button id="collections-button">Your Collections</button>
-            <button id="gallery-button">Profile</button>
-            <button id="logout-button">Logout</button>
+        <button id="go-back-home">Back to home</button>
         </nav>
         `;
 
@@ -66,7 +63,6 @@ function createAboutUsPage() {
 
     function addEventListener() {
 
-        document.getElementById("go-back-home").addEventListener("click", createHomePage);
     }
 
 }
