@@ -1,81 +1,97 @@
 #profile-main {
-    margin: 5px;
+  margin: 5px;
 }
 
 #collections-section-one {
-    height: 50px;
-    width: calc(100vw - 10vw);
+  height: 50px;
+  width: calc(100vw - 10vw);
 }
 
 #collection-section-two {
-    width: calc(100vw - 10vw);
+  width: calc(100vw - 10vw);
 }
 
-#profile-photos>div {
-    overflow: hidden;
+#profile-photos > div {
+  overflow: hidden;
 }
 
 #profile-img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: beige;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: beige;
 }
 
 #profile-photos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 5px;
-    grid-auto-flow: dense;
-    margin-left: 120px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 5px;
+  grid-auto-flow: dense;
+  margin-left: 120px;
 }
 
-#profile-photos>div {
-    overflow: hidden;
+#profile-photos > div {
+  overflow: hidden;
 }
 
-#profile-photos>div img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+#profile-photos > div img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 #gallery-photos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 5px;
-    grid-auto-flow: dense;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 5px;
+  grid-auto-flow: dense;
 }
 
 #collections-section-two {
-    height: 60%;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    gap: 2vw;
+  height: 60%;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  gap: 2vw;
 }
 
-#gallery-photos>div {
-    overflow: hidden;
+#gallery-photos > div {
+  overflow: hidden;
 }
 
-#gallery-photos>div img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+#gallery-photos > div img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 #nav-collection {
-    width: 10vw;
-    background-color: white;
-    position: absolute;
-    height: 100vh;
-    border-right: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
+  width: 10vw;
+  background-color: white;
+  position: absolute;
+  height: 100vh;
+  border-right: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
 }
 
 #nav-collection button {
-    transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+#photo_container {
+  display: flex;
+  justify-content: center;
+}
+
+#grid_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+#grid_container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }

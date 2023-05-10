@@ -2,24 +2,36 @@
     {
         "username": "Oliwer",
         "password": "123",
-        "uploaded_photos": [],
+        "uploaded_photos": [
+            {
+                "photo": "..\/PHP\/my_photos\/dog.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/dog.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/dog-png.png"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
+            }
+        ],
         "saved_photos": [
             {
-                "id": 16557877,
+                "id": 16612358,
                 "photoObject": {
-                    "id": 16557877,
-                    "width": 4160,
-                    "height": 6240,
-                    "avg_color": "#757978",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16557877\/pexels-photo-16557877.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Ozan \u00c7ulha",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@ozanculha",
-                    "photographer_id": 1512687,
+                    "id": 16612358,
+                    "width": 3543,
+                    "height": 2421,
+                    "avg_color": "#948A8B",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16612358\/pexels-photo-16612358.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "stayhereforu",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@stayhereforu-216201233",
+                    "photographer_id": 216201233,
                     "liked": false,
                     "alt": ""
                 },
-                "liked": false,
-                "src": null
+                "liked": false
             }
         ]
     }
