@@ -2,7 +2,20 @@
     {
         "username": "Oliwer",
         "password": "123",
-        "uploaded_photos": [],
+        "uploaded_photos": [
+            {
+                "photo": "..\/PHP\/my_photos\/dog.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/dog-png.png"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/dog.jpg"
+            }
+        ],
         "saved_photos": []
     }
 ]

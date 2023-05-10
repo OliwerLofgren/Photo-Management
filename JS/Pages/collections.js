@@ -28,11 +28,6 @@ async function createProfileCollectionsPage(user) {
       <button id="logout-button">Logout</button>
   </nav>
  
-<form id="form_upload" action="../PHP/profile.php" method="POST" enctype="multipart/form-data">
-<input type="file" name="upload">
-<button type="submit">Upload</button>
-</form>
-<div id="result"></div>
 `;
 
     collectionsPageMain.innerHTML = `
