@@ -49,8 +49,8 @@ async function createProfileGalleryPage(user) {
   const result = document.getElementById("result");
   const form = document.getElementById("form_upload");
 
-  /* append to profile bar area : 
-     profilePageHeader.innerHTML = `
+  // append to profile bar area:
+  profilePageHeader.innerHTML = `
   <form id="form_upload" action="../PHP/profile.php" method="POST" enctype="multipart/form-data">
     <input type="file" name="upload">
     <button type="submit">Upload</button>
@@ -102,7 +102,7 @@ async function createProfileGalleryPage(user) {
         }
       }
     });
-*/
+
   function addEventListeners() {
     document
       .getElementById("collections-button")

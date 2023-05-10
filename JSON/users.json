@@ -92,5 +92,23 @@
         "password": "m",
         "uploaded_photos": [],
         "saved_photos": []
+    },
+    {
+        "username": "cutedog",
+        "password": "dog",
+        "uploaded_photos": [],
+        "saved_photos": []
+    },
+    {
+        "username": "rose",
+        "password": "a",
+        "uploaded_photos": [],
+        "saved_photos": []
+    },
+    {
+        "username": "Cinalo",
+        "password": "Lobalo",
+        "uploaded_photos": [],
+        "saved_photos": []
     }
 ]

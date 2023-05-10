@@ -1,4 +1,5 @@
 "use strict";
+/*** Helper functions ***/
 
 // clear attributes
 function clearElementAttributes(element) {
@@ -14,6 +15,11 @@ function setElementAttributes(element, id, className) {
 function clearBackgroundImage() {
     document.querySelector("main").style.backgroundImage = "";
 }
+
+function getElement(selector) {
+    return document.querySelector(selector);
+}
+
 // function to display database server messages 
 // example: username already exists
 function displayDatabaseMessage(data) {
@@ -21,7 +27,7 @@ function displayDatabaseMessage(data) {
     serverMessage.textContent = data.message;
 }
 
-// function to display externa api server messages 
+// function to display external api server messages 
 function displayExternalAPIMessage(params) {
     // do stuff
     // ext photo api messsages 
@@ -58,20 +64,14 @@ function displayServerLoadingMessage() {
     <div class="loader-line"></div>
   `;
 }
-
 function hideServerLoadingMessage() {
-    // remove the loader line element
+    // remove the loader line element when photos are loaded
     const loaderLine = document.querySelector(".loader-line");
     if (loaderLine) {
         loaderLine.remove();
     }
     // remove the loading class from the element
     document.querySelector(".section").classList.remove("loading");
-}
-
-
-function getElement(selector) {
-    return document.querySelector(selector);
 }
 
 function scrollIntoView(selector) {
@@ -91,7 +91,6 @@ function displayPhotoInteractionButtons(photoInteractionsContainer, photoObject)
     <div class="photographer-info">${photographerName}</div>
     `;
 }
-
 
 function toggleLikedStyleOnPhoto() {
     console.log("you have liked the photo!");

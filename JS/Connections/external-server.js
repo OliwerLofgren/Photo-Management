@@ -227,7 +227,7 @@ async function displaySearchTermPhotos(per_page, imgSize) {
         searchForm.addEventListener("submit", async function (event) {
             event.preventDefault();
             let searchTerm = getElement("#search-field").value.trim();
-            createSearchOrCollectionsPage(searchTerm);
+            createSearchOrMediaCollectionsPage(searchTerm);
 
             // clear already loaded photos and display searched photos instead
             document.querySelector(".api-photos").innerHTML = "";
@@ -237,7 +237,6 @@ async function displaySearchTermPhotos(per_page, imgSize) {
     }
 }
 
-// set per_page = to 1 photo from api
 async function displayApiBackgroundImage(per_page, imgSize, domElement) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize, domElement);
     // set dom bg img
