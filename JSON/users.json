@@ -2,56 +2,7 @@
     {
         "username": "Oliwer",
         "password": "123",
-        "uploaded_photos": [
-            {
-                "photo": "..\/PHP\/my_photos\/dog.jpg"
-            },
-            {
-                "photo": "..\/PHP\/my_photos\/dog.jpg"
-            },
-            {
-                "photo": "..\/PHP\/my_photos\/dog-png.png"
-            },
-            {
-                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
-            },
-            {
-                "photo": "..\/PHP\/my_photos\/dog.jpg"
-            }
-        ],
-        "saved_photos": [
-            {
-                "id": 16612358,
-                "photoObject": {
-                    "id": 16612358,
-                    "width": 3543,
-                    "height": 2421,
-                    "avg_color": "#948A8B",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16612358\/pexels-photo-16612358.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "stayhereforu",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@stayhereforu-216201233",
-                    "photographer_id": 216201233,
-                    "liked": false,
-                    "alt": ""
-                },
-                "liked": false
-            },
-            {
-                "id": 16710311,
-                "photoObject": {
-                    "id": 16710311,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#79756C",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16710311\/pexels-photo-16710311.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Nati",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@nati-87264186",
-                    "photographer_id": 87264186,
-                    "liked": false,
-                    "alt": ""
-                },
-                "liked": false
-            }
-        ]
+        "uploaded_photos": [],
+        "saved_photos": []
     }
 ]

@@ -25,10 +25,16 @@ async function createProfileCollectionsPage(user) {
   <H1>P</H1>
     <nav>
       <button id="discover-button">Discover</button>
-      <button id="upload-button">Upload</button>
       <button id="logout-button">Logout</button>
   </nav>
-  `;
+ 
+<form id="form_upload" action="../PHP/profile.php" method="POST" enctype="multipart/form-data">
+<input type="file" name="upload">
+<button type="submit">Upload</button>
+</form>
+<div id="result"></div>
+`;
+
     collectionsPageMain.innerHTML = `
     <section id="collections-section-one" class="section user-section-one">
       <!-- Insert user profile photo here -->
@@ -80,13 +86,6 @@ async function createProfileCollectionsPage(user) {
       });
   }
 }
-collectionsHeader.innerHTML = `
-<form id="form_upload" action="../PHP/profile.php" method="POST" enctype="multipart/form-data">
-<input type="file" name="upload">
-<button type="submit">Upload</button>
-</form>
-<div id="result"></div>
-`;
 
 fetch("../JSON/users.json")
   .then((response) => response.json())
@@ -105,7 +104,7 @@ fetch("../JSON/users.json")
       const img = document.createElement("img");
       const delete_button = document.createElement("button");
       delete_button.textContent = "DELETE";
-      delete_button.addEventListeners("click", delete_photo);
+      //   delete_button.addEventListeners("click", delete_photo);
       img.src = photo_url;
       container.appendChild(img);
       container.appendChild(delete_button);
