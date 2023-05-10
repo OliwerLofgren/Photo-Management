@@ -96,7 +96,9 @@ async function createProfileGalleryPage(user) {
               });
               container.appendChild(grid_container);
               //Fråga Rabia om queryselectorn som skapas med innerHTML
-              document.querySelector("body").appendChild(container);
+              document
+                .querySelector("#profile-section-two")
+                .appendChild(container);
             });
         }
       });
