@@ -1,11 +1,12 @@
 "use strict";
 const profilePageMain = document.querySelector("main");
 const profilePageHeader = document.querySelector("header");
+const section_two_main = document.querySelector(".profile-or-collections-nav");
 
 async function createProfileGalleryPage(user) {
   setupPage();
   addEventListeners();
-
+  get_all_images();
   function setupPage() {
     clearElementAttributes(profilePageMain);
     setElementAttributes(profilePageMain, "profile-main", "user-page-main");
@@ -19,9 +20,9 @@ async function createProfileGalleryPage(user) {
     profilePageHeader.innerHTML = `
     <H1>P</H1>
       <nav>
-        <button id="discover-button">Discover</button>
-        <button id="upload-button">Upload</button>
-        <button id="logout-button">Logout</button>
+      <button id="discover-button">Discover</button>
+      <button id="upload-button">Upload</button>
+      <button id="logout-button">Logout</button>
       </nav>
   `;
 
@@ -39,7 +40,12 @@ async function createProfileGalleryPage(user) {
       <section id="profile-section-two" class="section user-section-two">
       <nav class="profile-or-collections-nav">
       <button id="collections-button">Your Collections</button>      
-      <button id="profile-button">Profile</button>      
+      <button id="profile-button">Profile</button>   
+      <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
+  <input type="file" name="upload">
+  <button type="submit">Upload</button>
+</form>
+<div id="result"></div>   
     </nav>
 
         <div id="profile-photos" class="user-photos"></div>
@@ -47,13 +53,6 @@ async function createProfileGalleryPage(user) {
     `;
   }
 
-  profilePageHeader.innerHTML = `
-  <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
-  <input type="file" name="upload">
-  <button type="submit">Upload</button>
-  </form>
-  <div id="result"></div>
-  `;
   const result = document.getElementById("result");
   const form = document.getElementById("form_upload");
   form.addEventListener("submit", function (event) {
@@ -77,33 +76,67 @@ async function createProfileGalleryPage(user) {
           result.textContent = "An error occurred: " + data.error;
         } else {
           result.textContent = "Successfully uploaded the image";
-          fetch("../JSON/users.json")
-            .then((response) => response.json())
-            .then((data) => {
-              const uploaded_photos = data[0].uploaded_photos;
-              const container = document.createElement("div");
-              //Lägg till klassen api-photos
-              container.id = "photo_container";
-              const grid_container = document.createElement("div");
-              grid_container.id = "grid_container";
-              console.log(data);
-
-              uploaded_photos.forEach((photo) => {
-                const photo_url = photo.photo;
-                const img = document.createElement("img");
-                img.src = photo_url;
-                container.appendChild(img);
-              });
-              container.appendChild(grid_container);
-              //Fråga Rabia om queryselectorn som skapas med innerHTML
-              document
-                .querySelector("#profile-section-two")
-                .appendChild(container);
-            });
+          get_one_images();
         }
       });
   });
 
+  function get_one_images() {
+    fetch("../JSON/users.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const uploaded_photos = data[0].uploaded_photos;
+        const latest_uploaded_photo =
+          uploaded_photos[uploaded_photos.length - 1];
+        const container = document.createElement("div");
+        //Lägg till klassen api-photos
+        container.id = "photo_container";
+        const grid_container = document.createElement("div");
+        grid_container.id = "grid_container";
+        console.log(data);
+
+        // uploaded_photos.forEach((photo) => {
+        // const photo_url = photo.photo;
+        const img = document.createElement("img");
+        img.src = latest_uploaded_photo.photo;
+        container.appendChild(img);
+        // });
+        container.appendChild(grid_container);
+        document.querySelector("#profile-section-two").appendChild(container);
+      });
+  }
+  function get_all_images() {
+    fetch("../JSON/users.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const uploaded_photos = data[0].uploaded_photos;
+        const container = document.createElement("div");
+        //Lägg till klassen api-photos
+        container.id = "container";
+        const grid_container = document.createElement("div");
+        grid_container.id = "grid_container";
+        console.log(data);
+
+        uploaded_photos.forEach((photo) => {
+          const photo_url = photo.photo;
+          const img = document.createElement("img");
+          img.src = photo_url;
+          const button_delete = document.createElement("button");
+          button_delete.innerText = "DELETE";
+          button_delete.id = "delete";
+          button_delete.addEventListener("click", () => {
+            delete_photo(photo.photo_id);
+          });
+          const photo_containers = document.createElement("div");
+          photo_containers.classList.add("photo-containers");
+          photo_containers.appendChild(button_delete);
+          photo_containers.appendChild(img);
+          container.appendChild(photo_containers);
+        });
+        container.appendChild(grid_container);
+        document.querySelector("#profile-section-two").appendChild(container);
+      });
+  }
   function addEventListeners() {
     document
       .getElementById("collections-button")

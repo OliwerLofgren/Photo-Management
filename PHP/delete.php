@@ -11,16 +11,16 @@ $input_data = json_decode(file_get_contents("php://input"), true);
 //This section is for deleting a current image
      if($request_method == "DELETE"){
         //You need to add id:s to every image
-            $id = $input_data["id"];
+            $photo_id = $input_data["photo_id"];
             $users_photo = $users[0]["saved_photos"];
-    
-            foreach($users_photo as $index => $photo){
-                if ($photo["id"] == $id) {
-                    array_splice($users_photo, $index, 1);
-                    file_put_contents($filename, json_encode($users_photo, JSON_PRETTY_PRINT));
-                    sendJSON($users_photo);
-                }
+        foreach($users[0]["uploaded_photos"] as $index => $photo){
+            if ($photo["photo_id"] == $photo_id) {
+                array_splice($users[0]["uploaded_photos"], $index, 1);
             }
+        }
+        file_put_contents($filename, json_encode($users));
+        $message = ["message" => "Photo has successfully been deleted"];
+        sendJSON($message);
 
         }
         $message = ["message" => "Wrong kind of method!"];

@@ -76,5 +76,6 @@ async function createDiscoverPage(user) {
         user = null;
         createHomePage();
       });
+    handlePhotoClickInteractions();
   }
 }
