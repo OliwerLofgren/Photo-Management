@@ -47,11 +47,10 @@ async function createProfileGalleryPage(user) {
     `;
   }
 
-  // append to profile bar area:
   profilePageHeader.innerHTML = `
-  <form id="form_upload" action="../PHP/profile.php" method="POST" enctype="multipart/form-data">
-    <input type="file" name="upload">
-    <button type="submit">Upload</button>
+  <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
+  <input type="file" name="upload">
+  <button type="submit">Upload</button>
   </form>
   <div id="result"></div>
   `;
