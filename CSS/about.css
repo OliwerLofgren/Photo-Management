@@ -1,0 +1,10 @@
+#about-us-main {
+    text-align: center;
+}
+
+.circle-title {
+    background: #e5906f;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}

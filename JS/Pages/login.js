@@ -75,6 +75,6 @@ async function loginUser(event) {
             createDiscoverPage(user);
         }
     } catch (error) {
-        console.log("Error login:", error); s
+        console.log("Error login:", error);
     }
 }
