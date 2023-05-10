@@ -30,13 +30,15 @@ if ($request_method == "POST") {
         }
     }
     //If you are trying to register with empty username/password, error message
-    if($username == "" or $username == ""){
+    if($username == "" or $password == ""){
         $message = ["message" => "You cant register with an empty Username or Password"];
         sendJSON($message, 404);
     }
     $new_user = [
         "username" => $username,
-        "password" => $password
+        "password" => $password,
+        "uploaded_photos" => [],
+        "saved_photos" => []
     ];
 
     // add successfull registration message to user > 
@@ -46,7 +48,10 @@ if ($request_method == "POST") {
     $user_json = json_encode($users, JSON_PRETTY_PRINT);
     file_put_contents($filename, $user_json);
     sendJSON($new_user);
+    $message = ["message" => "Success"];
+    sendJSON($message, 200);
+
 }
 $message = ["message" => "Wrong kind of method"];
-sendJSON($message, 400)
+sendJSON($message, 400);
 ?>

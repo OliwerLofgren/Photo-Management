@@ -29,9 +29,9 @@ async function createHomePage() {
     homeHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
       <nav id="navHome">
-      <button id="about-us">ABOUT US</button> /
-        <button id="loginBtn">LOGIN</button> /     
-        <button id="registerBtn">REGISTER</button>      
+      <button id="about-us">About Us</button> /
+        <button id="loginBtn">Log In</button> /     
+        <button id="registerBtn">Sign Up</button>      
       </nav>
     `;
 
@@ -39,28 +39,29 @@ async function createHomePage() {
       <section id="home-section-one" class="section">
         <!-- content of the first section -->
         <div id="intro">
-          <h1>Unleash your creativity</h1>
+          <h1>Unleash your creativity and discover endless creative possibilities with our vast collection of images</h1>
+
+          <form id="search-form" >
+          <label for="search-field"></label>
+          <input id="search-field" name="search" type="text" placeholder="Search for stuff">
+          <button type="submit">Search</button>
+        </form>
+    
+        <div>
+        <p id="">Title: 
+        <button>text</button> 
+        <button>text</button>
+        <button>text</button>
+        <button>text</button>
+        </div>
 
       <button>Learn more</button>
         </div>
       </section>
 
       <section id="home-section-two" class="section"> 
-      <h1>Discover endless creative possibilities with our vast collection of images</h1>
-    
-      <form id="search-form" >
-      <label for="search-field"></label>
-      <input id="search-field" name="search" type="text">
-      <button type="submit">Search</button>
-    </form>
+      <h1></h1>
 
-    <div>
-    <p id="">Title: 
-    <button>text</button> 
-    <button>text</button>
-    <button>text</button>
-    <button>text</button>
-    </div>
         <div id="home-photos" class="api-photos"></div>
     </section>
 
@@ -107,8 +108,12 @@ async function createHomePage() {
   }
 
   function addEventListeners() {
-    document.getElementById("loginBtn").addEventListener("click", createLoginPage);
-    document.getElementById("registerBtn").addEventListener("click", createRegisterPage);
-    document.getElementById("about-us").addEventListener("click", createAboutUsPage);
+    document
+      .getElementById("loginBtn")
+      .addEventListener("click", createLoginPage);
+    document
+      .getElementById("registerBtn")
+      .addEventListener("click", createRegisterPage);
+    handlePhotoClickInteractions();
   }
 }

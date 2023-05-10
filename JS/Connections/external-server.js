@@ -35,7 +35,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
         }
 
         // Return an array of photo objects containing the photo URL and photographer name, and some other relevant keys
-        const customPhotoDataArray = photoResourceArray.map(photo => {
+        const customPhotoDataArray = photoResourceArray.map((photo) => {
             return {
                 id: photo.id,
                 width: photo.width,
@@ -48,8 +48,8 @@ async function fetchCuratedPhotos(per_page, imgSize) {
                 liked: false,
                 alt: photo.alt,
             };
-        }); return customPhotoDataArray;
-
+        });
+        return customPhotoDataArray;
     } catch (error) {
         console.log(error);
         return [];
@@ -61,7 +61,9 @@ async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
     const searchEndPointUrl = `${prefix}search?query=${searchTerm}&per_page=${per_page}`;
 
     try {
-        const response = await fetch_resource(new Request(searchEndPointUrl, { headers }));
+        const response = await fetch_resource(
+            new Request(searchEndPointUrl, { headers })
+        );
         const resource = await response.json();
 
         if (!response.ok) {
@@ -75,7 +77,7 @@ async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
             return;
         }
 
-        let customSearchPhotoDataArray = photoResourceArray.map(photo => {
+        let customSearchPhotoDataArray = photoResourceArray.map((photo) => {
             return {
                 id: photo.id,
                 width: photo.width,
@@ -87,8 +89,8 @@ async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
                 photographer_id: photo.photographer_id,
                 alt: photo.alt,
             };
-        }); return customSearchPhotoDataArray;
-
+        });
+        return customSearchPhotoDataArray;
     } catch (error) {
         console.log(error);
         return [];
@@ -121,7 +123,6 @@ async function fetchFeaturedCollectionObjects(per_page) {
     }
 }
 async function fetchCollectionsMedia(type, per_page, id, imgSize) {
-
     const collectionTitlesandIds = await getCollectionsIds();
     console.log(collectionTitlesandIds);
 
@@ -145,7 +146,7 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
         }
 
         const arrayOfMediaObjects = resource.media;
-        const mediaCollectionObject = arrayOfMediaObjects.map(media => {
+        const mediaCollectionObject = arrayOfMediaObjects.map((media) => {
             return {
                 avg_color: media.avg_color,
                 photo: media.src[imgSize],
@@ -155,7 +156,6 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
         });
 
         console.log(mediaCollectionObject);
-
     } catch (error) {
         console.log(error);
         return [];
@@ -167,12 +167,13 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
         const arrayOfCollectionObjects = resource.collections;
 
         // array of ids and titles
-        const collections = arrayOfCollectionObjects.map(collection => {
+        const collections = arrayOfCollectionObjects.map((collection) => {
             return {
                 id: collection.id,
-                title: collection.title
+                title: collection.title,
             };
-        }); return collections;
+        });
+        return collections;
     }
 }
 
@@ -187,7 +188,7 @@ function createPhotoContainer(array) {
     }
 
     // create dom elements
-    array.forEach(photoObject => {
+    array.forEach((photoObject) => {
         const photoContainer = document.createElement("div");
 
         const photoImage = document.createElement("img");
@@ -201,33 +202,8 @@ function createPhotoContainer(array) {
             photoImage.src = "path.jpg";
         });
 
-        // extract photographer name key to display it later
-        const photographerName = photoObject.photographerName;
-
-        // create buttons over the api photos 
         const photoInteractionsContainer = document.createElement("div");
-        photoInteractionsContainer.classList.add("interaction-container")
-        photoInteractionsContainer.innerHTML = `
-            <button class="collect-button">Collect</button>
-            <i class="likebtn fa-regular fa-heart" style="color: #000000;"></i>
-
-            <div class="photographer-info">${photographerName}</div>
-            `;
-        // query select and add event listeners to the buttons on current photoObject only
-        const collectButton = photoInteractionsContainer.querySelector(".collect-button");
-        const likeButton = photoInteractionsContainer.querySelector(".likebtn");
-
-        // post the collected photo to db
-        async function postPhotoToDB() {
-            await postPhotoObjectToDatabase(photoObject);
-        }
-        collectButton.addEventListener("click", postPhotoToDB);
-
-        // toggle the liked state and update like count on the clicked photo
-        // deleted argument postedObjectPhoto in toggleLikesOnPhoto
-        likeButton.addEventListener("click", () => toggleLikesOnPhoto());
-        console.log("Going to toggleLikesOnPhoto");
-        // likeButton.addEventListener("click", () => toggleLikesOnPhoto(postedPhotoObject));
+        displayPhotoInteractionButtons(photoInteractionsContainer, photoObject);
 
         photoContainer.append(photoInteractionsContainer);
         photoContainer.append(photoImage);
@@ -238,9 +214,7 @@ function createPhotoContainer(array) {
 // displays search term api photos
 async function displayCuratedPhotos(per_page, imgSize) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
-    console.log(customPhotoDataArray);
     createPhotoContainer(customPhotoDataArray);
-    return customPhotoDataArray;
 }
 
 // displays search term api photos
@@ -257,7 +231,6 @@ async function displaySearchTermPhotos(per_page, imgSize) {
             document.querySelector(".api-photos").innerHTML = "";
             customSearchPhotoDataArray = await fetchSearchedPhotos(per_page, imgSize, searchTerm);
             return createPhotoContainer(customSearchPhotoDataArray);
-
         });
     }
 }
@@ -265,12 +238,12 @@ async function displaySearchTermPhotos(per_page, imgSize) {
 // set per_page = to 1 photo from api
 async function displayApiBackgroundImage(per_page, imgSize, domElement) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize, domElement);
-    // set dom bg img 
-    customPhotoDataArray.forEach(photo => {
-        // Set img as background image 
+    // set dom bg img
+    customPhotoDataArray.forEach((photo) => {
+        // Set img as background image
         let backgroundImg = photo.photo;
         domElement.style.backgroundImage = `url(${backgroundImg})`;
-    })
+    });
 }
 
 function photoApiResponseCodes(resource) {
@@ -289,35 +262,4 @@ function photoApiResponseCodes(resource) {
     }
 }
 
-/*** photo interactions ***/
 
-// toggle like count
-async function toggleLikesOnPhoto(postedPhotoObject) {
-    console.log("you have liked the photo!", postedPhotoObject);
-
-    const icon = document.querySelector("i");
-
-    if (icon.classList.contains("fa-regular")) {
-        icon.classList.remove("fa-regular");
-        icon.classList.add("fa-solid");
-        icon.style.color = "#e83030";
-    } else {
-        icon.classList.remove("fa-solid");
-        icon.classList.add("fa-regular");
-        icon.style.color = "#000000";
-    }
-
-
-    // toggle the liked state
-    postedPhotoObject.liked = !photoObject.liked;
-
-    // update the like count
-    if (postedPhotoObject.liked) {
-        postedPhotoObject.likesCount++;
-    } else {
-        postedPhotoObject.likesCount--;
-    }
-
-    // patch the updated photo object to the database
-    await patchPhotoObjectToDatabase(postedPhotoObject);
-}

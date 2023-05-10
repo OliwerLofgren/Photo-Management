@@ -5,11 +5,6 @@
     /* enable scroll snap */
 }
 
-header {
-    height: 5vh;
-    background-color: #f0f0f0;
-    display: flex;
-}
 
 button {
     background: none;
@@ -19,7 +14,6 @@ button {
 #discover-section-one {
     height: 50vh;
 }
-
 
 #discover-photos {
     display: grid;

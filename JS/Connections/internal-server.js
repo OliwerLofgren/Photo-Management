@@ -3,18 +3,15 @@
 
 // handles post request
 async function postPhotoObjectToDatabase(photoObject) {
-
     // add check if object exists ->
 
     // format data we want to send to our database and add some keys
     const photoObjectForDatabase = {
-        id: photoObject.id, // add id to the photo 
+        id: photoObject.id, // add id to the photo
         photoObject: photoObject,
-        liked: false, // toggleable liked state
-        likesCount: photoObject.likesCount,
-        followers: followers,
-        following: following
-    }
+        src: photoObject.photo,
+        liked: false, // this key can be removed 
+    };
 
     const post = {
         method: "POST",
@@ -22,7 +19,7 @@ async function postPhotoObjectToDatabase(photoObject) {
         body: JSON.stringify(photoObjectForDatabase),
     };
 
-    // post the data to database  
+    // post the data to database
     try {
         const response = await fetch("/PHP/profile.php", post);
         const postedPhotoObject = await response.json();
@@ -39,14 +36,15 @@ async function postPhotoObjectToDatabase(photoObject) {
     }
 }
 
-// patch posted photo object (patch toggle like count)
+// patch posted photo object
+// NOTE: needs to receive the posted object in some way 
 async function patchPhotoObjectToDatabase(postedPhotoObject) {
     // patch data
     const photoObjectForDatabase = {
         id: postedPhotoObject.id, // id of the object
-        liked: postedPhotoObject.liked,
-        likesCount: postedPhotoObject.likesCount,
-    }
+        liked: postedPhotoObject.liked,// can be removed
+        likesCount: postedPhotoObject.likesCount,// can be removed
+    };
 
     const options = {
         method: "PATCH",
@@ -55,16 +53,40 @@ async function patchPhotoObjectToDatabase(postedPhotoObject) {
     };
 
     try {
-        const response = await fetch(`/PHP/profile.php?id=${photoObjectForDatabase.id}`, options); // url includes id of the photo  
+        const response = await fetch(
+            `/PHP/profile.php?id=${options.id}`,
+            options
+        ); // url includes id of the photo
         const patchedPhotoObject = await response.json();
 
         if (!response.ok) {
             console.log("Error patching photo object");
         } else {
             console.log("Photo object patched successfully:", patchedPhotoObject);
-            return patchedPhotoObject; // return the newly patched object 
+            return patchedPhotoObject; // return the newly patched object
         }
     } catch (error) {
         console.error("Error patching photo object:", error);
     }
 }
+
+/*** photo interactions ***/
+
+// post the collected photo to db 
+async function postPhotoToDB(photoObject) {
+    const collectButton = document.querySelector(".collect-button");
+}
+
+function handlePhotoClickInteractions() {
+    document.addEventListener("click", function handleClick(event) {
+        if (event.target.classList.contains("likebtn")) {
+            toggleLikedStyleOnPhoto();
+        }
+        else if (event.target.classList.contains("collect-btn")) {
+            toggleBookmarkStyleOnPhoto();
+        }
+    });
+}
+
+
+
