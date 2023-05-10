@@ -8,9 +8,17 @@ async function createProfileCollectionsPage(user) {
   addEventListeners();
 
   function setupPage() {
-    setElementAttributes(collectionsPageMain, "collections-page-main", "user-page-main");
+    setElementAttributes(
+      collectionsPageMain,
+      "collections-page-main",
+      "user-page-main"
+    );
     clearElementAttributes(collectionsHeader);
-    setElementAttributes(collectionsHeader, "collections-header", "user-page-header")
+    setElementAttributes(
+      collectionsHeader,
+      "collections-header",
+      "user-page-header"
+    );
 
     // NOTE: current profile page needs to be marked in css
     collectionsHeader.innerHTML = `
@@ -72,6 +80,13 @@ async function createProfileCollectionsPage(user) {
       });
   }
 }
+collectionsHeader.innerHTML = `
+<form id="form_upload" action="../PHP/profile.php" method="POST" enctype="multipart/form-data">
+<input type="file" name="upload">
+<button type="submit">Upload</button>
+</form>
+<div id="result"></div>
+`;
 
 fetch("../JSON/users.json")
   .then((response) => response.json())

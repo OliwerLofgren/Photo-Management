@@ -47,7 +47,7 @@ async function createProfileGalleryPage(user) {
     `;
   }
 
-  profileHeader.innerHTML = `
+  profilePageHeader.innerHTML = `
   <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
   <input type="file" name="upload">
   <button type="submit">Upload</button>

@@ -14,6 +14,9 @@
             },
             {
                 "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/dog.jpg"
             }
         ],
         "saved_photos": [
