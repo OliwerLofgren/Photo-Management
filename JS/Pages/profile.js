@@ -1,37 +1,48 @@
 "use strict";
-const galleryPageMain = document.querySelector("main");
+const profilePageMain = document.querySelector("main");
+const profilePageHeader = document.querySelector("header");
+
 async function createProfileGalleryPage(user) {
   setupPage();
   addEventListeners();
 
   function setupPage() {
-    clearElementAttributes(galleryPageMain);
+    clearElementAttributes(profilePageMain);
+    setElementAttributes(profilePageMain, "profile-main", "user-page-main");
     setElementAttributes(
-      galleryPageMain,
-      "profile-gallery-main",
-      "profile-page"
+      profilePageHeader,
+      "profile-header",
+      "user-page-header"
     );
+    // NOTE: current profile page needs to be marked in css
 
-    profileHeader.innerHTML = `
-    <H1>PHOTO MANAGEMENT</H1>
+    profilePageHeader.innerHTML = `
+    <H1>P</H1>
       <nav>
         <button id="discover-button">Discover</button>
+        <button id="upload-button">Upload</button>
         <button id="logout-button">Logout</button>
       </nav>
   `;
 
-    document.querySelector("#profile-gallery-main").innerHTML = `
-    <section id="gallery-section-one" class="section">
-      <div id="profile-picture" class="profile-photo">user profile photo here</div>
-  
-      <nav>
-        <button id="collections-button">My Collections</button>      
-        <button id="gallery-button">Gallery</button>      
-      </nav>
+    profilePageMain.innerHTML = `
+    <!-- Insert user profile section here -->
+    <section id="profile-section-one" class="section user-section-one">
+    <div id="profile-bar">
+    <div id="profile-picture" class="profile-photo">insert user profile photo here</div>
+    <button>"Change photo" form goes here</button>
+    <h3>username placeholder: ${user.username}</h3>
+    </div> 
     </section >
   
-      <section id="gallery-section-two" class="section">
-        <div id="gallery-photos" class="gallery-photos"></div>
+
+      <section id="profile-section-two" class="section user-section-two">
+      <nav class="profile-or-collections-nav">
+      <button id="collections-button">Your Collections</button>      
+      <button id="profile-button">Profile</button>      
+    </nav>
+
+        <div id="profile-photos" class="user-photos"></div>
       </section>
     `;
   }

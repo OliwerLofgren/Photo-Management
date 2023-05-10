@@ -35,7 +35,8 @@ async function postPhotoObjectToDatabase(photoObject) {
   }
 }
 
-// patch posted photo object (patch toggle like count)
+// patch posted photo object
+// NOTE: needs to receive the posted object in some way
 async function patchPhotoObjectToDatabase(postedPhotoObject) {
   // patch data
   const new_value = true;
@@ -51,10 +52,7 @@ async function patchPhotoObjectToDatabase(postedPhotoObject) {
   };
 
   try {
-    const response = await fetch(
-      `/PHP/edit.php?id=${photoObjectForDatabase.id}`,
-      options
-    ); // url includes id of the photo
+    const response = await fetch(`/PHP/edit.php?id=${options.id}`, options); // url includes id of the photo
     const patchedPhotoObject = await response.json();
 
     if (!response.ok) {
@@ -66,4 +64,21 @@ async function patchPhotoObjectToDatabase(postedPhotoObject) {
   } catch (error) {
     console.error("Error patching photo object:", error);
   }
+}
+
+/*** photo interactions ***/
+
+// post the collected photo to db
+async function postPhotoToDB(photoObject) {
+  const collectButton = document.querySelector(".collect-button");
+}
+
+function handlePhotoClickInteractions() {
+  document.addEventListener("click", function handleClick(event) {
+    if (event.target.classList.contains("likebtn")) {
+      toggleLikedStyleOnPhoto();
+    } else if (event.target.classList.contains("collect-btn")) {
+      toggleBookmarkStyleOnPhoto();
+    }
+  });
 }

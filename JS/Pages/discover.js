@@ -20,6 +20,7 @@ async function createDiscoverPage(user) {
         <H1>PHOTO MANAGEMENT</H1>
         <nav>
             <p>Username: ${user.username}</p>
+            <div class="mini-profile-photo"></div>
             <button id="collections-button">Your Collections</button>
             <button id="gallery-button">Profile</button>
             <button id="logout-button">Logout</button>
