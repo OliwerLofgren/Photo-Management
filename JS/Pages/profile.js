@@ -8,12 +8,12 @@ async function createProfileGalleryPage(user) {
 
   function setupPage() {
     clearElementAttributes(profilePageMain);
+    setElementAttributes(profilePageMain, "profile-main", "user-page-main");
     setElementAttributes(
-      profilePageMain,
-      "profile-main",
-      "user-page-main"
+      profilePageHeader,
+      "profile-header",
+      "user-page-header"
     );
-    setElementAttributes(profilePageHeader, "profile-header", "user-page-header")
     // NOTE: current profile page needs to be marked in css
 
     profilePageHeader.innerHTML = `
@@ -46,8 +46,6 @@ async function createProfileGalleryPage(user) {
       </section>
     `;
   }
-  const result = document.getElementById("result");
-  const form = document.getElementById("form_upload");
 
   // append to profile bar area:
   profilePageHeader.innerHTML = `
@@ -56,15 +54,15 @@ async function createProfileGalleryPage(user) {
     <button type="submit">Upload</button>
   </form>
   <div id="result"></div>
-`;
-
-
+  `;
+  const result = document.getElementById("result");
+  const form = document.getElementById("form_upload");
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     // Remove previously uploaded image
 
     const formData = new FormData(form);
-    const request = new Request("../PHP/profile.php", {
+    const request = new Request("../PHP/upload.php", {
       method: "POST",
       body: formData,
     });
@@ -80,28 +78,30 @@ async function createProfileGalleryPage(user) {
           result.textContent = "An error occurred: " + data.error;
         } else {
           result.textContent = "Successfully uploaded the image";
+          fetch("../JSON/users.json")
+            .then((response) => response.json())
+            .then((data) => {
+              const uploaded_photos = data[0].uploaded_photos;
+              const container = document.createElement("div");
+              //Lägg till klassen api-photos
+              container.id = "photo_container";
+              const grid_container = document.createElement("div");
+              grid_container.id = "grid_container";
+              console.log(data);
+
+              uploaded_photos.forEach((photo) => {
+                const photo_url = photo.photo;
+                const img = document.createElement("img");
+                img.src = photo_url;
+                container.appendChild(img);
+              });
+              container.appendChild(grid_container);
+              //Fråga Rabia om queryselectorn som skapas med innerHTML
+              document.querySelector("body").appendChild(container);
+            });
         }
       });
   });
-
-  fetch("../JSON/users.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const uploadedPhotos = data[0].uploaded_photos;
-
-      for (let i = 0; i < uploadedPhotos.length; i++) {
-        const photo = uploadedPhotos[i];
-        if (photo.src) {
-          const img = document.createElement("img");
-          img.src = photo.src;
-          img.alt = `Photo ${i + 1}`;
-          const img_container = document.createElement("div");
-          img_container.classList.add("grid-item");
-          img_container.appendChild(img);
-          main.appendChild(img_container);
-        }
-      }
-    });
 
   function addEventListeners() {
     document
