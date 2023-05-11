@@ -6,6 +6,10 @@
             {
                 "photo_id": 1,
                 "photo": "..\/PHP\/my_photos\/dog.jpg"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
             }
         ],
         "saved_photos": [],
