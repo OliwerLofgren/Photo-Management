@@ -38,7 +38,8 @@ if ($request_method == "POST") {
         "username" => $username,
         "password" => $password,
         "uploaded_photos" => [],
-        "saved_photos" => []
+        "saved_photos" => [],
+        "profile_pictures" => []
     ];
 
     // add successfull registration message to user > 

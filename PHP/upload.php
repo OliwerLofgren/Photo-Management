@@ -37,7 +37,7 @@
 
           
             file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
-            sendJSON($users[0]["uploaded_photos"]);
+            sendJSON($users);
        
         }else{
             $message = ["message" => "Unable to upload file!"];
@@ -46,8 +46,8 @@
         }
 
     }
-        // $message = ["message" => "Wrong kind of method!"];
-        // sendJSON($message, 400);
+        $message = ["message" => "Wrong kind of method!"];
+        sendJSON($message, 400);
     ?>
 
     

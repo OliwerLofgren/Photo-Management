@@ -2,36 +2,15 @@
     {
         "username": "Oliwer",
         "password": "123",
-        "uploaded_photos": [
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_pictures": [
             {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/brown-dog-jpeg.jpg"
-            },
-            {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
-            },
-            {
-                "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
-            },
-            {
-                "photo_id": 4,
                 "photo": "..\/PHP\/my_photos\/dog.jpg"
             },
             {
-                "photo_id": 5,
-                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
-            },
-            {
-                "photo_id": 6,
                 "photo": "..\/PHP\/my_photos\/dog-png.png"
-            },
-            {
-                "photo_id": 7,
-                "photo": "..\/PHP\/my_photos\/brown-dog-jpeg.jpg"
             }
-        ],
-        "saved_photos": []
+        ]
     }
 ]

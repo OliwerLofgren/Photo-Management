@@ -1,4 +1,5 @@
 "use strict";
+
 const profilePageMain = document.querySelector("main");
 const profilePageHeader = document.querySelector("header");
 const section_two_main = document.querySelector(".profile-or-collections-nav");
@@ -7,6 +8,8 @@ async function createProfileGalleryPage(user) {
   setupPage();
   addEventListeners();
   get_all_images();
+  const profile_div = document.querySelector("#profile-picture");
+  get_profile_picture(profile_div);
   function setupPage() {
     clearElementAttributes(profilePageMain);
     setElementAttributes(profilePageMain, "profile-main", "user-page-main");
@@ -30,8 +33,12 @@ async function createProfileGalleryPage(user) {
     <!-- Insert user profile section here -->
     <section id="profile-section-one" class="section user-section-one">
     <div id="profile-bar">
-    <div id="profile-picture" class="profile-photo">insert user profile photo here</div>
-    <button>"Change photo" form goes here</button>
+    <div id="profile-picture" class="profile-photo"></div>
+    <form id="form_profile_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
+     <input type="file" name="upload">
+     <button type="submit">Upload</button>
+    </form> 
+    <div id="profile_result"></div>   
     <h3>username placeholder: ${user.username}</h3>
     </div> 
     </section >
@@ -41,17 +48,44 @@ async function createProfileGalleryPage(user) {
       <nav class="profile-or-collections-nav">
       <button id="collections-button">Your Collections</button>      
       <button id="profile-button">Profile</button>   
-      <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
-  <input type="file" name="upload">
-  <button type="submit">Upload</button>
-</form>
-<div id="result"></div>   
+      <form id="form_upload" action="../PHP/profile_pics.php" method="POST" enctype="multipart/form-data">
+        <input type="file" name="upload">
+        <button type="submit">Upload</button>
+      </form>
+      <div id="result"></div>   
     </nav>
 
         <div id="profile-photos" class="user-photos"></div>
       </section>
     `;
   }
+  const profile_form = document.getElementById("form_profile_upload");
+  const profile_result = document.getElementById("profile_result");
+  profile_form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    // Remove previously uploaded image
+
+    const formData = new FormData(profile_form);
+    const request = new Request("../PHP/profile_pics.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    fetch(request)
+      .then((response) => response.json())
+      .then((data) => {
+        // This simply resets the form.
+        form.reset();
+        console.log(data);
+        if (data.error) {
+          profile_result.textContent = "An error occurred: " + data.error;
+        } else {
+          profile_result.textContent =
+            "Your profile picture has successfully been added";
+          get_profile_picture();
+        }
+      });
+  });
 
   const result = document.getElementById("result");
   const form = document.getElementById("form_upload");
