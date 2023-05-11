@@ -47,20 +47,6 @@ async function createDiscoverPage(user) {
         </section>
         `;
   }
-  function get_profile_picture(target_element) {
-    fetch("../JSON/users.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const profile_pictures = data[0].profile_pictures;
-        if (profile_pictures.length > 0) {
-          const photo_url = profile_pictures[profile_pictures.length - 1].photo;
-          const img = document.createElement("img");
-          img.src = photo_url;
-          target_element.innerHTML = "";
-          target_element.appendChild(img);
-        }
-      });
-  }
 
   // set bg img from api photo
   function displaySectionOnePhotos() {
@@ -72,9 +58,6 @@ async function createDiscoverPage(user) {
       displaySearchTermPhotos(5, "medium");
     }
   }
-  const mini_profile_photo = document.querySelector(".mini-profile-photo");
-  get_profile_picture(mini_profile_photo);
-
   function addEventListeners() {
     document
       .getElementById("collections-button")
