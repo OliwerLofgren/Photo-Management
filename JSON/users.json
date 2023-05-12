@@ -3,94 +3,14 @@
         "username": "Oliwer",
         "password": "123",
         "uploaded_photos": [],
-        "saved_photos": [
+        "saved_photos": [],
+        "profile_pictures": [
             {
-                "id": 16557877,
-                "photoObject": {
-                    "id": 16557877,
-                    "width": 4160,
-                    "height": 6240,
-                    "avg_color": "#757978",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16557877\/pexels-photo-16557877.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Ozan \u00c7ulha",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@ozanculha",
-                    "photographer_id": 1512687,
-                    "liked": false,
-                    "alt": ""
-                },
-                "liked": false,
-                "src": null
+                "photo": "..\/PHP\/my_photos\/dog.jpg"
             },
             {
-                "id": 16557877,
-                "photoObject": {
-                    "id": 16557877,
-                    "width": 4160,
-                    "height": 6240,
-                    "avg_color": "#757978",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16557877\/pexels-photo-16557877.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Ozan \u00c7ulha",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@ozanculha",
-                    "photographer_id": 1512687,
-                    "liked": false,
-                    "alt": ""
-                },
-                "liked": false
+                "photo": "..\/PHP\/my_photos\/dog-png.png"
             }
         ]
-    },
-    {
-        "username": "a",
-        "password": "a",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "b",
-        "password": "b",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "f",
-        "password": "f",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "be",
-        "password": "be",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "g",
-        "password": "g",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "fa",
-        "password": "f",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "JA",
-        "password": "JA",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "YES",
-        "password": "YES",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "hej",
-        "password": "hej",
-        "uploaded_photos": [],
-        "saved_photos": []
     }
 ]

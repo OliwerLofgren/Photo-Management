@@ -8,19 +8,28 @@ async function createProfileCollectionsPage(user) {
   addEventListeners();
 
   function setupPage() {
-    setElementAttributes(collectionsPageMain, "collections-page-main", "user-page-main");
+    setElementAttributes(
+      collectionsPageMain,
+      "collections-page-main",
+      "user-page-main"
+    );
     clearElementAttributes(collectionsHeader);
-    setElementAttributes(collectionsHeader, "collections-header", "user-page-header")
+    setElementAttributes(
+      collectionsHeader,
+      "collections-header",
+      "user-page-header"
+    );
 
     // NOTE: current profile page needs to be marked in css
     collectionsHeader.innerHTML = `
   <H1>P</H1>
     <nav>
       <button id="discover-button">Discover</button>
-      <button id="upload-button">Upload</button>
       <button id="logout-button">Logout</button>
   </nav>
-  `;
+ 
+`;
+
     collectionsPageMain.innerHTML = `
     <section id="collections-section-one" class="section user-section-one">
       <!-- Insert user profile photo here -->
@@ -77,17 +86,25 @@ fetch("../JSON/users.json")
   .then((response) => response.json())
   .then((data) => {
     const saved_photos = data[0].saved_photos;
+    const container = document.createElement("div");
+    //Lägg till klassen api-photos
+    container.id = "photo_container";
+    const grid_container = document.createElement("div");
+    grid_container.id = "grid_container";
+    console.log(data);
 
-    for (let i = 0; i < saved_photos.length; i++) {
-      const photo = saved_photos[i];
-      if (photo.src) {
-        const img = document.createElement("img");
-        img.src = photo.src;
-        img.alt = `Photo ${i + 1}`;
-        const img_container = document.createElement("div");
-        img_container.classList.add("grid-item");
-        img_container.appendChild(img);
-        main.appendChild(img_container);
-      }
-    }
+    saved_photos.forEach((photo) => {
+      const photo_url = photo.photoObject.photo;
+      console.log(photo_url);
+      const img = document.createElement("img");
+      const delete_button = document.createElement("button");
+      delete_button.textContent = "DELETE";
+      //   delete_button.addEventListeners("click", delete_photo);
+      img.src = photo_url;
+      container.appendChild(img);
+      container.appendChild(delete_button);
+    });
+    container.appendChild(grid_container);
+    //Fråga Rabia om queryselectorn som skapas med innerHTML
+    document.querySelector("body").appendChild(container);
   });
