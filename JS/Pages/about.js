@@ -2,64 +2,33 @@
 
 const aboutusHeader = document.querySelector("header");
 const aboutusMain = document.querySelector("main");
-let resource = null;
 
-// count logged in users
-// Object.values(users).filter(user => user.isLoggedIn).length
-
-// let count = 0
-// let login = 0
-// for(user in users)
-// {
-//     if(users[user].isLoggedIn)
-//     {
-//         login++
-//     }
-//     if(users[user].points >= 50)
-//     {
-//         count++;
-//     }
-//     const skills = users[user].skills
-//     if (skills.includes("MongoDB", "Express", "React", "Node") ) {
-//         console.log(`${user} have MERN STACK`)
-//     }
-// }
-// console.log(`${count} users have greater than equal to 50 points`)
-// console.log(`${login} users logged in`)
-async function getUsers(event) {
-
+async function getUsers() {
+    let resource = null;
 
     try {
         const response = await fetch("/JSON/users.json");
-        const resource = await response.json();
+        resource = await response.json();
 
         if (!response.ok) {
             console.log("Response not ok");
         } else {
-            console.log("Response succesfull", resource);
+            console.log("Response successful", resource);
         }
     } catch (error) {
         console.log("Error", error);
     }
 
-    if (resource) {
-        const users = resource.users;
-        console.log("Number of users:", users.length);
-
-        users.forEach((user, index) => {
-            console.log(`User ${index + 1}: ${user.username}`)
-        });
-    }
-
+    return resource;
 }
 
-function createAboutUsPage() {
+async function createAboutUsPage() {
 
     setupPage();
     addEventListener();
 
-
     function setupPage() {
+
 
         setElementAttributes(aboutusMain, "about-us-main", "");
 
@@ -78,9 +47,9 @@ function createAboutUsPage() {
         <p class="paragraf">We love to inspire
         join us on the journey to blablbalbal</p>
 
-        <div>
-        <p>Current amount of logged in users</p>
-        <div id="counter"></div>
+        <div class="amountOfUsers">
+        <p>Current amount of users</p>
+        <div id="counter">${NumberOfUsers}</div>
         </div>
 
         <h2>Join us and register <a>HERE</a></h2>
@@ -118,16 +87,24 @@ function createAboutUsPage() {
         `;
 
     }
-
-    function addEventListener() {
-        document
-            .getElementById("registerBtn")
-            .addEventListener("click", createRegisterPage);
-
-        document
-            .getElementById("counter")
-            .addEventListener("click", getUsers);
-        getUsers();
-    }
-
 }
+let NumberOfUsers = 0;
+function addEventListener() {
+    document
+        .getElementById("registerBtn")
+        .addEventListener("click", createRegisterPage);
+}
+async function doSomethingWithUsers() {
+    const resource = await getUsers();
+    let usernameCount = 0;
+
+    resource.forEach((user) => usernameCount++);
+    NumberOfUsers = usernameCount;
+    console.log("Number of usernames:", usernameCount);
+}
+
+doSomethingWithUsers();
+
+
+
+

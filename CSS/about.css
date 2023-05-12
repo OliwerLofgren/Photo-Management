@@ -2,9 +2,20 @@
     text-align: center;
 }
 
-.circle-title {
+.circle {
+    margin: auto;
     background: #e5906f;
     border-radius: 50%;
     width: 200px;
     height: 200px;
+}
+
+.circle-title {
+    padding-top: 40%;
+}
+
+.amountOfUsers {
+    background-color: rgb(188, 178, 178);
+    height: 20px;
+    width: 100px;
 }
