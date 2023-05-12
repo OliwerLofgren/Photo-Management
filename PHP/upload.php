@@ -28,12 +28,16 @@
         $destination = "../PHP/my_photos/" . $name;
         
         if (move_uploaded_file($tmp_name, $destination)) {
-          
-            $users[0]["uploaded_photos"][] = ["photo" => rtrim($destination, "/")];
+            $photo_id = count($users[0]["uploaded_photos"]) + 1;
+            $new_photo = [
+                "photo_id" => $photo_id,
+                "photo" => rtrim($destination, "/")
+            ];
+            $users[0]["uploaded_photos"][] = $new_photo;
 
           
             file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
-            sendJSON($users[0]["uploaded_photos"]);
+            sendJSON($users);
        
         }else{
             $message = ["message" => "Unable to upload file!"];
@@ -42,8 +46,8 @@
         }
 
     }
-        // $message = ["message" => "Wrong kind of method!"];
-        // sendJSON($message, 400);
+        $message = ["message" => "Wrong kind of method!"];
+        sendJSON($message, 400);
     ?>
 
     
