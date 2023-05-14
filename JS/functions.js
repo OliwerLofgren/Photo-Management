@@ -86,6 +86,24 @@ function displayPhotoInteractionButtons(
 function toggleLikedStyleOnPhoto() {
   console.log("you have liked the photo!");
   const hearticon = document.querySelector(".likebtn");
+  // Add this fetch to a addEventListener if this function isnt it.
+  // Make the PATCH request
+  fetch("../PHP/edit.php", {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ liked: true }), // Change the value to true
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response data if needed
+      console.log(data);
+    })
+    .catch((error) => {
+      // Handle any errors
+      console.error(error);
+    });
 
   if (hearticon.classList.contains("fa-regular")) {
     hearticon.classList.remove("fa-regular");
