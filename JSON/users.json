@@ -35,5 +35,12 @@
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_pictures": []
+    },
+    {
+        "username": "amelie",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_pictures": []
     }
 ]
