@@ -210,10 +210,7 @@ function createPhotoContainer(array) {
         photoImage.alt = photoObject.alt;
 
         const photoInteractionsContainer = displayPhotoInteractionIcons(photoObject, photoContainer);
-
-        console.log(photoInteractionsContainer);
         return;
-
     });
 }
 

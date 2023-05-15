@@ -79,7 +79,7 @@ function scrollIntoView(selector) {
   element.scrollIntoView();
 }
 
-function displayPhotoInteractionIcons(
+async function displayPhotoInteractionIcons(
   photoObject, photoContainer) {
   // create a container for some interactive buttons for api photos
   const photoInteractionsContainer = document.createElement("div");
@@ -111,19 +111,24 @@ function displayPhotoInteractionIcons(
   likeBtn.style.color = "#000000";
 
   // add a click event listener to the likeBtn
-  likeBtn.addEventListener("click", () => {
-    toggleLikedStyleOnPhoto(photoContainer);
+  likeBtn.addEventListener("click", (event) => {
+    if (event.currentTarget === event.target) {
+      toggleLikedStyleOnPhoto(photoContainer, photoObject);
+    }
   });
 
-  // add a click event listener to the likeBtn
-  collectBtn.addEventListener("click", () => {
-    toggleBookmarkStyleOnPhoto(photoContainer);
+
+  // add a click event listener to the bookmarkbtn
+  collectBtn.addEventListener("click", (event) => {
+    if (event.currentTarget === event.target) {
+      toggleBookmarkStyleOnPhoto(photoContainer, photoObject);
+    }
   });
 
   return photoInteractionsContainer;
 }
 
-function toggleLikedStyleOnPhoto(photoContainer) {
+async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have liked the photo!");
   // Add this fetch to a addEventListener if this function isnt it.
   // Make the PATCH request
@@ -152,21 +157,23 @@ function toggleLikedStyleOnPhoto(photoContainer) {
     return;
   }
 
+  await postPhotoObjectToDatabase(photoObject);
 
   // loop through each heart icon and modify the style only if its data-id matches the id of the clicked photo
   heartIcons.forEach((heartIcon) => {
+
     if (heartIcon.dataset.id === photoContainer.dataset.id) {
       if (heartIcon.classList.contains("fa-regular")) {
         heartIcon.classList.remove("fa-regular");
         heartIcon.classList.add("fa-solid");
         heartIcon.classList.add("fa-fade");
         heartIcon.style.color = "#e83030";
-        console.log(heartIcon);
 
         // Stop the fade animation after 2 seconds
         setTimeout(() => {
           heartIcon.classList.remove("fa-fade");
         }, 2000);
+
       } else {
         heartIcon.classList.remove("fa-solid");
         heartIcon.classList.add("fa-regular");
@@ -174,10 +181,9 @@ function toggleLikedStyleOnPhoto(photoContainer) {
       }
     }
   });
-
 }
 
-function toggleBookmarkStyleOnPhoto(photoContainer) {
+async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have bookmarked the photo!");
 
   // select all the bookmark icons
@@ -187,10 +193,12 @@ function toggleBookmarkStyleOnPhoto(photoContainer) {
     console.error(`Collect icon with id ${photoContainer.dataset.id} not found.`);
     return;
   }
+  await postPhotoObjectToDatabase(photoObject);
 
   // loop through each bookmark icon and modify the style only if its data-id matches the id of the clicked photo
   collectBtns.forEach((collectBtn) => {
     if (collectBtn.dataset.id === photoContainer.dataset.id) {
+
       if (collectBtn.classList.contains("fa-regular")) {
         collectBtn.classList.remove("fa-regular");
         collectBtn.classList.add("fa-solid");
@@ -202,6 +210,7 @@ function toggleBookmarkStyleOnPhoto(photoContainer) {
         setTimeout(() => {
           collectBtn.classList.remove("fa-fade");
         }, 2000);
+
       } else {
         collectBtn.classList.remove("fa-solid");
         collectBtn.classList.add("fa-regular");

@@ -96,7 +96,8 @@ button {
 }
 
 .interaction-container {
+    background-color: aqua;
     position: relative;
-    top: 40px;
+    top: -300px;
     z-index: 2;
 }
