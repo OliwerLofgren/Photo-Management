@@ -40,8 +40,10 @@ async function createAboutUsPage() {
         `;
 
         aboutusMain.innerHTML = `
+        <div id="transition">
         <div class="circle"> 
         <h1 class ="circle-title">About us</h1>
+        </div>
         </div>
 
         <p class="paragraf">We love to inspire
@@ -49,10 +51,10 @@ async function createAboutUsPage() {
 
         <div class="amountOfUsers">
         <p>Current amount of users</p>
-        <div id="counter">${NumberOfUsers}</div>
+        <div id="counter">${numberOfUsers}</div>
         </div>
 
-        <h2>Join us and register <a>HERE</a></h2>
+        <h2>Join us and register <button id="hereBtn">HERE</button></h2>
 
         <p>Here at PHOTO MANAGEMENT you can share inspiration and be inspired
         We are based in Malmö and balakdjskjdfddf
@@ -73,6 +75,7 @@ async function createAboutUsPage() {
 
         <p>Our team</p>
 
+        <div class="team">
         <div>
         <img src="" alt="Amelie">
         <h3>Amélie</h3>
@@ -83,27 +86,34 @@ async function createAboutUsPage() {
         <img src="" alt="Oliwer">
         <h3>Oliwer</h3>
         </div>
-
+    </div>
         `;
 
     }
 }
-let NumberOfUsers = 0;
+
+let numberOfUsers = 0;
+
 function addEventListener() {
     document
         .getElementById("registerBtn")
         .addEventListener("click", createRegisterPage);
+
+    document
+        .getElementById("hereBtn")
+        .addEventListener("click", createRegisterPage)
 }
-async function doSomethingWithUsers() {
+
+async function countUsers() {
     const resource = await getUsers();
-    let usernameCount = 0;
+    let userCount = 0;
 
-    resource.forEach((user) => usernameCount++);
-    NumberOfUsers = usernameCount;
-    console.log("Number of usernames:", usernameCount);
+    resource.forEach((user) => userCount++);
+    numberOfUsers = userCount;
+    console.log("Number of usernames:", userCount);
 }
 
-doSomethingWithUsers();
+countUsers();
 
 
 

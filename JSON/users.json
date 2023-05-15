@@ -12,5 +12,19 @@
                 "photo": "..\/PHP\/my_photos\/dog-png.png"
             }
         ]
+    },
+    {
+        "username": "Amelie",
+        "password": "hej",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_pictures": []
+    },
+    {
+        "username": "hej",
+        "password": "hej",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_pictures": []
     }
 ]
