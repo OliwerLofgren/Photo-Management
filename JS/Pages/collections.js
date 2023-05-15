@@ -36,7 +36,7 @@ async function createProfileCollectionsPage(user) {
       <div id="profile-bar">
       <div id="profile-picture" class="profile-photo">user profile photo here</div>
       <button>"Change photo" form goes here</button>
-      <h3>username placeholder: ${user.username}</h3>
+      <h3>username: ${user.username}</h3>
       </div> 
     </section>
 

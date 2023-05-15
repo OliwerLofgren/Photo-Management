@@ -9,7 +9,11 @@ async function createProfileGalleryPage(user) {
   addEventListeners();
   get_all_images();
   const profile_div = document.querySelector("#profile-picture");
-  get_profile_picture(profile_div);
+  if (profile_div) {
+    get_profile_picture(profile_div);
+  } else {
+    console.log("Profile picture element was not found!");
+  }
   function setupPage() {
     clearElementAttributes(profilePageMain);
     setElementAttributes(profilePageMain, "profile-main", "user-page-main");
@@ -214,18 +218,5 @@ async function createProfileGalleryPage(user) {
 //Display all images that you have uploaded
 
 //This php-code should is intended for index.html
-
-// $filename = "photo.json";
-// $photos = [];
-
-// if (file_exists($filename)) {
-//     $json = file_get_contents($filename);
-//     $photos = json_decode($json, true);
-// }
-
-// foreach ($photos as $photo) {
-//     $src = $photo["src"];
-//     echo "<img src='$src'>";
-// }
 
 //Display your profile picture
