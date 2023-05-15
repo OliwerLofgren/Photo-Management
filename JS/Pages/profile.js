@@ -36,15 +36,17 @@ async function createProfileGalleryPage(user) {
     profilePageMain.innerHTML = `
     <!-- Insert user profile section here -->
     <section id="profile-section-one" class="section user-section-one">
-    <div id="profile-bar">
+    
     <div id="profile-picture" class="profile-photo"></div>
+    <div id="profile_container">
     <form id="form_profile_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
      <input type="file" name="upload">
      <button type="submit">Upload</button>
     </form> 
     <div id="profile_result"></div>   
-    <h3>username placeholder: ${user.username}</h3>
-    </div> 
+    <h3>Username: ${user.username}</h3>
+    </div>
+    
     </section >
   
 

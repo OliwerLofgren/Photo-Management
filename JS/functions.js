@@ -147,7 +147,7 @@ function get_profile_picture(target_element) {
         const photo_url = profile_pictures[profile_pictures.length - 1].photo;
         const img = document.createElement("img");
         img.src = photo_url;
-        target_element.innerHTML = "";
+        // target_element.innerHTML = "";
         target_element.appendChild(img);
       }
     });
