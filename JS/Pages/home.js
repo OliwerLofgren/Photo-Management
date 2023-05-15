@@ -3,8 +3,6 @@
 const homeMain = document.querySelector("main");
 const homeHeader = document.querySelector("header");
 
-
-
 function createHomePage() {
   // check to see if the user is logged in
   const user = JSON.parse(window.localStorage.getItem("user"));
@@ -109,7 +107,6 @@ function createHomePage() {
     document
       .getElementById("registerBtn")
       .addEventListener("click", createRegisterPage);
-    handlePhotoClickInteractions();
 
     // clickedButton.onClick = displayModalWindow("Want more? Create an account or log in to see additional search results, add your favorites to Collections, and save changes.")
   }

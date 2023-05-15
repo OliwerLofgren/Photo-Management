@@ -79,58 +79,90 @@ function scrollIntoView(selector) {
   element.scrollIntoView();
 }
 
-function displayPhotoInteractionButtons(
-  photoInteractionsContainer,
-  photoObject
-) {
-  // create some buttons over the api photos
-  // extract photographer name key for display on the photo
-  const photographerName = photoObject.photographerName;
+function displayPhotoInteractionIcons(
+  photoObject, photoContainer) {
+  // create a container for some interactive buttons for api photos
+  const photoInteractionsContainer = document.createElement("div");
   photoInteractionsContainer.classList.add("interaction-container");
 
-  photoInteractionsContainer.innerHTML = `
-    < i class="collect-btn fa-regular fa-bookmark" style = "color: #000000;" ></i >
-    <i class="likebtn fa-regular fa-heart" style="color: #000000;"></i>
-    <div class="photographer-info">${photographerName}</div>
-  `;
+  // extract photographer name key for display on the photo
+  const photographerName = photoObject.photographerName;
+  const photographerNameDiv = document.createElement("div");
+  photoInteractionsContainer.appendChild(photographerNameDiv);
+  photographerNameDiv.outerHTML = `<div class="photographer-info">${photographerName}</div>`;
+
+  const collectBtn = document.createElement("i");
+  collectBtn.dataset.id = photoObject.id; // add photo ID to the icon's dataset
+  photoInteractionsContainer.appendChild(collectBtn);
+  collectBtn.outerHTML = `<i class="collect-btn fa-regular fa-bookmark" style = "color: #000000;"></i>`;
+
+  const likeBtn = document.createElement("i");
+  likeBtn.dataset.id = photoObject.id; // add photo ID to the icon's dataset
+  photoInteractionsContainer.appendChild(likeBtn);
+  likeBtn.outerHTML = `<i class="likebtn fa-regular fa-heart" style="color: #000000;"></i>`;
+
+  // add a click event listener to the likeBtn
+  likeBtn.addEventListener("click", () => {
+    toggleLikedStyleOnPhoto(photoContainer);
+  });
+
+  return photoInteractionsContainer;
 }
 
-function toggleLikedStyleOnPhoto() {
+function toggleLikedStyleOnPhoto(photoContainer) {
   console.log("you have liked the photo!");
-  const hearticon = document.querySelector(".likebtn");
 
-  if (hearticon.classList.contains("fa-regular")) {
-    hearticon.classList.remove("fa-regular");
-    hearticon.classList.add("fa-solid");
-    hearticon.classList.add("fa-fade");
-    hearticon.style.color = "#e83030";
+  // select all the heart icons
+  const heartIcons = document.querySelectorAll(".likebtn");
 
-    // Stop the fade animation after 2 seconds
-    setTimeout(() => {
-      hearticon.classList.remove("fa-fade");
-    }, 2000);
-  } else {
-    hearticon.classList.remove("fa-solid");
-    hearticon.classList.add("fa-regular");
-    hearticon.style.color = "#000000";
-  }
+  // loop through each heart icon and modify the style only if its data-id matches the id of the clicked photo
+  heartIcons.forEach((heartIcon) => {
+    if (heartIcon.dataset.id === photoContainer.id) {
+      if (heartIcon.classList.contains("fa-regular")) {
+        heartIcon.classList.remove("fa-regular");
+        heartIcon.classList.add("fa-solid");
+        heartIcon.classList.add("fa-fade");
+        heartIcon.style.color = "#e83030";
+        console.log(heartIcon);
+
+        // Stop the fade animation after 2 seconds
+        setTimeout(() => {
+          heartIcon.classList.remove("fa-fade");
+        }, 2000);
+      } else {
+        heartIcon.classList.remove("fa-solid");
+        heartIcon.classList.add("fa-regular");
+        heartIcon.style.color = "#000000";
+      }
+    }
+  });
 }
-function toggleBookmarkStyleOnPhoto() {
-  const bookmarkicon = document.querySelector(".collect-btn");
-  if (bookmarkicon.classList.contains("fa-regular")) {
-    bookmarkicon.classList.add("fa-solid");
-    bookmarkicon.classList.add("fa-bounce");
-    bookmarkicon.classList.remove("fa-regular");
+
+
+function toggleBookmarkStyleOnPhoto(photoContainer) {
+  const collectIcon = document.querySelector(`.collect-btn[data-id="${id}"]`);
+
+  if (!collectIcon) {
+    console.error(`Collect icon with id ${id} not found.`);
+    return;
+  }
+
+  if (collectIcon.classList.contains("fa-regular")) {
+    collectIcon.classList.add("fa-solid");
+    collectIcon.classList.add("fa-bounce");
+    collectIcon.classList.remove("fa-regular");
 
     // Stop the bounce animation after 2 seconds
     setTimeout(() => {
-      bookmarkicon.classList.remove("fa-bounce");
+      collectIcon.classList.remove("fa-bounce");
     }, 2000);
   } else {
-    bookmarkicon.classList.remove("fa-solid");
-    bookmarkicon.classList.add("fa-regular");
+    collectIcon.classList.remove("fa-solid");
+    collectIcon.classList.add("fa-regular");
   }
 }
+
+
 
 function get_profile_picture(target_element) {
   fetch("../JSON/users.json")

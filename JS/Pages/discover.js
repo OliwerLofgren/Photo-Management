@@ -64,7 +64,7 @@ async function createDiscoverPage(user) {
       });
   }
 
-  // set bg img from api photo
+
   function displaySectionOnePhotos() {
     // check if current page is discover page
     const discoverPage = document.getElementById("discover-main");
@@ -95,7 +95,7 @@ async function createDiscoverPage(user) {
         user = null;
         createHomePage();
       });
-    handlePhotoClickInteractions();
+
   }
 }
 

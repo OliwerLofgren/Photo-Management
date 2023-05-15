@@ -195,6 +195,9 @@ function createPhotoContainer(array) {
     array.forEach((photoObject) => {
         const photoContainer = document.createElement("div");
 
+        photoContainer.dataset.id = photoObject.id; // add photo ID to the container's dataset
+        console.log(photoContainer);
+
         const photoImage = document.createElement("img");
 
         photoImage.onload = function () {
@@ -204,16 +207,15 @@ function createPhotoContainer(array) {
         // add an alt attribute to the img element to improve accessibility
         photoImage.alt = photoObject.alt;
 
-        const photoInteractionsContainer = document.createElement("div");
-        displayPhotoInteractionButtons(photoInteractionsContainer, photoObject);
+        const photoInteractionsContainer = displayPhotoInteractionIcons(photoObject, photoContainer);
 
         photoContainer.append(photoInteractionsContainer);
         photoContainer.append(photoImage);
         photoWrapper.appendChild(photoContainer);
+
     });
 }
 
-// displays search term api photos
 async function displayCuratedPhotos(per_page, imgSize) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
     createPhotoContainer(customPhotoDataArray);
