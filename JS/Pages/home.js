@@ -28,7 +28,7 @@ function createHomePage() {
     homeHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
       <nav id="navHome">
-      <button id="about-us">About Us</button> /
+      <button id="aboutBtn">About Us</button> /
         <button id="loginBtn">Log In</button> /     
         <button id="registerBtn">Sign Up</button>      
       </nav>
@@ -109,6 +109,12 @@ function createHomePage() {
       .addEventListener("click", createRegisterPage);
 
     // clickedButton.onClick = displayModalWindow("Want more? Create an account or log in to see additional search results, add your favorites to Collections, and save changes.")
+    handlePhotoClickInteractions();
+    document
+      .getElementById("aboutBtn")
+      .addEventListener("click", createAboutUsPage);
+
+
   }
 }
 
