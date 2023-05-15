@@ -57,6 +57,8 @@
         ]
     },
     {
+        "username": "a",
+        "password": "a",
         "username": "Amelie",
         "password": "hej",
         "uploaded_photos": [],

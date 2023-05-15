@@ -16,8 +16,8 @@ function fetch_resource(request) {
 
 // returns array of select keys: photographer name, photourl, etc
 async function fetchCuratedPhotos(per_page, imgSize) {
+    displayServerLoadingMessage();
     const url = `${prefix}curated?per_page=${per_page}`;
-
     try {
         const response = await fetch_resource(new Request(url, { headers }));
         const resource = await response.json();
@@ -29,6 +29,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
         }
 
         let photoResourceArray = resource.photos;
+        console.log(photoResourceArray);
         if (!photoResourceArray || photoResourceArray.length === 0) {
             console.log("No photos found");
             return;
@@ -49,6 +50,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
                 alt: photo.alt,
             };
         });
+
         return customPhotoDataArray;
     } catch (error) {
         console.log(error);
@@ -58,6 +60,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
 }
 
 async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
+    displayServerLoadingMessage();
     const searchEndPointUrl = `${prefix}search?query=${searchTerm}&per_page=${per_page}`;
 
     try {
@@ -90,6 +93,7 @@ async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
                 alt: photo.alt,
             };
         });
+
         return customSearchPhotoDataArray;
     } catch (error) {
         console.log(error);
@@ -190,28 +194,29 @@ function createPhotoContainer(array) {
     // create dom elements
     array.forEach((photoObject) => {
         const photoContainer = document.createElement("div");
+        photoWrapper.append(photoContainer);
+
+        photoContainer.dataset.id = photoObject.id; // add photo ID to the container's dataset
 
         const photoImage = document.createElement("img");
+        photoContainer.append(photoImage);
+
+        photoImage.onload = function () {
+            hideServerLoadingMessage();
+        }
+
         photoImage.src = photoObject.photo;
         // add an alt attribute to the img element to improve accessibility
         photoImage.alt = photoObject.alt;
 
-        // handle image loading errors
-        photoImage.addEventListener("error", () => {
-            // replace the failed image with a default image
-            photoImage.src = "path.jpg";
-        });
+        const photoInteractionsContainer = displayPhotoInteractionIcons(photoObject, photoContainer);
 
-        const photoInteractionsContainer = document.createElement("div");
-        displayPhotoInteractionButtons(photoInteractionsContainer, photoObject);
+        console.log(photoInteractionsContainer);
+        return;
 
-        photoContainer.append(photoInteractionsContainer);
-        photoContainer.append(photoImage);
-        photoWrapper.appendChild(photoContainer);
     });
 }
 
-// displays search term api photos
 async function displayCuratedPhotos(per_page, imgSize) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
     createPhotoContainer(customPhotoDataArray);
@@ -225,7 +230,7 @@ async function displaySearchTermPhotos(per_page, imgSize) {
         searchForm.addEventListener("submit", async function (event) {
             event.preventDefault();
             let searchTerm = getElement("#search-field").value.trim();
-            createSearchOrCollectionsPage(searchTerm);
+            createSearchOrMediaCollectionsPage(searchTerm);
 
             // clear already loaded photos and display searched photos instead
             document.querySelector(".api-photos").innerHTML = "";
@@ -235,7 +240,6 @@ async function displaySearchTermPhotos(per_page, imgSize) {
     }
 }
 
-// set per_page = to 1 photo from api
 async function displayApiBackgroundImage(per_page, imgSize, domElement) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize, domElement);
     // set dom bg img

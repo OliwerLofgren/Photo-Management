@@ -1,4 +1,5 @@
 "use strict";
+/*** Helper functions ***/
 
 // clear attributes
 function clearElementAttributes(element) {
@@ -14,6 +15,11 @@ function setElementAttributes(element, id, className) {
 function clearBackgroundImage() {
   document.querySelector("main").style.backgroundImage = "";
 }
+
+function getElement(selector) {
+  return document.querySelector(selector);
+}
+
 // function to display database server messages
 // example: username already exists
 function displayDatabaseMessage(data) {
@@ -50,12 +56,22 @@ function closeModalWindow() {
 }
 
 function displayServerLoadingMessage() {
-  // loading images...
-  //loggin in... message, etc
+  // add the loading class to the .section element
+  const loadingPhotos = document.querySelector(".section");
+  loadingPhotos.classList.add("loading");
+  // create the loader line element
+  loadingPhotos.innerHTML = `
+    <div class="loader-line"></div>
+  `;
 }
-
-function getElement(selector) {
-  return document.querySelector(selector);
+function hideServerLoadingMessage() {
+  // remove the loader line element when photos are loaded
+  const loaderLine = document.querySelector(".loader-line");
+  if (loaderLine) {
+    loaderLine.remove();
+  }
+  // remove the loading class from the element
+  document.querySelector(".section").classList.remove("loading");
 }
 
 function scrollIntoView(selector) {
@@ -63,29 +79,52 @@ function scrollIntoView(selector) {
   element.scrollIntoView();
 }
 
-function displayPhotoInteractionButtons(
-  photoInteractionsContainer,
-  photoObject
-) {
-  // create some buttons over the api photos
+function displayPhotoInteractionIcons(
+  photoObject, photoContainer) {
+  // create a container for some interactive buttons for api photos
+  const photoInteractionsContainer = document.createElement("div");
+  photoInteractionsContainer.classList.add("interaction-container");
+  photoContainer.append(photoInteractionsContainer);
+
   // extract photographer name key for display on the photo
   const photographerName = photoObject.photographerName;
-  photoInteractionsContainer.classList.add("interaction-container");
+  const photographerNameDiv = document.createElement("div");
+  photoInteractionsContainer.append(photographerNameDiv);
+  photographerNameDiv.outerHTML = `<div class="photographer-info">${photographerName}</div>`;
 
-  photoInteractionsContainer.innerHTML = `
-  
+  const collectBtn = document.createElement("i");
+  collectBtn.dataset.id = photoObject.id; // add photo ID to the icon's dataset
+  photoInteractionsContainer.append(collectBtn);
 
-    <i class="collect-btn fa-regular fa-bookmark" style="color: #000000;"></i>
+  collectBtn.classList.add("collect-btn");
+  collectBtn.classList.add("fa-regular");
+  collectBtn.classList.add("fa-bookmark");
+  collectBtn.style.color = "#000000";
 
-    <i class="likebtn fa-regular fa-heart" style="color: #000000;"></i>
+  const likeBtn = document.createElement("i");
+  likeBtn.dataset.id = photoObject.id; // add photo ID to the icon's dataset
+  photoInteractionsContainer.append(likeBtn);
 
-    <div class="photographer-info">${photographerName}</div>
-    `;
+  likeBtn.classList.add("likebtn");
+  likeBtn.classList.add("fa-regular");
+  likeBtn.classList.add("fa-heart");
+  likeBtn.style.color = "#000000";
+
+  // add a click event listener to the likeBtn
+  likeBtn.addEventListener("click", () => {
+    toggleLikedStyleOnPhoto(photoContainer);
+  });
+
+  // add a click event listener to the likeBtn
+  collectBtn.addEventListener("click", () => {
+    toggleBookmarkStyleOnPhoto(photoContainer);
+  });
+
+  return photoInteractionsContainer;
 }
 
-function toggleLikedStyleOnPhoto() {
+function toggleLikedStyleOnPhoto(photoContainer) {
   console.log("you have liked the photo!");
-  const hearticon = document.querySelector(".likebtn");
   // Add this fetch to a addEventListener if this function isnt it.
   // Make the PATCH request
   fetch("../PHP/edit.php", {
@@ -105,40 +144,75 @@ function toggleLikedStyleOnPhoto() {
       console.error(error);
     });
 
-  if (hearticon.classList.contains("fa-regular")) {
-    hearticon.classList.remove("fa-regular");
-    hearticon.classList.add("fa-solid");
-    hearticon.classList.add("fa-fade");
-    hearticon.style.color = "#e83030";
+  // select all the heart icons
+  const heartIcons = document.querySelectorAll(".likebtn");
 
-    // Stop the fade animation after 2 seconds
-    setTimeout(() => {
-      hearticon.classList.remove("fa-fade");
-    }, 2000);
-  } else {
-    hearticon.classList.remove("fa-solid");
-    hearticon.classList.add("fa-regular");
-    hearticon.style.color = "#000000";
+  if (!heartIcons) {
+    console.error(`Like icon with id ${photoContainer.dataset.id} not found.`);
+    return;
   }
-}
-function toggleBookmarkStyleOnPhoto() {
-  const bookmarkicon = document.querySelector(".collect-btn");
-  if (bookmarkicon.classList.contains("fa-regular")) {
-    bookmarkicon.classList.add("fa-solid");
-    bookmarkicon.classList.add("fa-bounce");
-    bookmarkicon.classList.remove("fa-regular");
 
-    // Stop the bounce animation after 2 seconds
-    setTimeout(() => {
-      bookmarkicon.classList.remove("fa-bounce");
-    }, 2000);
-  } else {
-    bookmarkicon.classList.remove("fa-solid");
-    bookmarkicon.classList.add("fa-regular");
+
+  // loop through each heart icon and modify the style only if its data-id matches the id of the clicked photo
+  heartIcons.forEach((heartIcon) => {
+    if (heartIcon.dataset.id === photoContainer.dataset.id) {
+      if (heartIcon.classList.contains("fa-regular")) {
+        heartIcon.classList.remove("fa-regular");
+        heartIcon.classList.add("fa-solid");
+        heartIcon.classList.add("fa-fade");
+        heartIcon.style.color = "#e83030";
+        console.log(heartIcon);
+
+        // Stop the fade animation after 2 seconds
+        setTimeout(() => {
+          heartIcon.classList.remove("fa-fade");
+        }, 2000);
+      } else {
+        heartIcon.classList.remove("fa-solid");
+        heartIcon.classList.add("fa-regular");
+        heartIcon.style.color = "#000000";
+      }
+    }
+  });
+
+}
+
+function toggleBookmarkStyleOnPhoto(photoContainer) {
+  console.log("you have bookmarked the photo!");
+
+  // select all the bookmark icons
+  const collectBtns = document.querySelectorAll(".collect-btn");
+
+  if (!collectBtns) {
+    console.error(`Collect icon with id ${photoContainer.dataset.id} not found.`);
+    return;
   }
+
+  // loop through each bookmark icon and modify the style only if its data-id matches the id of the clicked photo
+  collectBtns.forEach((collectBtn) => {
+    if (collectBtn.dataset.id === photoContainer.dataset.id) {
+      if (collectBtn.classList.contains("fa-regular")) {
+        collectBtn.classList.remove("fa-regular");
+        collectBtn.classList.add("fa-solid");
+        collectBtn.classList.add("fa-fade");
+        collectBtn.style.color = "#e83030";
+        console.log(collectBtn);
+
+        // Stop the fade animation after 2 seconds
+        setTimeout(() => {
+          collectBtn.classList.remove("fa-fade");
+        }, 2000);
+      } else {
+        collectBtn.classList.remove("fa-solid");
+        collectBtn.classList.add("fa-regular");
+        collectBtn.style.color = "#000000";
+      }
+    }
+  });
 }
 
-function get_profile_picture(target_element) {
+
+/*function get_profile_picture(target_element) {
   fetch("../JSON/users.json")
     .then((response) => response.json())
     .then((data) => {
@@ -151,4 +225,4 @@ function get_profile_picture(target_element) {
         target_element.appendChild(img);
       }
     });
-}
+}*/
