@@ -194,24 +194,25 @@ function createPhotoContainer(array) {
     // create dom elements
     array.forEach((photoObject) => {
         const photoContainer = document.createElement("div");
+        photoWrapper.append(photoContainer);
 
         photoContainer.dataset.id = photoObject.id; // add photo ID to the container's dataset
-        console.log(photoContainer);
 
         const photoImage = document.createElement("img");
+        photoContainer.append(photoImage);
 
         photoImage.onload = function () {
             hideServerLoadingMessage();
         }
+
         photoImage.src = photoObject.photo;
         // add an alt attribute to the img element to improve accessibility
         photoImage.alt = photoObject.alt;
 
         const photoInteractionsContainer = displayPhotoInteractionIcons(photoObject, photoContainer);
 
-        photoContainer.append(photoInteractionsContainer);
-        photoContainer.append(photoImage);
-        photoWrapper.appendChild(photoContainer);
+        console.log(photoInteractionsContainer);
+        return;
 
     });
 }

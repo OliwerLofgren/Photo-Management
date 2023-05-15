@@ -82,7 +82,7 @@ async function createProfileCollectionsPage(user) {
   }
 }
 
-fetch("../JSON/users.json")
+/*fetch("../JSON/users.json")
   .then((response) => response.json())
   .then((data) => {
     const saved_photos = data[0].saved_photos;
@@ -107,4 +107,4 @@ fetch("../JSON/users.json")
     container.appendChild(grid_container);
     //Fråga Rabia om queryselectorn som skapas med innerHTML
     document.querySelector("body").appendChild(container);
-  });
+  });*/
