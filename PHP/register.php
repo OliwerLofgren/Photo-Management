@@ -34,7 +34,9 @@ if ($request_method == "POST") {
         $message = ["message" => "You cant register with an empty Username or Password"];
         sendJSON($message, 404);
     }
+    $id = empty($users) ? 1 : count($users) + 1;
     $new_user = [
+        "id" => $id,
         "username" => $username,
         "password" => $password,
         "uploaded_photos" => [],

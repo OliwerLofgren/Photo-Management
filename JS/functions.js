@@ -79,8 +79,7 @@ function scrollIntoView(selector) {
   element.scrollIntoView();
 }
 
-function displayPhotoInteractionIcons(
-  photoObject, photoContainer) {
+function displayPhotoInteractionIcons(photoObject, photoContainer) {
   // create a container for some interactive buttons for api photos
   const photoInteractionsContainer = document.createElement("div");
   photoInteractionsContainer.classList.add("interaction-container");
@@ -152,7 +151,6 @@ function toggleLikedStyleOnPhoto(photoContainer) {
     return;
   }
 
-
   // loop through each heart icon and modify the style only if its data-id matches the id of the clicked photo
   heartIcons.forEach((heartIcon) => {
     if (heartIcon.dataset.id === photoContainer.dataset.id) {
@@ -174,7 +172,6 @@ function toggleLikedStyleOnPhoto(photoContainer) {
       }
     }
   });
-
 }
 
 function toggleBookmarkStyleOnPhoto(photoContainer) {
@@ -184,7 +181,9 @@ function toggleBookmarkStyleOnPhoto(photoContainer) {
   const collectBtns = document.querySelectorAll(".collect-btn");
 
   if (!collectBtns) {
-    console.error(`Collect icon with id ${photoContainer.dataset.id} not found.`);
+    console.error(
+      `Collect icon with id ${photoContainer.dataset.id} not found.`
+    );
     return;
   }
 
@@ -210,19 +209,3 @@ function toggleBookmarkStyleOnPhoto(photoContainer) {
     }
   });
 }
-
-
-/*function get_profile_picture(target_element) {
-  fetch("../JSON/users.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const profile_pictures = data[0].profile_pictures;
-      if (profile_pictures.length > 0) {
-        const photo_url = profile_pictures[profile_pictures.length - 1].photo;
-        const img = document.createElement("img");
-        img.src = photo_url;
-        // target_element.innerHTML = "";
-        target_element.appendChild(img);
-      }
-    });
-}*/
