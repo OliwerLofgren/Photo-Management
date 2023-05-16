@@ -134,7 +134,7 @@ async function displayCollectedPhotos() {
       photoContainer.append(image)
       image.src = photoUrl;
 
-      // create a delete button
+      // create a delete button and append to the interaction container
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "DELETE";
       photoContainer.append(deleteButton);
@@ -145,6 +145,13 @@ async function displayCollectedPhotos() {
       });
     });
   });
+
+  // check if there are no saved photos
+  if (photoWrapper.childElementCount === 0) {
+    const message = document.createElement("p");
+    message.textContent = "You haven't saved any photos yet.";
+    photoWrapper.append(message);
+  }
 }
 
 // function to delete the photo

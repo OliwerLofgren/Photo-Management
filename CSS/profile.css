@@ -5,6 +5,8 @@
 .user-page-main {
   height: calc(100vh - 5vh);
   scroll-behavior: smooth;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .user-section-one {

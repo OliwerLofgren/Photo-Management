@@ -19,7 +19,7 @@ async function createDiscoverPage(user) {
     discoverHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav>
-            <p>Username: ${user.username}</p>
+            <p>${user.username}</p>
             <div class="mini-profile-photo"></div>
             <button id="collections-button">Your Collections</button>
             <button id="gallery-button">Profile</button>
@@ -56,7 +56,7 @@ async function createDiscoverPage(user) {
     const discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
       // photo dom element creation
-      displayCuratedPhotos(8, "portrait");
+      displayCuratedPhotos(4, "portrait");
       displaySearchTermPhotos(5, "medium");
     }
   }
