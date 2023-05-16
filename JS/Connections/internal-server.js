@@ -86,25 +86,83 @@ async function fetchCollectedPhotosfromDB() {
   }
 }
 
-/* display the photos */
+/* display the collected photos */
 async function displayCollectedPhotos() {
   const AllUserObjects = await fetchCollectedPhotosfromDB();
+  const photoWrapper = document.getElementById("profile-photos");
 
   // iterate over each user object
   AllUserObjects.forEach((userObject) => {
     // iterate over saved photos of the user
     userObject.saved_photos.forEach((savedPhoto) => {
+
+      // create a div and append the container to parent wrapper
+      const photoContainer = document.createElement("div");
+      photoWrapper.append(photoContainer);
+
       const photoObject = savedPhoto.photoObject;
       const photoUrl = photoObject.photo;
 
       // create an image element and set its source to the photo URL
       const image = document.createElement("img");
+      photoContainer.append(image)
       image.src = photoUrl;
-
-      // append the image to something 
-      document.body.appendChild(image);
     });
   });
 }
+
+/* display the photos */
+async function displayCollectedPhotos() {
+  const AllUserObjects = await fetchCollectedPhotosfromDB();
+  const photoWrapper = document.getElementById("collections-photos");
+
+  // iterate over each user object
+  AllUserObjects.forEach((userObject) => {
+    // iterate over saved photos of the user
+    userObject.saved_photos.forEach((savedPhoto) => {
+
+      // create a div and append the container to parent wrapper
+      const photoContainer = document.createElement("div");
+      photoWrapper.append(photoContainer);
+
+      const photoObject = savedPhoto.photoObject;
+      const photoUrl = photoObject.photo;
+      const photoId = savedPhoto.id;
+
+      // create an image element and set its source to the photo URL
+      const image = document.createElement("img");
+      photoContainer.append(image)
+      image.src = photoUrl;
+
+      // create a delete button
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "DELETE";
+      photoContainer.append(deleteButton);
+
+      // add event listener to the delete button
+      deleteButton.addEventListener("click", () => {
+        deletePhoto(photoId, photoUrl, photoContainer);
+      });
+    });
+  });
+}
+
+// function to delete the photo
+function deletePhoto(photoId, photoUrl, photoContainer) {
+  fetch("../PHP/delete.php", {
+    method: "DELETE",
+    body: JSON.stringify({ photo_id: photoId }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.message);
+
+      // remove the deleted photo container from the UI
+      // by finding its parent element and removing it
+      photoContainer.parentNode.removeChild(photoContainer);
+    })
+    .catch((error) => console.error(error));
+}
+
 
 

@@ -1,5 +1,5 @@
 //Here is where Delete-request for the profile is gonna be
-function delete_photo(photo_id, photo_url) {
+/*function delete_photo(photo_id, photo_url) {
   fetch("../PHP/delete.php", {
     method: "DELETE",
     body: JSON.stringify({ photo_id }),
@@ -15,4 +15,5 @@ function delete_photo(photo_id, photo_url) {
       // by finding its parent element and removing it
     })
     .catch((error) => console.error(error));
-}
+}*/
+

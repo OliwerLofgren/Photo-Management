@@ -26,8 +26,8 @@ async function createDiscoverPage(user) {
             <button id="logout-button">Logout</button>
             </nav>
             `;
-    const mini_profile_photo = document.querySelector(".mini-profile-photo");
-    get_profile_picture(mini_profile_photo);
+    /*const mini_profile_photo = document.querySelector(".mini-profile-photo");
+    get_profile_picture(mini_profile_photo);*/
 
     discoverMain.innerHTML = ` 
         <section id="discover-section-one" class="section">

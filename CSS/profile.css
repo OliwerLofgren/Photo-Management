@@ -1,34 +1,43 @@
-#profile-main {
-  margin: 5px;
+.user-page-header {
+  height: 5vh;
 }
 
-#profile-photos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 5px;
-  grid-auto-flow: dense;
-  margin-left: 120px;
+.user-page-main {
+  height: calc(100vh - 5vh);
+  scroll-behavior: smooth;
 }
 
-#gallery-photos {
+.user-section-one {
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-section-two {
+  border-top: 1px rgba(0, 0, 0, 0.442) solid;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-page-photos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 5px;
+  gap: 1vw;
   grid-auto-flow: dense;
 }
+
 .profile-or-collections-nav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   gap: 100px;
 }
-#profile-section-two {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 #profile-picture {
+  background-color: palegreen;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -83,9 +92,17 @@
   cursor: pointer;
   height: 20px;
 }
+
 .photo_containers {
   width: 200px;
   height: 200px;
-  overflow: hidden; /* clip overflowing parts */
+  overflow: hidden;
+  /* clip overflowing parts */
   margin: 10px;
+}
+
+#collections-photos>div img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }

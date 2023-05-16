@@ -33,13 +33,12 @@ async function createProfileGalleryPage(user) {
     <!-- Insert user profile section here -->
     <section id="profile-section-one" class="section user-section-one">
     <div id="profile-bar">
-    <div id="profile-picture" class="profile-photo"></div>
     <form id="form_profile_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
      <input type="file" name="upload">
      <button type="submit">Upload</button>
     </form> 
     <div id="profile_result"></div>   
-    <h3>username placeholder: ${user.username}</h3>
+    <h3>${user.username}</h3>
     </div> 
     </section >
   
@@ -55,7 +54,7 @@ async function createProfileGalleryPage(user) {
       <div id="result"></div>   
     </nav>
 
-        <div id="profile-photos" class="user-photos"></div>
+        <div id="profile-uploaded-photos" class="user-page-photos"></div>
       </section>
     `;
   }
