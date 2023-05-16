@@ -39,7 +39,6 @@ async function createLoginPage() {
 
         document.getElementById("login-register-instead").addEventListener("click", createRegisterPage);
 
-
         document.getElementById("go-back-home").addEventListener("click", createHomePage);
     };
 }

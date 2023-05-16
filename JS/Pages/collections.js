@@ -5,6 +5,7 @@ const collectionsHeader = document.querySelector("header");
 // creates dom elements
 async function createProfileCollectionsPage(user) {
   setupPage();
+  displayprofileCollectionsPhotos();
   addEventListeners();
 
   function setupPage() {
@@ -54,8 +55,7 @@ async function createProfileCollectionsPage(user) {
     // check if current page is profile page
     const collectionsPage = document.getElementById("collections-page-main");
     if (collectionsPage) {
-      await displayCuratedPhotos(2, "portrait");
-      await displaySearchTermPhotos(2, "portrait");
+      await displayCollectedPhotos();
     }
   }
 
@@ -81,6 +81,8 @@ async function createProfileCollectionsPage(user) {
       });
   }
 }
+
+
 
 /*fetch("../JSON/users.json")
   .then((response) => response.json())

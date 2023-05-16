@@ -56,7 +56,7 @@ async function patchPhotoObjectToDatabase(postedPhotoObject) {
     const patchedPhotoObject = await response.json();
 
     if (!response.ok) {
-      console.log("Error patching photo object");
+      console.log("Error patching photo object", response.statusText);
     } else {
       console.log("Photo object patched successfully:", patchedPhotoObject);
       return patchedPhotoObject; // return the newly patched object
@@ -64,6 +64,47 @@ async function patchPhotoObjectToDatabase(postedPhotoObject) {
   } catch (error) {
     console.error("Error patching photo object:", error);
   }
+}
+
+/* fetch the collected photos */
+async function fetchCollectedPhotosfromDB() {
+
+  try {
+    const response = await fetch("../JSON/users.json");
+    const resource = await response.json();
+
+    if (!response.ok) {
+      console.log("Response not ok", response.statusText);
+      return;
+    } else {
+      console.log("Response successful");
+    }
+
+    return resource;
+  } catch (error) {
+    console.log("Error", error);
+  }
+}
+
+/* display the photos */
+async function displayCollectedPhotos() {
+  const AllUserObjects = await fetchCollectedPhotosfromDB();
+
+  // iterate over each user object
+  AllUserObjects.forEach((userObject) => {
+    // iterate over saved photos of the user
+    userObject.saved_photos.forEach((savedPhoto) => {
+      const photoObject = savedPhoto.photoObject;
+      const photoUrl = photoObject.photo;
+
+      // create an image element and set its source to the photo URL
+      const image = document.createElement("img");
+      image.src = photoUrl;
+
+      // append the image to something 
+      document.body.appendChild(image);
+    });
+  });
 }
 
 

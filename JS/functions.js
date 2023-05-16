@@ -79,7 +79,7 @@ function scrollIntoView(selector) {
   element.scrollIntoView();
 }
 
-async function displayPhotoInteractionIcons(
+function displayPhotoInteractionIcons(
   photoObject, photoContainer) {
   // create a container for some interactive buttons for api photos
   const photoInteractionsContainer = document.createElement("div");
