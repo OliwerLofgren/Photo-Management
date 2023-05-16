@@ -1,96 +1,49 @@
 [
     {
-        "username": "Oliwer",
-        "password": "123",
+        "username": "rabia",
+        "password": "a",
         "uploaded_photos": [],
         "saved_photos": [
             {
-                "id": 16557877,
+                "id": 16796414,
                 "photoObject": {
-                    "id": 16557877,
-                    "width": 4160,
-                    "height": 6240,
-                    "avg_color": "#757978",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16557877\/pexels-photo-16557877.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Ozan \u00c7ulha",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@ozanculha",
-                    "photographer_id": 1512687,
-                    "liked": false,
-                    "alt": ""
-                },
-                "liked": false,
-                "src": null
-            },
-            {
-                "id": 16557877,
-                "photoObject": {
-                    "id": 16557877,
-                    "width": 4160,
-                    "height": 6240,
-                    "avg_color": "#757978",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16557877\/pexels-photo-16557877.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Ozan \u00c7ulha",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@ozanculha",
-                    "photographer_id": 1512687,
+                    "id": 16796414,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#6D5742",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16796414\/pexels-photo-16796414.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "DARKMODE CINEMA",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@darkmodecinema",
+                    "photographer_id": 513951244,
                     "liked": false,
                     "alt": ""
                 },
                 "liked": false
+            },
+            {
+                "id": 16820427,
+                "photoObject": {
+                    "id": 16820427,
+                    "width": 3904,
+                    "height": 6000,
+                    "avg_color": "#663642",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16820427\/pexels-photo-16820427.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Olya Harytovich",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@olya-harytovich-512741947",
+                    "photographer_id": 512741947,
+                    "liked": false,
+                    "alt": "flower"
+                },
+                "liked": false
             }
-        ]
+        ],
+        "profile_pictures": []
     },
     {
-        "username": "a",
+        "username": "bee",
         "password": "a",
         "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "b",
-        "password": "b",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "f",
-        "password": "f",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "be",
-        "password": "be",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "g",
-        "password": "g",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "fa",
-        "password": "f",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "JA",
-        "password": "JA",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "YES",
-        "password": "YES",
-        "uploaded_photos": [],
-        "saved_photos": []
-    },
-    {
-        "username": "m",
-        "password": "m",
-        "uploaded_photos": [],
-        "saved_photos": []
+        "saved_photos": [],
+        "profile_pictures": []
     }
 ]

@@ -1,3 +1,4 @@
+/* ===== loader line CSS ===== */
 .section.loading {
     background-color: #fff;
     opacity: 0.5;
@@ -27,11 +28,11 @@
     height: 3px;
     width: 40%;
     background-color: coral;
-    animation: lineloading 1s linear infinite;
+    animation: sectionlineloading 1s linear infinite;
     border-radius: 20px;
 }
 
-@keyframes lineloading {
+@keyframes sectionlineloading {
     0% {
         left: -40%;
     }
@@ -45,4 +46,26 @@
         left: 100%;
         width: 100%;
     }
+}
+
+/* ===== Scrollbar CSS ===== */
+/* firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #000000 #ffffff;
+}
+
+/* chrome, edge, and safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
 }

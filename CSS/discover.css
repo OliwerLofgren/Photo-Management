@@ -1,29 +1,42 @@
 #discover-main {
-    height: calc(100vh - 11vh);
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    /* enable scroll snap */
+  height: calc(100vh - 11vh);
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  /* enable scroll snap */
 }
 
 button {
-    background: none;
-    /*border: none;*/
+  background: none;
+  /*border: none;*/
 }
 
 #discover-section-one {
-    height: 100%;
+  height: 100%;
 }
 
 #discover-photos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 5px;
-    grid-auto-flow: dense;
-    z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 5px;
+  grid-auto-flow: dense;
+  z-index: 1;
 }
 
 #discover-photos>div img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.mini-profile-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.mini-profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

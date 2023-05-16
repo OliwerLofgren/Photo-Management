@@ -3,8 +3,7 @@
 const homeMain = document.querySelector("main");
 const homeHeader = document.querySelector("header");
 
-
-async function createHomePage() {
+function createHomePage() {
   // check to see if the user is logged in
   const user = JSON.parse(window.localStorage.getItem("user"));
   if (user) {
@@ -24,13 +23,12 @@ async function createHomePage() {
 
   function setupPage() {
     setElementAttributes(homeMain, "home-main", "");
-    clearBackgroundImage();
     clearElementAttributes(homeHeader);
 
     homeHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
       <nav id="navHome">
-      <button id="about-us">About Us</button> /
+      <button id="aboutBtn">About Us</button> /
         <button id="loginBtn">Log In</button> /     
         <button id="registerBtn">Sign Up</button>      
       </nav>
@@ -81,7 +79,7 @@ async function createHomePage() {
     let domElement = document.querySelector("#home-section-one");
     const homePage = document.getElementById("home-main");
     if (homePage) {
-      displayApiBackgroundImage(1, "original", domElement);
+      displayApiBackgroundImage(7, "original", domElement);
     }
   }
 
@@ -109,7 +107,13 @@ async function createHomePage() {
     document
       .getElementById("registerBtn")
       .addEventListener("click", createRegisterPage);
-    handlePhotoClickInteractions();
+
+    // clickedButton.onClick = displayModalWindow("Want more? Create an account or log in to see additional search results, add your favorites to Collections, and save changes.")
+    document
+      .getElementById("aboutBtn")
+      .addEventListener("click", createAboutUsPage);
+
+
   }
 }
 

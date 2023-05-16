@@ -1,36 +1,16 @@
 #home-main {
     height: calc(100vh - 11vh);
     overflow-y: scroll;
+    overflow-x: hidden;
     scroll-snap-type: y mandatory;
     /* enable scroll snap */
 }
 
-#home-section-one {
-    height: 100%;
-    object-fit: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-#home-section-one h1 {
-    text-align: center;
-}
-
-#home-section-two h1 {
-    text-align: center;
-}
-
-#home-section-three h1 {
-    text-align: center;
-}
-
-#home-section-three {
-    height: calc(100vh - 6vh);
-    object-fit: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+#home-section-two {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 5vw;
 }
 
 header {
@@ -38,21 +18,21 @@ header {
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
-    gap: 17vw;
-    padding: 30px;
+    gap: 16vw;
+    padding: 10px;
     border-bottom: 2px solid black;
-    height: 10vh;
 }
+
+header h1 {
+    padding-left: 6vw;
+}
+
 
 button {
     background: none;
-    border: none;
-}
-
-.headerTitle {
-    border-left: 2px solid black;
-    margin-left: 90px;
-    padding-left: 10px;
+    /*border: none;, placeholder styles>*/
+    padding: 3px;
+    border-radius: 10px;
 }
 
 #navHome {
@@ -67,13 +47,9 @@ button {
 #home-photos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 5px;
+    gap: 1vw;
     grid-auto-flow: dense;
     z-index: 1;
-}
-
-#home-photos>div {
-    overflow: hidden;
 }
 
 #home-photos>div img {
@@ -82,25 +58,46 @@ button {
     object-fit: cover;
 }
 
-footer {
-    height: 10vh;
-    /* set the height of the footer */
-    background-color: #f0f0f0;
-}
-
 #search-form {
     position: relative;
-    left: 40%;
-
+    width: 70%;
+    align-self: center;
+    display: flex;
+    gap: 1vw;
 }
 
 #search-field {
-    border: 1px rgb(155, 149, 149) solid;
-    margin-top: 10px;
+    color: rgba(0, 0, 0, .87);
+    border-bottom-color: rgba(0, 0, 0, .42);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: .009375em;
+    text-decoration: inherit;
+    text-transform: inherit;
+    align-self: flex-end;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px 16px 6px;
+    transition: opacity;
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 4px 4px 0 0;
+    background: rgb(245, 245, 245);
+    height: 56px;
+}
+
+#search-field:hover {
+    border-bottom-color: rgba(0, 0, 0, .87);
+    background: #ececec;
+}
+
+#search-field:focus {
+    border-color: #5902d2;
 }
 
 .interaction-container {
+    background-color: aqua;
     position: relative;
-    top: 40px;
+    top: -300px;
     z-index: 2;
 }

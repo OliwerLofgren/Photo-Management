@@ -1,5 +1,4 @@
 "use strict";
-
 const discoverMain = document.querySelector("main");
 const discoverHeader = document.querySelector("header");
 
@@ -17,17 +16,18 @@ async function createDiscoverPage(user) {
     setElementAttributes(discoverMain, "discover-main", "");
     clearBackgroundImage();
     clearElementAttributes(discoverHeader);
-
     discoverHeader.innerHTML = `
-        <H1>PHOTO MANAGEMENT</H1>
-        <nav>
+    <H1>PHOTO MANAGEMENT</H1>
+    <nav>
             <p>Username: ${user.username}</p>
             <div class="mini-profile-photo"></div>
             <button id="collections-button">Your Collections</button>
             <button id="gallery-button">Profile</button>
             <button id="logout-button">Logout</button>
-        </nav>
-        `;
+            </nav>
+            `;
+    const mini_profile_photo = document.querySelector(".mini-profile-photo");
+    get_profile_picture(mini_profile_photo);
 
     discoverMain.innerHTML = ` 
         <section id="discover-section-one" class="section">
@@ -50,7 +50,7 @@ async function createDiscoverPage(user) {
         `;
   }
 
-  // set bg img from api photo
+
   function displaySectionOnePhotos() {
     // check if current page is discover page
     const discoverPage = document.getElementById("discover-main");
@@ -78,6 +78,7 @@ async function createDiscoverPage(user) {
         user = null;
         createHomePage();
       });
+
   }
 }
 

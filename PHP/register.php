@@ -34,11 +34,13 @@ if ($request_method == "POST") {
         $message = ["message" => "You cant register with an empty Username or Password"];
         sendJSON($message, 404);
     }
+    // bug: needs a condition check if users.json file is empty when registering (create the new_user object if it doesn't exist in the file)
     $new_user = [
         "username" => $username,
         "password" => $password,
         "uploaded_photos" => [],
-        "saved_photos" => []
+        "saved_photos" => [],
+        "profile_pictures" => []
     ];
 
     // add successfull registration message to user > 

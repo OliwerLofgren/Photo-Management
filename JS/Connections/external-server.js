@@ -194,26 +194,26 @@ function createPhotoContainer(array) {
     // create dom elements
     array.forEach((photoObject) => {
         const photoContainer = document.createElement("div");
+        photoWrapper.append(photoContainer);
+
+        photoContainer.dataset.id = photoObject.id; // add photo ID to the container's dataset
 
         const photoImage = document.createElement("img");
+        photoContainer.append(photoImage);
 
         photoImage.onload = function () {
             hideServerLoadingMessage();
         }
+
         photoImage.src = photoObject.photo;
         // add an alt attribute to the img element to improve accessibility
         photoImage.alt = photoObject.alt;
 
-        const photoInteractionsContainer = document.createElement("div");
-        displayPhotoInteractionButtons(photoInteractionsContainer, photoObject);
-
-        photoContainer.append(photoInteractionsContainer);
-        photoContainer.append(photoImage);
-        photoWrapper.appendChild(photoContainer);
+        const photoInteractionsContainer = displayPhotoInteractionIcons(photoObject, photoContainer);
+        return;
     });
 }
 
-// displays search term api photos
 async function displayCuratedPhotos(per_page, imgSize) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
     createPhotoContainer(customPhotoDataArray);
@@ -227,7 +227,7 @@ async function displaySearchTermPhotos(per_page, imgSize) {
         searchForm.addEventListener("submit", async function (event) {
             event.preventDefault();
             let searchTerm = getElement("#search-field").value.trim();
-            createSearchOrCollectionsPage(searchTerm);
+            createSearchOrMediaCollectionsPage(searchTerm);
 
             // clear already loaded photos and display searched photos instead
             document.querySelector(".api-photos").innerHTML = "";
@@ -237,7 +237,6 @@ async function displaySearchTermPhotos(per_page, imgSize) {
     }
 }
 
-// set per_page = to 1 photo from api
 async function displayApiBackgroundImage(per_page, imgSize, domElement) {
     let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize, domElement);
     // set dom bg img
@@ -247,6 +246,8 @@ async function displayApiBackgroundImage(per_page, imgSize, domElement) {
         domElement.style.backgroundImage = `url(${backgroundImg})`;
     });
 }
+
+
 
 function photoApiResponseCodes(resource) {
     switch (resource.status) {

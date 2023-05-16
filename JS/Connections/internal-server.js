@@ -3,90 +3,108 @@
 
 // handles post request
 async function postPhotoObjectToDatabase(photoObject) {
-    // add check if object exists ->
+  // add check if object exists ->
 
-    // format data we want to send to our database and add some keys
-    const photoObjectForDatabase = {
-        id: photoObject.id, // add id to the photo
-        photoObject: photoObject,
-        src: photoObject.photo,
-        liked: false, // this key can be removed 
-    };
+  // format data we want to send to our database and add some keys
+  const photoObjectForDatabase = {
+    id: photoObject.id, // add id to the photo
+    photoObject: photoObject,
+    liked: false, // toggleable liked state
+  };
 
-    const post = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(photoObjectForDatabase),
-    };
+  const post = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(photoObjectForDatabase),
+  };
 
-    // post the data to database
-    try {
-        const response = await fetch("/PHP/profile.php", post);
-        const postedPhotoObject = await response.json();
+  // post the data to database
+  try {
+    const response = await fetch("/PHP/profile.php", post);
+    const postedPhotoObject = await response.json();
 
-        if (!response.ok) {
-            console.log("Error posting photo object");
-        } else {
-            console.log("Photo object posted successfully:", postedPhotoObject);
+    if (!response.ok) {
+      console.log("Error posting photo object");
+    } else {
+      console.log("Photo object posted successfully:", postedPhotoObject);
 
-            return postedPhotoObject; // return the newly created photo object
-        }
-    } catch (error) {
-        console.log("error posting photo object:", error);
+      return postedPhotoObject; // return the newly created photo object
     }
+  } catch (error) {
+    console.log("error posting photo object:", error);
+  }
 }
 
 // patch posted photo object
-// NOTE: needs to receive the posted object in some way 
+// NOTE: needs to receive the posted object in some way
 async function patchPhotoObjectToDatabase(postedPhotoObject) {
-    // patch data
-    const photoObjectForDatabase = {
-        id: postedPhotoObject.id, // id of the object
-        liked: postedPhotoObject.liked,// can be removed
-        likesCount: postedPhotoObject.likesCount,// can be removed
-    };
+  // patch data
+  const new_value = true;
+  const photoObjectForDatabase = {
+    id: postedPhotoObject.id, // id of the object
+    liked: new_value,
+  };
 
-    const options = {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(photoObjectForDatabase),
-    };
+  const options = {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(photoObjectForDatabase),
+  };
 
-    try {
-        const response = await fetch(
-            `/PHP/profile.php?id=${options.id}`,
-            options
-        ); // url includes id of the photo
-        const patchedPhotoObject = await response.json();
+  try {
+    const response = await fetch(`/PHP/edit.php?id=${options.id}`, options); // url includes id of the photo
+    const patchedPhotoObject = await response.json();
 
-        if (!response.ok) {
-            console.log("Error patching photo object");
-        } else {
-            console.log("Photo object patched successfully:", patchedPhotoObject);
-            return patchedPhotoObject; // return the newly patched object
-        }
-    } catch (error) {
-        console.error("Error patching photo object:", error);
+    if (!response.ok) {
+      console.log("Error patching photo object", response.statusText);
+    } else {
+      console.log("Photo object patched successfully:", patchedPhotoObject);
+      return patchedPhotoObject; // return the newly patched object
     }
+  } catch (error) {
+    console.error("Error patching photo object:", error);
+  }
 }
 
-/*** photo interactions ***/
+/* fetch the collected photos */
+async function fetchCollectedPhotosfromDB() {
 
-// post the collected photo to db 
-async function postPhotoToDB(photoObject) {
-    const collectButton = document.querySelector(".collect-button");
+  try {
+    const response = await fetch("../JSON/users.json");
+    const resource = await response.json();
+
+    if (!response.ok) {
+      console.log("Response not ok", response.statusText);
+      return;
+    } else {
+      console.log("Response successful");
+    }
+
+    return resource;
+  } catch (error) {
+    console.log("Error", error);
+  }
 }
 
-function handlePhotoClickInteractions() {
-    document.addEventListener("click", function handleClick(event) {
-        if (event.target.classList.contains("likebtn")) {
-            toggleLikedStyleOnPhoto();
-        }
-        else if (event.target.classList.contains("collect-btn")) {
-            toggleBookmarkStyleOnPhoto();
-        }
+/* display the photos */
+async function displayCollectedPhotos() {
+  const AllUserObjects = await fetchCollectedPhotosfromDB();
+
+  // iterate over each user object
+  AllUserObjects.forEach((userObject) => {
+    // iterate over saved photos of the user
+    userObject.saved_photos.forEach((savedPhoto) => {
+      const photoObject = savedPhoto.photoObject;
+      const photoUrl = photoObject.photo;
+
+      // create an image element and set its source to the photo URL
+      const image = document.createElement("img");
+      image.src = photoUrl;
+
+      // append the image to something 
+      document.body.appendChild(image);
     });
+  });
 }
-
 
 
