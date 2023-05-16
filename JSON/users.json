@@ -1,16 +1,22 @@
 [
     {
-        "username": "haj",
-        "password": "haj",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_pictures": []
-    },
-    {
-        "username": "amelie",
-        "password": "123",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_pictures": []
+        "saved_photos": [
+            {
+                "id": 16763929,
+                "photoObject": {
+                    "id": 16763929,
+                    "width": 2981,
+                    "height": 3726,
+                    "avg_color": "#55574C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16763929\/pexels-photo-16763929.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Nathan Tran",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@nathan-tran-292691073",
+                    "photographer_id": 292691073,
+                    "liked": false,
+                    "alt": ""
+                },
+                "liked": false
+            }
+        ]
     }
 ]

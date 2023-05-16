@@ -3,7 +3,7 @@
 const searchPageMain = document.querySelector("main");
 const searchPageHeader = document.querySelector("header");
 
-async function createSearchOrCollectionsPage(searchTerm) {
+async function createSearchOrMediaCollectionsPage(searchTerm) {
 
   setupPage();
 

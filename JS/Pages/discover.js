@@ -5,8 +5,10 @@ const discoverHeader = document.querySelector("header");
 async function createDiscoverPage(user) {
   // setup page
   setupPage();
+
   // display photos
   displaySectionOnePhotos();
+
   // add event listeners
   addEventListeners();
 
@@ -48,13 +50,13 @@ async function createDiscoverPage(user) {
         `;
   }
 
-  // set bg img from api photo
+
   function displaySectionOnePhotos() {
     // check if current page is discover page
     const discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
       // photo dom element creation
-      displayCuratedPhotos(20, "portrait");
+      displayCuratedPhotos(8, "portrait");
       displaySearchTermPhotos(5, "medium");
     }
   }
@@ -76,6 +78,7 @@ async function createDiscoverPage(user) {
         user = null;
         createHomePage();
       });
-    handlePhotoClickInteractions();
+
   }
 }
+

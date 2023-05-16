@@ -66,19 +66,4 @@ async function patchPhotoObjectToDatabase(postedPhotoObject) {
   }
 }
 
-/*** photo interactions ***/
 
-// post the collected photo to db
-async function postPhotoToDB(photoObject) {
-  const collectButton = document.querySelector(".collect-button");
-}
-
-function handlePhotoClickInteractions() {
-  document.addEventListener("click", function handleClick(event) {
-    if (event.target.classList.contains("likebtn")) {
-      toggleLikedStyleOnPhoto();
-    } else if (event.target.classList.contains("collect-btn")) {
-      toggleBookmarkStyleOnPhoto();
-    }
-  });
-}
