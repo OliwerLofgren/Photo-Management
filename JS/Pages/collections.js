@@ -91,8 +91,6 @@ async function createProfileCollectionsPage(user) {
   }
 }
 
-
-
 /*fetch("../JSON/users.json")
   .then((response) => response.json())
   .then((data) => {

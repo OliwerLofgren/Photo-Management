@@ -78,8 +78,7 @@ function scrollIntoView(selector) {
   element.scrollIntoView();
 }
 
-function displayPhotoInteractionIcons(
-  photoObject, photoContainer) {
+function displayPhotoInteractionIcons(photoObject, photoContainer) {
   // create a container for some interactive buttons for api photos
   const photoInteractionsContainer = document.createElement("div");
   photoInteractionsContainer.classList.add("interaction-container");
@@ -115,7 +114,6 @@ function displayPhotoInteractionIcons(
       toggleLikedStyleOnPhoto(photoContainer, photoObject);
     }
   });
-
 
   // add a click event listener to the bookmarkbtn
   collectBtn.addEventListener("click", (event) => {
@@ -160,7 +158,6 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
 
   // loop through each heart icon and modify the style only if its data-id matches the id of the clicked photo
   heartIcons.forEach((heartIcon) => {
-
     if (heartIcon.dataset.id === photoContainer.dataset.id) {
       if (heartIcon.classList.contains("fa-regular")) {
         heartIcon.classList.remove("fa-regular");
@@ -172,7 +169,6 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
         setTimeout(() => {
           heartIcon.classList.remove("fa-fade");
         }, 2000);
-
       } else {
         heartIcon.classList.remove("fa-solid");
         heartIcon.classList.add("fa-regular");
@@ -189,7 +185,9 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   const collectBtns = document.querySelectorAll(".collect-btn");
 
   if (!collectBtns) {
-    console.error(`Collect icon with id ${photoContainer.dataset.id} not found.`);
+    console.error(
+      `Collect icon with id ${photoContainer.dataset.id} not found.`
+    );
     return;
   }
   await postPhotoObjectToDatabase(photoObject);
@@ -197,7 +195,6 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   // loop through each bookmark icon and modify the style only if its data-id matches the id of the clicked photo
   collectBtns.forEach((collectBtn) => {
     if (collectBtn.dataset.id === photoContainer.dataset.id) {
-
       if (collectBtn.classList.contains("fa-regular")) {
         collectBtn.classList.remove("fa-regular");
         collectBtn.classList.add("fa-solid");
@@ -209,7 +206,6 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
         setTimeout(() => {
           collectBtn.classList.remove("fa-fade");
         }, 2000);
-
       } else {
         collectBtn.classList.remove("fa-solid");
         collectBtn.classList.add("fa-regular");
@@ -218,19 +214,3 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
     }
   });
 }
-
-
-/*function get_profile_picture(target_element) {
-  fetch("../JSON/users.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const profile_pictures = data[0].profile_pictures;
-      if (profile_pictures.length > 0) {
-        const photo_url = profile_pictures[profile_pictures.length - 1].photo;
-        const img = document.createElement("img");
-        img.src = photo_url;
-        target_element.innerHTML = "";
-        target_element.appendChild(img);
-      }
-    });
-}*/

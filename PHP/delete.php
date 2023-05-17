@@ -10,27 +10,48 @@ $input_data = json_decode(file_get_contents("php://input"), true);
 
 //This section is for deleting a current image
      if($request_method == "DELETE"){
-        //You need to add id:s to every image
-            $photo_id = $input_data["photo_id"];
-            $users_photo = $users[0]["saved_photos"];
+            $logged_in_id = $input_data["logged_in_id"];
+           
             
-        foreach($users[0]["uploaded_photos"] as $index => $photo){
-            //If the ID matches the id of the images you want to delete
-            if ($photo["photo_id"] == $photo_id) {
-            //Returns trailing name component of path. Example: my_photos/dog.jpg => dog.jpg
-                $photo_file = basename($photo["photo"]);
-                $photo_path = "../PHP/my_photos/" . $photo_file;
-                if (file_exists($photo_path)) {
-            //If the file exist delete the file
-                    unlink($photo_path);
+            
+            $logged_user_index = null;
+            foreach($users as $index => $user){
+                if ($user["id"] == $logged_in_id) {
+                    $logged_user_index = $index;
+                    break;
                 }
-            //Delete the index where the file is located in JSON file.
-                array_splice($users[0]["uploaded_photos"], $index, 1);
             }
-        }
-        file_put_contents($filename, json_encode($users));
-        $message = ["message" => "Photo has successfully been deleted"];
-        sendJSON($message);
+            
+            if ($logged_user_index !== null) {
+                $photo_id = $input_data["photo_id"];
+                $uploaded_photos = $users[$logged_user_index]["uploaded_photos"];
+                
+               
+                foreach($uploaded_photos as $index => $photo){
+
+                    //If the ID matches the id of the images you want to delete
+                    if ($photo["photo_id"] == $photo_id) {
+                    //Returns trailing name component of path. Example: my_photos/dog.jpg => dog.jpg
+                        $photo_file = basename($photo["photo"]);
+                        $photo_path = "../PHP/my_photos/" . $photo_file;
+                        if (file_exists($photo_path)) {
+                    //If the file exist delete the file
+                            unlink($photo_path);
+                        }
+                    //Delete the index where the file is located in JSON file.
+                        array_splice($uploaded_photos, $index, 1);
+                    //Updating the user's uploaded_photos array in the JSON data.
+                        $users[$logged_user_index]["uploaded_photos"] = $uploaded_photos;
+                    }
+                }
+                file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
+                $message = ["message" => "Photo has successfully been deleted"];
+                sendJSON($message);
+            }else{
+                $message = ["message" => "User not found"];
+                sendJSON($message, 404);
+            }
+
 
         }
         $message = ["message" => "Wrong kind of method!"];
