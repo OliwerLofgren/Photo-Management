@@ -17,7 +17,7 @@ async function createLoginPage() {
         <nav id="navLogin">
         <button id="go-back-home">Back to home</button>
         </nav>`
-
+        console.log("hej");
         loginMain.innerHTML = ` 
         <nav id="navRegister">
         <button id="go-back-home">Back to home</button>
