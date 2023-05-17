@@ -1,61 +1,80 @@
 [
-  {
-    "id": 1,
-    "username": "Oliwer",
-    "password": "123",
-    "uploaded_photos": [
-      {
-        "photo_id": 1,
-        "photo": "../PHP/my_photos/dog.jpg"
-      },
-      {
-        "photo_id": 2,
-        "photo": "../PHP/my_photos/dog-png.png"
-      },
-      {
-        "photo_id": 3,
-        "photo": "../PHP/my_photos/dog-white-jpeg.jpg"
-      }
-    ],
-    "saved_photos": [],
-    "profile_pictures": [
-      {
-        "photo": "../PHP/my_photos/brown-dog-jpeg.jpg"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "username": "Benny",
-    "password": "123",
-    "uploaded_photos": [
-      {
-        "photo_id": 1,
-        "photo": "../PHP/my_photos/dog.jpg"
-      }
-    ],
-    "saved_photos": [],
-    "profile_pictures": [
-      {
-        "photo": "../PHP/my_photos/dog-png.png"
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "username": "Johnny",
-    "password": "123",
-    "uploaded_photos": [
-      {
-        "photo_id": 1,
-        "photo": "../PHP/my_photos/brown-dog-jpeg.jpg"
-      }
-    ],
-    "saved_photos": [],
-    "profile_pictures": [
-      {
-        "photo": "../PHP/my_photos/dog-png.png"
-      }
-    ]
-  }
+    {
+        "id": 1,
+        "username": "Oliwer",
+        "password": "123",
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/dog.jpg"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/dog-png.png"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
+            },
+            {
+                "photo_id": 4,
+                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
+            }
+        ],
+        "saved_photos": [],
+        "profile_pictures": [
+            {
+                "photo": "..\/PHP\/my_photos\/brown-dog-jpeg.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "username": "Benny",
+        "password": "123",
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/dog.jpg"
+            }
+        ],
+        "saved_photos": [],
+        "profile_pictures": [
+            {
+                "photo": "..\/PHP\/my_photos\/dog-png.png"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "username": "Johnny",
+        "password": "123",
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/brown-dog-jpeg.jpg"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/dog.jpg"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
+            }
+        ],
+        "saved_photos": [],
+        "profile_pictures": [
+            {
+                "photo": "..\/PHP\/my_photos\/dog-png.png"
+            }
+        ]
+    }
 ]
