@@ -12,8 +12,9 @@
     
     if ($request_method == "POST") {
         //This section is for Collect
-        $id = $input_data["id"];
+      
         $obj = $input_data["photoObject"];
+        $id = $input_data["id"];
         $liked = $input_data["liked"];
        
         

@@ -13,8 +13,10 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 if ($request_method == "POST") {
 
 //Save username and password from php://input (uppgifter från databasen)
+    
     $username = $input_data["username"];
     $password = $input_data["password"];
+
 
     // add error message for empty username/password input here >
 
@@ -22,6 +24,7 @@ if ($request_method == "POST") {
     //If the usename that you typed in is the same username that is registerd in the database
         if ($user["username"] == $username && $user["password"]) {
             $logged_in_user = [
+                "id" => $user["id"],
                 "username" => $username,
                 "password" => $password
             ];

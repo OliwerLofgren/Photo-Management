@@ -1,10 +1,12 @@
 "use strict";
-const collectionsPageMain = document.querySelector("main");
-const collectionsHeader = document.querySelector("header");
 
 // creates dom elements
 async function createProfileCollectionsPage(user) {
+  const collectionsPageMain = document.querySelector("main");
+  const collectionsHeader = document.querySelector("header");
+
   setupPage();
+  displayprofileCollectionsPhotos();
   addEventListeners();
 
   function setupPage() {
@@ -20,6 +22,9 @@ async function createProfileCollectionsPage(user) {
       "user-page-header"
     );
 
+    // apply layout
+    document.body.classList.add("body-layout");
+
     // NOTE: current profile page needs to be marked in css
     collectionsHeader.innerHTML = `
   <H1>P</H1>
@@ -33,11 +38,13 @@ async function createProfileCollectionsPage(user) {
     collectionsPageMain.innerHTML = `
     <section id="collections-section-one" class="section user-section-one">
       <!-- Insert user profile photo here -->
-      <div id="profile-bar">
-      <div id="profile-picture" class="profile-photo">user profile photo here</div>
-      <button>"Change photo" form goes here</button>
-      <h3>username placeholder: ${user.username}</h3>
-      </div> 
+    <div id="profile-bar">
+      <form id="form_profile_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
+     <input type="file" name="upload">
+     <button type="submit">Upload</button>
+    </form> 
+      <h3>${user.username}</h3>
+    </div> 
     </section>
 
   <section id="collections-section-two" class="section user-section-two"> 
@@ -46,20 +53,22 @@ async function createProfileCollectionsPage(user) {
   <button id="profile-button">Profile</button>      
     </nav>
 
-    <div id="profile-photos" class="user-photos"></div>
+    <div id="collections-photos" class="user-page-photos"></div>
   </section>`;
+
   }
 
   async function displayprofileCollectionsPhotos() {
     // check if current page is profile page
     const collectionsPage = document.getElementById("collections-page-main");
     if (collectionsPage) {
-      await displayCuratedPhotos(2, "portrait");
-      await displaySearchTermPhotos(2, "portrait");
+      await displayCollectedPhotos(user);
     }
   }
 
   function addEventListeners() {
+    // remove flex layout when navigating to other pages
+
     document
       .getElementById("profile-button")
       .addEventListener("click", function () {

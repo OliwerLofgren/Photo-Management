@@ -2,6 +2,7 @@
 const loginMain = document.querySelector("main");
 const loginHeader = document.querySelector("header");
 
+
 async function createLoginPage() {
     setupPage();
     addEventListeners();
@@ -9,6 +10,7 @@ async function createLoginPage() {
     function setupPage() {
         setElementAttributes(loginMain, "login-main", "");
         setElementAttributes(loginHeader, "", "display-none");
+        document.body.classList.remove("body-layout");
 
         loginMain.innerHTML = ` 
         <nav id="navRegister">
@@ -38,7 +40,6 @@ async function createLoginPage() {
         });
 
         document.getElementById("login-register-instead").addEventListener("click", createRegisterPage);
-
 
         document.getElementById("go-back-home").addEventListener("click", createHomePage);
     };
