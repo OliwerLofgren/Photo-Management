@@ -1,9 +1,25 @@
+.body-layout {
+  display: grid;
+  grid-template-columns: 15vw 1fr;
+  /* 15% for the header, remaining space for the main content */
+  grid-template-rows: 100vh;
+}
+
 .user-page-header {
-  height: 5vh;
+  position: fixed;
+  width: calc(100vw - 85vw);
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .user-page-main {
-  height: calc(100vh - 5vh);
+  height: 100vh;
+  width: calc(100vw - 15vw);
+  grid-column: 2;
+  grid-row: 1;
   scroll-behavior: smooth;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -11,6 +27,7 @@
 
 .user-section-one {
   height: 40%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,6 +36,7 @@
 .user-section-two {
   border-top: 1px rgba(0, 0, 0, 0.442) solid;
   height: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

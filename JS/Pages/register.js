@@ -8,7 +8,8 @@ function createRegisterPage() {
 
     function setupPage() {
         setElementAttributes(registerMain, "register-main", "");
-        setElementAttributes(registerHeader, "", "display-none")
+        setElementAttributes(registerHeader, "", "display-none");
+        document.body.classList.remove("body-layout");
 
         registerMain.innerHTML = `
         <nav id="navRegister">

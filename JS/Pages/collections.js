@@ -1,9 +1,10 @@
 "use strict";
-const collectionsPageMain = document.querySelector("main");
-const collectionsHeader = document.querySelector("header");
 
 // creates dom elements
 async function createProfileCollectionsPage(user) {
+  const collectionsPageMain = document.querySelector("main");
+  const collectionsHeader = document.querySelector("header");
+
   setupPage();
   displayprofileCollectionsPhotos();
   addEventListeners();
@@ -20,6 +21,9 @@ async function createProfileCollectionsPage(user) {
       "collections-header",
       "user-page-header"
     );
+
+    // apply flex layout
+    document.body.classList.add("body-layout");
 
     // NOTE: current profile page needs to be marked in css
     collectionsHeader.innerHTML = `
@@ -51,17 +55,20 @@ async function createProfileCollectionsPage(user) {
 
     <div id="collections-photos" class="user-page-photos"></div>
   </section>`;
+
   }
 
   async function displayprofileCollectionsPhotos() {
     // check if current page is profile page
     const collectionsPage = document.getElementById("collections-page-main");
     if (collectionsPage) {
-      await displayCollectedPhotos();
+      await displayCollectedPhotos(user);
     }
   }
 
   function addEventListeners() {
+    // remove flex layout when navigating to other pages
+
     document
       .getElementById("profile-button")
       .addEventListener("click", function () {

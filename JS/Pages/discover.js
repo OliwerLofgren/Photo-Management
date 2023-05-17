@@ -1,8 +1,9 @@
 "use strict";
-const discoverMain = document.querySelector("main");
-const discoverHeader = document.querySelector("header");
 
 async function createDiscoverPage(user) {
+  const discoverMain = document.querySelector("main");
+  const discoverHeader = document.querySelector("header");
+
   // setup page
   setupPage();
 
@@ -16,6 +17,8 @@ async function createDiscoverPage(user) {
     setElementAttributes(discoverMain, "discover-main", "");
     clearBackgroundImage();
     clearElementAttributes(discoverHeader);
+    document.body.classList.remove("body-layout");
+
     discoverHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav>
