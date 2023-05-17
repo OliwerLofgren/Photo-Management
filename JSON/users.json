@@ -9,10 +9,6 @@
                 "photo": "..\/PHP\/my_photos\/dog.jpg"
             },
             {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/dog-png.png"
-            },
-            {
                 "photo_id": 3,
                 "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
             },
@@ -43,6 +39,14 @@
             {
                 "photo_id": 2,
                 "photo": "..\/PHP\/my_photos\/dog.jpg"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/brown-dog-jpeg.jpg"
+            },
+            {
+                "photo_id": 4,
+                "photo": "..\/PHP\/my_photos\/Sk\u00e4rmbild 2023-03-06 130739.png"
             }
         ],
         "saved_photos": [],
