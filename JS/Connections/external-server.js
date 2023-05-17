@@ -210,10 +210,7 @@ function createPhotoContainer(array) {
         photoImage.alt = photoObject.alt;
 
         const photoInteractionsContainer = displayPhotoInteractionIcons(photoObject, photoContainer);
-
-        console.log(photoInteractionsContainer);
         return;
-
     });
 }
 
@@ -249,6 +246,8 @@ async function displayApiBackgroundImage(per_page, imgSize, domElement) {
         domElement.style.backgroundImage = `url(${backgroundImg})`;
     });
 }
+
+
 
 function photoApiResponseCodes(resource) {
     switch (resource.status) {

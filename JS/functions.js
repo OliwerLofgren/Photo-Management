@@ -110,19 +110,23 @@ function displayPhotoInteractionIcons(photoObject, photoContainer) {
   likeBtn.style.color = "#000000";
 
   // add a click event listener to the likeBtn
-  likeBtn.addEventListener("click", () => {
-    toggleLikedStyleOnPhoto(photoContainer);
+  likeBtn.addEventListener("click", (event) => {
+    if (event.currentTarget === event.target) {
+      toggleLikedStyleOnPhoto(photoContainer, photoObject);
+    }
   });
 
-  // add a click event listener to the likeBtn
-  collectBtn.addEventListener("click", () => {
-    toggleBookmarkStyleOnPhoto(photoContainer);
+  // add a click event listener to the bookmarkbtn
+  collectBtn.addEventListener("click", (event) => {
+    if (event.currentTarget === event.target) {
+      toggleBookmarkStyleOnPhoto(photoContainer, photoObject);
+    }
   });
 
   return photoInteractionsContainer;
 }
 
-function toggleLikedStyleOnPhoto(photoContainer) {
+async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have liked the photo!");
   // Add this fetch to a addEventListener if this function isnt it.
   // Make the PATCH request
@@ -151,6 +155,8 @@ function toggleLikedStyleOnPhoto(photoContainer) {
     return;
   }
 
+  await postPhotoObjectToDatabase(photoObject);
+
   // loop through each heart icon and modify the style only if its data-id matches the id of the clicked photo
   heartIcons.forEach((heartIcon) => {
     if (heartIcon.dataset.id === photoContainer.dataset.id) {
@@ -159,7 +165,6 @@ function toggleLikedStyleOnPhoto(photoContainer) {
         heartIcon.classList.add("fa-solid");
         heartIcon.classList.add("fa-fade");
         heartIcon.style.color = "#e83030";
-        console.log(heartIcon);
 
         // Stop the fade animation after 2 seconds
         setTimeout(() => {
@@ -174,7 +179,7 @@ function toggleLikedStyleOnPhoto(photoContainer) {
   });
 }
 
-function toggleBookmarkStyleOnPhoto(photoContainer) {
+async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have bookmarked the photo!");
 
   // select all the bookmark icons
@@ -186,6 +191,7 @@ function toggleBookmarkStyleOnPhoto(photoContainer) {
     );
     return;
   }
+  await postPhotoObjectToDatabase(photoObject);
 
   // loop through each bookmark icon and modify the style only if its data-id matches the id of the clicked photo
   collectBtns.forEach((collectBtn) => {

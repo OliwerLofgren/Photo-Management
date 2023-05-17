@@ -1,8 +1,6 @@
 #discover-main {
   height: calc(100vh - 11vh);
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  /* enable scroll snap */
 }
 
 button {
@@ -11,7 +9,11 @@ button {
 }
 
 #discover-section-one {
-  height: 100%;
+  height: 20%;
+}
+
+#discover-section-two {
+  height: 80%;
 }
 
 #discover-photos {

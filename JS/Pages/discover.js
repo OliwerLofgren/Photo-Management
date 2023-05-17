@@ -19,7 +19,7 @@ async function createDiscoverPage(user) {
     discoverHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav>
-            <p>Username: ${user.username}</p>
+            <p>${user.username}</p>
             <div class="mini-profile-photo"></div>
             <button id="collections-button">Your Collections</button>
             <button id="gallery-button">Profile</button>
@@ -27,10 +27,10 @@ async function createDiscoverPage(user) {
             </nav>
             `;
     //Wrapping the function call in an immediately invoked async function expression (IIFE).
-    (async function () {
-      const mini_profile_photo = document.querySelector(".mini-profile-photo");
-      await get_profile_picture(mini_profile_photo, logged_in_user);
-    })();
+    // (async function () {
+    //   const mini_profile_photo = document.querySelector(".mini-profile-photo");
+    //   await get_profile_picture(mini_profile_photo, logged_in_user);
+    // })();
 
     discoverMain.innerHTML = ` 
         <section id="discover-section-one" class="section">
@@ -58,7 +58,7 @@ async function createDiscoverPage(user) {
     const discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
       // photo dom element creation
-      displayCuratedPhotos(8, "portrait");
+      displayCuratedPhotos(4, "portrait");
       displaySearchTermPhotos(5, "medium");
     }
   }

@@ -56,7 +56,7 @@ async function patchPhotoObjectToDatabase(postedPhotoObject) {
     const patchedPhotoObject = await response.json();
 
     if (!response.ok) {
-      console.log("Error patching photo object");
+      console.log("Error patching photo object", response.statusText);
     } else {
       console.log("Photo object patched successfully:", patchedPhotoObject);
       return patchedPhotoObject; // return the newly patched object
@@ -65,5 +65,111 @@ async function patchPhotoObjectToDatabase(postedPhotoObject) {
     console.error("Error patching photo object:", error);
   }
 }
+
+/* fetch the collected photos */
+async function fetchCollectedPhotosfromDB() {
+
+  try {
+    const response = await fetch("../JSON/users.json");
+    const resource = await response.json();
+
+    if (!response.ok) {
+      console.log("Response not ok", response.statusText);
+      return;
+    } else {
+      console.log("Response successful");
+    }
+
+    return resource;
+  } catch (error) {
+    console.log("Error", error);
+  }
+}
+
+/* display the collected photos */
+async function displayCollectedPhotos() {
+  const AllUserObjects = await fetchCollectedPhotosfromDB();
+  const photoWrapper = document.getElementById("profile-photos");
+
+  // iterate over each user object
+  AllUserObjects.forEach((userObject) => {
+    // iterate over saved photos of the user
+    userObject.saved_photos.forEach((savedPhoto) => {
+
+      // create a div and append the container to parent wrapper
+      const photoContainer = document.createElement("div");
+      photoWrapper.append(photoContainer);
+
+      const photoObject = savedPhoto.photoObject;
+      const photoUrl = photoObject.photo;
+
+      // create an image element and set its source to the photo URL
+      const image = document.createElement("img");
+      photoContainer.append(image)
+      image.src = photoUrl;
+    });
+  });
+}
+
+/* display the photos */
+async function displayCollectedPhotos() {
+  const AllUserObjects = await fetchCollectedPhotosfromDB();
+  const photoWrapper = document.getElementById("collections-photos");
+
+  // iterate over each user object
+  AllUserObjects.forEach((userObject) => {
+    // iterate over saved photos of the user
+    userObject.saved_photos.forEach((savedPhoto) => {
+
+      // create a div and append the container to parent wrapper
+      const photoContainer = document.createElement("div");
+      photoWrapper.append(photoContainer);
+
+      const photoObject = savedPhoto.photoObject;
+      const photoUrl = photoObject.photo;
+      const photoId = savedPhoto.id;
+
+      // create an image element and set its source to the photo URL
+      const image = document.createElement("img");
+      photoContainer.append(image)
+      image.src = photoUrl;
+
+      // create a delete button and append to the interaction container
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "DELETE";
+      photoContainer.append(deleteButton);
+
+      // add event listener to the delete button
+      deleteButton.addEventListener("click", () => {
+        deletePhoto(photoId, photoUrl, photoContainer);
+      });
+    });
+  });
+
+  // check if there are no saved photos
+  if (photoWrapper.childElementCount === 0) {
+    const message = document.createElement("p");
+    message.textContent = "You haven't saved any photos yet.";
+    photoWrapper.append(message);
+  }
+}
+
+// function to delete the photo
+function deletePhoto(photoId, photoUrl, photoContainer) {
+  fetch("../PHP/delete.php", {
+    method: "DELETE",
+    body: JSON.stringify({ photo_id: photoId }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.message);
+
+      // remove the deleted photo container from the UI
+      // by finding its parent element and removing it
+      photoContainer.parentNode.removeChild(photoContainer);
+    })
+    .catch((error) => console.error(error));
+}
+
 
 
