@@ -30,10 +30,10 @@ async function createDiscoverPage(user) {
             </nav>
             `;
     //Wrapping the function call in an immediately invoked async function expression (IIFE).
-    // (async function () {
-    //   const mini_profile_photo = document.querySelector(".mini-profile-photo");
-    //   await get_profile_picture(mini_profile_photo, logged_in_user);
-    // })();
+    /*(async function () {
+      const mini_profile_photo = document.querySelector(".mini-profile-photo");
+      await get_profile_picture(mini_profile_photo, logged_in_user);
+    })();*/
 
     discoverMain.innerHTML = ` 
         <section id="discover-section-one" class="section">

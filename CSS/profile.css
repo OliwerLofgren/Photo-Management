@@ -42,28 +42,20 @@
   align-items: center;
 }
 
-.user-page-photos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1vw;
-  grid-auto-flow: dense;
-}
 
-.profile-or-collections-nav {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 50px;
-}
+
+/* Profile Page Layout Styles */
 #profile-section-one {
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
+
 #profile-bar {
   display: flex;
   flex-direction: column;
 }
+
 #profile-section-one {
   display: flex;
   flex-direction: column;
@@ -81,6 +73,7 @@
   overflow: hidden;
   margin-top: 10px;
 }
+
 #profile_container {
   display: flex;
   flex-direction: column;
@@ -116,6 +109,7 @@ h3 {
   height: 100%;
   object-fit: cover;
 }
+
 #profile-section-two {
   display: flex;
   flex-direction: column;
@@ -178,8 +172,26 @@ h3 {
   margin: 10px;
 }
 
-#collections-photos > div img {
-  height: 100%;
+
+/* Collections Page Layout */
+
+
+/* collections grid */
+#collections-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+/* collection grid Item */
+#collections-photos>div {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#collections-photos>div img {
   width: 100%;
+  height: auto;
   object-fit: cover;
 }
