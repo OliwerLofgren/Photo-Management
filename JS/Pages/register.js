@@ -8,6 +8,15 @@ function createRegisterPage() {
 
     function setupPage() {
         setElementAttributes(registerMain, "register-main", "");
+        setElementAttributes(registerHeader, "register-header", "");
+        // setElementAttributes(registerHeader, "", "display-none");
+        // Vill ha header
+
+        registerHeader.innerHTML = `
+        <h1>PHOTO MANAGMENT</h1>
+        <nav id="navRegister">
+        <button id="go-back-home">Back to home</button>
+        </nav>`
         setElementAttributes(registerHeader, "", "display-none");
         document.body.classList.remove("body-layout");
 

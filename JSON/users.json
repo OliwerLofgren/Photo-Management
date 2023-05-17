@@ -1,105 +1,27 @@
 [
     {
         "id": 1,
-        "username": "Oliwer",
-        "password": "123",
-        "uploaded_photos": [
-            {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/dog.jpg"
-            },
-            {
-                "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
-            },
-            {
-                "photo_id": 4,
-                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
-            }
-        ],
-        "saved_photos": [],
-        "profile_pictures": [
-            {
-                "photo": "..\/PHP\/my_photos\/brown-dog-jpeg.jpg"
-            },
-            {
-                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "username": "Benny",
-        "password": "123",
-        "uploaded_photos": [
-            {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
-            },
-            {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/dog.jpg"
-            },
-            {
-                "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/brown-dog-jpeg.jpg"
-            },
-            {
-                "photo_id": 4,
-                "photo": "..\/PHP\/my_photos\/Sk\u00e4rmbild 2023-03-06 130739.png"
-            }
-        ],
-        "saved_photos": [],
-        "profile_pictures": [
-            {
-                "photo": "..\/PHP\/my_photos\/dog-png.png"
-            }
-        ]
-    },
-    {
-        "id": 3,
-        "username": "Johnny",
-        "password": "123",
-        "uploaded_photos": [
-            {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/brown-dog-jpeg.jpg"
-            },
-            {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/dog.jpg"
-            },
-            {
-                "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
-            }
-        ],
-        "saved_photos": [],
-        "profile_pictures": [
-            {
-                "photo": "..\/PHP\/my_photos\/dog-png.png"
-            }
-        ]
-    },
-    {
-        "username": "amelie",
-        "password": "hej",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_pictures": []
-    },
-    {
-        "username": "hej",
-        "password": "hej",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_pictures": []
-    },
-    {
         "username": "haj",
         "password": "haj",
         "uploaded_photos": [],
-        "saved_photos": [],
+        "saved_photos": [
+            {
+                "id": 16820462,
+                "photoObject": {
+                    "id": 16820462,
+                    "width": 5297,
+                    "height": 3531,
+                    "avg_color": "#4C4C4C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16820462\/pexels-photo-16820462.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "\u5b87\u5b99\u65e0\u654c Daddy",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@daddy-400570939",
+                    "photographer_id": 400570939,
+                    "liked": false,
+                    "alt": "Hong Kong"
+                },
+                "liked": false
+            }
+        ],
         "profile_pictures": []
     }
 ]

@@ -41,6 +41,7 @@ async function createProfileGalleryPage(user) {
       <button id="discover-button">Discover</button>
       <button id="upload-button">Upload</button>
       <button id="logout-button">Logout</button>
+      <button id="delete-button">Delete your account</button>
       </nav>
   `;
 
@@ -281,6 +282,10 @@ async function createProfileGalleryPage(user) {
         user = null;
         createHomePage();
       });
+
+    document
+      .getElementById("delete-button")
+      .addEventListener("click", delete_user);
   }
 }
 
