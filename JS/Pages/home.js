@@ -1,9 +1,9 @@
 "use strict";
 
-const homeMain = document.querySelector("main");
-const homeHeader = document.querySelector("header");
-
 function createHomePage() {
+  const homeMain = document.querySelector("main");
+  const homeHeader = document.querySelector("header");
+
   // check to see if the user is logged in
   const user = JSON.parse(window.localStorage.getItem("user"));
   if (user) {
@@ -24,6 +24,8 @@ function createHomePage() {
   function setupPage() {
     setElementAttributes(homeMain, "home-main", "");
     clearElementAttributes(homeHeader);
+    document.body.classList.remove("body-layout");
+
 
     homeHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
@@ -109,9 +111,9 @@ function createHomePage() {
       .addEventListener("click", createRegisterPage);
 
     // clickedButton.onClick = displayModalWindow("Want more? Create an account or log in to see additional search results, add your favorites to Collections, and save changes.")
-    document
+    /*document
       .getElementById("aboutBtn")
-      .addEventListener("click", createAboutUsPage);
+      .addEventListener("click", createAboutUsPage);*/
 
 
   }

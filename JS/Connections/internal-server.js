@@ -86,25 +86,58 @@ async function fetchCollectedPhotosfromDB() {
   }
 }
 
-/* display the photos */
-async function displayCollectedPhotos() {
+/* display the collected photos */
+async function displayCollectedPhotos(user) {
   const AllUserObjects = await fetchCollectedPhotosfromDB();
+  const photoWrapper = document.getElementById("collections-photos");
 
   // iterate over each user object
   AllUserObjects.forEach((userObject) => {
     // iterate over saved photos of the user
     userObject.saved_photos.forEach((savedPhoto) => {
+
+      // create a div and append the container to parent wrapper
+      const photoContainer = document.createElement("div");
+      photoWrapper.append(photoContainer);
+
       const photoObject = savedPhoto.photoObject;
       const photoUrl = photoObject.photo;
+      const photoId = savedPhoto.id;
 
       // create an image element and set its source to the photo URL
       const image = document.createElement("img");
+      photoContainer.append(image)
       image.src = photoUrl;
 
-      // append the image to something 
-      document.body.appendChild(image);
+      // create a delete button 
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "DELETE";
+      photoContainer.append(deleteButton);
+
+      // add event listener to the delete button
+      deleteButton.addEventListener("click", () => {
+        delete_photo(photoId, photoUrl);
+      });
     });
   });
+
+  // check if there are no saved photos
+  if (photoWrapper.childElementCount === 0) {
+    const message1 = document.createElement("h1");
+    const message2 = document.createElement("p");
+    const message3 = document.createElement("p");
+
+    message1.textContent = "Collect Photos";
+    message2.textContent = "When you collect photos, they will appear on your profile.";
+    message3.textContent = "Collect your first photo";
+
+    message3.addEventListener("click", () => {
+      createDiscoverPage(user)
+    });
+
+    photoWrapper.append(message1, message2, message3);
+  }
 }
+
 
 

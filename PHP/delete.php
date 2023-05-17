@@ -4,35 +4,31 @@ require_once("functions.php");
 
 $filename = "../JSON/users.json";
 $users = json_decode(file_get_contents($filename), true);
-   
+
 $request_method = $_SERVER["REQUEST_METHOD"];
 $input_data = json_decode(file_get_contents("php://input"), true);
 
 //This section is for deleting a current image
-     if($request_method == "DELETE"){
-        //You need to add id:s to every image
-            $photo_id = $input_data["photo_id"];
-            $users_photo = $users[0]["saved_photos"];
-            
-        foreach($users[0]["uploaded_photos"] as $index => $photo){
-            //If the ID matches the id of the images you want to delete
-            if ($photo["photo_id"] == $photo_id) {
-            //Returns trailing name component of path. Example: my_photos/dog.jpg => dog.jpg
-                $photo_file = basename($photo["photo"]);
-                $photo_path = "../PHP/my_photos/" . $photo_file;
-                if (file_exists($photo_path)) {
-            //If the file exist delete the file
-                    unlink($photo_path);
-                }
-            //Delete the index where the file is located in JSON file.
-                array_splice($users[0]["uploaded_photos"], $index, 1);
-            }
-        }
-        file_put_contents($filename, json_encode($users));
-        $message = ["message" => "Photo has successfully been deleted"];
-        sendJSON($message);
+if ($request_method == "DELETE") {
+    $logged_in_id = $input_data["logged_in_id"];
 
+    $logged_user_index = null;
+    foreach ($users as $index => $user) {
+        if ($user["id"] == $logged_in_id) {
+            $logged_user_index = $index;
+            break;
         }
-        $message = ["message" => "Wrong kind of method!"];
-        sendJSON($message, 400);
-?>
+    }
+
+    if ($logged_user_index !== null) {
+        // Delete the user from the users array
+        array_splice($users, $logged_user_index, 1);
+
+        file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
+        $message = ["message" => "User has been successfully deleted"];
+        sendJSON($message);
+    } else {
+        $message = ["message" => "User not found"];
+        sendJSON($message, 404);
+    }
+}

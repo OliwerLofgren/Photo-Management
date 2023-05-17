@@ -43,7 +43,6 @@ function displayModalWindow(message) {
   modalOverlay.innerHTML = `
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
             <p>${message}</p>
             <button class="modal-button">Close</button>
         </div>
@@ -79,8 +78,7 @@ function scrollIntoView(selector) {
   element.scrollIntoView();
 }
 
-function displayPhotoInteractionIcons(
-  photoObject, photoContainer) {
+function displayPhotoInteractionIcons(photoObject, photoContainer) {
   // create a container for some interactive buttons for api photos
   const photoInteractionsContainer = document.createElement("div");
   photoInteractionsContainer.classList.add("interaction-container");
@@ -117,7 +115,6 @@ function displayPhotoInteractionIcons(
     }
   });
 
-
   // add a click event listener to the bookmarkbtn
   collectBtn.addEventListener("click", (event) => {
     if (event.currentTarget === event.target) {
@@ -131,25 +128,26 @@ function displayPhotoInteractionIcons(
 async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have liked the photo!");
   // Add this fetch to a addEventListener if this function isnt it.
-  // Make the PATCH request
-  fetch("../PHP/edit.php", {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ liked: true }), // Change the value to true
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // Handle the response data if needed
-      console.log(data);
-    })
-    .catch((error) => {
-      // Handle any errors
-      console.error(error);
+  // Make the PATCH request to update the liked status in the database
+
+  try {
+    const response = await fetch("../PHP/edit.php", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        photo_id: photoObject.photo_id,
+        liked: !photoObject.liked,
+      }),
     });
 
-  // select all the heart icons
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+
   const heartIcons = document.querySelectorAll(".likebtn");
 
   if (!heartIcons) {
@@ -157,11 +155,13 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
     return;
   }
 
+  photoObject.liked = !photoObject.liked;
+
   await postPhotoObjectToDatabase(photoObject);
+
 
   // loop through each heart icon and modify the style only if its data-id matches the id of the clicked photo
   heartIcons.forEach((heartIcon) => {
-
     if (heartIcon.dataset.id === photoContainer.dataset.id) {
       if (heartIcon.classList.contains("fa-regular")) {
         heartIcon.classList.remove("fa-regular");
@@ -173,7 +173,6 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
         setTimeout(() => {
           heartIcon.classList.remove("fa-fade");
         }, 2000);
-
       } else {
         heartIcon.classList.remove("fa-solid");
         heartIcon.classList.add("fa-regular");
@@ -183,6 +182,7 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
   });
 }
 
+
 async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have bookmarked the photo!");
 
@@ -190,7 +190,9 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   const collectBtns = document.querySelectorAll(".collect-btn");
 
   if (!collectBtns) {
-    console.error(`Collect icon with id ${photoContainer.dataset.id} not found.`);
+    console.error(
+      `Collect icon with id ${photoContainer.dataset.id} not found.`
+    );
     return;
   }
   await postPhotoObjectToDatabase(photoObject);
@@ -198,7 +200,6 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   // loop through each bookmark icon and modify the style only if its data-id matches the id of the clicked photo
   collectBtns.forEach((collectBtn) => {
     if (collectBtn.dataset.id === photoContainer.dataset.id) {
-
       if (collectBtn.classList.contains("fa-regular")) {
         collectBtn.classList.remove("fa-regular");
         collectBtn.classList.add("fa-solid");
@@ -210,7 +211,6 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
         setTimeout(() => {
           collectBtn.classList.remove("fa-fade");
         }, 2000);
-
       } else {
         collectBtn.classList.remove("fa-solid");
         collectBtn.classList.add("fa-regular");
@@ -219,19 +219,3 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
     }
   });
 }
-
-
-/*function get_profile_picture(target_element) {
-  fetch("../JSON/users.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const profile_pictures = data[0].profile_pictures;
-      if (profile_pictures.length > 0) {
-        const photo_url = profile_pictures[profile_pictures.length - 1].photo;
-        const img = document.createElement("img");
-        img.src = photo_url;
-        target_element.innerHTML = "";
-        target_element.appendChild(img);
-      }
-    });
-}*/
