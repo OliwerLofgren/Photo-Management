@@ -43,7 +43,6 @@ function displayModalWindow(message) {
   modalOverlay.innerHTML = `
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
             <p>${message}</p>
             <button class="modal-button">Close</button>
         </div>

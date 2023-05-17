@@ -53,13 +53,12 @@ async function createDiscoverPage(user) {
         `;
   }
 
-
   function displaySectionOnePhotos() {
     // check if current page is discover page
     const discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
       // photo dom element creation
-      displayCuratedPhotos(4, "portrait");
+      displayCuratedPhotos(8, "portrait");
       displaySearchTermPhotos(5, "medium");
     }
   }

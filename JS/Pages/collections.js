@@ -22,7 +22,7 @@ async function createProfileCollectionsPage(user) {
       "user-page-header"
     );
 
-    // apply flex layout
+    // apply layout
     document.body.classList.add("body-layout");
 
     // NOTE: current profile page needs to be marked in css

@@ -247,8 +247,6 @@ async function displayApiBackgroundImage(per_page, imgSize, domElement) {
     });
 }
 
-
-
 function photoApiResponseCodes(resource) {
     switch (resource.status) {
         case 401:

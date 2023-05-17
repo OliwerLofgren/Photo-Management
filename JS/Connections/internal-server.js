@@ -87,31 +87,6 @@ async function fetchCollectedPhotosfromDB() {
 }
 
 /* display the collected photos */
-async function displayCollectedPhotos() {
-  const AllUserObjects = await fetchCollectedPhotosfromDB();
-  const photoWrapper = document.getElementById("profile-photos");
-
-  // iterate over each user object
-  AllUserObjects.forEach((userObject) => {
-    // iterate over saved photos of the user
-    userObject.saved_photos.forEach((savedPhoto) => {
-
-      // create a div and append the container to parent wrapper
-      const photoContainer = document.createElement("div");
-      photoWrapper.append(photoContainer);
-
-      const photoObject = savedPhoto.photoObject;
-      const photoUrl = photoObject.photo;
-
-      // create an image element and set its source to the photo URL
-      const image = document.createElement("img");
-      photoContainer.append(image)
-      image.src = photoUrl;
-    });
-  });
-}
-
-/* display the photos */
 async function displayCollectedPhotos(user) {
   const AllUserObjects = await fetchCollectedPhotosfromDB();
   const photoWrapper = document.getElementById("collections-photos");
@@ -134,7 +109,7 @@ async function displayCollectedPhotos(user) {
       photoContainer.append(image)
       image.src = photoUrl;
 
-      // create a delete button and append to the interaction container
+      // create a delete button 
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "DELETE";
       photoContainer.append(deleteButton);
