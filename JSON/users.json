@@ -6,24 +6,40 @@
         "uploaded_photos": [
             {
                 "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/dog.jpg"
+                "photo": "..\/PHP\/my_photos\/Sk\u00e4rmbild 2023-03-19 223120.png"
             },
             {
-                "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
-            },
-            {
-                "photo_id": 4,
-                "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/Sk\u00e4rmbild 2023-03-17 124934.png"
             }
         ],
-        "saved_photos": [],
+        "saved_photos": [
+            {
+                "id": 16820427,
+                "photoObject": {
+                    "id": 16820427,
+                    "width": 3904,
+                    "height": 6000,
+                    "avg_color": "#663642",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16820427\/pexels-photo-16820427.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Olya Harytovich",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@olya-harytovich-512741947",
+                    "photographer_id": 512741947,
+                    "liked": false,
+                    "alt": "flower"
+                },
+                "liked": false
+            }
+        ],
         "profile_pictures": [
             {
                 "photo": "..\/PHP\/my_photos\/brown-dog-jpeg.jpg"
             },
             {
                 "photo": "..\/PHP\/my_photos\/dog-white-jpeg.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/Sk\u00e4rmbild 2023-04-08 101246.png"
             }
         ]
     },

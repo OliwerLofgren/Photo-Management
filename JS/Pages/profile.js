@@ -181,7 +181,11 @@ async function createProfileGalleryPage(user) {
       button_delete.innerText = "DELETE";
       button_delete.classList.add("delete");
       button_delete.addEventListener("click", () => {
-        delete_photo(latest_uploaded_photo.photo_id, photo_url, logged_in_user);
+        delete_uploaded_photo(
+          latest_uploaded_photo.photo_id,
+          photo_url,
+          logged_in_user
+        );
       });
 
       const photo_containers = document.createElement("div");
@@ -223,7 +227,7 @@ async function createProfileGalleryPage(user) {
         button_delete.innerText = "DELETE";
         button_delete.classList.add("delete");
         button_delete.addEventListener("click", () => {
-          delete_photo(photo.photo_id, photo_url, logged_in_user);
+          delete_uploaded_photo(photo.photo_id, photo_url, logged_in_user);
         });
         const photo_containers = document.createElement("div");
         photo_containers.classList.add("photo-containers");

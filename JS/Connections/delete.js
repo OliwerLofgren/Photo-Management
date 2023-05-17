@@ -1,7 +1,7 @@
 //Here is where Delete-request for the profile is gonna be
-async function delete_photo(photo_id, photo_url, logged_in_user) {
+async function delete_uploaded_photo(photo_id, photo_url, logged_in_user) {
   try {
-    const response = await fetch("../PHP/delete.php", {
+    const response = await fetch("../PHP/delete_uploaded.php", {
       method: "DELETE",
       body: JSON.stringify({
         logged_in_id: logged_in_user.id,
