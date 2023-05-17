@@ -1,9 +1,9 @@
 "use strict";
 
-const searchPageMain = document.querySelector("main");
-const searchPageHeader = document.querySelector("header");
-
 async function createSearchOrMediaCollectionsPage(searchTerm) {
+
+  const searchPageMain = document.querySelector("main");
+  const searchPageHeader = document.querySelector("header");
 
   setupPage();
 
@@ -36,6 +36,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm) {
     setElementAttributes(searchPageMain, "search-page-main", "");
     clearBackgroundImage();
     clearElementAttributes(searchPageHeader);
+    document.body.classList.remove("body-layout");
 
     // needs a check if logged in user or not!!
     searchPageHeader.innerHTML = `

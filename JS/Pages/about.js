@@ -3,6 +3,7 @@
 const aboutusHeader = document.querySelector("header");
 const aboutusMain = document.querySelector("main");
 
+
 async function getUsers() {
     let resource = null;
 
@@ -31,6 +32,7 @@ async function createAboutUsPage() {
 
 
         setElementAttributes(aboutusMain, "about-us-main", "");
+        document.body.classList.remove("body-layout");
 
         aboutusHeader.innerHTML = `
         <H1>PHOTO MANAGEMENT</H1>

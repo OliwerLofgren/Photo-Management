@@ -23,22 +23,46 @@
                 sendJSON($message, 400);
             }
             
-            $destination = "../PHP/my_photos/" . $name;
-            
-            if (move_uploaded_file($tmp_name, $destination)) {
-                $new_photo = [
-                    "photo" => rtrim($destination, "/")
-                ];
-                $users[0]["profile_pictures"][] = $new_photo;
 
-                file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
-                $photo_url = $new_photo["photo"];
-                sendJSON(["photo_url" => $photo_url]);
-            } else {
-                $message = ["message" => "Unable to upload file!"];
-                sendJSON($message, 400);
+            $user_id = $_POST["logged_in_id"];
+            $logged_user_index = null;
+            foreach ($users as $index => $user) {
+                if ($user["id"] == $user_id) {
+                    $logged_user_index = $index;
+                    break;
+                }
             }
-        }
+
+            if ($logged_user_index !== null) {
+            
+
+                $destination = "../PHP/my_photos/" . $name;
+                
+                if (move_uploaded_file($tmp_name, $destination)) {
+                    $logged_user = $users[$logged_user_index];
+                    $new_photo = [
+                        "photo" => $destination
+                    ];
+                    $logged_user["profile_pictures"][] = $new_photo;
+                    
+                    $users[$logged_user_index] = $logged_user;
+
+                    file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
+                    $photo_url = $new_photo["photo"];
+                    sendJSON(["photo_url" => $photo_url]);
+                } else {
+                    $message = ["message" => "Unable to upload file!"];
+                    sendJSON($message, 400);
+                }
+            }
+
+            } else {
+                $message = ["message" => "User not found"];
+                sendJSON($message, 404);
+            }
+            
+            
+
     }
 
     $message = ["message" => "Wrong kind of method!"];
