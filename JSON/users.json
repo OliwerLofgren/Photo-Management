@@ -1,27 +1,15 @@
 [
     {
-        "id": 1,
-        "username": "haj",
-        "password": "haj",
-        "uploaded_photos": [],
-        "saved_photos": [
+        "id": 2,
+        "username": "rabia",
+        "password": "123",
+        "uploaded_photos": [
             {
-                "id": 16820462,
-                "photoObject": {
-                    "id": 16820462,
-                    "width": 5297,
-                    "height": 3531,
-                    "avg_color": "#4C4C4C",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16820462\/pexels-photo-16820462.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "\u5b87\u5b99\u65e0\u654c Daddy",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@daddy-400570939",
-                    "photographer_id": 400570939,
-                    "liked": false,
-                    "alt": "Hong Kong"
-                },
-                "liked": false
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/Sk\u00e4rmbild (1).png"
             }
         ],
+        "saved_photos": [],
         "profile_pictures": []
     }
 ]

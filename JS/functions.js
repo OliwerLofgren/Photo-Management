@@ -128,30 +128,30 @@ function displayPhotoInteractionIcons(photoObject, photoContainer) {
 async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have liked the photo!");
   // Add this fetch to a addEventListener if this function isnt it.
-  // Make the PATCH request
-  fetch("../PHP/edit.php", {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ liked: true }), // Change the value to true
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // Handle the response data if needed
-      console.log(data);
-    })
-    .catch((error) => {
-      // Handle any errors
-      console.error(error);
+  // Make the PATCH request to update the liked status in the database
+
+  try {
+    const response = await fetch("../PHP/edit.php", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        photo_id: photoObject.photo_id,
+        liked: !photoObject.liked,
+      }),
     });
 
-  // select all the heart icons
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+
   const heartIcons = document.querySelectorAll(".likebtn");
 
   if (!heartIcons) {
-    console.error(`Like icon with id ${photoContainer.dataset.id} not found.`);
-    return;
+    console.error(`Like icon with id ${photoContainer.dataset.id} not found.`)
   }
 
   await postPhotoObjectToDatabase(photoObject);

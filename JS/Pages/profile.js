@@ -285,7 +285,11 @@ async function createProfileGalleryPage(user) {
 
     document
       .getElementById("delete-button")
-      .addEventListener("click", delete_user);
+      .addEventListener("click", function () {
+        delete_user(logged_in_user);
+      });
+
+
   }
 }
 

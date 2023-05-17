@@ -12,8 +12,6 @@ $input_data = json_decode(file_get_contents("php://input"), true);
 if ($request_method == "DELETE") {
     $logged_in_id = $input_data["logged_in_id"];
 
-
-
     $logged_user_index = null;
     foreach ($users as $index => $user) {
         if ($user["id"] == $logged_in_id) {
@@ -23,37 +21,14 @@ if ($request_method == "DELETE") {
     }
 
     if ($logged_user_index !== null) {
-        $photo_id = $input_data["photo_id"];
-        $uploaded_photos = $users[$logged_user_index]["uploaded_photos"];
+        // Delete the user from the users array
+        array_splice($users, $logged_user_index, 1);
 
-
-        // foreach ($uploaded_photos as $index => $photo) {
-
-        //     //If the ID matches the id of the images you want to delete
-        //     if ($photo["photo_id"] == $photo_id) {
-        //         //Returns trailing name component of path. Example: my_photos/dog.jpg => dog.jpg
-        //         $photo_file = basename($photo["photo"]);
-        //         $photo_path = "../PHP/my_photos/" . $photo_file;
-        //         if (file_exists($photo_path)) {
-        //             //If the file exist delete the file
-        //             unlink($photo_path);
-        //         }
-        //         //Delete the index where the file is located in JSON file.
-        //         array_splice($uploaded_photos, $index, 1);
-        //         //Updating the user's uploaded_photos array in the JSON data.
-        //         $users[$logged_user_index]["uploaded_photos"] = $uploaded_photos;
-        //     }
-        // }
         file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
-        $message = ["message" => "User has successfully been deleted"];
+        $message = ["message" => "User has been successfully deleted"];
         sendJSON($message);
     } else {
         $message = ["message" => "User not found"];
         sendJSON($message, 404);
     }
-
-
 }
-$message = ["message" => "Wrong kind of method!"];
-sendJSON($message, 400);
-?>
