@@ -10,6 +10,7 @@ async function getUsers() {
     try {
         const response = await fetch("/JSON/users.json");
         resource = await response.json();
+        // Hämta inte json fil
 
         if (!response.ok) {
             console.log("Response not ok");
@@ -36,59 +37,61 @@ async function createAboutUsPage() {
 
         aboutusHeader.innerHTML = `
         <H1>PHOTO MANAGEMENT</H1>
-        <nav>
+        <nav class="registerNav">
         <button id="registerBtn">REGISTER</button>
         </nav>
         `;
 
         aboutusMain.innerHTML = `
-        <div id="transition">
-        <div class="circle"> 
-        <h1 class ="circle-title">About us</h1>
+        <section class="section-one">
+        <div class="flex circle-wrapper">
+        <div class="flex circle"> 
+        <span class ="content">About us</span>
         </div>
         </div>
 
-        <p class="paragraf">We love to inspire
-        join us on the journey to blablbalbal</p>
+        <p class="paragraf">We love to inspire!
+         Join us on the journey</p>
 
         <div class="amountOfUsers">
         <p>Current amount of users</p>
         <div id="counter">${numberOfUsers}</div>
         </div>
+        </section>
+
+        <section class="section-two">
+        <div class="text">
+        <p>Here at PHOTO MANAGEMENT we understnad the importance of preserving and <br>
+        organizing your precious memories captured through photographs.
+        
+        Our website offers a wide range of sevices to cater to your specific needs. <br>
+        Wheter you are an individual looking to organize your personal photo or a photographer, we have you covered.</p>
 
         <h2>Join us and register <button id="hereBtn">HERE</button></h2>
 
-        <p>Here at PHOTO MANAGEMENT you can share inspiration and be inspired
-        We are based in Malmö and balakdjskjdfddf
-        djhksjfsdfskdfhsjdfhsdjfh
-        djfjskhdfjhsjdhfsjdhfjhsdjhfsdhfjshdf
-        djfjkshdjfshdjkfhsjkhfjskhfjshdfjkshdjk</p>
-
-        <p>djfjskdhjfhsdjfjshdfhdfjd
-        djfhskhdfsjkdhfjshdjfhjkdhfkjs
-        djfhsjdhfjshdjkfhskhdfjshfdkjd
-        dfjshfdhfsdjf
+        <p>Our team of dedicated experts is passionate about helping you unlock the true potential of your photos.
         </p>
 
-        <p>From the PHOTO MANAGMENT TEAM</p>
 
         <p>Welcome to
         PHOTO MANAGMENT</p>
 
         <p>Our team</p>
-
+</div>
         <div class="team">
         <div>
-        <img src="" alt="Amelie">
+        <img src="media/pexels-moose-photos-1587009(1).jpg" alt="Amelie" class="img">
         <h3>Amélie</h3>
         </div><div>
-        <img src="" alt="Rabia">
+        <img src="media/pexels-andrea-piacquadio-774909(1).jpg" alt="Rabia" class="img">
         <h3>Rabia</h3>
         </div><div>
-        <img src="" alt="Oliwer">
+        <img src="media/rsz_pexels-pixabay-220453.jpg" alt="Oliwer" class="img">
         <h3>Oliwer</h3>
         </div>
-    </div>
+
+        </div>
+        </section>
         `;
 
     }
@@ -112,7 +115,7 @@ async function countUsers() {
 
     resource.forEach((user) => userCount++);
     numberOfUsers = userCount;
-    console.log("Number of usernames:", userCount);
+    console.log("Number of users:", userCount);
 }
 
 countUsers();
