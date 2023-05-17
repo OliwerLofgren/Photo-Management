@@ -8,13 +8,17 @@ function createRegisterPage() {
 
     function setupPage() {
         setElementAttributes(registerMain, "register-main", "");
-        setElementAttributes(registerHeader, "", "display-none")
+        setElementAttributes(registerHeader, "register-header", "");
+        // setElementAttributes(registerHeader, "", "display-none");
+        // Vill ha header
+
+        registerHeader.innerHTML = `
+        <h1>PHOTO MANAGMENT</h1>
+        <nav id="navRegister">
+        <button id="go-back-home">Back to home</button>
+        </nav>`
 
         registerMain.innerHTML = `
-        <nav id="navRegister">
-            <button id="go-back-home">Back to home</button>
-        </nav>
-    
         <section id="register-section" class="section">
         <h2>Register</h2>
 
