@@ -9,6 +9,7 @@ function createRegisterPage() {
     function setupPage() {
         setElementAttributes(registerMain, "register-main", "");
         setElementAttributes(registerHeader, "register-header", "");
+        document.body.classList.remove("body-layout");
         // setElementAttributes(registerHeader, "", "display-none");
         // Vill ha header
 
@@ -17,8 +18,6 @@ function createRegisterPage() {
         <nav id="navRegister">
         <button id="go-back-home">Back to home</button>
         </nav>`
-        setElementAttributes(registerHeader, "", "display-none");
-        document.body.classList.remove("body-layout");
 
         registerMain.innerHTML = `
         <section id="register-section" class="section">
