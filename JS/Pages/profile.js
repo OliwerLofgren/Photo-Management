@@ -12,6 +12,7 @@ async function createProfileGalleryPage(user) {
 
   if (logged_in_id) {
     logged_in_user = await getLoggedInUser(logged_in_id);
+    STATE.user_id = logged_in_id;
     console.log(logged_in_id);
   } else {
     console.log("No user is currently logged in");
