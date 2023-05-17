@@ -1,15 +1,22 @@
 [
     {
-        "id": 2,
-        "username": "rabia",
-        "password": "123",
-        "uploaded_photos": [
+        "saved_photos": [
             {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/Sk\u00e4rmbild (1).png"
+                "id": 16814271,
+                "photoObject": {
+                    "id": 16814271,
+                    "width": 3880,
+                    "height": 5820,
+                    "avg_color": "#53594B",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16814271\/pexels-photo-16814271.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Kubra K\u0131sa",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@hkubrakisa",
+                    "photographer_id": 479661461,
+                    "liked": true,
+                    "alt": ""
+                },
+                "liked": false
             }
-        ],
-        "saved_photos": [],
-        "profile_pictures": []
+        ]
     }
 ]
