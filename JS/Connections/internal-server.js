@@ -1,5 +1,5 @@
 "use strict";
-/***  internal database request handlers ***/
+/*** internal database request handlers ***/
 
 // handles post request
 async function postPhotoObjectToDatabase(photoObject) {
@@ -109,7 +109,7 @@ async function displayCollectedPhotos(user) {
       photoContainer.append(image)
       image.src = photoUrl;
 
-      // create a delete button 
+      /* create a delete button 
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "DELETE";
       photoContainer.append(deleteButton);
@@ -117,7 +117,7 @@ async function displayCollectedPhotos(user) {
       // add event listener to the delete button
       deleteButton.addEventListener("click", () => {
         delete_photo(photoId, photoUrl);
-      });
+      });*/
     });
   });
 
