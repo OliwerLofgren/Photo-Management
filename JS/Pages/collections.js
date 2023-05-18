@@ -49,9 +49,10 @@ async function createProfileCollectionsPage(user) {
     </section>
 
   <section id="collections-section-two" class="section user-section-two"> 
+
   <nav  profile-or-collections-nav>
-  <button id="collections-button">Your Collections</button>      
-  <button id="profile-button">Profile</button>      
+  <button id="collections-button" class="activeBtn" onclick="btnFunc1()">Your Collections</button>      
+  <button id="profile-button"  class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Profile</button>      
     </nav>
 
     <div id="collections-photos" class="user-page-photos"></div>

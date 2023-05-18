@@ -20,6 +20,15 @@ function getElement(selector) {
   return document.querySelector(selector);
 }
 
+function btnFunc1() {
+  document.getElementById("collections-button").classList.remove("btnDeactivated");
+  document.getElementById("profile-button").classList.add("btnDeactivated");
+}
+
+function btnFunc2() {
+  document.getElementById("profile-button").classList.remove("btnDeactivated");
+  document.getElementById("collections-button").classList.add("btnDeactivated");
+}
 // function to display database server messages
 // example: username already exists
 function displayDatabaseMessage(data) {
