@@ -29,7 +29,7 @@
             $message = ["message" => "Array is empty!"];
             sendJSON($message, 400);
         }
-        $user_id = $input_data["user_id"];
+        $user_id = $input_data["logged_in_id"];
         $logged_user_index = null;
 
         foreach ($users as $index => $user) {

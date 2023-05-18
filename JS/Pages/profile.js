@@ -13,6 +13,7 @@ async function createProfileGalleryPage(user) {
   const profile_div = document.querySelector("#profile-picture");
   if (profile_div) {
     await get_profile_picture(profile_div, user);
+    console.log(STATE);
   } else {
     console.log("Profile picture element was not found!");
   }
@@ -193,6 +194,36 @@ async function createProfileGalleryPage(user) {
       console.log("Error!", error);
     }
   }
+  const profile_form = document.getElementById("form_profile_upload");
+  const profile_result = document.getElementById("profile_result");
+  profile_form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    // Remove previously uploaded image
+
+    const formData = new FormData(profile_form);
+    formData.append("logged_in_id", user.id);
+    const request = new Request("../PHP/profile_pics.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    try {
+      const response = await fetch(request);
+      const data = await response.json();
+      // This simply resets the form.
+      profile_form.reset();
+      console.log(data);
+      if (data.error) {
+        profile_result.textContent = "An error occurred: " + data.error;
+      } else {
+        profile_result.textContent =
+          "Your profile picture has successfully been added";
+        await get_profile_picture(profile_div, user);
+      }
+    } catch (error) {
+      profile_result.textContent = "An error occurred!" + error;
+    }
+  });
 
   function addEventListeners() {
     document

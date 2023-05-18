@@ -55,10 +55,42 @@
             {
                 "photo_id": 1,
                 "photo": "..\/PHP\/my_photos\/photos_3\/dog-white-jpeg.jpg"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/photos_3\/brown-dog-jpeg.jpg"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_3\/dog-png.png"
             }
         ],
         "saved_photos": [],
         "profile_pictures": [
+            {
+                "photo": "..\/PHP\/my_photos\/photos_3\/dog-png.png"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/photos_3\/dog.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/photos_3\/dog-png.png"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/photos_3\/dog.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/photos_3\/dog-png.png"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/photos_3\/dog-white-jpeg.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/photos_3\/brown-dog-jpeg.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/photos_3\/dog.jpg"
+            },
             {
                 "photo": "..\/PHP\/my_photos\/photos_3\/dog-png.png"
             },

@@ -7,8 +7,10 @@ async function createProfileCollectionsPage(user) {
 
   setupPage();
   const profile_div = document.querySelector("#profile-picture");
-  console.log(profile_div);
-  await get_profile_picture(profile_div, user);
+  const img = document.createElement("img");
+  img.src = STATE.user_profile_image;
+  profile_div.append(img);
+
   displayprofileCollectionsPhotos();
   addEventListeners();
 
@@ -39,7 +41,7 @@ async function createProfileCollectionsPage(user) {
 `;
 
     collectionsPageMain.innerHTML = `
-    <section id="collections-section-one" class="section user-section-one">
+    <section id="collections-section-one" class="user-section-one">
     <div id="profile-picture" class="profile-photo"></div>
     <h3>${user.username}</h3>
     <div id="profile_container">
@@ -60,6 +62,36 @@ async function createProfileCollectionsPage(user) {
     <div id="collections-photos" class="user-page-photos"></div>
   </section>`;
   }
+  const profile_form = document.getElementById("form_profile_upload");
+  const profile_result = document.getElementById("profile_result");
+  profile_form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    // Remove previously uploaded image
+
+    const formData = new FormData(profile_form);
+    formData.append("logged_in_id", user.id);
+    const request = new Request("../PHP/profile_pics.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    try {
+      const response = await fetch(request);
+      const data = await response.json();
+      // This simply resets the form.
+      profile_form.reset();
+      console.log(data);
+      if (data.error) {
+        profile_result.textContent = "An error occurred: " + data.error;
+      } else {
+        profile_result.textContent =
+          "Your profile picture has successfully been added";
+        await get_profile_picture(profile_div, user);
+      }
+    } catch (error) {
+      profile_result.textContent = "An error occurred!" + error;
+    }
+  });
 
   async function displayprofileCollectionsPhotos() {
     // check if current page is profile page
