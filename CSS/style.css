@@ -140,10 +140,21 @@ button {
     display: block;
 }
 
-
 .mini-profile-photo {
     background-color: palegreen;
     border-radius: 50%;
     width: 30px;
     height: 30px;
+}
+
+.activeBtn {
+    background-color: rgb(230, 206, 214);
+}
+
+.btnDeactivated {
+    background-color: red;
+}
+
+.deactiveBtn {
+    background-color: rgb(255, 255, 255);
 }

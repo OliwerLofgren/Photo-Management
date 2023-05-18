@@ -12,7 +12,7 @@ function fetch_resource(request) {
     return fetch(request);
 }
 
-/*** external api request handlers ****/
+/*** external api request handlers ***/
 
 // returns array of select keys: photographer name, photourl, etc
 async function fetchCuratedPhotos(per_page, imgSize) {
@@ -194,6 +194,10 @@ function createPhotoContainer(array) {
     // create dom elements
     array.forEach((photoObject) => {
         const photoContainer = document.createElement("div");
+
+        photoContainer.classList.add("card");
+        photoContainer.classList.add("overlay");
+
         photoWrapper.append(photoContainer);
 
         photoContainer.dataset.id = photoObject.id; // add photo ID to the container's dataset

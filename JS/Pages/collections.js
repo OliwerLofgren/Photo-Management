@@ -6,6 +6,11 @@ async function createProfileCollectionsPage(user) {
   const collectionsHeader = document.querySelector("header");
 
   setupPage();
+
+  const profile_div = document.querySelector("#profile-picture");
+  const img = check_if_image_exists(user);
+  profile_div.append(img);
+
   displayprofileCollectionsPhotos();
   addEventListeners();
 
@@ -27,7 +32,7 @@ async function createProfileCollectionsPage(user) {
 
     // NOTE: current profile page needs to be marked in css
     collectionsHeader.innerHTML = `
-  <H1>P</H1>
+  <H1>Photo Management</H1>
     <nav>
       <button id="discover-button">Discover</button>
       <button id="logout-button">Logout</button>
@@ -36,27 +41,60 @@ async function createProfileCollectionsPage(user) {
 `;
 
     collectionsPageMain.innerHTML = `
-    <section id="collections-section-one" class="section user-section-one">
-      <!-- Insert user profile photo here -->
-    <div id="profile-bar">
-      <form id="form_profile_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
-     <input type="file" name="upload">
-     <button type="submit">Upload</button>
-    </form> 
-      <h3>${user.username}</h3>
+    <section id="collections-section-one" class="user-section-one">
+    <div id="profile-picture" class="profile-photo"></div>
+    <h3>${user.username}</h3>
+    <div id="profile_container">
+    <form id="form_profile_upload" action="../PHP/profile_pics.php" method="POST" enctype="multipart/form-data">
+   <input type="file" name="upload">
+   <button type="submit">Upload</button>
+  </form> 
+  <div id="profile_result"></div> 
     </div> 
     </section>
 
   <section id="collections-section-two" class="section user-section-two"> 
+
   <nav  profile-or-collections-nav>
-  <button id="collections-button">Your Collections</button>      
-  <button id="profile-button">Profile</button>      
+  <button id="collections-button" class="activeBtn" onclick="btnFunc1()">Your Collections</button>      
+  <button id="profile-button"  class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Profile</button>      
     </nav>
 
     <div id="collections-photos" class="user-page-photos"></div>
   </section>`;
-
   }
+
+  /** */
+  const profile_form = document.getElementById("form_profile_upload");
+  const profile_result = document.getElementById("profile_result");
+  profile_form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    // Remove previously uploaded image
+
+    const formData = new FormData(profile_form);
+    formData.append("logged_in_id", user.id);
+    const request = new Request("../PHP/profile_pics.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    try {
+      const response = await fetch(request);
+      const data = await response.json();
+      // This simply resets the form.
+      profile_form.reset();
+      console.log(data);
+      if (data.error) {
+        profile_result.textContent = "An error occurred: " + data.error;
+      } else {
+        profile_result.textContent =
+          "Your profile picture has successfully been added";
+        await get_profile_picture(profile_div, user);
+      }
+    } catch (error) {
+      profile_result.textContent = "An error occurred!" + error;
+    }
+  });
 
   async function displayprofileCollectionsPhotos() {
     // check if current page is profile page

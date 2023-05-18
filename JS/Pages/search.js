@@ -63,7 +63,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm) {
     </section>
 
     <section id="search-section-two" class="section">
-    <div id="discover-photos" class="api-photos"></div>
+    <div id="search-photos" class="api-photos"></div>
 </section>
   `;
   }

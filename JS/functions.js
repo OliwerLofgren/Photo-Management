@@ -20,6 +20,15 @@ function getElement(selector) {
   return document.querySelector(selector);
 }
 
+function btnFunc1() {
+  document.getElementById("collections-button").classList.remove("btnDeactivated");
+  document.getElementById("profile-button").classList.add("btnDeactivated");
+}
+
+function btnFunc2() {
+  document.getElementById("profile-button").classList.remove("btnDeactivated");
+  document.getElementById("collections-button").classList.add("btnDeactivated");
+}
 // function to display database server messages
 // example: username already exists
 function displayDatabaseMessage(data) {
@@ -88,7 +97,8 @@ function displayPhotoInteractionIcons(photoObject, photoContainer) {
   const photographerName = photoObject.photographerName;
   const photographerNameDiv = document.createElement("div");
   photoInteractionsContainer.append(photographerNameDiv);
-  photographerNameDiv.outerHTML = `<div class="photographer-info">${photographerName}</div>`;
+  photographerNameDiv.textContent = photographerName;
+  photographerNameDiv.classList.add("photographer-info");
 
   const collectBtn = document.createElement("i");
   collectBtn.dataset.id = photoObject.id; // add photo ID to the icon's dataset
@@ -127,26 +137,6 @@ function displayPhotoInteractionIcons(photoObject, photoContainer) {
 
 async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have liked the photo!");
-  // Add this fetch to a addEventListener if this function isnt it.
-  // Make the PATCH request to update the liked status in the database
-
-  try {
-    const response = await fetch("../PHP/edit.php", {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        photo_id: photoObject.photo_id,
-        liked: !photoObject.liked,
-      }),
-    });
-
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
 
   const heartIcons = document.querySelectorAll(".likebtn");
 
@@ -154,11 +144,8 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
     console.error(`Like icon with id ${photoContainer.dataset.id} not found.`);
     return;
   }
-
-  photoObject.liked = !photoObject.liked;
-
-  await postPhotoObjectToDatabase(photoObject);
-
+  const logged_in_user = JSON.parse(window.localStorage.getItem("user"));
+  await postPhotoObjectToDatabase(photoObject, logged_in_user);
 
   // loop through each heart icon and modify the style only if its data-id matches the id of the clicked photo
   heartIcons.forEach((heartIcon) => {
@@ -182,7 +169,6 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
   });
 }
 
-
 async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have bookmarked the photo!");
 
@@ -195,7 +181,8 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
     );
     return;
   }
-  await postPhotoObjectToDatabase(photoObject);
+  const logged_in_user = JSON.parse(window.localStorage.getItem("user"));
+  await postPhotoObjectToDatabase(photoObject, logged_in_user);
 
   // loop through each bookmark icon and modify the style only if its data-id matches the id of the clicked photo
   collectBtns.forEach((collectBtn) => {
@@ -218,4 +205,50 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
       }
     }
   });
+}
+async function get_profile_picture(target_element, user) {
+  try {
+    const response = await fetch("../JSON/users.json");
+    const data = await response.json();
+
+    const logged_in_user = data.find((u) => u.id === user.id);
+    if (!logged_in_user) {
+      console.log("User not found!");
+    }
+
+    const profile_pictures = logged_in_user.profile_pictures;
+    if (profile_pictures.length > 0) {
+      const photo_url = profile_pictures[profile_pictures.length - 1].photo;
+      const img = document.createElement("img");
+      img.src = photo_url;
+
+      // STATE.user_profile_image = photo_url;
+
+      user.profile_picture = photo_url;
+      localStorage.setItem("user", JSON.stringify(user));
+      console.log(user);
+
+      target_element.innerHTML = "";
+      target_element.append(img);
+    }
+  } catch (error) {
+    console.log("Error!", error);
+  }
+}
+
+function check_if_image_exists(user) {
+  const img = document.createElement("img");
+  if (!user.profile_picture == "") {
+    img.src = JSON.parse(window.localStorage.getItem("user.profile_pictures"));
+    return img;
+  } else {
+    const icon = document.createElement("i");
+    icon.className = "fa-solid fa-user";
+    icon.id = "userIcon";
+    icon.style.color = "#000000";
+    return icon;
+  }
+
+  // target_element.innerHTML = "";
+  // target_element.appendChild(icon);
 }

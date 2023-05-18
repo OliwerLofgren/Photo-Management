@@ -9,8 +9,14 @@ async function createLoginPage() {
 
     function setupPage() {
         setElementAttributes(loginMain, "login-main", "");
-        setElementAttributes(loginHeader, "", "display-none");
+        setElementAttributes(loginHeader, "login-header", "");
         document.body.classList.remove("body-layout");
+
+        registerHeader.innerHTML = `
+        <h1>PHOTO MANAGMENT</h1>
+        <nav id="navLogin">
+        <button id="go-back-home">Back to home</button>
+        </nav>`
 
         loginMain.innerHTML = ` 
         <nav id="navRegister">
@@ -73,6 +79,7 @@ async function loginUser(event) {
 
             window.localStorage.setItem("user", JSON.stringify(data));
             let user = data;
+            console.log(user);
             createDiscoverPage(user);
         }
     } catch (error) {

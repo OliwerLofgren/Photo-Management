@@ -24,8 +24,6 @@ async function delete_user(logged_in_user) {
   }
 }
 
-
-
 //With .then
 // function delete_photo(photo_id, photo_url, logged_in_user) {
 //   fetch("../PHP/delete.php", {
