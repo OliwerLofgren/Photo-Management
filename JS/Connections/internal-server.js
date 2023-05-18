@@ -86,18 +86,15 @@ async function displayCollectedPhotos() {
     image.src = photoUrl;
 
     // create a delete button
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "DELETE";
-    photoContainer.append(deleteButton);
 
     const button_delete = document.createElement("button");
-    button_delete.innerText = "DELETE";
+    button_delete.innerText = "Remove from page";
     button_delete.classList.add("delete");
     button_delete.addEventListener("click", () => {
       console.log("Deleted");
       edit_collected_photo(photoUrl, photoId, logged_in_user_id);
     });
-
+    photoContainer.append(button_delete);
     // add event listener to the delete button
   });
 

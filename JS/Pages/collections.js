@@ -6,6 +6,9 @@ async function createProfileCollectionsPage(user) {
   const collectionsHeader = document.querySelector("header");
 
   setupPage();
+  const profile_div = document.querySelector("#profile-picture");
+  console.log(profile_div);
+  await get_profile_picture(profile_div, user);
   displayprofileCollectionsPhotos();
   addEventListeners();
 
@@ -25,7 +28,6 @@ async function createProfileCollectionsPage(user) {
     // apply layout
     document.body.classList.add("body-layout");
 
-
     // NOTE: current profile page needs to be marked in css
     collectionsHeader.innerHTML = `
   <H1>Photo Management</H1>
@@ -38,13 +40,14 @@ async function createProfileCollectionsPage(user) {
 
     collectionsPageMain.innerHTML = `
     <section id="collections-section-one" class="section user-section-one">
-      <!-- Insert user profile photo here -->
-    <div id="profile-bar">
-      <form id="form_profile_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
-     <input type="file" name="upload">
-     <button type="submit">Upload</button>
-    </form> 
-      <h3>${user.username}</h3>
+    <div id="profile-picture" class="profile-photo"></div>
+    <h3>${user.username}</h3>
+    <div id="profile_container">
+    <form id="form_profile_upload" action="../PHP/profile_pics.php" method="POST" enctype="multipart/form-data">
+   <input type="file" name="upload">
+   <button type="submit">Upload</button>
+  </form> 
+  <div id="profile_result"></div> 
     </div> 
     </section>
 
@@ -56,7 +59,6 @@ async function createProfileCollectionsPage(user) {
 
     <div id="collections-photos" class="user-page-photos"></div>
   </section>`;
-
   }
 
   async function displayprofileCollectionsPhotos() {

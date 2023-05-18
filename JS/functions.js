@@ -91,7 +91,6 @@ function displayPhotoInteractionIcons(photoObject, photoContainer) {
   photographerNameDiv.textContent = photographerName;
   photographerNameDiv.classList.add("photographer-info");
 
-
   const collectBtn = document.createElement("i");
   collectBtn.dataset.id = photoObject.id; // add photo ID to the icon's dataset
   photoInteractionsContainer.append(collectBtn);
@@ -197,4 +196,59 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
       }
     }
   });
+}
+
+const profile_form = document.getElementById("form_profile_upload");
+const profile_result = document.getElementById("profile_result");
+profile_form.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  // Remove previously uploaded image
+
+  const formData = new FormData(profile_form);
+  formData.append("logged_in_id", user.id);
+  const request = new Request("../PHP/profile_pics.php", {
+    method: "POST",
+    body: formData,
+  });
+
+  try {
+    const response = await fetch(request);
+    const data = await response.json();
+    // This simply resets the form.
+    profile_form.reset();
+    console.log(data);
+    if (data.error) {
+      profile_result.textContent = "An error occurred: " + data.error;
+    } else {
+      profile_result.textContent =
+        "Your profile picture has successfully been added";
+      await get_profile_picture(profile_div, user);
+    }
+  } catch (error) {
+    profile_result.textContent = "An error occurred!" + error;
+  }
+});
+
+async function get_profile_picture(target_element, user) {
+  try {
+    const response = await fetch("../JSON/users.json");
+    const data = await response.json();
+
+    const logged_in_user = data.find((u) => u.id === user.id);
+    if (!logged_in_user) {
+      console.log("User not found!");
+    }
+
+    const profile_pictures = logged_in_user.profile_pictures;
+    if (profile_pictures.length > 0) {
+      const photo_url = profile_pictures[profile_pictures.length - 1].photo;
+      const img = document.createElement("img");
+      img.src = photo_url;
+      // STATE.userProfileImage = photo_url;
+      target_element.innerHTML = "";
+      target_element.append(img);
+    }
+  } catch (error) {
+    console.log("Error!", error);
+  }
 }
