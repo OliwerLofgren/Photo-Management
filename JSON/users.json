@@ -1,10 +1,91 @@
 [
     {
         "id": 1,
-        "username": "amlie",
-        "password": "123",
+        "username": "a",
+        "password": "a",
         "uploaded_photos": [],
-        "saved_photos": [],
+        "saved_photos": [
+            {
+                "id": 16698541,
+                "photoObject": {
+                    "id": 16698541,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#8A857F",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16698541\/pexels-photo-16698541.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Houssam benamara",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@houssam-benamara-542776584",
+                    "photographer_id": 542776584,
+                    "liked": false,
+                    "alt": "A Fashion Model's Moment of Reflection"
+                },
+                "liked": false
+            },
+            {
+                "id": 16820462,
+                "photoObject": {
+                    "id": 16820462,
+                    "width": 5297,
+                    "height": 3531,
+                    "avg_color": "#4C4C4C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16820462\/pexels-photo-16820462.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "\u5b87\u5b99\u65e0\u654c Daddy",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@daddy-400570939",
+                    "photographer_id": 400570939,
+                    "liked": false,
+                    "alt": "Hong Kong"
+                },
+                "liked": false
+            },
+            {
+                "id": 16814271,
+                "photoObject": {
+                    "id": 16814271,
+                    "width": 3880,
+                    "height": 5820,
+                    "avg_color": "#53594B",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16814271\/pexels-photo-16814271.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Kubra K\u0131sa",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@hkubrakisa",
+                    "photographer_id": 479661461,
+                    "liked": false,
+                    "alt": ""
+                },
+                "liked": false
+            },
+            {
+                "id": 16796414,
+                "photoObject": {
+                    "id": 16796414,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#6D5742",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16796414\/pexels-photo-16796414.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "DARKMODE CINEMA",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@darkmodecinema",
+                    "photographer_id": 513951244,
+                    "liked": false,
+                    "alt": ""
+                },
+                "liked": false
+            },
+            {
+                "id": 16820427,
+                "photoObject": {
+                    "id": 16820427,
+                    "width": 3904,
+                    "height": 6000,
+                    "avg_color": "#663642",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16820427\/pexels-photo-16820427.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Olya Harytovich",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@olya-harytovich-512741947",
+                    "photographer_id": 512741947,
+                    "liked": false,
+                    "alt": "flower"
+                },
+                "liked": false
+            }
+        ],
         "profile_pictures": []
     }
 ]

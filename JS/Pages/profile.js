@@ -33,10 +33,14 @@ async function createProfileGalleryPage(user) {
       "profile-header",
       "user-page-header"
     );
+
+    // apply layout
+    document.body.classList.add("body-layout");
+
     // NOTE: current profile page needs to be marked in css
 
     profilePageHeader.innerHTML = `
-    <H1>P</H1>
+    <H1>Photo Management</H1>
       <nav>
       <button id="discover-button">Discover</button>
       <button id="upload-button">Upload</button>
@@ -73,7 +77,7 @@ async function createProfileGalleryPage(user) {
       <div id="result"></div>   
     </nav>
 
-        <div id="profile-photos" class="user-photos"></div>
+        <div id="profile-photos" class="user-page-photos"></div>
       </section>
     `;
   }

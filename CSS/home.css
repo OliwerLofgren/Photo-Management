@@ -99,10 +99,3 @@ button {
 #search-field:focus {
     border-color: #5902d2;
 }
-
-.interaction-container {
-    background-color: aqua;
-    position: relative;
-    top: -300px;
-    z-index: 2;
-}

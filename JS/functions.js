@@ -88,7 +88,9 @@ function displayPhotoInteractionIcons(photoObject, photoContainer) {
   const photographerName = photoObject.photographerName;
   const photographerNameDiv = document.createElement("div");
   photoInteractionsContainer.append(photographerNameDiv);
-  photographerNameDiv.outerHTML = `<div class="photographer-info">${photographerName}</div>`;
+  photographerNameDiv.textContent = photographerName;
+  photographerNameDiv.classList.add("photographer-info");
+
 
   const collectBtn = document.createElement("i");
   collectBtn.dataset.id = photoObject.id; // add photo ID to the icon's dataset
@@ -127,26 +129,6 @@ function displayPhotoInteractionIcons(photoObject, photoContainer) {
 
 async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have liked the photo!");
-  // Add this fetch to a addEventListener if this function isnt it.
-  // Make the PATCH request to update the liked status in the database
-
-  try {
-    const response = await fetch("../PHP/edit.php", {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        photo_id: photoObject.photo_id,
-        liked: !photoObject.liked,
-      }),
-    });
-
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
 
   const heartIcons = document.querySelectorAll(".likebtn");
 
