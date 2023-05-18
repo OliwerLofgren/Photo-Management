@@ -38,7 +38,8 @@ async function createProfileGalleryPage(user) {
       <button id="delete-button">Delete your account</button>
       </nav>
   `;
-
+    let img = check_if_image_exists(user);
+    profile_div.append(img);
     profilePageMain.innerHTML = `
     <!-- Insert user profile section here -->
     <section id="profile-section-one" class="user-section-one">
