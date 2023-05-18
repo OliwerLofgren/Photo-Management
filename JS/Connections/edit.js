@@ -25,7 +25,7 @@ async function edit_uploaded_photo(photo_id, photo_url, logged_in_user) {
 
 async function edit_saved_photo(photo_id, photo_url, logged_in_user) {
   try {
-    const response = await fetch("../PHP/edit_uploaded.php", {
+    const response = await fetch("../PHP/edit_collected.php", {
       method: "PATCH",
       body: JSON.stringify({
         logged_in_id: logged_in_user.id,

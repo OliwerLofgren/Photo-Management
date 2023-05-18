@@ -57,7 +57,7 @@ async function fetchCollectedPhotosfromDB(logged_in_user_id) {
       console.log("Response successful");
     }
 
-    return user.saved_photos;
+    return user;
   } catch (error) {
     console.log("Error", error);
   }
@@ -66,38 +66,39 @@ async function fetchCollectedPhotosfromDB(logged_in_user_id) {
 /* display the collected photos */
 async function displayCollectedPhotos() {
   const logged_in_user_id = JSON.parse(window.localStorage.getItem("user")).id;
-  const AllUserObjects = await fetchCollectedPhotosfromDB(logged_in_user_id);
-
-  if (!AllUserObjects) {
-    return;
-  }
+  const user = await fetchCollectedPhotosfromDB(logged_in_user_id);
 
   const photoWrapper = document.getElementById("collections-photos");
 
   // iterate over each user object
-  AllUserObjects.forEach((userObject) => {
-    // iterate over saved photos of the user
-    userObject.saved_photos.forEach((savedPhoto) => {
-      // create a div and append the container to parent wrapper
-      const photoContainer = document.createElement("div");
-      photoWrapper.append(photoContainer);
+  user.saved_photos.forEach((savedPhoto) => {
+    // create a div and append the container to parent wrapper
+    const photoContainer = document.createElement("div");
+    photoWrapper.append(photoContainer);
 
-      const photoObject = savedPhoto.photoObject;
-      const photoUrl = photoObject.photo;
-      const photoId = savedPhoto.id;
+    const photoObject = savedPhoto.photoObject;
+    const photoUrl = photoObject.photo;
+    const photoId = savedPhoto.id;
 
-      // create an image element and set its source to the photo URL
-      const image = document.createElement("img");
-      photoContainer.append(image);
-      image.src = photoUrl;
+    // create an image element and set its source to the photo URL
+    const image = document.createElement("img");
+    photoContainer.append(image);
+    image.src = photoUrl;
 
-      // create a delete button
-      const deleteButton = document.createElement("button");
-      deleteButton.textContent = "DELETE";
-      photoContainer.append(deleteButton);
+    // create a delete button
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "DELETE";
+    photoContainer.append(deleteButton);
 
-      // add event listener to the delete button
+    const button_delete = document.createElement("button");
+    button_delete.innerText = "DELETE";
+    button_delete.classList.add("delete");
+    button_delete.addEventListener("click", () => {
+      console.log("deleted");
+      edit_collected_photo(photoUrl, photoId, logged_in_user_id);
     });
+
+    // add event listener to the delete button
   });
 
   // check if there are no saved photos
