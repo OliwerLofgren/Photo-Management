@@ -136,11 +136,8 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
     console.error(`Like icon with id ${photoContainer.dataset.id} not found.`);
     return;
   }
-
-  photoObject.liked = !photoObject.liked;
-
-  await postPhotoObjectToDatabase(photoObject);
-
+  const logged_in_user = JSON.parse(window.localStorage.getItem("user"));
+  await postPhotoObjectToDatabase(photoObject, logged_in_user);
 
   // loop through each heart icon and modify the style only if its data-id matches the id of the clicked photo
   heartIcons.forEach((heartIcon) => {
@@ -164,7 +161,6 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
   });
 }
 
-
 async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have bookmarked the photo!");
 
@@ -177,7 +173,8 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
     );
     return;
   }
-  await postPhotoObjectToDatabase(photoObject);
+  const logged_in_user = JSON.parse(window.localStorage.getItem("user"));
+  await postPhotoObjectToDatabase(photoObject, logged_in_user);
 
   // loop through each bookmark icon and modify the style only if its data-id matches the id of the clicked photo
   collectBtns.forEach((collectBtn) => {

@@ -12,6 +12,7 @@ async function createProfileGalleryPage(user) {
 
   if (logged_in_id) {
     logged_in_user = await getLoggedInUser(logged_in_id);
+    STATE.user_id = logged_in_id;
     console.log(logged_in_id);
   } else {
     console.log("No user is currently logged in");
@@ -186,7 +187,11 @@ async function createProfileGalleryPage(user) {
       button_delete.innerText = "DELETE";
       button_delete.classList.add("delete");
       button_delete.addEventListener("click", () => {
-        delete_photo(latest_uploaded_photo.photo_id, photo_url, logged_in_user);
+        edit_uploaded_photo(
+          latest_uploaded_photo.photo_id,
+          photo_url,
+          logged_in_user
+        );
       });
 
       const photo_containers = document.createElement("div");
@@ -228,7 +233,7 @@ async function createProfileGalleryPage(user) {
         button_delete.innerText = "DELETE";
         button_delete.classList.add("delete");
         button_delete.addEventListener("click", () => {
-          delete_photo(photo.photo_id, photo_url, logged_in_user);
+          edit_uploaded_photo(photo.photo_id, photo_url, logged_in_user);
         });
         const photo_containers = document.createElement("div");
         photo_containers.classList.add("photo-containers");
@@ -258,6 +263,7 @@ async function createProfileGalleryPage(user) {
         const photo_url = profile_pictures[profile_pictures.length - 1].photo;
         const img = document.createElement("img");
         img.src = photo_url;
+        STATE.userProfileImage = photo_url;
         target_element.innerHTML = "";
         target_element.appendChild(img);
       }
