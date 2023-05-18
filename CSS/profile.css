@@ -42,7 +42,9 @@
   align-items: center;
 }
 
-
+#userIcon {
+  font-size: 5em;
+}
 
 /* Profile Page Layout Styles */
 #profile-section-one {
