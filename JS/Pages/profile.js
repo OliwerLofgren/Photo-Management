@@ -6,14 +6,14 @@ const section_two_main = document.querySelector(".profile-or-collections-nav");
 
 async function createProfileGalleryPage(user) {
   setupPage();
-  console.log(user);
 
   addEventListeners();
+
   await get_all_images(user);
+
   const profile_div = document.querySelector("#profile-picture");
-  const img = document.createElement("img");
-  img.src = JSON.parse(window.localStorage.getItem("user.profile_pictures"));
-  profile_div.appendChild(img);
+  const img = check_if_image_exists(user);
+  profile_div.append(img);
 
   function setupPage() {
     clearElementAttributes(profilePageMain);
@@ -27,8 +27,6 @@ async function createProfileGalleryPage(user) {
     // apply layout
     document.body.classList.add("body-layout");
 
-    // NOTE: current profile page needs to be marked in css
-
     profilePageHeader.innerHTML = `
     <H1>Photo Management</H1>
       <nav>
@@ -38,13 +36,14 @@ async function createProfileGalleryPage(user) {
       <button id="delete-button">Delete your account</button>
       </nav>
   `;
-    let img = check_if_image_exists(user);
-    profile_div.append(img);
+
     profilePageMain.innerHTML = `
     <!-- Insert user profile section here -->
     <section id="profile-section-one" class="user-section-one">
     
     <div id="profile-picture" class="profile-photo"></div>
+
+    
     <h3>${user.username}</h3>
     <div id="profile_container">
     <form id="form_profile_upload" action="../PHP/profile_pics.php" method="POST" enctype="multipart/form-data">

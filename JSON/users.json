@@ -5,10 +5,14 @@
         "password": "a",
         "uploaded_photos": [],
         "saved_photos": [],
-        "profile_pictures": [
-            {
-                "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-02-09 163548.jpg"
-            }
-        ]
+        "profile_pictures": []
+    },
+    {
+        "id": 2,
+        "username": "dogs",
+        "password": "d",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_pictures": []
     }
 ]

@@ -1,11 +1,16 @@
 "use strict";
 
 async function createDiscoverPage(user) {
+
   const discoverMain = document.querySelector("main");
   const discoverHeader = document.querySelector("header");
 
   // setup page
   setupPage();
+
+  const profile_div = document.querySelector(".mini-profile-photo");
+  const img = check_if_image_exists(user);
+  profile_div.append(img);
 
   // display photos
   displaySectionOnePhotos();
@@ -29,10 +34,6 @@ async function createDiscoverPage(user) {
             <button id="logout-button">Logout</button>
             </nav>
             `;
-
-    const profile_div = document.querySelector(".mini-profile-photo");
-    let img = check_if_image_exists(user);
-    profile_div.append(img);
 
     discoverMain.innerHTML = `
     <section id="discover-section-one" class="section">
