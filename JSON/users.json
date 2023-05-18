@@ -1,10 +1,17 @@
 [
     {
         "id": 1,
-        "username": "Oliwer",
-        "password": "123",
+        "username": "rabia",
+        "password": "a",
         "uploaded_photos": [],
         "saved_photos": [],
-        "profile_pictures": []
+        "profile_pictures": [
+            {
+                "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-02-09 163548.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-03-22 211603.png"
+            }
+        ]
     }
 ]

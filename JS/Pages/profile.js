@@ -54,12 +54,12 @@ async function createProfileGalleryPage(user) {
     </div>
     
     </section >
-  
-
-      <section id="profile-section-two" class="section user-section-two">
+        <section id="profile-section-two" class="section user-section-two">
+      
       <nav class="profile-or-collections-nav">
-      <button id="collections-button">Your Collections</button>      
-      <button id="profile-button">Profile</button>   
+      <button id="collections-button" class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Your Collections</button>      
+      <button id="profile-button" class="activeBtn" onclick="btnFunc1()">Profile</button>   
+
       <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
         <input type="file"  name="upload">
         <button type="submit" id="section_two_button">Upload</button>
@@ -191,6 +191,7 @@ async function createProfileGalleryPage(user) {
       console.log("Error!", error);
     }
   }
+  /* * */
   const profile_form = document.getElementById("form_profile_upload");
   const profile_result = document.getElementById("profile_result");
   profile_form.addEventListener("submit", async function (event) {
