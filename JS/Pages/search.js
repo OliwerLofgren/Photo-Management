@@ -36,18 +36,19 @@ async function createSearchOrMediaCollectionsPage(searchTerm) {
     setElementAttributes(searchPageMain, "search-page-main", "");
     clearBackgroundImage();
     clearElementAttributes(searchPageHeader);
+    setElementAttributes(searchPageHeader, "search-page-header", "");
+
     document.body.classList.remove("body-layout");
 
     // needs a check if logged in user or not!!
     searchPageHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
-    <nav id="navSearch">
-    <form id="search-form" >
+  <form id="mini-search-form" >
     <label for="search-field"></label>
-    <input id="search-field" name="search" type="text">
+    <input id="mini-search-field" name="search" type="text">
     <button type="submit">Search</button>
   </form>
-
+  <nav id="navSearch">
       <button id="loginBtn">LOGIN</button> /     
       <button id="registerBtn">REGISTER</button>      
     </nav>
