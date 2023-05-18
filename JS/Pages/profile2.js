@@ -241,7 +241,9 @@ async function createProfileGalleryPage(user) {
         } catch (error) {
             console.log("Error!", error);
         }
-    } async function get_profile_picture(target_element, logged_in_user) {
+
+    }
+    async function get_profile_picture(target_element, logged_in_user) {
         try {
             const response = await fetch("../JSON/users.json");
             const data = await response.json();

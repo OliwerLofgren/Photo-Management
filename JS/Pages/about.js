@@ -60,7 +60,7 @@ async function createAboutUsPage() {
         </section>
 
         <section class="section-two">
-        <div class="text">
+        <div class="text-aboutUs">
         <p>Here at PHOTO MANAGEMENT we understnad the importance of preserving and <br>
         organizing your precious memories captured through photographs.
         
@@ -77,16 +77,16 @@ async function createAboutUsPage() {
         PHOTO MANAGMENT</p>
 
         <p>Our team</p>
-</div>
+        </div>
         <div class="team">
         <div>
-        <img src="media/pexels-moose-photos-1587009(1).jpg" alt="Amelie" class="img">
+        <img src="media/pexels-moose-photos-1587009(1).jpg" alt="Amelie" class="img-aboutUs">
         <h3>Amélie</h3>
         </div><div>
-        <img src="media/pexels-andrea-piacquadio-774909(1).jpg" alt="Rabia" class="img">
+        <img src="media/pexels-andrea-piacquadio-774909(1).jpg" alt="Rabia" class="img-aboutUs">
         <h3>Rabia</h3>
         </div><div>
-        <img src="media/rsz_pexels-pixabay-220453.jpg" alt="Oliwer" class="img">
+        <img src="media/rsz_pexels-pixabay-220453.jpg" alt="Oliwer" class="img-aboutUs">
         <h3>Oliwer</h3>
         </div>
 

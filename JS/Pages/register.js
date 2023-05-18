@@ -14,25 +14,34 @@ function createRegisterPage() {
         // Vill ha header
 
         registerHeader.innerHTML = `
-        <h1>PHOTO MANAGMENT</h1>
-        <nav id="navRegister">
+        <h1>PHOTO MANAGEMENT</h1>
+        <nav id="nav-Register-Login">
         <button id="go-back-home">Back to home</button>
         </nav>`
-        console.log("hej");
-        registerMain.innerHTML = `
-        <section id="register-section" class="section">
-        <h2>Register</h2>
 
-        <p id="login-register-instead">Already have an account? Sign In </p>
+        registerMain.innerHTML = `
+        <div class="box">
+        <section id="register-login-section">
+            <h2 class="text-login-register">Join us!</h2>
+            <h3 class="text-login-register">Register</h3>
+
+            <p id="login-register-instead">Already have an account? Sign In </p>
     
-        <p id="message"></p>
+            <p id="message"></p>
     
         <form id="regForm">
-          <input type=text id="username" placeholder=Username>
-          <input type=password id="password" placeholder=Password>
-          <button type=submit>Register</button>
-        </form>
+        <div class="input-field">
+          <input type=text class="input" id="username" placeholder=Username>
+          <i class="fa-solid fa-user" id="user" style="color: #000000;"></i>
+          </div>
+          <div class="input-field">
+          <input type=password class="input" id="password" placeholder=Password>
+          <i class="fa-solid fa-lock" id="lock" style="color: #000000;"></i>
+          </div>
+          <button type=submit class="button-login-register">Register</button>
+          </form>
       </section>
+      </div>
      `;
     }
 

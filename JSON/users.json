@@ -84,6 +84,118 @@
                     "alt": "flower"
                 },
                 "liked": false
+            },
+            {
+                "id": 895259,
+                "photoObject": {
+                    "id": 895259,
+                    "width": 3648,
+                    "height": 5052,
+                    "avg_color": "#C3B7AF",
+                    "photo": "https:\/\/images.pexels.com\/photos\/895259\/pexels-photo-895259.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Dominika Roseclay",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@punchbrandstock",
+                    "photographer_id": 215243,
+                    "alt": "Soft Focus Photo of Dachshund",
+                    "liked": true
+                },
+                "liked": false
+            },
+            {
+                "id": 895259,
+                "photoObject": {
+                    "id": 895259,
+                    "width": 3648,
+                    "height": 5052,
+                    "avg_color": "#C3B7AF",
+                    "photo": "https:\/\/images.pexels.com\/photos\/895259\/pexels-photo-895259.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Dominika Roseclay",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@punchbrandstock",
+                    "photographer_id": 215243,
+                    "alt": "Soft Focus Photo of Dachshund",
+                    "liked": true
+                },
+                "liked": false
+            },
+            {
+                "id": 14182229,
+                "photoObject": {
+                    "id": 14182229,
+                    "width": 2160,
+                    "height": 3840,
+                    "avg_color": "#46575F",
+                    "photo": "https:\/\/images.pexels.com\/photos\/14182229\/pexels-photo-14182229.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "r\u00fcveyda",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@ruveyda-140435227",
+                    "photographer_id": 140435227,
+                    "liked": true,
+                    "alt": ""
+                },
+                "liked": false
+            },
+            {
+                "id": 14182229,
+                "photoObject": {
+                    "id": 14182229,
+                    "width": 2160,
+                    "height": 3840,
+                    "avg_color": "#46575F",
+                    "photo": "https:\/\/images.pexels.com\/photos\/14182229\/pexels-photo-14182229.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "r\u00fcveyda",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@ruveyda-140435227",
+                    "photographer_id": 140435227,
+                    "liked": true,
+                    "alt": ""
+                },
+                "liked": false
+            },
+            {
+                "id": 16838330,
+                "photoObject": {
+                    "id": 16838330,
+                    "width": 3920,
+                    "height": 6376,
+                    "avg_color": "#5D5D5D",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16838330\/pexels-photo-16838330.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Damir",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@damir-3876357",
+                    "photographer_id": 3876357,
+                    "liked": true,
+                    "alt": ""
+                },
+                "liked": false
+            },
+            {
+                "id": 16814271,
+                "photoObject": {
+                    "id": 16814271,
+                    "width": 3880,
+                    "height": 5820,
+                    "avg_color": "#53594B",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16814271\/pexels-photo-16814271.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Kubra K\u0131sa",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@hkubrakisa",
+                    "photographer_id": 479661461,
+                    "liked": true,
+                    "alt": ""
+                },
+                "liked": false
+            },
+            {
+                "id": 16791388,
+                "photoObject": {
+                    "id": 16791388,
+                    "width": 4594,
+                    "height": 6883,
+                    "avg_color": "#69695D",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16791388\/pexels-photo-16791388.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Josue Velasquez",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@josue-velasquez-282193995",
+                    "photographer_id": 282193995,
+                    "liked": true,
+                    "alt": ""
+                },
+                "liked": false
             }
         ],
         "profile_pictures": [
@@ -96,8 +208,28 @@
         "id": 2,
         "username": "amelie",
         "password": "123",
-        "uploaded_photos": [],
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/Sk\u00e4rmbild (3).png"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/Sk\u00e4rmbild (2).png"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/Sk\u00e4rmbild (33).png"
+            }
+        ],
         "saved_photos": [],
-        "profile_pictures": []
+        "profile_pictures": [
+            {
+                "photo": "..\/PHP\/my_photos\/Sk\u00e4rmbild (1).png"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/Sk\u00e4rmbild (38).png"
+            }
+        ]
     }
 ]

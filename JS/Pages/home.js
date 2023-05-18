@@ -109,11 +109,10 @@ function createHomePage() {
     document
       .getElementById("registerBtn")
       .addEventListener("click", createRegisterPage);
-
     // clickedButton.onClick = displayModalWindow("Want more? Create an account or log in to see additional search results, add your favorites to Collections, and save changes.")
-    /*document
+    document
       .getElementById("aboutBtn")
-      .addEventListener("click", createAboutUsPage);*/
+      .addEventListener("click", createAboutUsPage);
 
 
   }
