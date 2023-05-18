@@ -29,7 +29,7 @@ if ($request_method == "POST") {
                 "password" => $password
             ];
             $users[] = $logged_in_user;
-            sendJSON($logged_in_user);
+            sendJSON($user);
         }
     }
 //If the user dosent exist in the database = error message

@@ -100,7 +100,6 @@ function displayPhotoInteractionIcons(photoObject, photoContainer) {
   photographerNameDiv.textContent = photographerName;
   photographerNameDiv.classList.add("photographer-info");
 
-
   const collectBtn = document.createElement("i");
   collectBtn.dataset.id = photoObject.id; // add photo ID to the icon's dataset
   photoInteractionsContainer.append(collectBtn);
@@ -145,11 +144,8 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
     console.error(`Like icon with id ${photoContainer.dataset.id} not found.`);
     return;
   }
-
-  photoObject.liked = !photoObject.liked;
-
-  await postPhotoObjectToDatabase(photoObject);
-
+  const logged_in_user = JSON.parse(window.localStorage.getItem("user"));
+  await postPhotoObjectToDatabase(photoObject, logged_in_user);
 
   // loop through each heart icon and modify the style only if its data-id matches the id of the clicked photo
   heartIcons.forEach((heartIcon) => {
@@ -173,7 +169,6 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
   });
 }
 
-
 async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have bookmarked the photo!");
 
@@ -186,7 +181,8 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
     );
     return;
   }
-  await postPhotoObjectToDatabase(photoObject);
+  const logged_in_user = JSON.parse(window.localStorage.getItem("user"));
+  await postPhotoObjectToDatabase(photoObject, logged_in_user);
 
   // loop through each bookmark icon and modify the style only if its data-id matches the id of the clicked photo
   collectBtns.forEach((collectBtn) => {
@@ -209,4 +205,28 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
       }
     }
   });
+}
+
+async function get_profile_picture(target_element, user) {
+  try {
+    const response = await fetch("../JSON/users.json");
+    const data = await response.json();
+
+    const logged_in_user = data.find((u) => u.id === user.id);
+    if (!logged_in_user) {
+      console.log("User not found!");
+    }
+
+    const profile_pictures = logged_in_user.profile_pictures;
+    if (profile_pictures.length > 0) {
+      const photo_url = profile_pictures[profile_pictures.length - 1].photo;
+      const img = document.createElement("img");
+      img.src = photo_url;
+      STATE.user_profile_image = photo_url;
+      target_element.innerHTML = "";
+      target_element.append(img);
+    }
+  } catch (error) {
+    console.log("Error!", error);
+  }
 }

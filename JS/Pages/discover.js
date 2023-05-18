@@ -29,11 +29,11 @@ async function createDiscoverPage(user) {
             <button id="logout-button">Logout</button>
             </nav>
             `;
-    //Wrapping the function call in an immediately invoked async function expression (IIFE).
-    /*(async function () {
-      const mini_profile_photo = document.querySelector(".mini-profile-photo");
-      await get_profile_picture(mini_profile_photo, logged_in_user);
-    })();*/
+
+    const profile_div = document.querySelector(".mini-profile-photo");
+    const img = document.createElement("img");
+    img.src = STATE.user_profile_image;
+    profile_div.append(img);
 
     discoverMain.innerHTML = `
     <section id="discover-section-one" class="section">
