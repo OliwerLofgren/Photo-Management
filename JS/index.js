@@ -9,3 +9,4 @@ document.addEventListener("DOMContentLoaded", () => {
     createHomePage();
   }
 });
+// console.log(user.profile_pictures);

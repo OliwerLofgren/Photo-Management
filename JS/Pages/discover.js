@@ -31,8 +31,7 @@ async function createDiscoverPage(user) {
             `;
 
     const profile_div = document.querySelector(".mini-profile-photo");
-    const img = document.createElement("img");
-    img.src = STATE.user_profile_image;
+    let img = check_if_image_exists(user);
     profile_div.append(img);
 
     discoverMain.innerHTML = `

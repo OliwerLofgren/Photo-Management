@@ -7,8 +7,7 @@ async function createProfileCollectionsPage(user) {
 
   setupPage();
   const profile_div = document.querySelector("#profile-picture");
-  const img = document.createElement("img");
-  img.src = STATE.user_profile_image;
+  let img = check_if_image_exists(user);
   profile_div.append(img);
 
   displayprofileCollectionsPhotos();

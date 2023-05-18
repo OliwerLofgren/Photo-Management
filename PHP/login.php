@@ -16,6 +16,7 @@ if ($request_method == "POST") {
     
     $username = $input_data["username"];
     $password = $input_data["password"];
+    
 
 
     // add error message for empty username/password input here >
@@ -26,10 +27,10 @@ if ($request_method == "POST") {
             $logged_in_user = [
                 "id" => $user["id"],
                 "username" => $username,
-                "password" => $password
+                "password" => $password,
             ];
             $users[] = $logged_in_user;
-            sendJSON($user);
+            sendJSON($logged_in_user);
         }
     }
 //If the user dosent exist in the database = error message

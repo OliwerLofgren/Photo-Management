@@ -197,7 +197,6 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
     }
   });
 }
-
 async function get_profile_picture(target_element, user) {
   try {
     const response = await fetch("../JSON/users.json");
@@ -213,11 +212,46 @@ async function get_profile_picture(target_element, user) {
       const photo_url = profile_pictures[profile_pictures.length - 1].photo;
       const img = document.createElement("img");
       img.src = photo_url;
-      STATE.user_profile_image = photo_url;
+
+      // STATE.user_profile_image = photo_url;
+
+      user.profile_picture = photo_url;
+      localStorage.setItem("user", JSON.stringify(user));
+      console.log(user);
+
       target_element.innerHTML = "";
       target_element.append(img);
     }
   } catch (error) {
     console.log("Error!", error);
+  }
+}
+
+function check_if_image_exists(user) {
+  const img = document.createElement("img");
+
+  if (!user.profile_picture == "") {
+    img.src = JSON.parse(window.localStorage.getItem("user.profile_pictures"));
+    return img;
+  } else {
+    // Check if default profile picture URL is stored in localStorage
+    if (!defaultImageUrl) {
+      // If default profile picture URL is not stored, set it to the local file path
+      defaultImageUrl = "./media/default-profile.png";
+
+      // Store the default profile picture URL in localStorage
+      localStorage.setItem("defaultProfilePic", defaultImageUrl);
+      const icon = document.createElement("i");
+      icon.className = "fa-solid fa-user";
+      icon.id = "userIcon";
+      icon.style.color = "#000000";
+    } else {
+      let defaultImageUrl = localStorage.getItem("defaultProfilePic");
+      img.src = defaultImageUrl;
+      return img;
+    }
+
+    // target_element.innerHTML = "";
+    // target_element.appendChild(icon);
   }
 }

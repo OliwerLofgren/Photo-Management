@@ -11,12 +11,9 @@ async function createProfileGalleryPage(user) {
   addEventListeners();
   await get_all_images(user);
   const profile_div = document.querySelector("#profile-picture");
-  if (profile_div) {
-    await get_profile_picture(profile_div, user);
-    console.log(STATE);
-  } else {
-    console.log("Profile picture element was not found!");
-  }
+  const img = document.createElement("img");
+  img.src = JSON.parse(window.localStorage.getItem("user.profile_pictures"));
+  profile_div.appendChild(img);
 
   function setupPage() {
     clearElementAttributes(profilePageMain);
@@ -212,7 +209,6 @@ async function createProfileGalleryPage(user) {
       const data = await response.json();
       // This simply resets the form.
       profile_form.reset();
-      console.log(data);
       if (data.error) {
         profile_result.textContent = "An error occurred: " + data.error;
       } else {
