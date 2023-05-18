@@ -6,6 +6,13 @@ async function createProfileCollectionsPage(user) {
   const collectionsHeader = document.querySelector("header");
 
   setupPage();
+
+  if (STATE.user_profile_image) {
+    console.log(STATE.user_profile_image);
+
+  } else {
+    console.log("here we create an image");
+  }
   const profile_div = document.querySelector("#profile-picture");
   const img = document.createElement("img");
   img.src = STATE.user_profile_image;
@@ -63,6 +70,8 @@ async function createProfileCollectionsPage(user) {
     <div id="collections-photos" class="user-page-photos"></div>
   </section>`;
   }
+
+  /** */
   const profile_form = document.getElementById("form_profile_upload");
   const profile_result = document.getElementById("profile_result");
   profile_form.addEventListener("submit", async function (event) {

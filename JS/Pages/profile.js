@@ -57,9 +57,7 @@ async function createProfileGalleryPage(user) {
     </div>
     
     </section >
-  
-
-      <section id="profile-section-two" class="section user-section-two">
+        <section id="profile-section-two" class="section user-section-two">
       
       <nav class="profile-or-collections-nav">
       <button id="collections-button" class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Your Collections</button>      
@@ -196,6 +194,7 @@ async function createProfileGalleryPage(user) {
       console.log("Error!", error);
     }
   }
+  /* * */
   const profile_form = document.getElementById("form_profile_upload");
   const profile_result = document.getElementById("profile_result");
   profile_form.addEventListener("submit", async function (event) {
