@@ -17,6 +17,7 @@ async function delete_user(logged_in_user) {
         // User deleted successfully
         localStorage.removeItem("user");
         createHomePage();
+        console.log(response);
       }
     }
   } catch (error) {
