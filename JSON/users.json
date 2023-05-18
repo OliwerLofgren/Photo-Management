@@ -4,7 +4,98 @@
         "username": "Oliwer",
         "password": "123",
         "uploaded_photos": [],
+        "saved_photos": [
+            {
+                "id": 16838330,
+                "photoObject": {
+                    "id": 16838330,
+                    "width": 3920,
+                    "height": 6376,
+                    "avg_color": "#5D5D5D",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16838330\/pexels-photo-16838330.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Damir",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@damir-3876357",
+                    "photographer_id": 3876357,
+                    "liked": false,
+                    "alt": ""
+                },
+                "liked": false
+            }
+        ],
+        "profile_pictures": []
+    },
+    {
+        "id": 2,
+        "username": "Benny",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [
+            {
+                "id": 16814271,
+                "photoObject": {
+                    "id": 16814271,
+                    "width": 3880,
+                    "height": 5820,
+                    "avg_color": "#53594B",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16814271\/pexels-photo-16814271.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Kubra K\u0131sa",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@hkubrakisa",
+                    "photographer_id": 479661461,
+                    "liked": false,
+                    "alt": ""
+                },
+                "liked": false
+            },
+            {
+                "id": 16814271,
+                "photoObject": {
+                    "id": 16814271,
+                    "width": 3880,
+                    "height": 5820,
+                    "avg_color": "#53594B",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16814271\/pexels-photo-16814271.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Kubra K\u0131sa",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@hkubrakisa",
+                    "photographer_id": 479661461,
+                    "liked": false,
+                    "alt": ""
+                },
+                "liked": false
+            }
+        ],
+        "profile_pictures": []
+    },
+    {
+        "id": 3,
+        "username": "Tommy",
+        "password": "123",
+        "uploaded_photos": [],
         "saved_photos": [],
+        "profile_pictures": []
+    },
+    {
+        "id": 4,
+        "username": "Johnny",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [
+            {
+                "id": 14182229,
+                "photoObject": {
+                    "id": 14182229,
+                    "width": 2160,
+                    "height": 3840,
+                    "avg_color": "#46575F",
+                    "photo": "https:\/\/images.pexels.com\/photos\/14182229\/pexels-photo-14182229.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "r\u00fcveyda",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@ruveyda-140435227",
+                    "photographer_id": 140435227,
+                    "liked": false,
+                    "alt": ""
+                },
+                "liked": false
+            }
+        ],
         "profile_pictures": []
     }
 ]
