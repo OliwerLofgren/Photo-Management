@@ -7,6 +7,8 @@ async function createSearchOrMediaCollectionsPage(searchTerm) {
 
   setupPage();
 
+  addEventListeners();
+
   if (searchTerm === "") {
     createMediaCollectionsPage();
   } else {
@@ -67,6 +69,22 @@ async function createSearchOrMediaCollectionsPage(searchTerm) {
     <div id="search-photos" class="api-photos"></div>
 </section>
   `;
+  }
+
+  function addEventListeners() {
+    document
+      .getElementById("loginBtn")
+      .addEventListener("click", createLoginPage);
+    document
+      .getElementById("registerBtn")
+      .addEventListener("click", createRegisterPage);
+
+    // clickedButton.onClick = displayModalWindow("Want more? Create an account or log in to see additional search results, add your favorites to Collections, and save changes.")
+    /*document
+      .getElementById("aboutBtn")
+      .addEventListener("click", createAboutUsPage);*/
+
+
   }
 }
 

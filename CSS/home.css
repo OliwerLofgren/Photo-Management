@@ -21,12 +21,8 @@
 #home-header {
     height: calc(100vh - 89vh);
     gap: 56vw;
-}
-
-header h1 {
     padding-left: 6vw;
 }
-
 
 button {
     background: none;

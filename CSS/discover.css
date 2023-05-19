@@ -14,7 +14,9 @@
 #discover-header {
   height: calc(100vh - 89vh);
   gap: 53vw;
+  padding-left: 6vw;
 }
+
 
 #discover-photos {
   display: grid;
