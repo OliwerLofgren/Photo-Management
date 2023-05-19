@@ -18,24 +18,28 @@ async function createLoginPage() {
         </nav>`;
 
     loginMain.innerHTML = ` 
-        <nav id="navRegister">
-        <button id="go-back-home">Back to home</button>
-        </nav>
-        
-        <section id="login-section" class="section"> 
-            <h2>Welcome Back.</h2>
-            <h3>Log In</h3>
+        <div class="box">
+        <section id="register-login-section"> 
+            <h2 class="text-login-register">Welcome Back!</h2>
+            <h3 class="text-login-register">Log In</h3>
 
             <p id="login-register-instead">Don't have an account? Sign up and get started</p>
 
             <p id="message"></p>
     
             <form id="loginForm">
-                <input type=text id="username" placeholder=Username>
-                <input type=password id="password" placeholder=Password>
-                <button type=submit>Log in</button>
+            <div class ="input-field">
+                <input type=text class="input" id="username" placeholder=Username>
+                <i class="fa-solid fa-user" id="user" style="color: #000000;"></i>
+                </div>
+                <div class="input-field">
+                <input type=password class="input" id="password" placeholder=Password>
+                <i class="fa-solid fa-lock" id="lock" style="color: #000000;"></i>
+                </div>
+                <button type=submit class="button-login-register">Log in</button>
             </form>
         </section>
+        </div>
         `;
   }
   function addEventListeners() {

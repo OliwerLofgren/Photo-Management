@@ -9,14 +9,16 @@ async function delete_user(logged_in_user) {
           logged_in_id: logged_in_user.id,
         }),
       });
-      console.log("User deleted");
+
       const data = await response.json();
       console.log(data.message);
 
       if (response.ok) {
         // User deleted successfully
         localStorage.removeItem("user");
+        console.log("User deleted");
         createHomePage();
+        console.log(response);
       }
     }
   } catch (error) {
