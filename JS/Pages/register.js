@@ -46,10 +46,13 @@ function createRegisterPage() {
     }
 
     function addEventListeners() {
+        document
+            .getElementById("login-register-instead")
+            .addEventListener("click", createLoginPage);
 
-        document.getElementById("login-register-instead").addEventListener("click", createLoginPage);
-
-        document.getElementById("go-back-home").addEventListener("click", createHomePage);
+        document
+            .getElementById("go-back-home")
+            .addEventListener("click", createHomePage);
 
         document.getElementById("regForm").addEventListener("submit", (event) => {
             registerUser(event);
@@ -65,7 +68,7 @@ async function registerUser(event) {
 
     const userData = {
         username: username,
-        password: password
+        password: password,
     };
 
     const post = {
@@ -84,13 +87,15 @@ async function registerUser(event) {
             console.log("registered successfully:", data);
 
             const clickedButton = document.querySelector("#regForm button");
-            clickedButton.onClick = displayModalWindow("Successfully registered! Proceed to Log in page");
+            clickedButton.onClick = displayModalWindow(
+                "Successfully registered! Proceed to Log in page"
+            );
 
-            document.querySelector(".modal-button").addEventListener("click", closeModalWindow);
+            document
+                .querySelector(".modal-button")
+                .addEventListener("click", closeModalWindow);
         }
-    }
-    catch (error) {
+    } catch (error) {
         console.log("Error registering:", error);
     }
 }
-

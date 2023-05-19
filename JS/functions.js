@@ -20,6 +20,17 @@ function getElement(selector) {
   return document.querySelector(selector);
 }
 
+function btnFunc1() {
+  document
+    .getElementById("collections-button")
+    .classList.remove("btnDeactivated");
+  document.getElementById("profile-button").classList.add("btnDeactivated");
+}
+
+function btnFunc2() {
+  document.getElementById("profile-button").classList.remove("btnDeactivated");
+  document.getElementById("collections-button").classList.add("btnDeactivated");
+}
 // function to display database server messages
 // example: username already exists
 function displayDatabaseMessage(data) {
@@ -91,7 +102,6 @@ function displayPhotoInteractionIcons(photoObject, photoContainer) {
   photographerNameDiv.textContent = photographerName;
   photographerNameDiv.classList.add("photographer-info");
 
-
   const collectBtn = document.createElement("i");
   collectBtn.dataset.id = photoObject.id; // add photo ID to the icon's dataset
   photoInteractionsContainer.append(collectBtn);
@@ -137,10 +147,7 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
     return;
   }
 
-  photoObject.liked = !photoObject.liked;
-
-  await postPhotoObjectToDatabase(photoObject);
-
+  await postPhotoObjectToDatabase(photoObject, user);
 
   // loop through each heart icon and modify the style only if its data-id matches the id of the clicked photo
   heartIcons.forEach((heartIcon) => {
@@ -164,7 +171,6 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
   });
 }
 
-
 async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   console.log("you have bookmarked the photo!");
 
@@ -177,7 +183,8 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
     );
     return;
   }
-  await postPhotoObjectToDatabase(photoObject);
+  let user = JSON.parse(window.localStorage.getItem("user"));
+  await postPhotoObjectToDatabase(photoObject, user);
 
   // loop through each bookmark icon and modify the style only if its data-id matches the id of the clicked photo
   collectBtns.forEach((collectBtn) => {
@@ -187,7 +194,7 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
         collectBtn.classList.add("fa-solid");
         collectBtn.classList.add("fa-fade");
         collectBtn.style.color = "#e83030";
-        console.log(collectBtn);
+        // console.log(collectBtn);
 
         // Stop the fade animation after 2 seconds
         setTimeout(() => {
@@ -201,3 +208,68 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
     }
   });
 }
+async function get_profile_picture(target_element, user) {
+  try {
+    const response = await fetch("../JSON/users.json");
+    const data = await response.json();
+
+    const logged_in_user = data.find((u) => u.id === user.id);
+    if (!logged_in_user) {
+      console.log("User not found!");
+    }
+
+    const profile_pictures = logged_in_user.profile_pictures;
+    if (profile_pictures.length > 0) {
+      const photo_url = profile_pictures[profile_pictures.length - 1].photo;
+      const img = document.createElement("img");
+      img.src = photo_url;
+
+      // STATE.user_profile_image = photo_url;
+
+      user.profile_picture = photo_url;
+      localStorage.setItem("user", JSON.stringify(user));
+      console.log(user);
+
+      target_element.innerHTML = "";
+      target_element.append(img);
+    }
+  } catch (error) {
+    console.log("Error!", error);
+  }
+}
+
+function check_if_image_exists(user) {
+  const img = document.createElement("img");
+  if (!user.profile_picture == "") {
+    img.src = JSON.parse(window.localStorage.getItem("user.profile_pictures"));
+    return img;
+  } else {
+    const icon = document.createElement("i");
+    icon.className = "fa-solid fa-user";
+    icon.id = "userIcon";
+    icon.style.color = "#000000";
+    return icon;
+  }
+
+  // target_element.innerHTML = "";
+  // target_element.appendChild(icon);
+}
+// // Check if default profile picture URL is stored in localStorage
+// if (!defaultImageUrl) {
+//   // If default profile picture URL is not stored, set it to the local file path
+//   defaultImageUrl = "./media/default-profile.png";
+
+//   // Store the default profile picture URL in localStorage
+//   localStorage.setItem("defaultProfilePic", defaultImageUrl);
+//   const icon = document.createElement("i");
+//   icon.className = "fa-solid fa-user";
+//   icon.id = "userIcon";
+//   icon.style.color = "#000000";
+// } else {
+//   let defaultImageUrl = localStorage.getItem("defaultProfilePic");
+//   img.src = defaultImageUrl;
+//   return img;
+// }
+
+// // target_element.innerHTML = "";
+// // target_element.appendChild(icon);

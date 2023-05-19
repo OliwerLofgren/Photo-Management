@@ -7,23 +7,13 @@ const section_two_main = document.querySelector(".profile-or-collections-nav");
 async function createProfileGalleryPage(user) {
   setupPage();
 
-  const logged_in_id = JSON.parse(localStorage.getItem("user")).id;
-  let logged_in_user;
-
-  if (logged_in_id) {
-    logged_in_user = await getLoggedInUser(logged_in_id);
-    console.log(logged_in_id);
-  } else {
-    console.log("No user is currently logged in");
-  }
   addEventListeners();
-  await get_all_images(logged_in_user);
+
+  await get_all_images(user);
+
   const profile_div = document.querySelector("#profile-picture");
-  if (profile_div) {
-    await get_profile_picture(profile_div, logged_in_user);
-  } else {
-    console.log("Profile picture element was not found!");
-  }
+  const img = check_if_image_exists(user);
+  profile_div.append(img);
 
   function setupPage() {
     clearElementAttributes(profilePageMain);
@@ -37,8 +27,6 @@ async function createProfileGalleryPage(user) {
     // apply layout
     document.body.classList.add("body-layout");
 
-    // NOTE: current profile page needs to be marked in css
-
     profilePageHeader.innerHTML = `
     <H1>Photo Management</H1>
       <nav>
@@ -51,12 +39,14 @@ async function createProfileGalleryPage(user) {
 
     profilePageMain.innerHTML = `
     <!-- Insert user profile section here -->
-    <section id="profile-section-one" class="section user-section-one">
+    <section id="profile-section-one" class="user-section-one">
     
     <div id="profile-picture" class="profile-photo"></div>
+
+    
     <h3>${user.username}</h3>
     <div id="profile_container">
-    <form id="form_profile_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
+    <form id="form_profile_upload" action="../PHP/profile_pics.php" method="POST" enctype="multipart/form-data">
       <input type="file"  name="upload">
       <button type="submit" id="custom_upload_button">Upload</button>
     </form> 
@@ -64,13 +54,13 @@ async function createProfileGalleryPage(user) {
     </div>
     
     </section >
-  
-
-      <section id="profile-section-two" class="section user-section-two">
+        <section id="profile-section-two" class="section user-section-two">
+      
       <nav class="profile-or-collections-nav">
-      <button id="collections-button">Your Collections</button>      
-      <button id="profile-button">Profile</button>   
-      <form id="form_upload" action="../PHP/profile_pics.php" method="POST" enctype="multipart/form-data">
+      <button id="collections-button" class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Your Collections</button>      
+      <button id="profile-button" class="activeBtn" onclick="btnFunc1()">Profile</button>   
+
+      <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
         <input type="file"  name="upload">
         <button type="submit" id="section_two_button">Upload</button>
       </form>
@@ -81,46 +71,6 @@ async function createProfileGalleryPage(user) {
       </section>
     `;
   }
-  async function getLoggedInUser(logged_in_id) {
-    try {
-      const response = await fetch("../JSON/users.json");
-      const data = await response.json();
-      return data.find((user) => user.id === logged_in_id);
-    } catch (error) {
-      console.log("Error!", error);
-      return null;
-    }
-  }
-  const profile_form = document.getElementById("form_profile_upload");
-  const profile_result = document.getElementById("profile_result");
-  profile_form.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    // Remove previously uploaded image
-
-    const formData = new FormData(profile_form);
-    formData.append("logged_in_id", logged_in_user.id);
-    const request = new Request("../PHP/profile_pics.php", {
-      method: "POST",
-      body: formData,
-    });
-
-    try {
-      const response = await fetch(request);
-      const data = await response.json();
-      // This simply resets the form.
-      profile_form.reset();
-      console.log(data);
-      if (data.error) {
-        profile_result.textContent = "An error occurred: " + data.error;
-      } else {
-        profile_result.textContent =
-          "Your profile picture has successfully been added";
-        await get_profile_picture(profile_div, logged_in_user);
-      }
-    } catch (error) {
-      profile_result.textContent = "An error occurred!" + error;
-    }
-  });
 
   const result = document.getElementById("result");
   const form = document.getElementById("form_upload");
@@ -129,7 +79,7 @@ async function createProfileGalleryPage(user) {
     // Remove previously uploaded image
     try {
       const formData = new FormData(form);
-      formData.append("logged_in_id", logged_in_user.id);
+      formData.append("logged_in_id", user.id);
       const request = new Request("../PHP/upload.php", {
         method: "POST",
         body: formData,
@@ -145,7 +95,7 @@ async function createProfileGalleryPage(user) {
         result.textContent = "An error occurred: " + data.error;
       } else {
         result.textContent = "Successfully uploaded the image";
-        await get_one_images(logged_in_user);
+        await get_one_images(user);
       }
     } catch (error) {
       console.log("Error!", error);
@@ -153,18 +103,18 @@ async function createProfileGalleryPage(user) {
     }
   });
 
-  async function get_one_images(logged_in_user) {
+  async function get_one_images(user) {
     try {
       const response = await fetch("../JSON/users.json");
       const data = await response.json();
 
-      const user = data.find((user) => user.id === logged_in_user.id);
-      if (!user) {
+      const logged_in_user = data.find((u) => u.id === user.id);
+      if (!logged_in_user) {
         console.log("User not found!");
         return;
       }
 
-      const uploaded_photos = user.uploaded_photos;
+      const uploaded_photos = logged_in_user.uploaded_photos;
       if (uploaded_photos.length === 0) {
         console.log("User havent uploaded any photos yet!");
         return;
@@ -186,7 +136,7 @@ async function createProfileGalleryPage(user) {
       button_delete.innerText = "DELETE";
       button_delete.classList.add("delete");
       button_delete.addEventListener("click", () => {
-        delete_photo(latest_uploaded_photo.photo_id, photo_url, logged_in_user);
+        edit_uploaded_photo(latest_uploaded_photo.photo_id, photo_url, user);
       });
 
       const photo_containers = document.createElement("div");
@@ -201,19 +151,18 @@ async function createProfileGalleryPage(user) {
       console.log("Error!", error);
     }
   }
-  async function get_all_images(logged_in_user) {
+  async function get_all_images(user) {
     try {
       const response = await fetch("../JSON/users.json");
       const data = await response.json();
 
-      const user = data.find((user) => user.id === logged_in_user.id);
-      if (!user) {
+      const logged_in_user = data.find((u) => u.id === user.id);
+      if (!logged_in_user) {
         console.log("User not found!");
       }
 
-      const uploaded_photos = user.uploaded_photos;
+      const uploaded_photos = logged_in_user.uploaded_photos;
       const container = document.createElement("div");
-      //Lägg till klassen api-photos
       container.classList.add("container");
       const grid_container = document.createElement("div");
       grid_container.classList.add("grid_container");
@@ -228,7 +177,7 @@ async function createProfileGalleryPage(user) {
         button_delete.innerText = "DELETE";
         button_delete.classList.add("delete");
         button_delete.addEventListener("click", () => {
-          delete_photo(photo.photo_id, photo_url, logged_in_user);
+          edit_uploaded_photo(photo.photo_id, photo_url, user);
         });
         const photo_containers = document.createElement("div");
         photo_containers.classList.add("photo-containers");
@@ -242,29 +191,36 @@ async function createProfileGalleryPage(user) {
       console.log("Error!", error);
     }
   }
+  /* * */
+  const profile_form = document.getElementById("form_profile_upload");
+  const profile_result = document.getElementById("profile_result");
+  profile_form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    // Remove previously uploaded image
 
-  async function get_profile_picture(target_element, logged_in_user) {
+    const formData = new FormData(profile_form);
+    formData.append("logged_in_id", user.id);
+    const request = new Request("../PHP/profile_pics.php", {
+      method: "POST",
+      body: formData,
+    });
+
     try {
-      const response = await fetch("../JSON/users.json");
+      const response = await fetch(request);
       const data = await response.json();
-
-      const user = data.find((user) => user.id === logged_in_user.id);
-      if (!user) {
-        console.log("User not found!");
-      }
-
-      const profile_pictures = user.profile_pictures;
-      if (profile_pictures.length > 0) {
-        const photo_url = profile_pictures[profile_pictures.length - 1].photo;
-        const img = document.createElement("img");
-        img.src = photo_url;
-        target_element.innerHTML = "";
-        target_element.appendChild(img);
+      // This simply resets the form.
+      profile_form.reset();
+      if (data.error) {
+        profile_result.textContent = "An error occurred: " + data.error;
+      } else {
+        profile_result.textContent =
+          "Your profile picture has successfully been added";
+        await get_profile_picture(profile_div, user);
       }
     } catch (error) {
-      console.log("Error!", error);
+      profile_result.textContent = "An error occurred!" + error;
     }
-  }
+  });
 
   function addEventListeners() {
     document
@@ -282,6 +238,7 @@ async function createProfileGalleryPage(user) {
     document
       .getElementById("logout-button")
       .addEventListener("click", function () {
+        location.reload();
         localStorage.removeItem("user");
         user = null;
         createHomePage();
@@ -290,10 +247,8 @@ async function createProfileGalleryPage(user) {
     document
       .getElementById("delete-button")
       .addEventListener("click", function () {
-        delete_user(logged_in_user);
+        delete_user(user);
       });
-
-
   }
 }
 

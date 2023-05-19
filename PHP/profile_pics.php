@@ -34,10 +34,15 @@
             }
 
             if ($logged_user_index !== null) {
+                $user_folder = "../PHP/my_photos/photos_" . $user_id;
             
-
-                $destination = "../PHP/my_photos/" . $name;
-                
+                // Create the user-specific folder if it doesn't exist
+                if (!file_exists($user_folder)) {
+                    mkdir($user_folder, 0777, true);
+                }
+    
+                $destination = $user_folder . "/" . $name;
+               
                 if (move_uploaded_file($tmp_name, $destination)) {
                     $logged_user = $users[$logged_user_index];
                     $new_photo = [

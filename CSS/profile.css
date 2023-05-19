@@ -47,18 +47,12 @@
 }
 
 /* Profile Page Layout Styles */
-#profile-section-one {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
 #profile-bar {
   display: flex;
   flex-direction: column;
 }
 
-#profile-section-one {
+.user-section-one {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,7 +100,7 @@ h3 {
   font-size: 15px;
 }
 
-#profile-picture img {
+.profile-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -174,9 +168,7 @@ h3 {
   margin: 10px;
 }
 
-
 /* Collections Page Layout */
-
 
 /* collections grid */
 #collections-photos {
