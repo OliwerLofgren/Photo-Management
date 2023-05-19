@@ -1,13 +1,17 @@
 "use strict";
 
 async function createDiscoverPage(user) {
+
   const discoverMain = document.querySelector("main");
   const discoverHeader = document.querySelector("header");
 
   // setup page
   setupPage();
 
-  // display photos
+  const profile_div = document.querySelector(".mini-profile-photo");
+  const img = check_if_image_exists(user);
+  profile_div.append(img);
+
   displaySectionOnePhotos();
 
   // add event listeners
@@ -15,8 +19,10 @@ async function createDiscoverPage(user) {
 
   function setupPage() {
     setElementAttributes(discoverMain, "discover-main", "");
-    clearBackgroundImage();
+
     clearElementAttributes(discoverHeader);
+    setElementAttributes(discoverHeader, "discover-header", "");
+
     document.body.classList.remove("body-layout");
 
     discoverHeader.innerHTML = `
@@ -27,12 +33,9 @@ async function createDiscoverPage(user) {
             <button id="collections-button">Your Collections</button>
             <button id="gallery-button">Profile</button>
             <button id="logout-button">Logout</button>
+            <button id="search-button">search</button>
             </nav>
             `;
-
-    const profile_div = document.querySelector(".mini-profile-photo");
-    let img = check_if_image_exists(user);
-    profile_div.append(img);
 
     discoverMain.innerHTML = `
     <section id="discover-section-one" class="section">
@@ -47,9 +50,9 @@ async function createDiscoverPage(user) {
       </form>
     </section>
     
-        <section id="discover-section-two" class="section">
-            <div id="discover-photos" class="api-photos"></div>
-        </section>
+    <section id="discover-section-two" class="section">
+      <div id="discover-photos" class="api-photos"></div>
+    </section>
         `;
   }
 
@@ -79,6 +82,11 @@ async function createDiscoverPage(user) {
         localStorage.removeItem("user");
         user = null;
         createHomePage();
+      });
+    document
+      .getElementById("search-button")
+      .addEventListener("click", function () {
+        createSearchOrMediaCollectionsPage();
       });
   }
 }

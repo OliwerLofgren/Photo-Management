@@ -18,6 +18,7 @@ function createRegisterPage() {
         <nav id="navRegister">
         <button id="go-back-home">Back to home</button>
         </nav>`;
+
     registerMain.innerHTML = `
         <section id="register-section" class="section">
         <h2>Register</h2>

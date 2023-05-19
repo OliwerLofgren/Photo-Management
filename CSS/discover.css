@@ -3,17 +3,20 @@
   overflow-y: scroll;
 }
 
-button {
-  background: none;
-}
-
 #discover-section-one {
-  height: 20%;
+  height: 40%;
 }
 
 #discover-section-two {
-  height: 80%;
+  height: 60%;
 }
+
+#discover-header {
+  height: calc(100vh - 89vh);
+  gap: 53vw;
+  padding-left: 6vw;
+}
+
 
 #discover-photos {
   display: grid;
@@ -22,7 +25,6 @@ button {
   grid-auto-flow: dense;
   z-index: 1;
   margin: 0 20px;
-
 }
 
 #discover-photos>div {

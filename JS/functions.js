@@ -21,7 +21,9 @@ function getElement(selector) {
 }
 
 function btnFunc1() {
-  document.getElementById("collections-button").classList.remove("btnDeactivated");
+  document
+    .getElementById("collections-button")
+    .classList.remove("btnDeactivated");
   document.getElementById("profile-button").classList.add("btnDeactivated");
 }
 
@@ -238,13 +240,19 @@ async function get_profile_picture(target_element, user) {
 
 function check_if_image_exists(user) {
   const img = document.createElement("img");
-
   if (!user.profile_picture == "") {
     img.src = JSON.parse(window.localStorage.getItem("user.profile_pictures"));
     return img;
   } else {
-    console.log("no images!");
+    const icon = document.createElement("i");
+    icon.className = "fa-solid fa-user";
+    icon.id = "userIcon";
+    icon.style.color = "#000000";
+    return icon;
   }
+
+  // target_element.innerHTML = "";
+  // target_element.appendChild(icon);
 }
 // // Check if default profile picture URL is stored in localStorage
 // if (!defaultImageUrl) {

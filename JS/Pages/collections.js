@@ -7,14 +7,8 @@ async function createProfileCollectionsPage(user) {
 
   setupPage();
 
-  if (STATE.user_profile_image) {
-    console.log(STATE.user_profile_image);
-
-  } else {
-    console.log("here we create an image");
-  }
   const profile_div = document.querySelector("#profile-picture");
-  let img = check_if_image_exists(user);
+  const img = check_if_image_exists(user);
   profile_div.append(img);
 
   displayprofileCollectionsPhotos();
