@@ -95,12 +95,13 @@ async function displayCollectedPhotos() {
     const button_delete = document.createElement("button");
     button_delete.innerText = "Remove this image";
     button_delete.classList.add("delete");
-    button_delete.addEventListener("click", () => {
-      console.log("Deleted");
-      edit_saved_photo(photoUrl, photoId, user.id);
-    });
-    photoContainer.append(button_delete);
     // add event listener to the delete button
+    button_delete.addEventListener("click", handleDeleteClick);
+    async function handleDeleteClick() {
+      console.log("Deleted");
+      await edit_saved_photo(photoUrl, photoId, user.id);
+    }
+    photoContainer.append(button_delete);
   });
 
   // check if there are no saved photos
@@ -121,6 +122,7 @@ async function displayCollectedPhotos() {
     photoWrapper.append(message1, message2, message3);
   }
 }
+
 // patch posted photo object
 // NOTE: needs to receive the posted object in some way
 async function patchPhotoObjectToDatabase(postedPhotoObject) {
