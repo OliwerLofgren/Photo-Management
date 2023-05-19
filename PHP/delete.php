@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         $updatedUsersData = json_encode($users, JSON_PRETTY_PRINT);
 
 
-        file_put_contents('users.json', $updatedUsersData);
+        file_put_contents('../JSON/users.json', $updatedUsersData);
 
         $response = [
             'message' => 'User deleted successfully'

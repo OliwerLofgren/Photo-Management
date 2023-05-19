@@ -5,6 +5,10 @@
         "password": "123",
         "uploaded_photos": [],
         "saved_photos": [],
-        "profile_pictures": []
+        "profile_pictures": [
+            {
+                "photo": "..\/PHP\/my_photos\/photos_1\/Sk\u00e4rmbild (2).png"
+            }
+        ]
     }
 ]

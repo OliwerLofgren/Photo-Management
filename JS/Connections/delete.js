@@ -16,7 +16,6 @@ async function delete_user(logged_in_user) {
       if (response.ok) {
         // User deleted successfully
         localStorage.removeItem("user");
-        user = null;
         console.log("User deleted");
         createHomePage();
         console.log(response);
