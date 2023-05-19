@@ -77,6 +77,11 @@ button {
     font-family: "NeueMontreal-Regular";
 }
 
+#message {
+    margin: 10px;
+    font-size: small;
+}
+
 /*Modal styles*/
 
 /* The Modal (overlay/background) */
