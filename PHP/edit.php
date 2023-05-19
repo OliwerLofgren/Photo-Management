@@ -13,7 +13,7 @@ $input_data = json_decode(file_get_contents("php://input"), true);
   if ($request_method == "PATCH") {
     
     // $id[0]["saved_photos"]["id"] = $input_data["id"];
-    $liked[0]["saved_photos"][0]["liked"] = true;
+    $bookmarked[0]["saved_photos"][0]["bookmarked"] = true;
 
     // $new_data = [
     //     "id" => $id,

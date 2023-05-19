@@ -250,26 +250,4 @@ function check_if_image_exists(user) {
     icon.style.color = "#000000";
     return icon;
   }
-
-  // target_element.innerHTML = "";
-  // target_element.appendChild(icon);
 }
-// // Check if default profile picture URL is stored in localStorage
-// if (!defaultImageUrl) {
-//   // If default profile picture URL is not stored, set it to the local file path
-//   defaultImageUrl = "./media/default-profile.png";
-
-//   // Store the default profile picture URL in localStorage
-//   localStorage.setItem("defaultProfilePic", defaultImageUrl);
-//   const icon = document.createElement("i");
-//   icon.className = "fa-solid fa-user";
-//   icon.id = "userIcon";
-//   icon.style.color = "#000000";
-// } else {
-//   let defaultImageUrl = localStorage.getItem("defaultProfilePic");
-//   img.src = defaultImageUrl;
-//   return img;
-// }
-
-// // target_element.innerHTML = "";
-// // target_element.appendChild(icon);

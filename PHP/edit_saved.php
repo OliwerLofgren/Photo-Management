@@ -23,13 +23,13 @@ $input_data = json_decode(file_get_contents("php://input"), true);
             }
             
             if ($logged_user_index !== null) {
-                $photo_id = $input_data["id"];
+                $photo_id = $input_data["photo_id"];
                 $saved_photos = $users[$logged_user_index]["saved_photos"];
                 
                
                 foreach($saved_photos as $index => $photo){
                     //If the ID matches the id of the images you want to delete
-                    if ($photo["id"] == $photo_id) {
+                    if ($photo["photoObject"]["id"] == $photo_id) {
                     //Delete the index where the file is located in JSON file.
                         array_splice($saved_photos, $index, 1);
                     //Updating the user's uploaded_photos array in the JSON data.

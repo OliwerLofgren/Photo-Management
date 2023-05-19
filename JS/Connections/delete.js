@@ -25,4 +25,3 @@ async function delete_user(logged_in_user) {
     console.error(error);
   }
 }
-

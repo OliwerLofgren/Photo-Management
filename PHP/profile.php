@@ -15,13 +15,13 @@
         
             $obj = $input_data["photoObject"];
             $id = $input_data["id"];
-            $liked = $input_data["liked"];
+            $bookmarked = $input_data["bookmarked"];
             
             
             
             
             
-            if ($id == null && $obj == null && $liked == null) {
+            if ($id == null && $obj == null && $bookmarked == null) {
                 $message = ["message" => "Array is null!"];
                 sendJSON($message, 400);
             }
@@ -44,7 +44,7 @@
                 $new_data = [
                     "id" => $id,
                     "photoObject" => $obj,
-                    "liked" => $liked,
+                    "bookmarked" => $bookmarked,
                 
                 ];
                 $users[$logged_user_index]["saved_photos"][] = $new_data;
