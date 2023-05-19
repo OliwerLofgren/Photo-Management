@@ -183,7 +183,7 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
     );
     return;
   }
-
+  let user = JSON.parse(window.localStorage.getItem("user"));
   await postPhotoObjectToDatabase(photoObject, user);
 
   // loop through each bookmark icon and modify the style only if its data-id matches the id of the clicked photo
