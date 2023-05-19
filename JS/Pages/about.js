@@ -8,9 +8,8 @@ async function getUsers() {
     let resource = null;
 
     try {
-        const response = await fetch("/JSON/users.json");
+        const response = await fetch("../JSON/users.json");
         resource = await response.json();
-        // Hämta inte json fil
 
         if (!response.ok) {
             console.log("Response not ok");
