@@ -18,20 +18,11 @@
     margin: 0 5vw;
 }
 
-header {
+#home-header {
     height: calc(100vh - 89vh);
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    gap: 16vw;
-    padding: 10px;
-    border-bottom: 2px solid black;
-}
-
-header h1 {
+    gap: 56vw;
     padding-left: 6vw;
 }
-
 
 button {
     background: none;
@@ -44,7 +35,6 @@ button {
     position: relative;
     top: 20px;
     border: none;
-    width: 100vw;
     display: flex;
     justify-content: flex-end;
 }
