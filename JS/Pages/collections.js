@@ -6,6 +6,13 @@ async function createProfileCollectionsPage(user) {
   const collectionsHeader = document.querySelector("header");
 
   setupPage();
+
+  if (STATE.user_profile_image) {
+    console.log(STATE.user_profile_image);
+
+  } else {
+    console.log("here we create an image");
+  }
   const profile_div = document.querySelector("#profile-picture");
   let img = check_if_image_exists(user);
   profile_div.append(img);
@@ -53,14 +60,17 @@ async function createProfileCollectionsPage(user) {
     </section>
 
   <section id="collections-section-two" class="section user-section-two"> 
+
   <nav  profile-or-collections-nav>
-  <button id="collections-button">Your Collections</button>      
-  <button id="profile-button">Profile</button>      
+  <button id="collections-button" class="activeBtn" onclick="btnFunc1()">Your Collections</button>      
+  <button id="profile-button"  class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Profile</button>      
     </nav>
 
     <div id="collections-photos" class="user-page-photos"></div>
   </section>`;
   }
+
+  /** */
   const profile_form = document.getElementById("form_profile_upload");
   const profile_result = document.getElementById("profile_result");
   profile_form.addEventListener("submit", async function (event) {
