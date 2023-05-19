@@ -12,7 +12,7 @@ async function postPhotoObjectToDatabase(photoObject, user) {
     id: photoObject.id, // add id to the photo
     user_id: user.id, // add id to the user
     photoObject: photoObject,
-    liked: false, // toggleable liked state
+    bookmarked: false, // toggleable liked state
   };
 
   const post = {
@@ -77,6 +77,7 @@ async function displayCollectedPhotos() {
   logged_in_user.saved_photos.forEach((savedPhoto) => {
     // create a div and append the container to parent wrapper
     const photoContainer = document.createElement("div");
+    photoContainer.classList.add("photo_containers");
     photoWrapper.append(photoContainer);
 
     const photoObject = savedPhoto.photoObject;
@@ -85,13 +86,14 @@ async function displayCollectedPhotos() {
 
     // create an image element and set its source to the photo URL
     const image = document.createElement("img");
+    image.classList.add("photo_image");
     photoContainer.append(image);
     image.src = photoUrl;
 
     // create a delete button
 
     const button_delete = document.createElement("button");
-    button_delete.innerText = "Remove from page";
+    button_delete.innerText = "Remove this image";
     button_delete.classList.add("delete");
     button_delete.addEventListener("click", () => {
       console.log("Deleted");

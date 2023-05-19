@@ -3,8 +3,38 @@
         "id": 1,
         "username": "Oliwer",
         "password": "123",
-        "uploaded_photos": [],
-        "saved_photos": [],
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_1\/dog.jpg"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg.jpg"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_1\/dog-png.png"
+            }
+        ],
+        "saved_photos": [
+            {
+                "id": 16750828,
+                "photoObject": {
+                    "id": 16750828,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#543F44",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16750828\/pexels-photo-16750828.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Anastasiia Chaikovska",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@anastasiia-chaikovska-206547003",
+                    "photographer_id": 206547003,
+                    "liked": false,
+                    "alt": "bloom"
+                },
+                "bookmarked": false
+            }
+        ],
         "profile_pictures": []
     }
 ]

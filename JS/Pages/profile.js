@@ -141,14 +141,14 @@ async function createProfileGalleryPage(user) {
         img.src = photo_url;
 
         const button_delete = document.createElement("button");
-        button_delete.innerText = "DELETE";
+        button_delete.innerText = "Remove this image";
         button_delete.classList.add("delete");
         button_delete.addEventListener("click", () => {
           edit_uploaded_photo(latest_uploaded_photo.photo_id, photo_url, user);
         });
 
         const photo_containers = document.createElement("div");
-        photo_containers.classList.add("photo-containers");
+        photo_containers.classList.add("photo_containers");
         photo_containers.appendChild(button_delete);
         photo_containers.appendChild(img);
         container.appendChild(photo_containers);
@@ -192,13 +192,13 @@ async function createProfileGalleryPage(user) {
           img.classList.add("photo_image");
           img.src = photo_url;
           const button_delete = document.createElement("button");
-          button_delete.innerText = "DELETE";
+          button_delete.innerText = "Remove this image";
           button_delete.classList.add("delete");
           button_delete.addEventListener("click", () => {
             edit_uploaded_photo(photo.photo_id, photo_url, user);
           });
           const photo_containers = document.createElement("div");
-          photo_containers.classList.add("photo-containers");
+          photo_containers.classList.add("photo_containers");
           photo_containers.appendChild(button_delete);
           photo_containers.appendChild(img);
           container.append(photo_containers);
