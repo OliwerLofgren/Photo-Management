@@ -238,6 +238,7 @@ async function createProfileGalleryPage(user) {
     document
       .getElementById("logout-button")
       .addEventListener("click", function () {
+        location.reload();
         localStorage.removeItem("user");
         user = null;
         createHomePage();
