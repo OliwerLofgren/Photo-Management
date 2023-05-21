@@ -47,7 +47,9 @@
                 
                 if (move_uploaded_file($tmp_name, $destination)) {
                     $logged_user = $users[$logged_user_index];
+                    
                     $photo_id = count($logged_user["uploaded_photos"]) + 1;
+                    
                     $new_photo = [
                         "photo_id" => $photo_id,
                         "photo" => $destination

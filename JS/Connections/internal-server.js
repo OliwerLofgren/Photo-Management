@@ -87,7 +87,6 @@ async function displayCollectedPhotos() {
     // create an image element and set its source to the photo URL
     const image = document.createElement("img");
     image.classList.add("photo_image");
-    photoContainer.append(image);
     image.src = photoUrl;
 
     // create a delete button
@@ -102,6 +101,7 @@ async function displayCollectedPhotos() {
       await edit_saved_photo(photoUrl, photoId, user.id);
     }
     photoContainer.append(button_delete);
+    photoContainer.append(image);
   });
 
   // check if there are no saved photos
