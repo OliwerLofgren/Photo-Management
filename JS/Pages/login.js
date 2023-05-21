@@ -12,8 +12,8 @@ async function createLoginPage() {
     document.body.classList.remove("body-layout");
 
     registerHeader.innerHTML = `
-        <h1>PHOTO MANAGMENT</h1>
-        <nav id="navLogin">
+        <h1>PHOTO MANAGEMENT</h1>
+        <nav id="nav-Register-Login">
         <button id="go-back-home">Back to home</button>
         </nav>`;
 
