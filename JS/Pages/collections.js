@@ -1,18 +1,18 @@
 "use strict";
 
 // creates dom elements
+
 async function createProfileCollectionsPage(user) {
   const collectionsPageMain = document.querySelector("main");
   const collectionsHeader = document.querySelector("header");
 
   setupPage();
-
+  console.log(user);
   const profile_div = document.querySelector("#profile-picture");
   const img = check_if_image_exists(user);
   profile_div.append(img);
 
-
-  displayprofileCollectionsPhotos(user);
+  await displayprofileCollectionsPhotos(user);
   addEventListeners();
 
   function setupPage() {
@@ -66,7 +66,6 @@ async function createProfileCollectionsPage(user) {
   }
 
   /** */
-
   const profile_form = document.getElementById("form_profile_upload");
   const profile_result = document.getElementById("profile_result");
   profile_form.addEventListener("submit", async function (event) {
@@ -86,15 +85,12 @@ async function createProfileCollectionsPage(user) {
       // This simply resets the form.
       profile_form.reset();
       console.log(data);
-      user = updateLocalStorageObjectKey("user", "profile_pictures", data);
-      console.log(user);
       if (data.error) {
         profile_result.textContent = "An error occurred: " + data.error;
       } else {
         profile_result.textContent =
           "Your profile picture has successfully been added";
-        let img = check_if_image_exists(user);
-        profile_div.append(img);
+        await get_profile_picture(profile_div, user);
       }
     } catch (error) {
       profile_result.textContent = "An error occurred!" + error;

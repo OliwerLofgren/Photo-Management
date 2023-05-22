@@ -79,9 +79,9 @@ async function registerUser(event) {
 
   try {
     const response = await fetch("/PHP/register.php", post);
+    let user = await response.json();
 
     if (response.ok) {
-      let user = await response.json();
       console.log("Registered successfully:", user);
       user = setLocalStorageObject("user", user);
       console.log(user);
