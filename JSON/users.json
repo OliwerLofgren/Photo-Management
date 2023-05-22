@@ -6,6 +6,22 @@
         "uploaded_photos": [],
         "saved_photos": [
             {
+                "id": 16756551,
+                "photoObject": {
+                    "id": 16756551,
+                    "width": 2855,
+                    "height": 4278,
+                    "avg_color": "#7B4C38",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16756551\/pexels-photo-16756551.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Alejandro Novoa",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@janonovoa",
+                    "photographer_id": 553102508,
+                    "liked": false,
+                    "alt": "Arte Andino"
+                },
+                "bookmarked": false
+            },
+            {
                 "id": 16872664,
                 "photoObject": {
                     "id": 16872664,
@@ -20,6 +36,7 @@
                     "alt": ""
                 },
                 "bookmarked": false
+<<<<<<< Updated upstream
             }
         ],
         "profile_pictures": [
@@ -36,5 +53,26 @@
                 "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-05-17 005209.png"
             }
         ]
+=======
+            },
+            {
+                "id": 16881314,
+                "photoObject": {
+                    "id": 16881314,
+                    "width": 2767,
+                    "height": 4919,
+                    "avg_color": "#644F3C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16881314\/pexels-photo-16881314.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Alexander Paul",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@alexander-paul-568840608",
+                    "photographer_id": 568840608,
+                    "liked": false,
+                    "alt": "Happy Guys"
+                },
+                "bookmarked": false
+            }
+        ],
+        "profile_pictures": []
+>>>>>>> Stashed changes
     }
 ]
