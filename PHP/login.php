@@ -25,7 +25,7 @@ if ($request_method == "POST") {
             $logged_in_user = [
                 "id" => $user["id"],
                 "username" => $username,
-                "profile_pictures" => $user["profile_pictures"],
+                "profile_pictures" => $user["profile_pictures"][0],
             ];
             $users[] = $logged_in_user;
             sendJSON($logged_in_user);

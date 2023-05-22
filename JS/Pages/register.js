@@ -94,8 +94,7 @@ async function registerUser(event) {
         .querySelector(".modal-button")
         .addEventListener("click", closeModalWindow);
     } else {
-      const data = await response.json();
-      displayDatabaseMessage(data);
+      displayDatabaseMessage(user);
     }
   } catch (error) {
     console.log("Error registering:", error);

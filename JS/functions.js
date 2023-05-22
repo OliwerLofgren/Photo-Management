@@ -238,37 +238,36 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   });
 }
 
-async function get_profile_picture(target_element, user) {
+// async function get_profile_picture(target_element, user) {
 
-  try {
-    const response = await fetch("../JSON/users.json");
-    const data = await response.json();
+//   try {
+//     const response = await fetch("../JSON/users.json");
+//     const data = await response.json();
 
-    const logged_in_user = data.find((u) => u.id === user.id);
-    if (!logged_in_user) {
-      console.log("User not found!");
-    }
+//     const logged_in_user = data.find((u) => u.id === user.id);
+//     if (!logged_in_user) {
+//       console.log("User not found!");
+//     }
 
-    const profile_pictures = logged_in_user.profile_pictures;
-    if (profile_pictures.length > 0) {
-      const photo_url = profile_pictures[profile_pictures.length - 1].photo;
-      const img = document.createElement("img");
-      img.src = photo_url;
+//     const profile_pictures = logged_in_user.profile_pictures;
+//     if (profile_pictures.length > 0) {
+//       const photo_url = profile_pictures[profile_pictures.length - 1].photo;
+//       const img = document.createElement("img");
+//       img.src = photo_url;
 
-      console.log(user);
-
-      target_element.innerHTML = "";
-      target_element.append(img);
-    }
-  } catch (error) {
-    console.log("Error!", error);
-  }
-}
+//       target_element.innerHTML = "";
+//       target_element.append(img);
+//     }
+//   } catch (error) {
+//     console.log("Error!", error);
+//   }
+// }
 
 function check_if_image_exists(user) {
-  if (!user.profile_pictures.length == 0) {
+  console.log(user);
+  if (!user.profile_pictures.length === 0) {
     const img = document.createElement("img");
-    img.src = user.profile_pictures[0].photo;
+    img.src = user.profile_pictures.photo;
     return img;
   } else {
     const icon = document.createElement("i");
@@ -277,4 +276,7 @@ function check_if_image_exists(user) {
     icon.style.color = "#000000";
     return icon;
   }
+}
+function uploadProfilePicture(user) {
+
 }
