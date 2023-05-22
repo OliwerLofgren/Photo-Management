@@ -5,6 +5,21 @@
         "password": "123",
         "uploaded_photos": [],
         "saved_photos": [],
+        "profile_pictures": [
+            {
+                "photo": "..\/PHP\/my_photos\/photos_1\/dog.jpg"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/photos_1\/dog.jpg"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "username": "Benny",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
         "profile_pictures": []
     }
 ]

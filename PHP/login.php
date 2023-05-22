@@ -27,7 +27,7 @@ if ($request_method == "POST") {
             $logged_in_user = [
                 "id" => $user["id"],
                 "username" => $username,
-                "password" => $password,
+                // "password" => $password,
             ];
             $users[] = $logged_in_user;
             sendJSON($logged_in_user);
