@@ -19,5 +19,25 @@
                 "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-05-17 005209.png"
             }
         ]
+    },
+    {
+        "id": 2,
+        "username": "ll",
+        "password": "ll",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_pictures": []
+    },
+    {
+        "id": 3,
+        "username": "ff",
+        "password": "f",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_pictures": [
+            {
+                "photo": "..\/PHP\/my_photos\/photos_3\/Screenshot 2023-05-17 005209.png"
+            }
+        ]
     }
 ]

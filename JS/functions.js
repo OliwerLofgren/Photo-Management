@@ -266,9 +266,9 @@ async function get_profile_picture(target_element, user) {
 }
 
 function check_if_image_exists(user) {
-  if (!user.profile_pictures == "") {
+  if (!user.profile_pictures.length == 0) {
     const img = document.createElement("img");
-    //img.src = user.profile_pictures[0].photo;
+    img.src = user.profile_pictures[0].photo;
     return img;
   } else {
     const icon = document.createElement("i");
