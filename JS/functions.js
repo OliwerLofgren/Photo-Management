@@ -30,7 +30,6 @@ function setLocalStorageObject(key, value) {
   return value;
 }
 
-
 function updateLocalStorageObjectKey(objectKey, key, value) {
   const object = getLocalStorageObject(objectKey);
   if (object) {
@@ -40,8 +39,6 @@ function updateLocalStorageObjectKey(objectKey, key, value) {
   }
   return null;
 }
-
-
 
 function getElement(selector) {
   return document.querySelector(selector);
@@ -265,18 +262,16 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
 
 function check_if_image_exists(user) {
   console.log(user);
-  if (!user.profile_pictures.length === 0) {
+  if (!user.profile_picture == "") {
     const img = document.createElement("img");
-    img.src = user.profile_pictures.photo;
+    img.src = user.profile_picture;
     return img;
   } else {
+    console.log("There is no profile image to display!");
     const icon = document.createElement("i");
     icon.className = "fa-solid fa-user";
     icon.id = "userIcon";
     icon.style.color = "#000000";
     return icon;
   }
-}
-function uploadProfilePicture(user) {
-
 }

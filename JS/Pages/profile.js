@@ -5,16 +5,49 @@ const profilePageHeader = document.querySelector("header");
 const section_two_main = document.querySelector(".profile-or-collections-nav");
 
 async function createProfileGalleryPage(user) {
-
   setupPage();
 
   addEventListeners();
 
-  await get_all_images(user);
-
   const profile_div = document.querySelector("#profile-picture");
   const img = check_if_image_exists(user);
   profile_div.append(img);
+
+  const profile_form = document.getElementById("form_profile_upload");
+  const profile_result = document.getElementById("profile_result");
+  profile_form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    // Remove previously uploaded image
+
+    const formData = new FormData(profile_form);
+    formData.append("logged_in_id", user.id);
+    const request = new Request("../PHP/profile_pics.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    try {
+      const response = await fetch(request);
+      const data = await response.json();
+      // This simply resets the form.
+      profile_form.reset();
+      if (data.error) {
+        profile_result.textContent = "An error occurred: " + data.error;
+      } else {
+        profile_result.textContent =
+          "Your profile picture has successfully been added";
+        user = updateLocalStorageObjectKey("user", "profile_picture", data);
+        profile_div.innerHTML = "";
+        let img = check_if_image_exists(user);
+        profile_div.append(img);
+        // update the user's profile picture
+      }
+    } catch (error) {
+      profile_result.textContent = "An error occurred!" + error;
+    }
+  });
+
+  await get_all_images(user);
 
   function setupPage() {
     clearElementAttributes(profilePageMain);
@@ -210,38 +243,6 @@ async function createProfileGalleryPage(user) {
     }
   }
   /* * */
-  const profile_form = document.getElementById("form_profile_upload");
-  const profile_result = document.getElementById("profile_result");
-  profile_form.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    // Remove previously uploaded image
-
-    const formData = new FormData(profile_form);
-    formData.append("logged_in_id", user.id);
-    const request = new Request("../PHP/profile_pics.php", {
-      method: "POST",
-      body: formData,
-    });
-
-    try {
-      const response = await fetch(request);
-      const data = await response.json();
-      // This simply resets the form.
-      profile_form.reset();
-      if (data.error) {
-        profile_result.textContent = "An error occurred: " + data.error;
-      } else {
-        profile_result.textContent =
-          "Your profile picture has successfully been added";
-        await get_profile_picture(profile_div, user);
-        // update the user's profile picture
-
-      }
-    } catch (error) {
-      profile_result.textContent = "An error occurred!" + error;
-    }
-  });
-
 
   function addEventListeners() {
     document
