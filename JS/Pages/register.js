@@ -83,8 +83,7 @@ async function registerUser(event) {
 
     if (response.ok) {
       console.log("Registered successfully:", user);
-      user = setLocalStorageObject("user", user);
-      console.log(user);
+
       const clickedButton = document.querySelector("#regForm button");
       clickedButton.onClick = displayModalWindow(
         "Successfully registered! Proceed to Log in page"

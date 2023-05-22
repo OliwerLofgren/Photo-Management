@@ -8,9 +8,7 @@ async function createProfileCollectionsPage(user) {
 
   setupPage();
   console.log(user);
-  const profile_div = document.querySelector("#profile-picture");
-  const img = check_if_image_exists(user);
-  profile_div.append(img);
+
 
   await displayprofileCollectionsPhotos(user);
   addEventListeners();
@@ -86,13 +84,14 @@ async function createProfileCollectionsPage(user) {
       // This simply resets the form.
       profile_form.reset();
       console.log(data);
-      user = updateLocalStorageObjectKey("user", "profile_pictures", data);
+      user = updateLocalStorageObjectKey("user", "profile_picture", data);
       console.log(user);
       if (data.error) {
         profile_result.textContent = "An error occurred: " + data.error;
       } else {
         profile_result.textContent =
           "Your profile picture has successfully been added";
+        const profile_div = document.querySelector("#profile-picture");
         let img = check_if_image_exists(user);
         profile_div.append(img);
       }

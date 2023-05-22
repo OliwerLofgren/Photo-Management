@@ -265,9 +265,9 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
 
 function check_if_image_exists(user) {
   console.log(user);
-  if (!user.profile_pictures.length === 0) {
+  if (!user.profile_pictures == "") {
     const img = document.createElement("img");
-    img.src = user.profile_pictures.photo;
+    img.src = user.profile_pictures;
     return img;
   } else {
     const icon = document.createElement("i");
@@ -276,7 +276,4 @@ function check_if_image_exists(user) {
     icon.style.color = "#000000";
     return icon;
   }
-}
-function uploadProfilePicture(user) {
-
 }

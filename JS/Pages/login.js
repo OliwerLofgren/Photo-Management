@@ -66,6 +66,7 @@ async function loginUser(event) {
   const userData = {
     username: username,
     password: password,
+
   };
 
   const post = {
