@@ -126,6 +126,7 @@ async function fetchFeaturedCollectionObjects(per_page) {
     // add message to user here
   }
 }
+
 async function fetchCollectionsMedia(type, per_page, id, imgSize) {
   const collectionTitlesandIds = await getCollectionsIds();
   console.log(collectionTitlesandIds);
@@ -185,15 +186,19 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
 
 // (NOTE: don't forget to add class .api-photos to dom element to display photos) creates photo dom element and handles buttons event listeners
 function createPhotoContainer(array) {
+
   const photoWrapper = document.querySelector(".api-photos");
   if (array === undefined) {
     console.log("array is undefined");
     return;
   }
 
+  let counter = 0;
+
   // create dom elements
   array.forEach((photoObject) => {
     const photoContainer = document.createElement("div");
+
 
     photoContainer.classList.add("card");
     photoContainer.classList.add("overlay");
@@ -219,6 +224,8 @@ function createPhotoContainer(array) {
     );
     return;
   });
+
+
 }
 
 async function displayCuratedPhotos(per_page, imgSize) {

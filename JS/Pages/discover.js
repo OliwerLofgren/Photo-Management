@@ -7,6 +7,9 @@ async function createDiscoverPage(user) {
   // setup page
   setupPage();
 
+
+
+
   const profile_div = document.querySelector(".mini-profile-photo");
   const img = check_if_image_exists(user);
   profile_div.append(img);

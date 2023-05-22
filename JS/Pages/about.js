@@ -5,10 +5,11 @@ const aboutusMain = document.querySelector("main");
 
 
 async function getUsers() {
+    let resource = null;
 
     try {
         const response = await fetch("../JSON/users.json");
-        const resource = await response.json();
+        resource = await response.json();
 
         if (!response.ok) {
             console.log("Response not ok");

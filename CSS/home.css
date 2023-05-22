@@ -1,5 +1,5 @@
 #home-main {
-    height: calc(100vh - 11vh);
+    height: calc(100vh - 14vh);
     overflow-y: scroll;
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
@@ -14,7 +14,7 @@
 #home-section-two {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     margin: 0 5vw;
 }
 
@@ -41,10 +41,11 @@ button {
 
 #home-photos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
     gap: 1vw;
     grid-auto-flow: dense;
     z-index: 1;
+    margin-top: 10px;
 }
 
 #home-photos>div img {
@@ -55,7 +56,7 @@ button {
 
 #search-form {
     position: relative;
-    width: 70%;
+    width: 50%;
     align-self: center;
     display: flex;
     gap: 1vw;
@@ -72,13 +73,13 @@ button {
     align-self: flex-end;
     box-sizing: border-box;
     width: 100%;
-    padding: 20px 16px 6px;
+    padding: 10px 16px 6px;
     transition: opacity;
     border: none;
-    border-bottom: 1px solid;
+    /* border-bottom: 1px solid; */
     border-radius: 4px 4px 0 0;
     background: rgb(245, 245, 245);
-    height: 56px;
+    height: 46px;
 }
 
 #search-field:hover {
@@ -88,4 +89,62 @@ button {
 
 #search-field:focus {
     border-color: #5902d2;
+}
+
+.h1-two {
+    margin: 10px 0 10px 0;
+}
+
+.h1-three,
+.h1-five {
+    height: 60px;
+    background: #f0f8ff94;
+    padding-left: 10px;
+}
+
+.h1-four {
+    position: relative;
+    top: 100px;
+}
+
+#home-photos :nth-child(2) {
+    margin-top: 40px;
+}
+
+#home-photos :nth-child(3) {
+    margin-top: 60px;
+}
+
+#home-photos :nth-child(4) {
+    margin-top: 60px;
+}
+
+#home-photos :nth-child(5) {
+    margin-top: 40px;
+}
+
+
+.circle-home {
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    background-color: rgb(252, 174, 146);
+    border-radius: 50%;
+    transition: background-color 0.7s ease;
+    /* add opacity on text */
+}
+
+.circle-home:hover {
+    background-color: rgb(244, 83, 24);
+}
+
+#home-section-three {
+    display: flex;
+    justify-content: center;
+}
+
+#home-section-four {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
