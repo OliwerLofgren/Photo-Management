@@ -8,8 +8,9 @@ async function createProfileCollectionsPage(user) {
 
   setupPage();
 
-  console.log(user);
-
+  const profile_div = document.querySelector("#profile-picture");
+  const img = check_if_image_exists(user);
+  profile_div.append(img);
 
   await displayprofileCollectionsPhotos(user);
   addEventListeners();
