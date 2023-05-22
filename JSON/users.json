@@ -15,5 +15,37 @@
         ],
         "saved_photos": [],
         "profile_picture": "..\/PHP\/my_photos\/photos_1\/dog.jpg"
+    },
+    {
+        "id": 2,
+        "username": "Benny",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
+    },
+    {
+        "id": 3,
+        "username": "Johnny",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
+    },
+    {
+        "id": 4,
+        "username": "Tommy",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
+    },
+    {
+        "id": 5,
+        "username": "Emma",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]
