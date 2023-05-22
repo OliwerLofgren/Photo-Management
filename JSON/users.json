@@ -104,5 +104,13 @@
                 "photo": "..\/PHP\/my_photos\/photos_1\/dog-png.png"
             }
         ]
+    },
+    {
+        "id": 2,
+        "username": "amelie",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_pictures": []
     }
 ]
