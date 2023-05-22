@@ -1,18 +1,18 @@
 "use strict";
 
 // creates dom elements
+
 async function createProfileCollectionsPage(user) {
   const collectionsPageMain = document.querySelector("main");
   const collectionsHeader = document.querySelector("header");
 
   setupPage();
-
+  console.log(user);
   const profile_div = document.querySelector("#profile-picture");
   const img = check_if_image_exists(user);
   profile_div.append(img);
 
-
-  displayprofileCollectionsPhotos(user);
+  await displayprofileCollectionsPhotos(user);
   addEventListeners();
 
   function setupPage() {

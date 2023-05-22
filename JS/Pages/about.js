@@ -3,45 +3,41 @@
 const aboutusHeader = document.querySelector("header");
 const aboutusMain = document.querySelector("main");
 
-
 async function getUsers() {
-    let resource = null;
+  try {
+    // let resource = null;
+    const response = await fetch("../JSON/users.json");
+    const resource = await response.json();
 
-    try {
-        const response = await fetch("../JSON/users.json");
-        resource = await response.json();
-
-        if (!response.ok) {
-            console.log("Response not ok");
-        } else {
-            console.log("Response successful", resource);
-        }
-    } catch (error) {
-        console.log("Error", error);
+    if (resource == null) {
+      console.log("Response not ok");
+      return;
+    } else {
+      console.log("Response successful", resource);
     }
+  } catch (error) {
+    console.log("Error", error);
+  }
 
-    return resource;
+  return resource;
 }
 
 async function createAboutUsPage() {
+  setupPage();
+  addEventListener();
 
-    setupPage();
-    addEventListener();
+  function setupPage() {
+    setElementAttributes(aboutusMain, "about-us-main", "");
+    document.body.classList.remove("body-layout");
 
-    function setupPage() {
-
-
-        setElementAttributes(aboutusMain, "about-us-main", "");
-        document.body.classList.remove("body-layout");
-
-        aboutusHeader.innerHTML = `
+    aboutusHeader.innerHTML = `
         <H1>PHOTO MANAGEMENT</H1>
         <nav class="registerNav">
         <button id="registerBtn">REGISTER</button>
         </nav>
         `;
 
-        aboutusMain.innerHTML = `
+    aboutusMain.innerHTML = `
         <section class="section-one">
         <div class="flex circle-wrapper">
         <div class="flex circle"> 
@@ -92,33 +88,28 @@ async function createAboutUsPage() {
         </div>
         </section>
         `;
-
-    }
+  }
 }
 
 let numberOfUsers = 0;
 
 function addEventListener() {
-    document
-        .getElementById("registerBtn")
-        .addEventListener("click", createRegisterPage);
+  document
+    .getElementById("registerBtn")
+    .addEventListener("click", createRegisterPage);
 
-    document
-        .getElementById("hereBtn")
-        .addEventListener("click", createRegisterPage)
+  document
+    .getElementById("hereBtn")
+    .addEventListener("click", createRegisterPage);
 }
 
 async function countUsers() {
-    const resource = await getUsers();
-    let userCount = 0;
+  const resource = await getUsers();
+  let userCount = 0;
 
-    resource.forEach((user) => userCount++);
-    numberOfUsers = userCount;
-    console.log("Number of users:", userCount);
+  resource.forEach((user) => userCount++);
+  numberOfUsers = userCount;
+  console.log("Number of users:", userCount);
 }
 
 countUsers();
-
-
-
-
