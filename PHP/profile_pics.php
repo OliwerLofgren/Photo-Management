@@ -45,16 +45,19 @@
                
                 if (move_uploaded_file($tmp_name, $destination)) {
                     $logged_user = $users[$logged_user_index];
-                    $new_photo = [
-                        "photo" => $destination
-                    ];
-                    $logged_user["profile_pictures"][] = $new_photo;
-                    
+                    // Check if the user already has a profile picture
+                    if ($logged_user["profile_picture"] !== "") {
+                    // Delete the existing profile picture
+                        unlink($logged_user["profile_picture"]);
+                    }
+
+                    $logged_user["profile_picture"] = $destination;
+
                     $users[$logged_user_index] = $logged_user;
 
                     file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
-                    $photo_url = $new_photo["photo"];
-                    sendJSON(["photo_url" => $photo_url]);
+                    $photo_url = $destination;
+                    sendJSON($photo_url);
                 } else {
                     $message = ["message" => "Unable to upload file!"];
                     sendJSON($message, 400);

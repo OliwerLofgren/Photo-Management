@@ -11,7 +11,9 @@ async function createDiscoverPage(user) {
 
 
   const profile_div = document.querySelector(".mini-profile-photo");
-  const img = check_if_image_exists(user);
+
+  const img = document.createElement("img");
+  img.src = user.profile_pictures;
   profile_div.append(img);
 
   displaySectionOnePhotos();

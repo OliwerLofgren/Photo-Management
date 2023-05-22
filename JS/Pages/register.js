@@ -79,12 +79,10 @@ async function registerUser(event) {
 
   try {
     const response = await fetch("/PHP/register.php", post);
+    let user = await response.json();
 
     if (response.ok) {
-      let user = await response.json();
       console.log("Registered successfully:", user);
-      user = setLocalStorageObject("user", user);
-      console.log(user);
       const clickedButton = document.querySelector("#regForm button");
       clickedButton.onClick = displayModalWindow(
         "Successfully registered! Proceed to Log in page"
@@ -94,8 +92,7 @@ async function registerUser(event) {
         .querySelector(".modal-button")
         .addEventListener("click", closeModalWindow);
     } else {
-      const data = await response.json();
-      displayDatabaseMessage(data);
+      displayDatabaseMessage(user);
     }
   } catch (error) {
     console.log("Error registering:", error);
