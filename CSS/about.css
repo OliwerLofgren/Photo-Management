@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+#hereBtn {
+    border: none;
+    font-size: 20px;
+}
+
 .circle-wrapper {
     width: 300px;
     height: 350px;
@@ -14,6 +19,7 @@
     height: 250px;
     background-color: rgb(244, 83, 24);
     border-radius: 50%;
+    box-shadow: 5px 5px 2px #ccc;
     transition: width 0.9s ease, height 0.9s ease, background-color 0.7s ease;
 }
 
@@ -34,6 +40,8 @@
     width: 25%;
     margin: 20px auto auto auto;
     padding: 20px 0 20px 0;
+    border-bottom: 2px inset black;
+    border-right: 2px inset black;
 }
 
 .team {
@@ -49,18 +57,19 @@
 .section-two {
     height: 90vh;
     padding-top: 40px;
-
 }
 
-.text {
+
+.text-aboutUs {
     width: 60vw;
     margin: auto;
     display: flex;
-    gap: 10px;
+    gap: 15px;
     flex-direction: column;
 }
 
-.img {
+.img-aboutUs {
     width: 100px;
     margin: 20px;
+    border-radius: 5px;
 }

@@ -3,7 +3,7 @@ ini_set("display_errors", 1);
 require_once("functions.php");
 
 $filename = "../JSON/users.json";
-$users = [];
+
 
 $input_data = json_decode(file_get_contents("php://input"), true);
 
@@ -13,7 +13,13 @@ if (!file_exists($filename)) {
 }else {
     $users = json_decode(file_get_contents($filename), true);
 }
-
+// Check if file is empty
+$fileSize = filesize($filename);
+if ($fileSize === 0) {
+    $users = [];
+} else {
+    $users = json_decode(file_get_contents($filename), true);
+}
 
 $request_method = $_SERVER["REQUEST_METHOD"];
 
@@ -41,18 +47,18 @@ if ($request_method == "POST") {
         "password" => $password,
         "uploaded_photos" => [],
         "saved_photos" => [],
-        "profile_pictures" => []
+        "profile_picture" => ""
     ];
 
     // add successfull registration message to user > 
     
     //Saving the new user in the database and send a response if everything went OK
     $users[] = $new_user;
-    $user_json = json_encode($users, JSON_PRETTY_PRINT);
-    file_put_contents($filename, $user_json);
-    sendJSON($new_user);
-    $message = ["message" => "Success"];
-    sendJSON($message, 200);
+    file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
+    $message = [
+        "message" => "Success!"
+    ];
+    sendJSON($message);
 
 }
 $message = ["message" => "Wrong kind of method"];

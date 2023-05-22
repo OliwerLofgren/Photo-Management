@@ -9,11 +9,45 @@ async function createProfileGalleryPage(user) {
 
   addEventListeners();
 
-  await get_all_images(user);
-
   const profile_div = document.querySelector("#profile-picture");
   const img = check_if_image_exists(user);
   profile_div.append(img);
+
+  const profile_form = document.getElementById("form_profile_upload");
+  const profile_result = document.getElementById("profile_result");
+  profile_form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    // Remove previously uploaded image
+
+    const formData = new FormData(profile_form);
+    formData.append("logged_in_id", user.id);
+    const request = new Request("../PHP/profile_pics.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    try {
+      const response = await fetch(request);
+      const data = await response.json();
+      // This simply resets the form.
+      profile_form.reset();
+      if (data.error) {
+        profile_result.textContent = "An error occurred: " + data.error;
+      } else {
+        profile_result.textContent =
+          "Your profile picture has successfully been added";
+        user = updateLocalStorageObjectKey("user", "profile_picture", data);
+        profile_div.innerHTML = "";
+        let img = check_if_image_exists(user);
+        profile_div.append(img);
+        // update the user's profile picture
+      }
+    } catch (error) {
+      profile_result.textContent = "An error occurred!" + error;
+    }
+  });
+
+  await get_all_images(user);
 
   function setupPage() {
     clearElementAttributes(profilePageMain);
@@ -67,6 +101,7 @@ async function createProfileGalleryPage(user) {
       <div id="result"></div>   
     </nav>
 
+        <div id="message_container"></div>
         <div id="profile-photos" class="user-page-photos"></div>
       </section>
     `;
@@ -91,10 +126,11 @@ async function createProfileGalleryPage(user) {
       form.reset();
       console.log(data);
 
-      if (data.error) {
-        result.textContent = "An error occurred: " + data.error;
+      if (!response.ok) {
+        result.textContent = "An error occurred: " + data.message;
       } else {
         result.textContent = "Successfully uploaded the image";
+        document.querySelector("#message_container").innerHTML = "";
         await get_one_images(user);
       }
     } catch (error) {
@@ -115,38 +151,43 @@ async function createProfileGalleryPage(user) {
       }
 
       const uploaded_photos = logged_in_user.uploaded_photos;
-      if (uploaded_photos.length === 0) {
-        console.log("User havent uploaded any photos yet!");
-        return;
-      }
       const latest_uploaded_photo = uploaded_photos[uploaded_photos.length - 1];
+      const container = document.querySelector("#profile-photos");
 
-      const container = document.createElement("div");
-      //Lägg till klassen api-photos
-      container.classList.add("container");
-      const grid_container = document.createElement("div");
-      grid_container.classList.add("grid_container");
+      if (uploaded_photos.length === 0) {
+        console.log("User hasn't uploaded any photos yet!");
+        const message1 = document.createElement("h1");
+        const message2 = document.createElement("p");
+        const message3 = document.createElement("p");
 
-      const photo_url = latest_uploaded_photo.photo;
-      const img = document.createElement("img");
-      img.classList.add("photo_image");
-      img.src = photo_url;
+        message1.textContent = "Uploaded Photos";
+        message2.textContent =
+          "When you upload images, they will appear on your profile.";
+        message3.textContent = "Please upload your first image";
 
-      const button_delete = document.createElement("button");
-      button_delete.innerText = "DELETE";
-      button_delete.classList.add("delete");
-      button_delete.addEventListener("click", () => {
-        edit_uploaded_photo(latest_uploaded_photo.photo_id, photo_url, user);
-      });
+        document
+          .querySelector("#message_container")
+          .append(message1, message2, message3);
+      } else {
+        const photo_url = latest_uploaded_photo.photo;
+        const img = document.createElement("img");
+        img.classList.add("photo_image");
+        img.src = photo_url;
 
-      const photo_containers = document.createElement("div");
-      photo_containers.classList.add("photo-containers");
-      photo_containers.appendChild(button_delete);
-      photo_containers.appendChild(img);
-      container.appendChild(photo_containers);
+        const button_delete = document.createElement("button");
+        button_delete.innerText = "Remove this image";
+        button_delete.classList.add("delete");
+        button_delete.addEventListener("click", () => {
+          edit_uploaded_photo(latest_uploaded_photo.photo_id, photo_url, user);
+        });
 
-      container.appendChild(grid_container);
-      document.querySelector("#profile-section-two").appendChild(container);
+        const photo_containers = document.createElement("div");
+        photo_containers.classList.add("photo_containers");
+        photo_containers.appendChild(button_delete);
+        photo_containers.appendChild(img);
+        container.appendChild(photo_containers);
+        document.querySelector("#profile-section-two").appendChild(container);
+      }
     } catch (error) {
       console.log("Error!", error);
     }
@@ -160,67 +201,48 @@ async function createProfileGalleryPage(user) {
       if (!logged_in_user) {
         console.log("User not found!");
       }
-
       const uploaded_photos = logged_in_user.uploaded_photos;
-      const container = document.createElement("div");
-      container.classList.add("container");
-      const grid_container = document.createElement("div");
-      grid_container.classList.add("grid_container");
-      console.log(data);
 
-      uploaded_photos.forEach((photo) => {
-        const photo_url = photo.photo;
-        const img = document.createElement("img");
-        img.classList.add("photo_image");
-        img.src = photo_url;
-        const button_delete = document.createElement("button");
-        button_delete.innerText = "DELETE";
-        button_delete.classList.add("delete");
-        button_delete.addEventListener("click", () => {
-          edit_uploaded_photo(photo.photo_id, photo_url, user);
+      const container = document.querySelector("#profile-photos");
+
+      if (uploaded_photos.length === 0) {
+        const message1 = document.createElement("h1");
+        const message2 = document.createElement("p");
+        const message3 = document.createElement("p");
+
+        message1.textContent = "Uploaded Photos";
+        message2.textContent =
+          "When you upload images, they will appear on your profile.";
+        message3.textContent = "Please upload your first image";
+
+        document
+          .querySelector("#message_container")
+          .append(message1, message2, message3);
+      } else {
+        document.querySelector("#message_container").innerHTML = "";
+        uploaded_photos.forEach((photo) => {
+          const photo_url = photo.photo;
+          const img = document.createElement("img");
+          img.classList.add("photo_image");
+          img.src = photo_url;
+          const button_delete = document.createElement("button");
+          button_delete.innerText = "Remove this image";
+          button_delete.classList.add("delete");
+          button_delete.addEventListener("click", () => {
+            edit_uploaded_photo(photo.photo_id, photo_url, user);
+          });
+          const photo_containers = document.createElement("div");
+          photo_containers.classList.add("photo_containers");
+          photo_containers.appendChild(button_delete);
+          photo_containers.appendChild(img);
+          container.append(photo_containers);
         });
-        const photo_containers = document.createElement("div");
-        photo_containers.classList.add("photo-containers");
-        photo_containers.appendChild(button_delete);
-        photo_containers.appendChild(img);
-        container.appendChild(photo_containers);
-      });
-      container.appendChild(grid_container);
-      document.querySelector("#profile-section-two").appendChild(container);
+      }
     } catch (error) {
       console.log("Error!", error);
     }
   }
   /* * */
-  const profile_form = document.getElementById("form_profile_upload");
-  const profile_result = document.getElementById("profile_result");
-  profile_form.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    // Remove previously uploaded image
-
-    const formData = new FormData(profile_form);
-    formData.append("logged_in_id", user.id);
-    const request = new Request("../PHP/profile_pics.php", {
-      method: "POST",
-      body: formData,
-    });
-
-    try {
-      const response = await fetch(request);
-      const data = await response.json();
-      // This simply resets the form.
-      profile_form.reset();
-      if (data.error) {
-        profile_result.textContent = "An error occurred: " + data.error;
-      } else {
-        profile_result.textContent =
-          "Your profile picture has successfully been added";
-        await get_profile_picture(profile_div, user);
-      }
-    } catch (error) {
-      profile_result.textContent = "An error occurred!" + error;
-    }
-  });
 
   function addEventListeners() {
     document
@@ -240,7 +262,6 @@ async function createProfileGalleryPage(user) {
       .addEventListener("click", function () {
         location.reload();
         localStorage.removeItem("user");
-        user = null;
         createHomePage();
       });
 

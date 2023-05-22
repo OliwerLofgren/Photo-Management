@@ -8,7 +8,9 @@ async function createDiscoverPage(user) {
   setupPage();
 
   const profile_div = document.querySelector(".mini-profile-photo");
-  const img = check_if_image_exists(user);
+
+  const img = document.createElement("img");
+  img.src = user.profile_pictures;
   profile_div.append(img);
 
   displaySectionOnePhotos();
@@ -79,7 +81,6 @@ async function createDiscoverPage(user) {
       .getElementById("logout-button")
       .addEventListener("click", function () {
         localStorage.removeItem("user");
-        user = null;
         createHomePage();
       });
     document

@@ -1,0 +1,66 @@
+#nav-Register-Login {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.register-login-section {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 0 15px;
+}
+
+#login-register-instead {
+    padding: 10px 0 10px 0;
+    font-size: small;
+    display: flex;
+    justify-content: center;
+}
+
+.text-login-register {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+.button-login-register {
+    width: 100px;
+    margin-left: 30%;
+    border: none;
+    background: rgb(185, 181, 181);
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    height: 45px;
+    width: 87%;
+    border: none;
+    outline: none;
+    padding: 0 0 0 45px;
+    background-color: rgb(199, 199, 199);
+}
+
+#user {
+    position: relative;
+    top: -33px;
+    left: 17px;
+}
+
+#lock {
+    position: relative;
+    top: -33px;
+    left: 17px;
+}
