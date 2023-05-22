@@ -1,13 +1,22 @@
 [
     {
         "id": 1,
-        "username": "amelie",
-        "password": "123",
+        "username": "m",
+        "password": "m",
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_pictures": [
             {
-                "photo": "..\/PHP\/my_photos\/photos_1\/Sk\u00e4rmbild (2).png"
+                "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-05-17 005209.png"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-05-17 005209.png"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-05-17 005209.png"
+            },
+            {
+                "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-05-17 005209.png"
             }
         ]
     }

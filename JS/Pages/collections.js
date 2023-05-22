@@ -11,6 +11,7 @@ async function createProfileCollectionsPage(user) {
   const img = check_if_image_exists(user);
   profile_div.append(img);
 
+
   displayprofileCollectionsPhotos();
   addEventListeners();
 
@@ -123,7 +124,6 @@ async function createProfileCollectionsPage(user) {
       .getElementById("logout-button")
       .addEventListener("click", function () {
         localStorage.removeItem("user");
-        user = null;
         createHomePage();
       });
   }

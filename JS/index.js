@@ -1,6 +1,6 @@
 "use strict";
 let user = null;
-user = JSON.parse(window.localStorage.getItem("user"));
+user = initializeObject("user"); // initialize the user 
 
 document.addEventListener("DOMContentLoaded", () => {
   if (user) {
@@ -9,4 +9,5 @@ document.addEventListener("DOMContentLoaded", () => {
     createHomePage();
   }
 });
+
 console.log(user);

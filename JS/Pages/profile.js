@@ -5,6 +5,7 @@ const profilePageHeader = document.querySelector("header");
 const section_two_main = document.querySelector(".profile-or-collections-nav");
 
 async function createProfileGalleryPage(user) {
+
   setupPage();
 
   addEventListeners();
@@ -216,11 +217,14 @@ async function createProfileGalleryPage(user) {
         profile_result.textContent =
           "Your profile picture has successfully been added";
         await get_profile_picture(profile_div, user);
+        // update the user's profile picture
+
       }
     } catch (error) {
       profile_result.textContent = "An error occurred!" + error;
     }
   });
+
 
   function addEventListeners() {
     document
@@ -240,7 +244,6 @@ async function createProfileGalleryPage(user) {
       .addEventListener("click", function () {
         location.reload();
         localStorage.removeItem("user");
-        user = null;
         createHomePage();
       });
 

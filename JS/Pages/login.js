@@ -76,16 +76,16 @@ async function loginUser(event) {
 
   try {
     const response = await fetch("/PHP/login.php", post);
-    const data = await response.json();
+    let user = await response.json();
 
     if (!response.ok) {
-      displayDatabaseMessage(data);
+      displayDatabaseMessage(user);
     } else {
-      console.log("log in successful:", data);
 
-      window.localStorage.setItem("user", JSON.stringify(data));
-      let user = data;
+      user = setLocalStorageObject("user", user);
       console.log(user);
+
+      console.log("log in successful:", user);
       createDiscoverPage(user);
     }
   } catch (error) {
