@@ -24,6 +24,7 @@ $input_data = json_decode(file_get_contents("php://input"), true);
             
             if ($logged_user_index !== null) {
                 $photo_id = $input_data["photo_id"];
+                $user_id = $users[$logged_user_index]["id"];
                 $uploaded_photos = $users[$logged_user_index]["uploaded_photos"];
                 
                
@@ -32,7 +33,7 @@ $input_data = json_decode(file_get_contents("php://input"), true);
                     if ($photo["photo_id"] == $photo_id) {
                     //Returns trailing name component of path. Example: my_photos/dog.jpg => dog.jpg
                         $photo_file = basename($photo["photo"]);
-                        $photo_path = "../PHP/my_photos/" . $photo_file;
+                        $photo_path = "../PHP/my_photos/photos_" . $user_id . "/" . $photo_file;
                         if (file_exists($photo_path)) {
                     //If the file exist delete the file
                             unlink($photo_path);

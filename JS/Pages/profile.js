@@ -92,8 +92,8 @@ async function createProfileGalleryPage(user) {
       form.reset();
       console.log(data);
 
-      if (data.error) {
-        result.textContent = "An error occurred: " + data.error;
+      if (!response.ok) {
+        result.textContent = "An error occurred: " + data.message;
       } else {
         result.textContent = "Successfully uploaded the image";
         document.querySelector("#message_container").innerHTML = "";

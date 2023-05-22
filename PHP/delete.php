@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     $data = json_decode($json, true);
 
     $logged_in_id = $data['logged_in_id'];
+    
 
 
     $usersData = file_get_contents('../JSON/users.json');
@@ -25,13 +26,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     // If the user is found, remove it from the array
     if ($index !== null) {
         array_splice($users, $index, 1);
+          // Remove the user's folder and its contents
+          
+          $userFolderPath = "../PHP/my_photos/photos_" . $logged_in_id;
 
 
-        $updatedUsersData = json_encode($users, JSON_PRETTY_PRINT);
-
-
-        file_put_contents('../JSON/users.json', $updatedUsersData);
-
+          if (is_dir($userFolderPath)) {
+            removeDir($userFolderPath);
+          } else {
+              $response = [
+                  'message' => 'User folder not found: ' . $userFolderPath
+              ];
+              sendJSON($response, 404);
+          }
+            
+            $updatedUsersData = json_encode($users, JSON_PRETTY_PRINT);
+            file_put_contents('../JSON/users.json', $updatedUsersData);
         $response = [
             'message' => 'User deleted successfully'
         ];
