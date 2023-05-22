@@ -50,12 +50,12 @@
                     ];
 
                     // Check if the user already has a profile picture
-                    if (isset($logged_user["profile_pictures"]) && !empty($logged_user["profile_pictures"])) {
+                    if (isset($logged_user["profile_pictures"]) && !empty($logged_user["profile_pictures"]) > 0) {
                         // Replace the existing profile picture
                         $logged_user["profile_pictures"][0] = $new_photo;
                     } else {
                         // Add the new profile picture
-                        $logged_user["profile_pictures"][] = $new_photo;
+                        $logged_user["profile_pictures"][] = [$new_photo];
                     }
 
                     $users[$logged_user_index] = $logged_user;
