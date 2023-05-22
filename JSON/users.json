@@ -1,54 +1,28 @@
 [
     {
         "id": 1,
-        "username": "m",
-        "password": "m",
-        "uploaded_photos": [],
-        "saved_photos": [
-            {
-                "id": 16872664,
-                "photoObject": {
-                    "id": 16872664,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#717157",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Tony  Wu",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
-                    "photographer_id": 2760503,
-                    "liked": false,
-                    "alt": ""
-                },
-                "bookmarked": false
-            }
-        ],
-        "profile_pictures": [
-            {
-                "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-05-17 005209.png"
-            },
-            {
-                "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-05-17 005209.png"
-            },
-            {
-                "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-05-17 005209.png"
-            },
-            {
-                "photo": "..\/PHP\/my_photos\/photos_1\/Screenshot 2023-05-17 005209.png"
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "username": "ll",
-        "password": "ll",
+        "username": "rabia",
+        "password": "a",
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_pictures": []
     },
     {
+        "id": 2,
+        "username": "fe",
+        "password": "fe",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_pictures": [
+            {
+                "photo": "..\/PHP\/my_photos\/photos_2\/homesection 3.jpg"
+            }
+        ]
+    },
+    {
         "id": 3,
-        "username": "ff",
-        "password": "f",
+        "username": "d",
+        "password": "d",
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_pictures": [
@@ -56,5 +30,25 @@
                 "photo": "..\/PHP\/my_photos\/photos_3\/Screenshot 2023-05-17 005209.png"
             }
         ]
+    },
+    {
+        "id": 4,
+        "username": "g",
+        "password": "g",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_pictures": [
+            {
+                "photo": "..\/PHP\/my_photos\/photos_4\/Screenshot 2023-05-17 005209.png"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "username": "c",
+        "password": "c",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_pictures": []
     }
 ]

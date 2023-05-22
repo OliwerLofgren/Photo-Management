@@ -12,7 +12,7 @@ async function createProfileCollectionsPage(user) {
   profile_div.append(img);
 
 
-  displayprofileCollectionsPhotos();
+  displayprofileCollectionsPhotos(user);
   addEventListeners();
 
   function setupPage() {
@@ -66,6 +66,7 @@ async function createProfileCollectionsPage(user) {
   }
 
   /** */
+
   const profile_form = document.getElementById("form_profile_upload");
   const profile_result = document.getElementById("profile_result");
   profile_form.addEventListener("submit", async function (event) {
@@ -85,19 +86,22 @@ async function createProfileCollectionsPage(user) {
       // This simply resets the form.
       profile_form.reset();
       console.log(data);
+      user = updateLocalStorageObjectKey("user", "profile_pictures", data);
+      console.log(user);
       if (data.error) {
         profile_result.textContent = "An error occurred: " + data.error;
       } else {
         profile_result.textContent =
           "Your profile picture has successfully been added";
-        await get_profile_picture(profile_div, user);
+        let img = check_if_image_exists(user);
+        profile_div.append(img);
       }
     } catch (error) {
       profile_result.textContent = "An error occurred!" + error;
     }
   });
 
-  async function displayprofileCollectionsPhotos() {
+  async function displayprofileCollectionsPhotos(user) {
     // check if current page is profile page
     const collectionsPage = document.getElementById("collections-page-main");
     if (collectionsPage) {
