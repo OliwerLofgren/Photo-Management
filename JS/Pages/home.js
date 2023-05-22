@@ -4,12 +4,6 @@ function createHomePage() {
   const homeMain = document.querySelector("main");
   const homeHeader = document.querySelector("header");
 
-  // check to see if the user is logged in
-  const user = JSON.parse(window.localStorage.getItem("user"));
-  if (user) {
-    createDiscoverPage(user);
-    return;
-  }
   // setup page
   setupPage();
 
@@ -114,8 +108,6 @@ function createHomePage() {
     document
       .getElementById("aboutBtn")
       .addEventListener("click", createAboutUsPage);
-
-
   }
 }
 

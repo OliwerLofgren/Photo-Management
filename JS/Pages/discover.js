@@ -79,7 +79,6 @@ async function createDiscoverPage(user) {
       .getElementById("logout-button")
       .addEventListener("click", function () {
         localStorage.removeItem("user");
-        user = null;
         createHomePage();
       });
     document
