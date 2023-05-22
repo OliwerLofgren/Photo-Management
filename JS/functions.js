@@ -30,7 +30,6 @@ function setLocalStorageObject(key, value) {
   return value;
 }
 
-
 function updateLocalStorageObjectKey(objectKey, key, value) {
   const object = getLocalStorageObject(objectKey);
   if (object) {
@@ -40,8 +39,6 @@ function updateLocalStorageObjectKey(objectKey, key, value) {
   }
   return null;
 }
-
-
 
 function getElement(selector) {
   return document.querySelector(selector);
@@ -239,7 +236,6 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
 }
 
 async function get_profile_picture(target_element, user) {
-
   try {
     const response = await fetch("../JSON/users.json");
     const data = await response.json();
@@ -271,6 +267,7 @@ function check_if_image_exists(user) {
     img.src = user.profile_pictures[0].photo;
     return img;
   } else {
+    console.log("There is no profile picture to show!");
     const icon = document.createElement("i");
     icon.className = "fa-solid fa-user";
     icon.id = "userIcon";

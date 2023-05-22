@@ -21,7 +21,6 @@ function createHomePage() {
     setElementAttributes(homeHeader, "home-header", "");
     document.body.classList.remove("body-layout");
 
-
     homeHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
       <nav id="navHome">
@@ -104,10 +103,11 @@ function createHomePage() {
     document
       .getElementById("registerBtn")
       .addEventListener("click", createRegisterPage);
-    // clickedButton.onClick = displayModalWindow("Want more? Create an account or log in to see additional search results, add your favorites to Collections, and save changes.")
+    clickedButton.onClick = displayModalWindow(
+      "Want more? Create an account or log in to see additional search results, add your favorites to Collections, and save changes."
+    );
     document
       .getElementById("aboutBtn")
       .addEventListener("click", createAboutUsPage);
   }
 }
-

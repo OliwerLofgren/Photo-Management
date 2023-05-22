@@ -1,18 +1,18 @@
 "use strict";
 
 // creates dom elements
+
 async function createProfileCollectionsPage(user) {
   const collectionsPageMain = document.querySelector("main");
   const collectionsHeader = document.querySelector("header");
 
   setupPage();
-
+  console.log(user);
   const profile_div = document.querySelector("#profile-picture");
   const img = check_if_image_exists(user);
   profile_div.append(img);
 
-
-  displayprofileCollectionsPhotos();
+  await displayprofileCollectionsPhotos(user);
   addEventListeners();
 
   function setupPage() {
@@ -97,7 +97,7 @@ async function createProfileCollectionsPage(user) {
     }
   });
 
-  async function displayprofileCollectionsPhotos() {
+  async function displayprofileCollectionsPhotos(user) {
     // check if current page is profile page
     const collectionsPage = document.getElementById("collections-page-main");
     if (collectionsPage) {

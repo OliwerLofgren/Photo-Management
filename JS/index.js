@@ -1,6 +1,6 @@
 "use strict";
 let user = null;
-user = initializeObject("user"); // initialize the user 
+user = initializeObject("user"); // initialize the user
 
 document.addEventListener("DOMContentLoaded", () => {
   if (user) {

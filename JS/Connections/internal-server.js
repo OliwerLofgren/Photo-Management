@@ -65,7 +65,7 @@ async function fetchCollectedPhotosfromDB(user) {
 }
 
 /* display the collected photos */
-async function displayCollectedPhotos() {
+async function displayCollectedPhotos(user) {
   const logged_in_user = await fetchCollectedPhotosfromDB(user);
   if (!logged_in_user) {
     console.log("Failed to fetch user data");
