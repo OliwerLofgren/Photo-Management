@@ -31,6 +31,8 @@ async function postPhotoObjectToDatabase(photoObject, user) {
     } else {
       console.log("Photo object posted successfully:", postedPhotoObject);
 
+      const testing = setLocalStorageObject("testing", postedPhotoObject);
+      console.log(testing);
       return postedPhotoObject; // return the newly created photo object
     }
   } catch (error) {
@@ -55,9 +57,8 @@ async function fetchCollectedPhotosfromDB(user) {
       return;
     } else {
       console.log("Response successful");
+      return logged_in_user;
     }
-
-    return logged_in_user;
   } catch (error) {
     console.log("Error", error);
   }
@@ -83,6 +84,7 @@ async function displayCollectedPhotos() {
     const photoObject = savedPhoto.photoObject;
     const photoUrl = photoObject.photo;
     const photoId = savedPhoto.id;
+    const liked = savedPhoto.liked;
 
     // create an image element and set its source to the photo URL
     const image = document.createElement("img");

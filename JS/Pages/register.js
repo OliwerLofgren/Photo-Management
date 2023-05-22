@@ -81,8 +81,10 @@ async function registerUser(event) {
     const response = await fetch("/PHP/register.php", post);
 
     if (response.ok) {
-      const data = await response.json();
-      console.log("Registered successfully:", data);
+      const user = await response.json();
+      console.log("Registered successfully:", user);
+      user = setLocalStorageObject("user", user);
+      console.log(user);
       const clickedButton = document.querySelector("#regForm button");
       clickedButton.onClick = displayModalWindow(
         "Successfully registered! Proceed to Log in page"
