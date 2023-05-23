@@ -28,12 +28,13 @@ async function createDiscoverPage(user) {
     <H1>PHOTO MANAGEMENT</H1>
     <nav>
             <p>${user.username}</p>
-            <div class="mini-profile-photo"></div>
-            <button id="collections-button">Your Collections</button>
-            <button id="gallery-button">Profile</button>
-            <button id="logout-button">Logout</button>
-            <button id="search-button">search</button>
-            <button id="media-button">media</button>
+            <div id="button_container">
+            <div class="mini-profile-photo" class="discover_button"></div>
+            <button id="collections-button" class="discover_button">Your Collections</button>
+            <button id="logout-button" class="discover_button">Logout</button>
+            <button id="search-button" class="discover_button">Search</button>
+            <button id="media-button" class="discover_button">Media</button>
+            </div>
 
             </nav>
             `;
@@ -76,7 +77,7 @@ async function createDiscoverPage(user) {
         createProfileCollectionsPage(user);
       });
     document
-      .getElementById("gallery-button")
+      .querySelector(".mini-profile-photo")
       .addEventListener("click", function () {
         createProfileGalleryPage(user);
       });
@@ -91,7 +92,6 @@ async function createDiscoverPage(user) {
       .addEventListener("click", function () {
         createSearchOrMediaCollectionsPage(null, user);
       });
-
 
     document
       .getElementById("logout-button")

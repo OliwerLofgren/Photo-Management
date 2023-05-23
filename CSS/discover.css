@@ -13,10 +13,9 @@
 
 #discover-header {
   height: calc(100vh - 89vh);
-  gap: 53vw;
+  gap: 35vw;
   padding-left: 6vw;
 }
-
 
 #discover-photos {
   display: grid;
@@ -27,11 +26,11 @@
   margin: 0 20px;
 }
 
-#discover-photos>div {
+#discover-photos > div {
   position: relative;
 }
 
-#discover-photos>div img {
+#discover-photos > div img {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -123,10 +122,27 @@
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .mini-profile-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+#button_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.discover_button {
+  font-size: 11px;
+  padding: 5px;
+  width: 90px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.discover_button:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
