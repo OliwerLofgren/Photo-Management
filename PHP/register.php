@@ -56,7 +56,7 @@ if ($request_method == "POST") {
     $users[] = $new_user;
     file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
     $message = [
-        "message" => "Success!"
+        "message" => $username . " was registered successfully!"
     ];
     sendJSON($message);
 

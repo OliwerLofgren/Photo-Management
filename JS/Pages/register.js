@@ -82,7 +82,7 @@ async function registerUser(event) {
     let user = await response.json();
 
     if (response.ok) {
-      console.log("Registered successfully:", user);
+      console.log(user);
       const clickedButton = document.querySelector("#regForm button");
       clickedButton.onClick = displayModalWindow(
         "Successfully registered! Proceed to Log in page"
