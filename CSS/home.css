@@ -123,7 +123,7 @@ button {
     margin-top: 40px;
 }
 
-#home-photos.interaction-container i {
+#home-photos.card .interaction-container i {
     display: none;
 }
 
