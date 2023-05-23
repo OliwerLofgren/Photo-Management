@@ -1,24 +1,8 @@
 [
     {
         "id": 1,
-        "username": "amelie",
+        "username": "Oliwer",
         "password": "123",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": ""
-    },
-    {
-        "id": 2,
-        "username": "ha",
-        "password": "ha",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": ""
-    },
-    {
-        "id": 3,
-        "username": "ja",
-        "password": "ja",
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_picture": ""
