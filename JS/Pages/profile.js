@@ -5,7 +5,7 @@ const profilePageHeader = document.querySelector("header");
 const section_two_main = document.querySelector(".profile-or-collections-nav");
 
 async function createProfileGalleryPage(user) {
-  setupPage();
+  setupProfilePage();
 
   addEventListeners();
 
@@ -49,7 +49,7 @@ async function createProfileGalleryPage(user) {
 
   await get_all_images(user);
 
-  function setupPage() {
+  function setupProfilePage() {
     clearElementAttributes(profilePageMain);
     setElementAttributes(profilePageMain, "profile-main", "user-page-main");
     setElementAttributes(

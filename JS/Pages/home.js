@@ -5,7 +5,7 @@ function createHomePage() {
   const homeHeader = document.querySelector("header");
 
   // setup page
-  setupPage();
+  setupHomePage();
 
   // display each section of the page
   displaySectionOneBg();
@@ -16,7 +16,7 @@ function createHomePage() {
   // add event listeners
   addEventListeners();
 
-  function setupPage() {
+  function setupHomePage() {
     setElementAttributes(homeMain, "home-main", "");
     clearElementAttributes(homeHeader);
     setElementAttributes(homeHeader, "home-header", "");
@@ -38,19 +38,12 @@ function createHomePage() {
         <h1>Unleash your creativity</h1>  
 
       <button>Learn more</button>
-       
       </section>
 
-      <section id="home-section-two" class="section"> 
+    <section id="home-section-two" class="section"> 
       <h1 class="h1-two">Discover endless creative possibilities with our vast collection of images</h1>
-          <form id="search-form" >
-          <label for="search-field"></label>
-          <input id="search-field" name="search" type="text" placeholder="Explore our collection of photos">
-          <button type="submit">Search</button>
-        </form>
-
         <div id="home-photos" class="api-photos"></div>
-      </section>
+    </section>
 
       <section id="home-section-three" class="section bg-img">
         <h1 class="h1-three">Create your own visual world: upload your images, discover new ones, and organize your inspiration</h1>
@@ -82,7 +75,6 @@ function createHomePage() {
     if (homePage) {
       // photo dom element creation
       await displayCuratedPhotos(12, "portrait");
-      await displaySearchTermPhotos(1, "portrait");
     }
   }
 
@@ -109,7 +101,6 @@ function createHomePage() {
     document
       .getElementById("registerBtn")
       .addEventListener("click", createRegisterPage);
-    // clickedButton.onClick = displayModalWindow("Want more? Create an account or log in to see additional search results, add your favorites to Collections, and save changes.")
     document
       .getElementById("aboutBtn")
       .addEventListener("click", createAboutUsPage);

@@ -3,10 +3,10 @@ const registerMain = document.querySelector("main");
 const registerHeader = document.querySelector("header");
 
 function createRegisterPage() {
-  setupPage();
+  setupRegisterPage();
   addEventListeners();
 
-  function setupPage() {
+  function setupRegisterPage() {
     setElementAttributes(registerMain, "register-main", "");
     setElementAttributes(registerHeader, "register-header", "");
     document.body.classList.remove("body-layout");

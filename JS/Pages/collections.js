@@ -6,7 +6,7 @@ async function createProfileCollectionsPage(user) {
   const collectionsPageMain = document.querySelector("main");
   const collectionsHeader = document.querySelector("header");
 
-  setupPage();
+  setupCollectionsPage();
 
   const profileImg = document.querySelector("#profile-picture");
   const img = check_if_image_exists(user);
@@ -15,7 +15,7 @@ async function createProfileCollectionsPage(user) {
   await displayprofileCollectionsPhotos(user);
   addEventListeners();
 
-  function setupPage() {
+  function setupCollectionsPage() {
     setElementAttributes(
       collectionsPageMain,
       "collections-page-main",
@@ -58,8 +58,6 @@ async function createProfileCollectionsPage(user) {
     <div id="collections-photos" class="user-page-photos"></div>
   </section>`;
   }
-
-  /** */
 
   async function displayprofileCollectionsPhotos(user) {
     // check if current page is profile page
