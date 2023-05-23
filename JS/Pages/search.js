@@ -5,7 +5,8 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
   user = getLocalStorageObject("user");
 
   if (searchTerm == undefined || null || "") {
-    createMediaCollectionsPage(user);
+    const mediaTitlesArray = await createTitleButtons();
+    createMediaCollectionsPage(mediaTerm, user);
   } else {
     createSearchPage(searchTerm, user);
   }
@@ -16,8 +17,10 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     addEventListeners();
     console.log(searchTerm);
     displaySearchSectionTwoPhotos();
+    await fetchCollectionsMedia("photos", 20, "z1aw4ls", "portrait");
 
-    async function displaySearchSectionTwoPhotos() {
+
+    async function displaySearchSectionTwoPhotos(searchTerm) {
       const searchPage = document.getElementById("search-page-main");
       if (searchPage) {
         document.querySelector(".api-photos").innerHTML = "";
@@ -66,13 +69,8 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     `;
 
     searchPageMain.innerHTML = `
-      <section id="search-section-one" class="section">
-      <div id="search-term-btns">
-      <button>search term</button> 
-      <button>search term</button>
-      <button>search term</button>
-      <button>search term</button>
-      </div>
+    <section id="search-section-one" class="section">
+      <div id="search-term-btns" class="title-buttons-container"></div>
     </section>
     
     <!--content of the first section -->
@@ -115,12 +113,10 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     `;
 
     mediaPageMain.innerHTML = `
+    <!--content of the first section -->
       <section id="media-section-one" class="section">
-      <!--content of the first section -->
-      <button>search term</button> 
-      <button>search term</button>
-      <button>search term</button>
-      <button>search term</button>
+        <div id="media-term-btns" class="title-buttons-container">
+      </div>
     </section >
 
       <section id="media-section-two" class="section">

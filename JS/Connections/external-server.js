@@ -128,12 +128,6 @@ async function fetchFeaturedCollectionObjects(per_page) {
 }
 
 async function fetchCollectionsMedia(type, per_page, id, imgSize) {
-  // creates the ids with possible media collections >, select the ones we like
-  const collectionTitlesandIds = await getCollectionsIds();
-  console.log(collectionTitlesandIds);
-  collectionTitlesandIds.forEach(collection => {
-    console.log(collection.title);
-  });
 
   const url = `${prefix}collections/${id}?per_page=${per_page}&type=${type}`;
 
@@ -170,21 +164,44 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
     return [];
     // add message to user here
   }
+}
 
-  async function getCollectionsIds() {
-    let resource = await fetchFeaturedCollectionObjects(5);
-    const arrayOfCollectionObjects = resource.collections;
+async function getCollectionsIds() {
+  let resource = await fetchFeaturedCollectionObjects(30);
+  const arrayOfCollectionObjects = resource.collections;
 
-    // array of ids and titles
-    const collections = arrayOfCollectionObjects.map((collection) => {
-      return {
-        id: collection.id,
-        title: collection.title,
-        photosCount: collection.photos_count,
-      };
-    });
-    return collections;
-  }
+  // array of ids and titles
+  const collections = arrayOfCollectionObjects.map((collection) => {
+    return {
+      id: collection.id,
+      title: collection.title,
+      photosCount: collection.photos_count,
+    };
+  });
+  return collections;
+}
+
+async function createTitleButtons() {
+  // query select container for collection title buttons
+  const titleBtnsContainer = document.querySelector(".title-buttons-container");
+  console.log(titleBtnsContainer);
+  // creates the ids with possible media collections >, select the ones we like
+  const collectionTitlesandIds = await getCollectionsIds();
+
+  shuffle(collectionTitlesandIds);
+
+  const clonedShuffledArray = collectionTitlesandIds.slice(1, 6);
+  console.log(clonedShuffledArray);
+
+
+  clonedShuffledArray.forEach(collection => {
+    console.log(`Current collection has the title: ${collection.title} with the id: ${collection.id} and contains ${collection.photosCount} photos`);
+
+    const collectionTitleBtn = document.createElement("button");
+    collectionTitleBtn.textContent = collection.title;
+    titleBtnsContainer.append(collectionTitleBtn);
+  });
+  return clonedShuffledArray;
 }
 
 /*** photo dom element creation and display ***/
@@ -257,8 +274,11 @@ async function displaySearchTermPhotos(per_page, imgSize) {
         searchTerm
       );
 
+      if (customSearchPhotoDataArray === undefined) {
+        createSearchOrMediaCollectionsPage(null, user)
+        return;
+      }
       const matchingResults = customSearchPhotoDataArray.length;
-
       const searchQueryinfo = document.querySelector(".search-query-info");
       console.log(searchQueryinfo);
       searchQueryinfo.innerHTML = `  

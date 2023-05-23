@@ -37,7 +37,72 @@
         "username": "Tommy",
         "password": "123",
         "uploaded_photos": [],
-        "saved_photos": [],
+        "saved_photos": [
+            {
+                "id": 16872664,
+                "photoObject": {
+                    "id": 16872664,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#717157",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Tony  Wu",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
+                    "photographer_id": 2760503,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16872664,
+                "photoObject": {
+                    "id": 16872664,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#717157",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Tony  Wu",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
+                    "photographer_id": 2760503,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16872664,
+                "photoObject": {
+                    "id": 16872664,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#717157",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Tony  Wu",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
+                    "photographer_id": 2760503,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16872664,
+                "photoObject": {
+                    "id": 16872664,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#717157",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Tony  Wu",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
+                    "photographer_id": 2760503,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            }
+        ],
         "profile_picture": ""
     },
     {

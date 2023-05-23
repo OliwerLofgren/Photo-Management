@@ -1,6 +1,24 @@
 "use strict";
 /*** Helper functions ***/
 
+function shuffle(array) {
+  let currentIndex = array.length, randomIndex;
+
+  // while there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
 // clear attributes
 function clearElementAttributes(element) {
   element.removeAttribute("id");
@@ -59,6 +77,7 @@ function btnFunc2() {
   document.getElementById("profile-button").classList.remove("btnDeactivated");
   document.getElementById("collections-button").classList.add("btnDeactivated");
 }
+
 // function to display database server messages
 // example: username already exists
 function displayDatabaseMessage(data) {

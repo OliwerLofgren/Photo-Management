@@ -123,9 +123,9 @@ button {
     margin-top: 40px;
 }
 
-.card .interaction-container i {
-    display: none;
-}
+/*.card .interaction-container i {
+    /*display: none;
+}*/
 
 .circle-home {
     margin: auto;
