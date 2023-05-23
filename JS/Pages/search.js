@@ -15,16 +15,17 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
     addEventListeners();
 
-    displaySearchSectionTwoPhotos();
+    await displaySearchSectionTwoPhotos();
 
     async function displaySearchSectionTwoPhotos(searchTerm) {
       const searchPage = document.getElementById("search-page-main");
       if (searchPage) {
         document.querySelector(".api-photos").innerHTML = "";
         await displaySearchTermPhotos(100, "portrait");
-        // createTitleButtons(); element is null
+        // createTitleButtons(); > element is null
       }
     }
+
     function setupSearchPage() {
       const searchPageMain = document.querySelector("main");
       const searchPageHeader = document.querySelector("header");
@@ -76,7 +77,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
   }
 
   async function createMediaCollectionsPage(user) {
-    console.log("No query was input, user is redirected to media collections page instead of crashing site");
+    console.log("No query was input, user is redirected to media collections page.");
 
     setupMediaPage();
     addEventListeners();
@@ -86,15 +87,21 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     async function displayMediaSectionTwoPhotos() {
       const mediaKeys = await extractMediaTerms();
       const randomMediaId = mediaKeys.slice(1, 2);
+      let title = randomMediaId[0].title;
       let id = randomMediaId[0].id;
       let photosCount = randomMediaId[0].photosCount;
 
-      const mediaPage = document.getElementById("media-page-main");
+      const mediaPage = document.getElementById("media-section-one");
       if (mediaPage) {
         document.querySelector(".api-photos").innerHTML = "";
         await displayMediaCollectionPhotos("photos", photosCount, id, "portrait");
         createTitleButtons();
       }
+
+      const mediaQueryinfo = document.querySelector(".search-query-info");
+      mediaQueryinfo.innerHTML = `  
+      <h3>${title}</h2>
+      <p class="matching-results">${photosCount} Photos Found</p>`;
     }
 
     function setupMediaPage() {
@@ -111,7 +118,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       // needs a check if logged in user or not!!
       mediaPageHeader.innerHTML = `
   <H1>PHOTO MANAGEMENT</H1>
-  
+
   <nav id="navSearch">
   <p>${user.username}</p>
   <div class="mini-profile-photo"></div>
@@ -130,6 +137,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
   </section >
   
     <section id="media-section-two" class="section">
+      <div id="media-page-info" class="search-query-info"></div>
       <div id="media-photos" class="api-photos"></div>
     </section>
   `;
@@ -169,7 +177,7 @@ async function extractMediaTerms() {
   const mediaCollectionsArray = await getCollectionsIds();
   shuffle(mediaCollectionsArray);
 
-  const clonedShuffledArray = mediaCollectionsArray.slice(1, 10);
+  const clonedShuffledArray = mediaCollectionsArray.slice(1, 8);
   return clonedShuffledArray;
 }
 
