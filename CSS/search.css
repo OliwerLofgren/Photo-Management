@@ -1,13 +1,17 @@
 #search-page-main,
 #media-page-main {
-    height: calc(100vh - 11vh);
+    height: calc(100vh - 12vh);
     overflow-y: scroll;
 }
 
-#search-page-header,
-#media-page-header {
-    height: calc(100vh - 89vh);
+#search-page-header {
+    height: calc(100vh - 88vh);
     gap: 2vw;
+}
+
+#media-page-header {
+    height: calc(100vh - 88vh);
+    gap: 50vw;
 }
 
 #search-section-one,

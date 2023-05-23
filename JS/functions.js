@@ -109,12 +109,13 @@ function displayServerLoadingMessage() {
   const loadingPhotos = document.querySelector(".section");
   if (loadingPhotos == null) {
     return;
-  }
-  loadingPhotos.classList.add("loading");
-  // create the loader line element
-  loadingPhotos.innerHTML = `
+  } else {
+    loadingPhotos.classList.add("loading");
+    // create the loader line element
+    loadingPhotos.innerHTML = `
     <div class="loader-line"></div>
   `;
+  }
 }
 function hideServerLoadingMessage() {
   // remove the loader line element when photos are loaded
@@ -123,7 +124,12 @@ function hideServerLoadingMessage() {
     loaderLine.remove();
   }
   // remove the loading class from the element
-  document.querySelector(".section").classList.remove("loading");
+  const loadingPhotos = document.querySelector(".section");
+  if (loadingPhotos == null) {
+    return;
+  } else {
+    loadingPhotos.classList.remove("loading");
+  }
 }
 
 function displayPhotoInteractionIcons(photoObject, photoContainer) {
