@@ -72,7 +72,7 @@ async function displayCollectedPhotos(user) {
   }
 
   const photoWrapper = document.getElementById("collections-photos");
-
+  const messageContainer = document.getElementById("message_container");
   // iterate over each user object
   logged_in_user.saved_photos.forEach((savedPhoto) => {
     // create a div and append the container to parent wrapper
@@ -110,6 +110,7 @@ async function displayCollectedPhotos(user) {
     const message1 = document.createElement("h1");
     const message2 = document.createElement("p");
     const message3 = document.createElement("p");
+    message3.id = "hover-message";
 
     message1.textContent = "Collect Photos";
     message2.textContent =
@@ -120,7 +121,7 @@ async function displayCollectedPhotos(user) {
       createDiscoverPage(user);
     });
 
-    photoWrapper.append(message1, message2, message3);
+    messageContainer.append(message1, message2, message3);
   }
 }
 

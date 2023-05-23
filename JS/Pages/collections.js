@@ -53,7 +53,7 @@ async function createProfileCollectionsPage(user) {
   <button id="collections-button" class="activeBtn" onclick="btnFunc1()">Your Collections</button>      
   <button id="profile-button"  class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Profile</button>      
     </nav>
-
+    <div id="message_container"></div>  
     <div id="collections-photos" class="user-page-photos"></div>
   </section>`;
   }
