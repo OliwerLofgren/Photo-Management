@@ -243,7 +243,6 @@ function check_if_image_exists(user) {
     img.src = user.profile_picture;
     return img;
   } else {
-    console.log("There is no profile image to display!");
     const icon = document.createElement("i");
     icon.className = "fa-solid fa-user";
     icon.id = "userIcon";

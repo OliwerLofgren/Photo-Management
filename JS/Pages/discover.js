@@ -32,8 +32,8 @@ async function createDiscoverPage(user) {
             <button id="collections-button">Your Collections</button>
             <button id="gallery-button">Profile</button>
             <button id="logout-button">Logout</button>
-            <button id="search-button">search</button>
-            <button id="media-button">media</button>
+            <button id="search-button">Search</button>
+            <button id="explore-button">Explore</button>
 
             </nav>
             `;
@@ -74,7 +74,7 @@ async function createDiscoverPage(user) {
       });
 
     document
-      .getElementById("media-button")
+      .getElementById("explore-button")
       .addEventListener("click", function () {
         createSearchOrMediaCollectionsPage(null, user);
       });
