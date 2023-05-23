@@ -65,7 +65,6 @@ async function createProfileGalleryPage(user) {
     <H1>Photo Management</H1>
       <nav>
       <button id="discover-button">Discover</button>
-      <button id="upload-button">Upload</button>
       <button id="logout-button">Logout</button>
       <button id="delete-button">Delete your account</button>
       </nav>

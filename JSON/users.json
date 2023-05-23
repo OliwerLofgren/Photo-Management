@@ -3,7 +3,24 @@
         "id": 1,
         "username": "Oliwer",
         "password": "123",
-        "uploaded_photos": [],
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_1\/maltese-portrait-dog-min.jpg"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_1\/terrier-dog-jpeg-min.jpg"
+            },
+            {
+                "photo_id": 4,
+                "photo": "..\/PHP\/my_photos\/photos_1\/fluff-dog-jpeg-min.jpg"
+            },
+            {
+                "photo_id": 4,
+                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg-min.jpg"
+            }
+        ],
         "saved_photos": [
             {
                 "id": 16881314,
@@ -36,8 +53,72 @@
                     "alt": "5-Stars Breakfast"
                 },
                 "bookmarked": false
+            },
+            {
+                "id": 16857628,
+                "photoObject": {
+                    "id": 16857628,
+                    "width": 4160,
+                    "height": 6240,
+                    "avg_color": "#793319",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16857628\/pexels-photo-16857628.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Evgeniy Petkevich",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@petkevich-evgeniy",
+                    "photographer_id": 216199181,
+                    "liked": false,
+                    "alt": "Free stock photo of abstract, beautiful flowers, blooming"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16752696,
+                "photoObject": {
+                    "id": 16752696,
+                    "width": 4160,
+                    "height": 6240,
+                    "avg_color": "#A4A8B1",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16752696\/pexels-photo-16752696.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Nektaria Kleopoulos",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@nektaria-kleopoulos-417944344",
+                    "photographer_id": 417944344,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16750828,
+                "photoObject": {
+                    "id": 16750828,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#543F44",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16750828\/pexels-photo-16750828.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Anastasiia Chaikovska",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@anastasiia-chaikovska-206547003",
+                    "photographer_id": 206547003,
+                    "liked": false,
+                    "alt": "bloom"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16731455,
+                "photoObject": {
+                    "id": 16731455,
+                    "width": 2953,
+                    "height": 4430,
+                    "avg_color": "#A4A4A4",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16731455\/pexels-photo-16731455.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "cultatum",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@cultatum-555666405",
+                    "photographer_id": 555666405,
+                    "liked": false,
+                    "alt": "Free stock photo of aesthetic, conceptual, model"
+                },
+                "bookmarked": false
             }
         ],
-        "profile_picture": ""
+        "profile_picture": "..\/PHP\/my_photos\/photos_1\/fluff-dog-jpeg-min.jpg"
     }
 ]
