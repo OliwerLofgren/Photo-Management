@@ -128,27 +128,18 @@
         "uploaded_photos": [],
         "saved_photos": [
             {
-                "id": null,
+                "id": 16872664,
                 "photoObject": {
-                    "avg_color": "#292929",
-                    "photo": "https:\/\/images.pexels.com\/photos\/1231258\/pexels-photo-1231258.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Alexander Krivitskiy",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@krivitskiy"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 895259,
-                "photoObject": {
-                    "id": 895259,
-                    "width": 3648,
-                    "height": 5052,
-                    "avg_color": "#C3B7AF",
-                    "photo": "https:\/\/images.pexels.com\/photos\/895259\/pexels-photo-895259.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Dominika Roseclay",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@punchbrandstock",
-                    "photographer_id": 215243,
-                    "alt": "Soft Focus Photo of Dachshund"
+                    "id": 16872664,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#717157",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Tony  Wu",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
+                    "photographer_id": 2760503,
+                    "liked": false,
+                    "alt": ""
                 },
                 "bookmarked": false
             }

@@ -3,10 +3,10 @@ const loginMain = document.querySelector("main");
 const loginHeader = document.querySelector("header");
 
 async function createLoginPage() {
-  setupPage();
+  setupLoginPage();
   addEventListeners();
 
-  function setupPage() {
+  function setupLoginPage() {
     setElementAttributes(loginMain, "login-main", "");
     setElementAttributes(loginHeader, "login-header", "");
     document.body.classList.remove("body-layout");

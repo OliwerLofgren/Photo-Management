@@ -101,7 +101,6 @@ async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
   } catch (error) {
     console.log(error);
     return [];
-    // add message to user here
   }
 }
 
@@ -117,7 +116,6 @@ async function fetchFeaturedCollectionObjects(per_page) {
       photoApiResponseCodes(resource);
       return;
     }
-
     if (!resource || resource.length === 0) {
       console.log("No Collections found");
       return;
@@ -126,12 +124,10 @@ async function fetchFeaturedCollectionObjects(per_page) {
   } catch (error) {
     console.log(error);
     return [];
-    // add message to user here
   }
 }
 
 async function fetchCollectionsMedia(type, per_page, id, imgSize) {
-
   const url = `${prefix}collections/${id}?per_page=${per_page}&type=${type}`;
 
   try {
@@ -139,7 +135,7 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
     const resource = await response.json();
 
     if (!response.ok) {
-      console.log("oops");
+      console.log("Something went wrong fetching collections media");
       photoApiResponseCodes(resource);
       return;
     }
@@ -162,12 +158,11 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
   } catch (error) {
     console.log(error);
     return [];
-    // add message to user here
   }
 }
 
 async function getCollectionsIds() {
-  let resource = await fetchFeaturedCollectionObjects(30);
+  let resource = await fetchFeaturedCollectionObjects(40);
   const arrayOfCollectionObjects = resource.collections;
 
   // array of ids and titles
@@ -189,20 +184,17 @@ function createPhotoContainer(array) {
 
   const photoWrapper = document.querySelector(".api-photos");
   if (array === undefined || photoWrapper === null) {
-    console.log("array is undefined");
+    console.log("The array is undefined, or the page doesn't contain an element with the class .api-photos");
+    hideServerLoadingMessage();
     return;
   }
-
-  let counter = 0;
 
   // create dom elements
   array.forEach((photoObject) => {
     const photoContainer = document.createElement("div");
 
-
     photoContainer.classList.add("card");
     photoContainer.classList.add("overlay");
-
     photoWrapper.append(photoContainer);
 
     photoContainer.dataset.id = photoObject.id; // add photo ID to the container's dataset
@@ -218,14 +210,12 @@ function createPhotoContainer(array) {
     // add an alt attribute to the img element to improve accessibility
     photoImage.alt = photoObject.alt;
 
-    const photoInteractionsContainer = displayPhotoInteractionIcons(
+    displayPhotoInteractionIcons(
       photoObject,
       photoContainer
     );
     return;
   });
-
-
 }
 
 async function displayCuratedPhotos(per_page, imgSize) {

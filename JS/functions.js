@@ -7,15 +7,14 @@ function shuffle(array) {
   // while there remain elements to shuffle.
   while (currentIndex != 0) {
 
-    // Pick a remaining element.
+    // pick a remaining element
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
-    // And swap it with the current element.
+    // and swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex], array[currentIndex]];
   }
-
   return array;
 }
 
@@ -75,16 +74,9 @@ function btnFunc2() {
 }
 
 // function to display database server messages
-// example: username already exists
 function displayDatabaseMessage(data) {
   const serverMessage = document.querySelector("#message");
   serverMessage.textContent = data.message;
-}
-
-// function to display externa api server messages
-function displayExternalAPIMessage(params) {
-  // do stuff
-  // ext photo api messsages
 }
 
 function displayModalWindow(message) {
@@ -125,11 +117,6 @@ function hideServerLoadingMessage() {
   }
   // remove the loading class from the element
   document.querySelector(".section").classList.remove("loading");
-}
-
-function scrollIntoView(selector) {
-  const element = document.getElementById(selector);
-  element.scrollIntoView();
 }
 
 function displayPhotoInteractionIcons(photoObject, photoContainer) {
@@ -189,10 +176,6 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
     console.error(`Like icon with id ${photoContainer.dataset.id} not found.`);
     return;
   }
-
-  let user = getLocalStorageObject("user");
-  await postPhotoObjectToDatabase(photoObject, user);
-
   // loop through each heart icon and modify the style only if its data-id matches the id of the clicked photo
   heartIcons.forEach((heartIcon) => {
     if (heartIcon.dataset.id === photoContainer.dataset.id) {

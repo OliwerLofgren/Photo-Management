@@ -1,10 +1,9 @@
 #discover-main {
-  height: calc(100vh - 11vh);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 12vh);
   overflow-y: scroll;
-}
-
-#discover-section-one {
-  height: 40%;
+  gap: 2vh;
 }
 
 #discover-section-two {
@@ -12,11 +11,10 @@
 }
 
 #discover-header {
-  height: calc(100vh - 89vh);
+  height: calc(100vh - 88vh);
   gap: 53vw;
   padding-left: 6vw;
 }
-
 
 #discover-photos {
   display: grid;
