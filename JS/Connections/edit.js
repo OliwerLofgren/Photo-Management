@@ -14,10 +14,11 @@ async function edit_uploaded_photo(photo_id, photo_url, logged_in_user) {
     console.log(data.message);
     const result = document.getElementById("result");
     if (response.ok) {
+      // Find the corresponding photo container in section two
       const photo_container = document.querySelector(
-        `img[src="${photo_url}"]`
+        `#profile-section-two img[src="${photo_url}"]`
       ).parentNode;
-      // remove the deleted photo from the UI by finding its parent element and removing it
+      // Remove the photo container from the UI
       photo_container.parentNode.removeChild(photo_container);
       result.textContent = "The image was successfully removed!";
     } else {

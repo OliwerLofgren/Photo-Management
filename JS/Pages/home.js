@@ -5,16 +5,18 @@ function createHomePage() {
   const homeHeader = document.querySelector("header");
 
   // setup page
-  setupPage();
+  setupHomePage();
 
   // display each section of the page
   displaySectionOneBg();
+  displaySectionTwoPhotos();
   displaySectionThreeBg();
+  displaySectionFiveBg();
 
   // add event listeners
   addEventListeners();
 
-  function setupPage() {
+  function setupHomePage() {
     setElementAttributes(homeMain, "home-main", "");
     clearElementAttributes(homeHeader);
     setElementAttributes(homeHeader, "home-header", "");
@@ -36,20 +38,24 @@ function createHomePage() {
         <h1>Unleash your creativity</h1>  
 
       <button>Learn more</button>
-       
       </section>
 
+    <section id="home-section-two" class="section"> 
+      <h1 class="h1-two">Discover endless creative possibilities with our vast collection of images</h1>
+        <div id="home-photos" class="api-photos"></div>
+    </section>
+
       <section id="home-section-three" class="section bg-img">
-        <h1>Create your own visual world: upload your images, discover new ones, and organize your inspiration</h1>
+        <h1 class="h1-three">Create your own visual world: upload your images, discover new ones, and organize your inspiration</h1>
       </section>
 
       <section id="home-section-four" class="section">
-      <h1>Collect your favorites so you can get back to them later</h1>
+      <h1 class="h1-four">Collect your favorites so you can get back to them later</h1>
+      <div class="circle-home"> <p class="circle-text">Be inspired</p></div>
     </section>
 
-      <section id="home-section-five" class="section">
-      <h1>Sign up to get your ideas</h1>
-      <h2>Welcome to Photo Management</h2>
+      <section id="home-section-five" class="section bg-img">
+      <h1 class="h1-five">Sign up to get your ideas</h1>
     </section>
 
     </section>
@@ -64,12 +70,27 @@ function createHomePage() {
     }
   }
 
+  async function displaySectionTwoPhotos() {
+    const homePage = document.getElementById("home-main");
+    if (homePage) {
+      // photo dom element creation
+      await displayCuratedPhotos(12, "portrait");
+    }
+  }
 
   function displaySectionThreeBg() {
     let domElement = document.querySelector("#home-section-three");
     const homePage = document.getElementById("home-main");
     if (homePage) {
       displayApiBackgroundImage(1, "original", domElement);
+    }
+  }
+
+  function displaySectionFiveBg() {
+    let domElement = document.querySelector("#home-section-five");
+    const homePage = document.getElementById("home-main");
+    if (homePage) {
+      displayApiBackgroundImage(6, "original", domElement);
     }
   }
 
@@ -80,10 +101,15 @@ function createHomePage() {
     document
       .getElementById("registerBtn")
       .addEventListener("click", createRegisterPage);
-    // clickedButton.onClick = displayModalWindow("Want more? Create an account or log in to see additional search results, add your favorites to Collections, and save changes.")
-    /*document
+    document
       .getElementById("aboutBtn")
-      .addEventListener("click", createAboutUsPage);*/
+      .addEventListener("click", createAboutUsPage);
   }
 }
 
+//  <div class="trendingContainer">
+//         <h3 id="" class="trending">Trending:</h3>
+//         <div class="alt">Dog</div>
+//         <div class="alt">Fire</div>
+//         <div class="alt">Mountain</div>
+//         </div>

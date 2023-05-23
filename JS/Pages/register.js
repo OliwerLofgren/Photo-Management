@@ -3,10 +3,10 @@ const registerMain = document.querySelector("main");
 const registerHeader = document.querySelector("header");
 
 function createRegisterPage() {
-  setupPage();
+  setupRegisterPage();
   addEventListeners();
 
-  function setupPage() {
+  function setupRegisterPage() {
     setElementAttributes(registerMain, "register-main", "");
     setElementAttributes(registerHeader, "register-header", "");
     document.body.classList.remove("body-layout");
@@ -15,13 +15,13 @@ function createRegisterPage() {
 
     registerHeader.innerHTML = `
         <h1>PHOTO MANAGEMENT</h1>
-        <nav id="nav-Register-Login">
+        <nav class="nav-Register-Login">
         <button id="go-back-home">Back to home</button>
         </nav>`;
 
     registerMain.innerHTML = `
         <div class="box">
-        <section id="register-login-section">
+        <section class="register-login-section" id="login-section">
             <h2 class="text-login-register">Join us!</h2>
             <h3 class="text-login-register">Register</h3>
 
@@ -83,6 +83,7 @@ async function registerUser(event) {
 
     if (response.ok) {
       console.log(user);
+
       const clickedButton = document.querySelector("#regForm button");
       clickedButton.onClick = displayModalWindow(
         "Successfully registered! Proceed to Log in page"
@@ -91,6 +92,8 @@ async function registerUser(event) {
       document
         .querySelector(".modal-button")
         .addEventListener("click", closeModalWindow);
+
+      countUsers();
     } else {
       displayDatabaseMessage(user);
     }

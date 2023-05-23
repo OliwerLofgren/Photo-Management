@@ -3,74 +3,143 @@
         "id": 1,
         "username": "Oliwer",
         "password": "123",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": "..\/PHP\/my_photos\/photos_1\/dog.jpg"
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_1\/maltese-portrait-dog-min.jpg"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_1\/terrier-dog-jpeg-min.jpg"
+            },
+            {
+                "photo_id": 4,
+                "photo": "..\/PHP\/my_photos\/photos_1\/fluff-dog-jpeg-min.jpg"
+            },
+            {
+                "photo_id": 4,
+                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg-min.jpg"
+            }
+        ],
+        "saved_photos": [
+            {
+                "id": 16881314,
+                "photoObject": {
+                    "id": 16881314,
+                    "width": 2767,
+                    "height": 4919,
+                    "avg_color": "#644F3C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16881314\/pexels-photo-16881314.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Alexander Paul",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@alexander-paul-568840608",
+                    "photographer_id": 568840608,
+                    "liked": false,
+                    "alt": "Happy Guys"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16881386,
+                "photoObject": {
+                    "id": 16881386,
+                    "width": 3721,
+                    "height": 4651,
+                    "avg_color": "#746665",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16881386\/pexels-photo-16881386.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Alexander Paul",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@alexander-paul-568840608",
+                    "photographer_id": 568840608,
+                    "liked": false,
+                    "alt": "5-Stars Breakfast"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16857628,
+                "photoObject": {
+                    "id": 16857628,
+                    "width": 4160,
+                    "height": 6240,
+                    "avg_color": "#793319",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16857628\/pexels-photo-16857628.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Evgeniy Petkevich",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@petkevich-evgeniy",
+                    "photographer_id": 216199181,
+                    "liked": false,
+                    "alt": "Free stock photo of abstract, beautiful flowers, blooming"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16752696,
+                "photoObject": {
+                    "id": 16752696,
+                    "width": 4160,
+                    "height": 6240,
+                    "avg_color": "#A4A8B1",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16752696\/pexels-photo-16752696.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Nektaria Kleopoulos",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@nektaria-kleopoulos-417944344",
+                    "photographer_id": 417944344,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16750828,
+                "photoObject": {
+                    "id": 16750828,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#543F44",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16750828\/pexels-photo-16750828.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Anastasiia Chaikovska",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@anastasiia-chaikovska-206547003",
+                    "photographer_id": 206547003,
+                    "liked": false,
+                    "alt": "bloom"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16731455,
+                "photoObject": {
+                    "id": 16731455,
+                    "width": 2953,
+                    "height": 4430,
+                    "avg_color": "#A4A4A4",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16731455\/pexels-photo-16731455.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "cultatum",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@cultatum-555666405",
+                    "photographer_id": 555666405,
+                    "liked": false,
+                    "alt": "Free stock photo of aesthetic, conceptual, model"
+                },
+                "bookmarked": false
+            }
+        ],
+        "profile_picture": "..\/PHP\/my_photos\/photos_5\/dog-png.png"
     },
     {
-        "id": 2,
-        "username": "f",
-        "password": "f",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": "..\/PHP\/my_photos\/photos_2\/brown-dog-jpeg.jpg"
-    },
-    {
-        "id": 3,
-        "username": "d",
-        "password": "d",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": "..\/PHP\/my_photos\/photos_3\/Screenshot 2023-05-17 005209.png"
-    },
-    {
-        "id": 4,
-        "username": "a",
+        "id": 6,
+        "username": "rabia",
         "password": "a",
         "uploaded_photos": [],
         "saved_photos": [
             {
-                "id": 1194036,
+                "id": 16872664,
                 "photoObject": {
-                    "id": 1194036,
-                    "width": 5472,
-                    "height": 3648,
-                    "avg_color": "#836842",
-                    "photo": "https:\/\/images.pexels.com\/photos\/1194036\/pexels-photo-1194036.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "THIS IS  ZUN",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@zun1412",
-                    "photographer_id": 358536,
-                    "alt": "Shallow Focus Photography of Keychains"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 36029,
-                "photoObject": {
-                    "id": 36029,
-                    "width": 3071,
-                    "height": 4584,
-                    "avg_color": "#664D53",
-                    "photo": "https:\/\/images.pexels.com\/photos\/36029\/aroni-arsa-children-little.jpg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Pixabay",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@pixabay",
-                    "photographer_id": 2659,
-                    "alt": "Girl in Blue Dress Standing on Grass Field during Sunset"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 3090875,
-                "photoObject": {
-                    "id": 3090875,
-                    "width": 4912,
-                    "height": 7360,
-                    "avg_color": "#90847B",
-                    "photo": "https:\/\/images.pexels.com\/photos\/3090875\/pexels-photo-3090875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Laura Stanley",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@lstan",
-                    "photographer_id": 839768,
-                    "alt": "Chihuahua Sitting on Staircase"
+                    "id": 16872664,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#717157",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Tony  Wu",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
+                    "photographer_id": 2760503,
+                    "liked": false,
+                    "alt": ""
                 },
                 "bookmarked": false
             }

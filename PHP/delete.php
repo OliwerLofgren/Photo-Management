@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         $response = [
             'message' => 'User deleted successfully'
         ];
-        sendJSON($response, 200);
+        sendJSON($response);
     } else {
         $response = [
             'message' => 'User not found'

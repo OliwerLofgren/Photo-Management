@@ -3,23 +3,23 @@ const loginMain = document.querySelector("main");
 const loginHeader = document.querySelector("header");
 
 async function createLoginPage() {
-  setupPage();
+  setupLoginPage();
   addEventListeners();
 
-  function setupPage() {
+  function setupLoginPage() {
     setElementAttributes(loginMain, "login-main", "");
     setElementAttributes(loginHeader, "login-header", "");
     document.body.classList.remove("body-layout");
 
     registerHeader.innerHTML = `
         <h1>PHOTO MANAGEMENT</h1>
-        <nav id="nav-Register-Login">
+        <nav class="nav-Register-Login">
         <button id="go-back-home">Back to home</button>
         </nav>`;
 
     loginMain.innerHTML = ` 
         <div class="box">
-        <section id="register-login-section"> 
+        <section class="register-login-section" id="register-section"> 
             <h2 class="text-login-register">Welcome Back!</h2>
             <h3 class="text-login-register">Log In</h3>
 
