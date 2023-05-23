@@ -69,9 +69,12 @@ async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
     );
     const resource = await response.json();
 
+    if (response.status === 400) {
+      createSearchOrMediaCollectionsPage(null, user)
+      return;
+    }
     if (!response.ok) {
-      console.log("oops");
-      photoApiResponseCodes(resource);
+      console.log("Something went wrong with the search query request", response.status);
       return;
     }
     let photoResourceArray = resource.photos;
@@ -135,8 +138,6 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
     const response = await fetch_resource(new Request(url, { headers }));
     const resource = await response.json();
 
-    console.log(resource);
-
     if (!response.ok) {
       console.log("oops");
       photoApiResponseCodes(resource);
@@ -157,8 +158,7 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
         photographerUrl: media.photographer_url,
       };
     });
-
-    console.log(mediaCollectionObject);
+    return mediaCollectionObject;
   } catch (error) {
     console.log(error);
     return [];
@@ -181,28 +181,6 @@ async function getCollectionsIds() {
   return collections;
 }
 
-async function createTitleButtons() {
-  // query select container for collection title buttons
-  const titleBtnsContainer = document.querySelector(".title-buttons-container");
-  console.log(titleBtnsContainer);
-  // creates the ids with possible media collections >, select the ones we like
-  const collectionTitlesandIds = await getCollectionsIds();
-
-  shuffle(collectionTitlesandIds);
-
-  const clonedShuffledArray = collectionTitlesandIds.slice(1, 6);
-  console.log(clonedShuffledArray);
-
-
-  clonedShuffledArray.forEach(collection => {
-    console.log(`Current collection has the title: ${collection.title} with the id: ${collection.id} and contains ${collection.photosCount} photos`);
-
-    const collectionTitleBtn = document.createElement("button");
-    collectionTitleBtn.textContent = collection.title;
-    titleBtnsContainer.append(collectionTitleBtn);
-  });
-  return clonedShuffledArray;
-}
 
 /*** photo dom element creation and display ***/
 
@@ -263,8 +241,7 @@ async function displaySearchTermPhotos(per_page, imgSize) {
     searchForm.addEventListener("submit", async function (event) {
       event.preventDefault();
       let searchTerm = getElement(".search-field").value.trim();
-      createSearchOrMediaCollectionsPage(searchTerm);
-      console.log(searchTerm);
+      createSearchOrMediaCollectionsPage(searchTerm, user);
 
       // clear already loaded photos and display searched photos instead
       document.querySelector(".api-photos").innerHTML = "";
@@ -275,6 +252,7 @@ async function displaySearchTermPhotos(per_page, imgSize) {
       );
 
       if (customSearchPhotoDataArray === undefined) {
+        console.log("Either something went wrong with the search page query request or no query was input. Redirecting user to media page instead");
         createSearchOrMediaCollectionsPage(null, user)
         return;
       }
@@ -288,6 +266,20 @@ async function displaySearchTermPhotos(per_page, imgSize) {
       return createPhotoContainer(customSearchPhotoDataArray);
     });
   }
+}
+
+async function displayMediaCollectionPhotos(type, per_page, id, imgSize) {
+
+  // clear already loaded photos and display collection photos instead
+  document.querySelector(".api-photos").innerHTML = "";
+  let collectionsMediaArray = await fetchCollectionsMedia(type, per_page, id, imgSize);
+
+  if (collectionsMediaArray === undefined) {
+    console.log("Something went wrong with the media page request, redirecting user to their collections page instead");
+    createProfileCollectionsPage(user)
+    return;
+  }
+  return createPhotoContainer(collectionsMediaArray);
 }
 
 async function displayApiBackgroundImage(per_page, imgSize, domElement) {

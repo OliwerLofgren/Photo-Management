@@ -198,5 +198,39 @@
             }
         ],
         "profile_picture": "..\/PHP\/my_photos\/photos_5\/dog-png.png"
+    },
+    {
+        "id": 6,
+        "username": "rabia",
+        "password": "a",
+        "uploaded_photos": [],
+        "saved_photos": [
+            {
+                "id": null,
+                "photoObject": {
+                    "avg_color": "#292929",
+                    "photo": "https:\/\/images.pexels.com\/photos\/1231258\/pexels-photo-1231258.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Alexander Krivitskiy",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@krivitskiy"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 895259,
+                "photoObject": {
+                    "id": 895259,
+                    "width": 3648,
+                    "height": 5052,
+                    "avg_color": "#C3B7AF",
+                    "photo": "https:\/\/images.pexels.com\/photos\/895259\/pexels-photo-895259.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Dominika Roseclay",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@punchbrandstock",
+                    "photographer_id": 215243,
+                    "alt": "Soft Focus Photo of Dachshund"
+                },
+                "bookmarked": false
+            }
+        ],
+        "profile_picture": ""
     }
 ]
