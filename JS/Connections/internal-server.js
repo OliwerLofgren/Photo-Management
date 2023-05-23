@@ -5,7 +5,21 @@
 async function postPhotoObjectToDatabase(photoObject, user) {
   console.log(user.id);
 
-  // add check if object exists ->
+  // Fetch the collected photos from the JSON
+  const logged_in_user = await fetchCollectedPhotosfromDB(user);
+  if (!logged_in_user) {
+    console.log("Failed to fetch user data");
+    return;
+  }
+
+  // Check if the photoObject already exists
+  const existingPhoto = logged_in_user.saved_photos.find(
+    (savedPhoto) => savedPhoto.photoObject.id === photoObject.id
+  );
+  if (existingPhoto) {
+    console.log("Photo object already exists");
+    return existingPhoto;
+  }
 
   // format data we want to send to our database and add some keys
   const photoObjectForDatabase = {
