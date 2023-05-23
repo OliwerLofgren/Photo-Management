@@ -265,7 +265,6 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
 // }
 
 function check_if_image_exists(user) {
-  console.log(user);
   if (!user.profile_picture == "") {
     const img = document.createElement("img");
     img.src = user.profile_picture;

@@ -124,7 +124,6 @@ async function createProfileGalleryPage(user) {
 
       // This simply resets the form.
       form.reset();
-      console.log(data);
 
       if (!response.ok) {
         result.textContent = "An error occurred: " + data.message;

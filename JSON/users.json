@@ -6,71 +6,14 @@
         "uploaded_photos": [
             {
                 "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg.jpg"
+                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg-min.jpg"
             },
             {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/photos_1\/dog-white-jpeg.jpg"
-            }
-        ],
-        "saved_photos": [],
-        "profile_picture": "..\/PHP\/my_photos\/photos_1\/dog.jpg"
-    },
-    {
-        "id": 2,
-        "username": "Benny",
-        "password": "123",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": ""
-    },
-    {
-        "id": 3,
-        "username": "Johnny",
-        "password": "123",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": ""
-    },
-    {
-        "id": 4,
-        "username": "Tommy",
-        "password": "123",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": ""
-    },
-    {
-        "id": 5,
-        "username": "Emma",
-        "password": "123",
-        "uploaded_photos": [
-            {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_5\/brown-dog-jpeg-min.jpg"
-            },
-            {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/photos_5\/fluff-dog-jpeg-min.jpg"
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_1\/terrier-dog-jpeg.jpg"
             }
         ],
         "saved_photos": [
-            {
-                "id": 16881386,
-                "photoObject": {
-                    "id": 16881386,
-                    "width": 3721,
-                    "height": 4651,
-                    "avg_color": "#746665",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16881386\/pexels-photo-16881386.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Alexander Paul",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@alexander-paul-568840608",
-                    "photographer_id": 568840608,
-                    "liked": false,
-                    "alt": "5-Stars Breakfast"
-                },
-                "bookmarked": false
-            },
             {
                 "id": 16857628,
                 "photoObject": {
@@ -88,53 +31,54 @@
                 "bookmarked": false
             },
             {
-                "id": 16750828,
+                "id": 16872664,
                 "photoObject": {
-                    "id": 16750828,
+                    "id": 16872664,
                     "width": 4000,
                     "height": 6000,
-                    "avg_color": "#543F44",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16750828\/pexels-photo-16750828.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Anastasiia Chaikovska",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@anastasiia-chaikovska-206547003",
-                    "photographer_id": 206547003,
-                    "liked": false,
-                    "alt": "bloom"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16859194,
-                "photoObject": {
-                    "id": 16859194,
-                    "width": 3616,
-                    "height": 5425,
-                    "avg_color": "#71706B",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16859194\/pexels-photo-16859194.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Peter Steiner \ud83c\udde8\ud83c\udded 1973",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@peter-steiner-1973-560957992",
-                    "photographer_id": 560957992,
+                    "avg_color": "#717157",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Tony  Wu",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
+                    "photographer_id": 2760503,
                     "liked": false,
                     "alt": ""
                 },
                 "bookmarked": false
             },
             {
-                "id": 1684151,
+                "id": 16881386,
                 "photoObject": {
-                    "id": 1684151,
-                    "width": 3840,
-                    "height": 5760,
-                    "avg_color": "#B1AEAB",
-                    "photo": "https:\/\/images.pexels.com\/photos\/1684151\/pexels-photo-1684151.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Daria Obymaha",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@dariaobymaha",
-                    "photographer_id": 810926,
-                    "alt": "Warm Coffee Drink"
+                    "id": 16881386,
+                    "width": 3721,
+                    "height": 4651,
+                    "avg_color": "#746665",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16881386\/pexels-photo-16881386.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Alexander Paul",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@alexander-paul-568840608",
+                    "photographer_id": 568840608,
+                    "liked": false,
+                    "alt": "5-Stars Breakfast"
                 },
                 "bookmarked": false
             }
         ],
-        "profile_picture": "..\/PHP\/my_photos\/photos_5\/dog-png.png"
+        "profile_picture": "..\/PHP\/my_photos\/photos_1\/fluff-dog-jpeg-min.jpg"
+    },
+    {
+        "id": 2,
+        "username": "Johnny",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
+    },
+    {
+        "id": 3,
+        "username": "Benny",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]

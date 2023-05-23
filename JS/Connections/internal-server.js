@@ -29,7 +29,7 @@ async function postPhotoObjectToDatabase(photoObject, user) {
     if (!response.ok) {
       console.log("Error posting photo object");
     } else {
-      console.log("Photo object posted successfully:", postedPhotoObject);
+      console.log(postedPhotoObject);
 
       const testing = setLocalStorageObject("testing", postedPhotoObject);
       console.log(testing);
@@ -56,7 +56,6 @@ async function fetchCollectedPhotosfromDB(user) {
       console.log("Response not ok", response.statusText);
       return;
     } else {
-      console.log("Response successful");
       return logged_in_user;
     }
   } catch (error) {

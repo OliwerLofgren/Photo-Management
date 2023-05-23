@@ -12,9 +12,6 @@ async function createProfileCollectionsPage(user) {
   const img = check_if_image_exists(user);
   profileImg.append(img);
 
-  console.log(user);
-
-
   await displayprofileCollectionsPhotos(user);
   addEventListeners();
 

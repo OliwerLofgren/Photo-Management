@@ -77,12 +77,12 @@ function createHomePage() {
     }
   }
 
-  function displaySectionTwoPhotos() {
+  async function displaySectionTwoPhotos() {
     const homePage = document.getElementById("home-main");
     if (homePage) {
       // photo dom element creation
-      displayCuratedPhotos(12, "portrait");
-      displaySearchTermPhotos(1, "portrait");
+      await displayCuratedPhotos(12, "portrait");
+      await displaySearchTermPhotos(1, "portrait");
     }
   }
 

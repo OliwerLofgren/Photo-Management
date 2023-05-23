@@ -50,9 +50,9 @@
                 $users[$logged_user_index]["saved_photos"][] = $new_data;
                 
                 file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
-                sendJSON($new_data);
+                sendJSON("Your photo has successfully been added to your collection!");
             }else {
-                $message = ["message" => "Unable to upload file!"];
+                $message = ["message" => "Unable to add photo!"];
                 sendJSON($message, 400);
             }
             
