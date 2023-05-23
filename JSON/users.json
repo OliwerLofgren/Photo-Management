@@ -1,1 +1,15 @@
-[]
+[
+    {
+        "id": 1,
+        "username": "amelie",
+        "password": "123",
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_1\/pexels-andrea-piacquadio-774909(1).jpg"
+            }
+        ],
+        "saved_photos": [],
+        "profile_picture": ""
+    }
+]

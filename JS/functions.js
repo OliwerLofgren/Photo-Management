@@ -7,10 +7,6 @@ function clearElementAttributes(element) {
   element.removeAttribute("class");
 }
 
-// function removeElementAttributes(element, className) {
-//   element.removeAttribute("class", className);
-// }
-
 function setElementAttributes(element, id, className) {
   element.setAttribute("id", id);
   element.setAttribute("class", className);
