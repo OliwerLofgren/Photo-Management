@@ -39,5 +39,13 @@
             }
         ],
         "profile_picture": ""
+    },
+    {
+        "id": 2,
+        "username": "ha",
+        "password": "ha",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]
