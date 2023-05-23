@@ -11,6 +11,7 @@ function createHomePage() {
   displaySectionOneBg();
   displaySectionTwoPhotos();
   displaySectionThreeBg();
+  displaySectionFiveBg();
 
   // add event listeners
   addEventListeners();
@@ -20,7 +21,6 @@ function createHomePage() {
     clearElementAttributes(homeHeader);
     setElementAttributes(homeHeader, "home-header", "");
     document.body.classList.remove("body-layout");
-
 
     homeHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
@@ -42,30 +42,27 @@ function createHomePage() {
       </section>
 
       <section id="home-section-two" class="section"> 
-      <h1>Discover endless creative possibilities with our vast collection of images</h1>
+      <h1 class="h1-two">Discover endless creative possibilities with our vast collection of images</h1>
           <form id="search-form" >
           <label for="search-field"></label>
           <input id="search-field" name="search" type="text" placeholder="Explore our collection of photos">
           <button type="submit">Search</button>
         </form>
 
-        <div>
-        <h3 id="">Title:</h3> 
-        </div>
         <div id="home-photos" class="api-photos"></div>
       </section>
 
       <section id="home-section-three" class="section bg-img">
-        <h1>Create your own visual world: upload your images, discover new ones, and organize your inspiration</h1>
+        <h1 class="h1-three">Create your own visual world: upload your images, discover new ones, and organize your inspiration</h1>
       </section>
 
       <section id="home-section-four" class="section">
-      <h1>Collect your favorites so you can get back to them later</h1>
+      <h1 class="h1-four">Collect your favorites so you can get back to them later</h1>
+      <div class="circle-home"> <p class="circle-text">Be inspired</p></div>
     </section>
 
-      <section id="home-section-five" class="section">
-      <h1>Sign up to get your ideas</h1>
-      <h2>Welcome to Photo Management</h2>
+      <section id="home-section-five" class="section bg-img">
+      <h1 class="h1-five">Sign up to get your ideas</h1>
     </section>
 
     </section>
@@ -84,7 +81,7 @@ function createHomePage() {
     const homePage = document.getElementById("home-main");
     if (homePage) {
       // photo dom element creation
-      displayCuratedPhotos(3, "portrait");
+      displayCuratedPhotos(12, "portrait");
       displaySearchTermPhotos(1, "portrait");
     }
   }
@@ -94,6 +91,14 @@ function createHomePage() {
     const homePage = document.getElementById("home-main");
     if (homePage) {
       displayApiBackgroundImage(1, "original", domElement);
+    }
+  }
+
+  function displaySectionFiveBg() {
+    let domElement = document.querySelector("#home-section-five");
+    const homePage = document.getElementById("home-main");
+    if (homePage) {
+      displayApiBackgroundImage(6, "original", domElement);
     }
   }
 
@@ -111,3 +116,9 @@ function createHomePage() {
   }
 }
 
+//  <div class="trendingContainer">
+//         <h3 id="" class="trending">Trending:</h3>
+//         <div class="alt">Dog</div>
+//         <div class="alt">Fire</div>
+//         <div class="alt">Mountain</div>
+//         </div>

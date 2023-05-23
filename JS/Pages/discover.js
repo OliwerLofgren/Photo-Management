@@ -7,11 +7,11 @@ async function createDiscoverPage(user) {
   // setup page
   setupPage();
 
-  const profile_div = document.querySelector(".mini-profile-photo");
+  const thumbnailImg = document.querySelector(".mini-profile-photo");
   const img = check_if_image_exists(user);
-  profile_div.append(img);
+  thumbnailImg.append(img);
 
-  displaySectionOnePhotos();
+  displayDiscoverSectionOnePhotos();
 
   // add event listeners
   addEventListeners();
@@ -33,21 +33,26 @@ async function createDiscoverPage(user) {
             <button id="gallery-button">Profile</button>
             <button id="logout-button">Logout</button>
             <button id="search-button">search</button>
+            <button id="media-button">media</button>
+
             </nav>
             `;
 
     discoverMain.innerHTML = `
     <section id="discover-section-one" class="section">
-      <div id="discover">
-        <h2>Discover New Inspiration</h2>
-      </div>
-    
-      <form id="search-form">
+        <h1>Discover New Inspiration</h1>
+      
+        <form id="search-form" >
           <label for="search-field"></label>
-          <input id="search-field" name="search" type="text">
+          <input id="search-field" name="search" type="text" placeholder="Explore our collection of photos">
           <button type="submit">Search</button>
-      </form>
-    </section>
+        </form>
+
+        <div>
+        <h3 id="">Title:</h3> 
+        </div>
+        <div id="home-photos" class="api-photos"></div>
+      </section>
     
     <section id="discover-section-two" class="section">
       <div id="discover-photos" class="api-photos"></div>
@@ -55,7 +60,7 @@ async function createDiscoverPage(user) {
         `;
   }
 
-  function displaySectionOnePhotos() {
+  function displayDiscoverSectionOnePhotos() {
     // check if current page is discover page
     const discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
@@ -76,15 +81,23 @@ async function createDiscoverPage(user) {
         createProfileGalleryPage(user);
       });
     document
+      .getElementById("search-button")
+      .addEventListener("click", function () {
+        createSearchOrMediaCollectionsPage(user);
+      });
+
+    document
+      .getElementById("media-button")
+      .addEventListener("click", function () {
+        createSearchOrMediaCollectionsPage(null, user);
+      });
+
+
+    document
       .getElementById("logout-button")
       .addEventListener("click", function () {
         localStorage.removeItem("user");
         createHomePage();
-      });
-    document
-      .getElementById("search-button")
-      .addEventListener("click", function () {
-        createSearchOrMediaCollectionsPage();
       });
   }
 }
