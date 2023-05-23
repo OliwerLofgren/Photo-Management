@@ -126,6 +126,76 @@
         "username": "rabia",
         "password": "a",
         "uploaded_photos": [],
+        "saved_photos": [
+            {
+                "id": 270348,
+                "photoObject": {
+                    "id": 270348,
+                    "width": 1920,
+                    "height": 1032,
+                    "avg_color": "#2E2D2E",
+                    "photo": "https:\/\/images.pexels.com\/photos\/270348\/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Pixabay",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@pixabay",
+                    "photographer_id": 2659,
+                    "alt": "PHP Screengrab"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 302896,
+                "photoObject": {
+                    "id": 302896,
+                    "width": 4016,
+                    "height": 6016,
+                    "avg_color": "#726969",
+                    "photo": "https:\/\/images.pexels.com\/photos\/302896\/pexels-photo-302896.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Chevanon Photography",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@chevanon",
+                    "photographer_id": 93955,
+                    "alt": "Woman Pouring Cappuccino"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 2334533,
+                "photoObject": {
+                    "id": 2334533,
+                    "width": 3328,
+                    "height": 4160,
+                    "avg_color": "#87A2A8",
+                    "photo": "https:\/\/images.pexels.com\/photos\/2334533\/pexels-photo-2334533.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Tobias Bj\u00f8rkli",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@tobiasbjorkli",
+                    "photographer_id": 706370,
+                    "alt": "Man Looking At A Rock Formation"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16881386,
+                "photoObject": {
+                    "id": 16881386,
+                    "width": 3721,
+                    "height": 4651,
+                    "avg_color": "#746665",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16881386\/pexels-photo-16881386.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Alexander Paul",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@alexander-paul-568840608",
+                    "photographer_id": 568840608,
+                    "liked": false,
+                    "alt": "5-Stars Breakfast"
+                },
+                "bookmarked": false
+            }
+        ],
+        "profile_picture": "..\/PHP\/my_photos\/photos_6\/Screenshot 2023-05-17 005209.png"
+    },
+    {
+        "id": 3,
+        "username": "a",
+        "password": "a",
+        "uploaded_photos": [],
         "saved_photos": [],
         "profile_picture": ""
     }

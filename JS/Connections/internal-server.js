@@ -3,7 +3,6 @@
 
 // handles post request
 async function postPhotoObjectToDatabase(photoObject, user) {
-  console.log(user.id);
 
   // Fetch the collected photos from the JSON
   const logged_in_user = await fetchCollectedPhotosfromDB(user);

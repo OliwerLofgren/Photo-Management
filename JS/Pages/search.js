@@ -169,7 +169,7 @@ async function extractMediaTerms() {
   const mediaCollectionsArray = await getCollectionsIds();
   shuffle(mediaCollectionsArray);
 
-  const clonedShuffledArray = mediaCollectionsArray.slice(1, 6);
+  const clonedShuffledArray = mediaCollectionsArray.slice(1, 10);
   return clonedShuffledArray;
 }
 

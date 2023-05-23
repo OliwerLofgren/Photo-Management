@@ -103,6 +103,9 @@ function closeModalWindow() {
 function displayServerLoadingMessage() {
   // add the loading class to the .section element
   const loadingPhotos = document.querySelector(".section");
+  if (loadingPhotos == null) {
+    return;
+  }
   loadingPhotos.classList.add("loading");
   // create the loader line element
   loadingPhotos.innerHTML = `
