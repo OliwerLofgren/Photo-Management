@@ -4,7 +4,40 @@
         "username": "Oliwer",
         "password": "123",
         "uploaded_photos": [],
-        "saved_photos": [],
+        "saved_photos": [
+            {
+                "id": 16881314,
+                "photoObject": {
+                    "id": 16881314,
+                    "width": 2767,
+                    "height": 4919,
+                    "avg_color": "#644F3C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16881314\/pexels-photo-16881314.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Alexander Paul",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@alexander-paul-568840608",
+                    "photographer_id": 568840608,
+                    "liked": false,
+                    "alt": "Happy Guys"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16881386,
+                "photoObject": {
+                    "id": 16881386,
+                    "width": 3721,
+                    "height": 4651,
+                    "avg_color": "#746665",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16881386\/pexels-photo-16881386.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Alexander Paul",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@alexander-paul-568840608",
+                    "photographer_id": 568840608,
+                    "liked": false,
+                    "alt": "5-Stars Breakfast"
+                },
+                "bookmarked": false
+            }
+        ],
         "profile_picture": ""
     }
 ]
