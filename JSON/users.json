@@ -9,8 +9,16 @@
     },
     {
         "id": 2,
-        "username": "Amelie",
-        "password": "123",
+        "username": "ha",
+        "password": "ha",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
+    },
+    {
+        "id": 3,
+        "username": "ja",
+        "password": "ja",
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_picture": ""

@@ -114,9 +114,9 @@ async function countUsers() {
   // resource.forEach((user) => userCount++);
 
   if (Array.isArray(resource) && resource.length > 0) {
-    numberOfUsers = userCount;
+    userCount = resource.length;
   }
-
+  numberOfUsers = userCount;
   console.log("Number of users:", userCount);
 }
 

@@ -83,6 +83,7 @@ async function registerUser(event) {
 
     if (response.ok) {
       console.log(user);
+
       const clickedButton = document.querySelector("#regForm button");
       clickedButton.onClick = displayModalWindow(
         "Successfully registered! Proceed to Log in page"
@@ -91,6 +92,8 @@ async function registerUser(event) {
       document
         .querySelector(".modal-button")
         .addEventListener("click", closeModalWindow);
+
+      countUsers();
     } else {
       displayDatabaseMessage(user);
     }
