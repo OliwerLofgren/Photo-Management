@@ -9,7 +9,6 @@ function createHomePage() {
 
   // display each section of the page
   displaySectionOneBg();
-  displaySectionTwoPhotos();
   displaySectionThreeBg();
 
   // add event listeners
@@ -20,7 +19,6 @@ function createHomePage() {
     clearElementAttributes(homeHeader);
     setElementAttributes(homeHeader, "home-header", "");
     document.body.classList.remove("body-layout");
-
 
     homeHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
@@ -39,20 +37,6 @@ function createHomePage() {
 
       <button>Learn more</button>
        
-      </section>
-
-      <section id="home-section-two" class="section"> 
-      <h1>Discover endless creative possibilities with our vast collection of images</h1>
-          <form id="search-form" >
-          <label for="search-field"></label>
-          <input id="search-field" name="search" type="text" placeholder="Explore our collection of photos">
-          <button type="submit">Search</button>
-        </form>
-
-        <div>
-        <h3 id="">Title:</h3> 
-        </div>
-        <div id="home-photos" class="api-photos"></div>
       </section>
 
       <section id="home-section-three" class="section bg-img">
@@ -80,14 +64,6 @@ function createHomePage() {
     }
   }
 
-  function displaySectionTwoPhotos() {
-    const homePage = document.getElementById("home-main");
-    if (homePage) {
-      // photo dom element creation
-      displayCuratedPhotos(3, "portrait");
-      displaySearchTermPhotos(1, "portrait");
-    }
-  }
 
   function displaySectionThreeBg() {
     let domElement = document.querySelector("#home-section-three");

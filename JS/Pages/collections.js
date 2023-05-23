@@ -8,6 +8,10 @@ async function createProfileCollectionsPage(user) {
 
   setupPage();
 
+  const profileImg = document.querySelector("#profile-picture");
+  const img = check_if_image_exists(user);
+  profileImg.append(img);
+
   console.log(user);
 
 
