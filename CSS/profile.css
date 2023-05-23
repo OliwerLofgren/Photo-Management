@@ -54,9 +54,11 @@
   max-width: 150px;
   margin: 10px;
 }
+
 #form_upload {
   margin: 10px;
 }
+
 #userIcon {
   font-size: 5em;
 }
@@ -78,6 +80,12 @@
   overflow: hidden;
   margin-top: 10px;
 }
+
+/*.collections-button:hover,
+.profile-button:hover {
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  background-color: rgb(249, 250, 251);
+}*/
 
 #profile-picture img {
   height: 100%;
@@ -163,31 +171,36 @@
 
   justify-content: space-between;
 }
+
 .photo_image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 #message_container {
   text-align: center;
 }
+
 #result {
   margin-bottom: 10px;
 }
 
-#collections-photos > div img {
+#collections-photos>div img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-/* #collections-photos > div {
+
+#collections-photos>div {
   width: 100%;
   height: auto;
-} */
+}
 
 #hover-message {
   cursor: pointer;
 }
+
 #hover-message:hover {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   color: rgb(161, 119, 134);

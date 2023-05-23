@@ -14,6 +14,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     setupSearchPage();
 
     addEventListeners();
+
     displaySearchSectionTwoPhotos();
 
     async function displaySearchSectionTwoPhotos(searchTerm) {
@@ -21,6 +22,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       if (searchPage) {
         document.querySelector(".api-photos").innerHTML = "";
         await displaySearchTermPhotos(100, "portrait");
+        // createTitleButtons(); element is null
       }
     }
     function setupSearchPage() {
@@ -48,6 +50,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
         <button id="discoverBtn">Discover</button> /     
         <button id="collectionsBtn">Your Collections</button> /     
         <button id="profileBtn">Profile</button>  
+        <button id="explore-button">Explore</button>
         <button id="logout-button">Logout</button>
       </nav>
       `;
@@ -64,6 +67,12 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
         </section>
       `;
     }
+
+    document
+      .getElementById("explore-button")
+      .addEventListener("click", function () {
+        createSearchOrMediaCollectionsPage(null, user);
+      });
   }
 
   async function createMediaCollectionsPage(user) {
@@ -84,6 +93,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       if (mediaPage) {
         document.querySelector(".api-photos").innerHTML = "";
         await displayMediaCollectionPhotos("photos", photosCount, id, "portrait");
+        createTitleButtons();
       }
     }
 
@@ -152,7 +162,6 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
         createHomePage();
       });
   }
-
 }
 
 async function extractMediaTerms() {
@@ -160,8 +169,7 @@ async function extractMediaTerms() {
   const mediaCollectionsArray = await getCollectionsIds();
   shuffle(mediaCollectionsArray);
 
-  const clonedShuffledArray = mediaCollectionsArray.slice(1, 6);
-  console.log(clonedShuffledArray);
+  const clonedShuffledArray = mediaCollectionsArray.slice(1, 10);
   return clonedShuffledArray;
 }
 
@@ -169,14 +177,14 @@ async function extractMediaTerms() {
 async function createTitleButtons() {
   // query select container for collection title buttons
   const titleBtnsContainer = document.querySelector(".title-buttons-container");
-  console.log(titleBtnsContainer);
+
+  let clonedShuffledArray = await extractMediaTerms();
 
   clonedShuffledArray.forEach(collection => {
-    console.log(`Current collection has the title: ${collection.title} with the id: ${collection.id} and contains ${collection.photosCount} photos`);
-
     const collectionTitleBtn = document.createElement("button");
     collectionTitleBtn.textContent = collection.title;
     titleBtnsContainer.append(collectionTitleBtn);
   });
+  /*console.log(`Current collection has the title: ${collection.title} with the id: ${collection.id} and contains ${collection.photosCount} photos`);*/
   return clonedShuffledArray;
 }

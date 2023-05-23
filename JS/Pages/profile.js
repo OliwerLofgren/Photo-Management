@@ -91,7 +91,7 @@ async function createProfileGalleryPage(user) {
       
       <nav class="profile-or-collections-nav">
       <button id="collections-button" class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Your Collections</button>      
-      <button id="profile-button" class="activeBtn" onclick="btnFunc1()">Profile</button>   
+      <button id="profile-button" class="activeBtn profile-button" onclick="btnFunc1()">Profile</button>   
       </nav>
       <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
         <input type="file"  name="upload">

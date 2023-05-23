@@ -173,3 +173,17 @@
 #mini-search-field:focus {
     border-color: #5902d2;
 }
+
+#media-term-btns {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+#media-term-btns button {
+    /*background-image: linear-gradient(144deg, #d24955, #ab2b43 50%, #f3efe5);*/
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    max-width: 100%;
+    min-width: 100px;
+    padding: 15px 20px;
+}

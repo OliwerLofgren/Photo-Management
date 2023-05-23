@@ -25,7 +25,7 @@ function createRegisterPage() {
             <h2 class="text-login-register">Join us!</h2>
             <h3 class="text-login-register">Register</h3>
 
-            <p id="login-register-instead">Already have an account? Sign In </p>
+            <p class="login-register-instead">Already have an account? Sign In </p>
     
             <p id="message"></p>
     
@@ -47,7 +47,7 @@ function createRegisterPage() {
 
   function addEventListeners() {
     document
-      .getElementById("login-register-instead")
+      .querySelector(".login-register-instead")
       .addEventListener("click", createLoginPage);
 
     document

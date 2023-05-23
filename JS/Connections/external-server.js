@@ -248,7 +248,6 @@ async function displaySearchTermPhotos(per_page, imgSize) {
       }
       const matchingResults = customSearchPhotoDataArray.length;
       const searchQueryinfo = document.querySelector(".search-query-info");
-      console.log(searchQueryinfo);
       searchQueryinfo.innerHTML = `  
       <h3>${searchTerm}</h2>
       <p class="matching-results">${matchingResults} Photos Found</p>`;
