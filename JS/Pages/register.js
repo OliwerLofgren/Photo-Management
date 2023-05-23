@@ -15,13 +15,13 @@ function createRegisterPage() {
 
     registerHeader.innerHTML = `
         <h1>PHOTO MANAGEMENT</h1>
-        <nav id="nav-Register-Login">
+        <nav class="nav-Register-Login">
         <button id="go-back-home">Back to home</button>
         </nav>`;
 
     registerMain.innerHTML = `
         <div class="box">
-        <section id="register-login-section">
+        <section class="register-login-section" id="login-section">
             <h2 class="text-login-register">Join us!</h2>
             <h3 class="text-login-register">Register</h3>
 
