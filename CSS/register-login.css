@@ -1,4 +1,4 @@
-#nav-Register-Login {
+.nav-Register-Login {
     width: 100vw;
     display: flex;
     justify-content: flex-end;
@@ -42,25 +42,40 @@
 .input-field {
     display: flex;
     flex-direction: column;
+    padding-left: 50px;
 }
 
 .input {
     height: 45px;
-    width: 87%;
+    width: 70%;
     border: none;
     outline: none;
     padding: 0 0 0 45px;
     background-color: rgb(199, 199, 199);
 }
 
+.input:hover {
+    cursor: pointer;
+}
+
 #user {
     position: relative;
     top: -33px;
     left: 17px;
+    width: 10px;
 }
 
 #lock {
     position: relative;
     top: -33px;
     left: 17px;
+    width: 10px;
 }
+
+/* .circle-register {
+    z-index: 0;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: rgb(244, 83, 24);
+} */

@@ -5,7 +5,22 @@
 async function postPhotoObjectToDatabase(photoObject, user) {
   console.log(user.id);
 
-  // add check if object exists ->
+  // Fetch the collected photos from the JSON
+  const logged_in_user = await fetchCollectedPhotosfromDB(user);
+  if (!logged_in_user) {
+    console.log("Failed to fetch user data");
+    return;
+  }
+
+  // Check if the photoObject already exists
+  const existingPhoto = logged_in_user.saved_photos.find(
+    (savedPhoto) => savedPhoto.photoObject.id === photoObject.id
+  );
+  console.log(existingPhoto);
+  if (existingPhoto) {
+    console.log("Photo object already exists");
+    return existingPhoto;
+  }
 
   // format data we want to send to our database and add some keys
   const photoObjectForDatabase = {
@@ -29,7 +44,7 @@ async function postPhotoObjectToDatabase(photoObject, user) {
     if (!response.ok) {
       console.log("Error posting photo object");
     } else {
-      console.log("Photo object posted successfully:", postedPhotoObject);
+      console.log(postedPhotoObject);
 
       const testing = setLocalStorageObject("testing", postedPhotoObject);
       console.log(testing);
@@ -56,7 +71,6 @@ async function fetchCollectedPhotosfromDB(user) {
       console.log("Response not ok", response.statusText);
       return;
     } else {
-      console.log("Response successful");
       return logged_in_user;
     }
   } catch (error) {
@@ -73,7 +87,7 @@ async function displayCollectedPhotos(user) {
   }
 
   const photoWrapper = document.getElementById("collections-photos");
-
+  const messageContainer = document.getElementById("message_container");
   // iterate over each user object
   logged_in_user.saved_photos.forEach((savedPhoto) => {
     // create a div and append the container to parent wrapper
@@ -111,6 +125,7 @@ async function displayCollectedPhotos(user) {
     const message1 = document.createElement("h1");
     const message2 = document.createElement("p");
     const message3 = document.createElement("p");
+    message3.id = "hover-message";
 
     message1.textContent = "Collect Photos";
     message2.textContent =
@@ -121,7 +136,7 @@ async function displayCollectedPhotos(user) {
       createDiscoverPage(user);
     });
 
-    photoWrapper.append(message1, message2, message3);
+    messageContainer.append(message1, message2, message3);
   }
 }
 

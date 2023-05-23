@@ -77,12 +77,12 @@ function createHomePage() {
     }
   }
 
-  function displaySectionTwoPhotos() {
+  async function displaySectionTwoPhotos() {
     const homePage = document.getElementById("home-main");
     if (homePage) {
       // photo dom element creation
-      displayCuratedPhotos(12, "portrait");
-      displaySearchTermPhotos(1, "portrait");
+      await displayCuratedPhotos(12, "portrait");
+      await displaySearchTermPhotos(1, "portrait");
     }
   }
 
@@ -110,9 +110,9 @@ function createHomePage() {
       .getElementById("registerBtn")
       .addEventListener("click", createRegisterPage);
     // clickedButton.onClick = displayModalWindow("Want more? Create an account or log in to see additional search results, add your favorites to Collections, and save changes.")
-    /*document
+    document
       .getElementById("aboutBtn")
-      .addEventListener("click", createAboutUsPage);*/
+      .addEventListener("click", createAboutUsPage);
   }
 }
 

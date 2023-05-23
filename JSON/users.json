@@ -6,132 +6,38 @@
         "uploaded_photos": [
             {
                 "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg.jpg"
-            },
-            {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/photos_1\/dog-white-jpeg.jpg"
-            }
-        ],
-        "saved_photos": [],
-        "profile_picture": "..\/PHP\/my_photos\/photos_1\/dog.jpg"
-    },
-    {
-        "id": 2,
-        "username": "Benny",
-        "password": "123",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": ""
-    },
-    {
-        "id": 3,
-        "username": "Johnny",
-        "password": "123",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": ""
-    },
-    {
-        "id": 4,
-        "username": "Tommy",
-        "password": "123",
-        "uploaded_photos": [],
-        "saved_photos": [
-            {
-                "id": 16872664,
-                "photoObject": {
-                    "id": 16872664,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#717157",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Tony  Wu",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
-                    "photographer_id": 2760503,
-                    "liked": false,
-                    "alt": ""
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16872664,
-                "photoObject": {
-                    "id": 16872664,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#717157",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Tony  Wu",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
-                    "photographer_id": 2760503,
-                    "liked": false,
-                    "alt": ""
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16872664,
-                "photoObject": {
-                    "id": 16872664,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#717157",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Tony  Wu",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
-                    "photographer_id": 2760503,
-                    "liked": false,
-                    "alt": ""
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16872664,
-                "photoObject": {
-                    "id": 16872664,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#717157",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Tony  Wu",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
-                    "photographer_id": 2760503,
-                    "liked": false,
-                    "alt": ""
-                },
-                "bookmarked": false
-            }
-        ],
-        "profile_picture": ""
-    },
-    {
-        "id": 5,
-        "username": "Emma",
-        "password": "123",
-        "uploaded_photos": [
-            {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_5\/brown-dog-jpeg.jpg"
-            },
-            {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/photos_5\/dog.jpg"
+                "photo": "..\/PHP\/my_photos\/photos_1\/maltese-portrait-dog-min.jpg"
             },
             {
                 "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/photos_5\/dog-white-jpeg.jpg"
+                "photo": "..\/PHP\/my_photos\/photos_1\/terrier-dog-jpeg-min.jpg"
             },
             {
                 "photo_id": 4,
-                "photo": "..\/PHP\/my_photos\/photos_5\/fluff-dog-jpeg.jpg"
+                "photo": "..\/PHP\/my_photos\/photos_1\/fluff-dog-jpeg-min.jpg"
             },
             {
-                "photo_id": 5,
-                "photo": "..\/PHP\/my_photos\/photos_5\/dog-ocean-jpeg.jpg"
+                "photo_id": 4,
+                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg-min.jpg"
             }
         ],
         "saved_photos": [
+            {
+                "id": 16881314,
+                "photoObject": {
+                    "id": 16881314,
+                    "width": 2767,
+                    "height": 4919,
+                    "avg_color": "#644F3C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16881314\/pexels-photo-16881314.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Alexander Paul",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@alexander-paul-568840608",
+                    "photographer_id": 568840608,
+                    "liked": false,
+                    "alt": "Happy Guys"
+                },
+                "bookmarked": false
+            },
             {
                 "id": 16881386,
                 "photoObject": {
@@ -165,6 +71,22 @@
                 "bookmarked": false
             },
             {
+                "id": 16752696,
+                "photoObject": {
+                    "id": 16752696,
+                    "width": 4160,
+                    "height": 6240,
+                    "avg_color": "#A4A8B1",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16752696\/pexels-photo-16752696.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Nektaria Kleopoulos",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@nektaria-kleopoulos-417944344",
+                    "photographer_id": 417944344,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            },
+            {
                 "id": 16750828,
                 "photoObject": {
                     "id": 16750828,
@@ -181,18 +103,18 @@
                 "bookmarked": false
             },
             {
-                "id": 16859194,
+                "id": 16731455,
                 "photoObject": {
-                    "id": 16859194,
-                    "width": 3616,
-                    "height": 5425,
-                    "avg_color": "#71706B",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16859194\/pexels-photo-16859194.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Peter Steiner \ud83c\udde8\ud83c\udded 1973",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@peter-steiner-1973-560957992",
-                    "photographer_id": 560957992,
+                    "id": 16731455,
+                    "width": 2953,
+                    "height": 4430,
+                    "avg_color": "#A4A4A4",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16731455\/pexels-photo-16731455.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "cultatum",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@cultatum-555666405",
+                    "photographer_id": 555666405,
                     "liked": false,
-                    "alt": ""
+                    "alt": "Free stock photo of aesthetic, conceptual, model"
                 },
                 "bookmarked": false
             }

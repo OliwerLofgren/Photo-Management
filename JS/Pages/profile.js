@@ -65,7 +65,6 @@ async function createProfileGalleryPage(user) {
     <H1>Photo Management</H1>
       <nav>
       <button id="discover-button">Discover</button>
-      <button id="upload-button">Upload</button>
       <button id="logout-button">Logout</button>
       <button id="delete-button">Delete your account</button>
       </nav>
@@ -93,13 +92,12 @@ async function createProfileGalleryPage(user) {
       <nav class="profile-or-collections-nav">
       <button id="collections-button" class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Your Collections</button>      
       <button id="profile-button" class="activeBtn" onclick="btnFunc1()">Profile</button>   
-
+      </nav>
       <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
         <input type="file"  name="upload">
         <button type="submit" id="section_two_button">Upload</button>
       </form>
       <div id="result"></div>   
-    </nav>
 
         <div id="message_container"></div>
         <div id="profile-photos" class="user-page-photos"></div>
@@ -124,7 +122,6 @@ async function createProfileGalleryPage(user) {
 
       // This simply resets the form.
       form.reset();
-      console.log(data);
 
       if (!response.ok) {
         result.textContent = "An error occurred: " + data.message;
