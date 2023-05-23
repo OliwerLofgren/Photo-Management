@@ -22,7 +22,6 @@ function createHomePage() {
     setElementAttributes(homeHeader, "home-header", "");
     document.body.classList.remove("body-layout");
 
-
     homeHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
       <nav id="navHome">
