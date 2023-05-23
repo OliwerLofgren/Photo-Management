@@ -59,7 +59,7 @@ function createHomePage() {
 
       <section id="home-section-four" class="section">
       <h1 class="h1-four">Collect your favorites so you can get back to them later</h1>
-      <div class="circle-home"></div>
+      <div class="circle-home"> <p class="circle-text">Be inspired</p></div>
     </section>
 
       <section id="home-section-five" class="section bg-img">
