@@ -14,5 +14,67 @@
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_picture": "..\/PHP\/my_photos\/photos_2\/brown-dog-jpeg.jpg"
+    },
+    {
+        "id": 3,
+        "username": "d",
+        "password": "d",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": "..\/PHP\/my_photos\/photos_3\/Screenshot 2023-05-17 005209.png"
+    },
+    {
+        "id": 4,
+        "username": "a",
+        "password": "a",
+        "uploaded_photos": [],
+        "saved_photos": [
+            {
+                "id": 1194036,
+                "photoObject": {
+                    "id": 1194036,
+                    "width": 5472,
+                    "height": 3648,
+                    "avg_color": "#836842",
+                    "photo": "https:\/\/images.pexels.com\/photos\/1194036\/pexels-photo-1194036.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "THIS IS  ZUN",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@zun1412",
+                    "photographer_id": 358536,
+                    "alt": "Shallow Focus Photography of Keychains"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 36029,
+                "photoObject": {
+                    "id": 36029,
+                    "width": 3071,
+                    "height": 4584,
+                    "avg_color": "#664D53",
+                    "photo": "https:\/\/images.pexels.com\/photos\/36029\/aroni-arsa-children-little.jpg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Pixabay",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@pixabay",
+                    "photographer_id": 2659,
+                    "alt": "Girl in Blue Dress Standing on Grass Field during Sunset"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 3090875,
+                "photoObject": {
+                    "id": 3090875,
+                    "width": 4912,
+                    "height": 7360,
+                    "avg_color": "#90847B",
+                    "photo": "https:\/\/images.pexels.com\/photos\/3090875\/pexels-photo-3090875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Laura Stanley",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@lstan",
+                    "photographer_id": 839768,
+                    "alt": "Chihuahua Sitting on Staircase"
+                },
+                "bookmarked": false
+            }
+        ],
+        "profile_picture": ""
     }
 ]

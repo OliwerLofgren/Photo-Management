@@ -93,7 +93,7 @@ async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
         alt: photo.alt,
       };
     });
-
+    console.log(customSearchPhotoDataArray);
     return customSearchPhotoDataArray;
   } catch (error) {
     console.log(error);
@@ -127,8 +127,12 @@ async function fetchFeaturedCollectionObjects(per_page) {
   }
 }
 async function fetchCollectionsMedia(type, per_page, id, imgSize) {
+  // creates the ids with possible media collections >, select the ones we like
   const collectionTitlesandIds = await getCollectionsIds();
   console.log(collectionTitlesandIds);
+  collectionTitlesandIds.forEach(collection => {
+    console.log(collection.title);
+  });
 
   const url = `${prefix}collections/${id}?per_page=${per_page}&type=${type}`;
 
@@ -167,7 +171,7 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
   }
 
   async function getCollectionsIds() {
-    let resource = await fetchFeaturedCollectionObjects(1);
+    let resource = await fetchFeaturedCollectionObjects(5);
     const arrayOfCollectionObjects = resource.collections;
 
     // array of ids and titles
@@ -175,6 +179,7 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
       return {
         id: collection.id,
         title: collection.title,
+        photosCount: collection.photos_count,
       };
     });
     return collections;
@@ -186,7 +191,7 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
 // (NOTE: don't forget to add class .api-photos to dom element to display photos) creates photo dom element and handles buttons event listeners
 function createPhotoContainer(array) {
   const photoWrapper = document.querySelector(".api-photos");
-  if (array === undefined) {
+  if (array === undefined || photoWrapper === null) {
     console.log("array is undefined");
     return;
   }
@@ -229,12 +234,13 @@ async function displayCuratedPhotos(per_page, imgSize) {
 // displays search term api photos
 async function displaySearchTermPhotos(per_page, imgSize) {
   let customSearchPhotoDataArray;
-  let searchForm = document.querySelector("#search-form");
+  let searchForm = document.querySelector(".search-form");
   if (searchForm != null) {
     searchForm.addEventListener("submit", async function (event) {
       event.preventDefault();
-      let searchTerm = getElement("#search-field").value.trim();
+      let searchTerm = getElement(".search-field").value.trim();
       createSearchOrMediaCollectionsPage(searchTerm);
+      console.log(searchTerm);
 
       // clear already loaded photos and display searched photos instead
       document.querySelector(".api-photos").innerHTML = "";
@@ -243,6 +249,15 @@ async function displaySearchTermPhotos(per_page, imgSize) {
         imgSize,
         searchTerm
       );
+
+      const matchingResults = customSearchPhotoDataArray.length;
+
+      const searchQueryinfo = document.querySelector(".search-query-info");
+      console.log(searchQueryinfo);
+      searchQueryinfo.innerHTML = `  
+      <h3>${searchTerm}</h2>
+      <p class="matching-results">${matchingResults} Photos Found</p>`;
+
       return createPhotoContainer(customSearchPhotoDataArray);
     });
   }
