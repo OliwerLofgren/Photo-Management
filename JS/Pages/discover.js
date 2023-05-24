@@ -12,6 +12,7 @@ async function createDiscoverPage(user) {
   thumbnailImg.append(img);
 
   await displayDiscoverSectionOnePhotos();
+  await ifSearchFormExists();
 
   // add event listeners
   addEventListeners();
@@ -42,8 +43,11 @@ async function createDiscoverPage(user) {
 
     discoverMain.innerHTML = `
     <section id="discover-section-one">
-        <h1>hej</h1>
-        <p>hej</p>
+    <form id="big-search-form" class="search-form">
+    <label for="search-field"></label>
+    <input id="big-search-field" class="search-field" name="search" type="text">
+    <button type="submit">Search</button>
+</form>
     </section>
 
     <section id="discover-section-two" class="section">
@@ -54,12 +58,20 @@ async function createDiscoverPage(user) {
 
   async function displayDiscoverSectionOnePhotos() {
     // check if current page is discover page
-    const discoverPage = document.getElementById("discover-main");
+    let discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
       // photo dom element creation
       await displayCuratedPhotos(20, "portrait");
     }
   }
+
+  async function ifSearchFormExists() {
+    let discoverPage = document.getElementById("discover-main");
+    if (discoverPage) {
+      await displaySearchTermPhotos(100, "portrait");
+    }
+  }
+
   function addEventListeners() {
     document
       .getElementById("collections-button")
