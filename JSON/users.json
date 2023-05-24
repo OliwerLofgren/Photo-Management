@@ -242,5 +242,26 @@
             }
         ],
         "profile_picture": "..\/PHP\/my_photos\/photos_2\/coffee-png-min.png"
+    },
+    {
+        "id": 3,
+        "username": "OliwerA",
+        "password": "123",
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_3\/fluff-dog-jpeg-min.jpg"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/photos_3\/maltese-portrait-dog-min.jpg"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_3\/terrier-dog-jpeg-min.jpg"
+            }
+        ],
+        "saved_photos": [],
+        "profile_picture": "..\/PHP\/my_photos\/photos_3\/brown-dog-jpeg-min.jpg"
     }
 ]

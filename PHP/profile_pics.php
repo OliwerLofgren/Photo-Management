@@ -14,6 +14,7 @@
         if(isset($_FILES["upload"])){
             $tmp_name = $_FILES["upload"]["tmp_name"];
             $name = $_FILES["upload"]["name"];
+            $size = $_FILES["upload"]["size"];
             
             $allowed_extensions = ["jpg", "jpeg", "png", "gif"];
             $extension = pathinfo($name, PATHINFO_EXTENSION);
