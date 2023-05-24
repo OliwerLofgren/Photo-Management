@@ -186,13 +186,13 @@
   margin-bottom: 10px;
 }
 
-#collections-photos>div img {
+#collections-photos > div img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-#collections-photos>div {
+#collections-photos > div {
   width: 100%;
   height: auto;
 }
@@ -204,4 +204,24 @@
 #hover-message:hover {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   color: rgb(161, 119, 134);
+}
+
+#button_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.discover_button {
+  font-size: 11vw;
+  padding: 5px;
+  width: 10vw;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.discover_button:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+#discover_profile_container {
+  height: 80px;
 }

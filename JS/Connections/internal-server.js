@@ -3,7 +3,6 @@
 
 // handles post request
 async function postPhotoObjectToDatabase(photoObject, user) {
-
   // Fetch the collected photos from the JSON
   const logged_in_user = await fetchCollectedPhotosfromDB(user);
   if (!logged_in_user) {
@@ -15,7 +14,6 @@ async function postPhotoObjectToDatabase(photoObject, user) {
   const existingPhoto = logged_in_user.saved_photos.find(
     (savedPhoto) => savedPhoto.photoObject.id === photoObject.id
   );
-  console.log(existingPhoto);
   if (existingPhoto) {
     console.log("Photo object already exists");
     return existingPhoto;
