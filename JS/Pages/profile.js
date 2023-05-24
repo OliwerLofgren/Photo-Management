@@ -40,7 +40,6 @@ async function createProfileGalleryPage(user) {
         profile_div.innerHTML = "";
         let img = check_if_image_exists(user);
         profile_div.append(img);
-        // update the user's profile picture
       }
     } catch (error) {
       profile_result.textContent = "An error occurred!" + error;
@@ -226,6 +225,7 @@ async function createProfileGalleryPage(user) {
           button_delete.innerText = "Remove this image";
           button_delete.classList.add("delete");
           button_delete.addEventListener("click", () => {
+            // console.log("Deleted");
             edit_uploaded_photo(photo.photo_id, photo_url, user);
           });
           const photo_containers = document.createElement("div");

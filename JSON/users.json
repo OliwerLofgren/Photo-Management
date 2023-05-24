@@ -6,241 +6,26 @@
         "uploaded_photos": [
             {
                 "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_1\/maltese-portrait-dog-min.jpg"
+                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg-min.jpg"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/photos_1\/fluff-dog-jpeg-min.jpg"
             },
             {
                 "photo_id": 3,
                 "photo": "..\/PHP\/my_photos\/photos_1\/terrier-dog-jpeg-min.jpg"
-            },
-            {
-                "photo_id": 4,
-                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg-min.jpg"
             }
         ],
-        "saved_photos": [
-            {
-                "id": 16881314,
-                "photoObject": {
-                    "id": 16881314,
-                    "width": 2767,
-                    "height": 4919,
-                    "avg_color": "#644F3C",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16881314\/pexels-photo-16881314.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Alexander Paul",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@alexander-paul-568840608",
-                    "photographer_id": 568840608,
-                    "liked": false,
-                    "alt": "Happy Guys"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16752696,
-                "photoObject": {
-                    "id": 16752696,
-                    "width": 4160,
-                    "height": 6240,
-                    "avg_color": "#A4A8B1",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16752696\/pexels-photo-16752696.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Nektaria Kleopoulos",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@nektaria-kleopoulos-417944344",
-                    "photographer_id": 417944344,
-                    "liked": false,
-                    "alt": ""
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16731455,
-                "photoObject": {
-                    "id": 16731455,
-                    "width": 2953,
-                    "height": 4430,
-                    "avg_color": "#A4A4A4",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16731455\/pexels-photo-16731455.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "cultatum",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@cultatum-555666405",
-                    "photographer_id": 555666405,
-                    "liked": false,
-                    "alt": "Free stock photo of aesthetic, conceptual, model"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16750828,
-                "photoObject": {
-                    "id": 16750828,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#543F44",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16750828\/pexels-photo-16750828.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Anastasiia Chaikovska",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@anastasiia-chaikovska-206547003",
-                    "photographer_id": 206547003,
-                    "liked": false,
-                    "alt": "bloom"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16731456,
-                "photoObject": {
-                    "id": 16731456,
-                    "width": 2802,
-                    "height": 4203,
-                    "avg_color": "#8EACAC",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16731456\/pexels-photo-16731456.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "cultatum",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@cultatum-555666405",
-                    "photographer_id": 555666405,
-                    "liked": false,
-                    "alt": "Free stock photo of aesthetic, conceptual, model"
-                },
-                "bookmarked": false
-            }
-        ],
-        "profile_picture": "..\/PHP\/my_photos\/photos_1\/fluff-dog-jpeg-min.jpg"
+        "saved_photos": [],
+        "profile_picture": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg-min.jpg"
     },
     {
         "id": 2,
         "username": "Benny",
         "password": "123",
-        "uploaded_photos": [
-            {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_2\/fluff-dog-jpeg-min.jpg"
-            },
-            {
-                "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/photos_2\/maltese-portrait-dog-min.jpg"
-            },
-            {
-                "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/photos_2\/terrier-dog-jpeg-min.jpg"
-            }
-        ],
-        "saved_photos": [
-            {
-                "id": 1643457,
-                "photoObject": {
-                    "id": 1643457,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#9B9892",
-                    "photo": "https:\/\/images.pexels.com\/photos\/1643457\/pexels-photo-1643457.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Peng Louis",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@peng-louis-587527",
-                    "photographer_id": 587527,
-                    "alt": "Person Holding White Kitten With Flowers Necklace"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 1828875,
-                "photoObject": {
-                    "id": 1828875,
-                    "width": 3648,
-                    "height": 5472,
-                    "avg_color": "#8D8F9E",
-                    "photo": "https:\/\/images.pexels.com\/photos\/1828875\/pexels-photo-1828875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Matteo Petralli",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@photo4passion",
-                    "photographer_id": 869324,
-                    "alt": "Orange Tabby Cat on Back of Window Curtain"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 1741206,
-                "photoObject": {
-                    "id": 1741206,
-                    "width": 3744,
-                    "height": 5616,
-                    "avg_color": "#A29391",
-                    "photo": "https:\/\/images.pexels.com\/photos\/1741206\/pexels-photo-1741206.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Lina Kivaka",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@lina",
-                    "photographer_id": 593836,
-                    "alt": " Cat with Red Scarf on Neck Sitting on White Stool"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 6897077,
-                "photoObject": {
-                    "id": 6897077,
-                    "width": 4000,
-                    "height": 6016,
-                    "avg_color": "#7D7369",
-                    "photo": "https:\/\/images.pexels.com\/photos\/6897077\/pexels-photo-6897077.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Amber Janssens",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@amberontheroad",
-                    "photographer_id": 2854658,
-                    "alt": "Furry cat looking at camera while lying on blanket"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 6853287,
-                "photoObject": {
-                    "id": 6853287,
-                    "width": 3899,
-                    "height": 5849,
-                    "avg_color": "#707375",
-                    "photo": "https:\/\/images.pexels.com\/photos\/6853287\/pexels-photo-6853287.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "cottonbro studio",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@cottonbro",
-                    "photographer_id": 1437723,
-                    "alt": "White Cat on Piano"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 2173872,
-                "photoObject": {
-                    "id": 2173872,
-                    "width": 3197,
-                    "height": 3197,
-                    "avg_color": "#946657",
-                    "photo": "https:\/\/images.pexels.com\/photos\/2173872\/pexels-photo-2173872.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Alexas Fotos",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@alexasfotos",
-                    "photographer_id": 434602,
-                    "alt": "Orange Cat On Focus Photography"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 3643714,
-                "photoObject": {
-                    "id": 3643714,
-                    "width": 4282,
-                    "height": 6424,
-                    "avg_color": "#C6B09A",
-                    "photo": "https:\/\/images.pexels.com\/photos\/3643714\/pexels-photo-3643714.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Timo Volz",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@timo-volz-837240",
-                    "photographer_id": 837240,
-                    "alt": "Orange Cat Stretching"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 13722001,
-                "photoObject": {
-                    "id": 13722001,
-                    "width": 3024,
-                    "height": 4032,
-                    "avg_color": "#847B6A",
-                    "photo": "https:\/\/images.pexels.com\/photos\/13722001\/pexels-photo-13722001.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Rhea Hazel",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@rhea-hazel-322738144",
-                    "photographer_id": 322738144,
-                    "alt": "Close-Up Shot of a White Cat Sleeping"
-                },
-                "bookmarked": false
-            }
-        ],
-        "profile_picture": "..\/PHP\/my_photos\/photos_2\/coffee-png-min.png"
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": "..\/PHP\/my_photos\/photos_2\/brown-dog-jpeg-min.jpg"
     }
 ]
