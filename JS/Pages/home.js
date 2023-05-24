@@ -51,7 +51,14 @@ function createHomePage() {
 
       <section id="home-section-four" class="section">
       <h1 class="h1-four">Collect your favorites so you can get back to them later</h1>
+      <i class="fa-solid fa-bookmark" style="color: #f50000;"></i>
+      <i class="fa-solid fa-bookmark" style="color: #f50000;"></i>
+      <i class="fa-regular fa-bookmark" style="color: #000000;"></i>
       <div class="circle-home"> <p class="circle-text">Be inspired</p></div>
+      <i class="fa-regular fa-bookmark" style="color: #000000;"></i>
+      <i class="fa-regular fa-bookmark" style="color: #000000;"></i>
+      <i class="fa-solid fa-bookmark" style="color: #f50000;"></i>
+      <i class="fa-solid fa-bookmark" style="color: #f50000;"></i>
     </section>
 
       <section id="home-section-five" class="section bg-img">

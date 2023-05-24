@@ -52,11 +52,13 @@
 .section-one {
     height: 80vh;
     padding-top: 40px;
+    scroll-snap-align: start;
 }
 
 .section-two {
     height: 90vh;
     padding-top: 40px;
+    scroll-snap-align: start;
 }
 
 

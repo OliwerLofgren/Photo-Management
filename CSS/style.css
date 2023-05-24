@@ -80,6 +80,7 @@ button {
     margin: 10px;
     font-size: small;
     color: rgb(244, 83, 24);
+    text-align: center;
 }
 
 /*Modal styles*/
