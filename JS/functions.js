@@ -129,16 +129,18 @@ function hideServerLoadingMessage() {
   }
 }
 
-function displayPhotoInteractionIcons(photoObject, photoContainer) {
+async function displayPhotoInteractionIcons(photoObject, photoContainer) {
 
+  // Fetch the user data
+  const currentUser = await fetchCollectedPhotosfromDB(user);
 
-  const userSavedPhotoIds = user.saved_photos.map(p => p.id);
-  console.log("this is the object", photoObject.id);
+  const userSavedPhotoIds = currentUser.saved_photos.map(p => p.id);
   const photoId = photoObject.id;
   let isBookmarked = false;
 
-  userSavedPhotoIds.forEach(userPhotoIds => {
-    if (userPhotoIds === photoId) {
+
+  userSavedPhotoIds.forEach(userPhotoId => {
+    if (userPhotoId === photoId) {
       isBookmarked = true;
     }
   });
@@ -160,12 +162,9 @@ function displayPhotoInteractionIcons(photoObject, photoContainer) {
   photoInteractionsContainer.append(collectBtn);
 
   collectBtn.classList.add("collect-btn");
-
-
   collectBtn.classList.add("fa-regular");
-
   collectBtn.classList.add("fa-bookmark");
-  collectBtn.style.color = "#000000";
+  collectBtn.style.color = isBookmarked ? "#e83030" : "#000000";
 
   const likeBtn = document.createElement("i");
   likeBtn.dataset.id = photoObject.id; // add photo ID to the icon's dataset
@@ -237,8 +236,6 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
     return;
   }
 
-  await postPhotoObjectToDatabase(photoObject, user);
-
   // loop through each bookmark icon and modify the style only if its data-id matches the id of the clicked photo
   collectBtns.forEach((collectBtn) => {
     if (collectBtn.dataset.id === photoContainer.dataset.id) {
@@ -247,7 +244,6 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
         collectBtn.classList.add("fa-solid");
         collectBtn.classList.add("fa-fade");
         collectBtn.style.color = "#e83030";
-        // console.log(collectBtn);
 
         // Stop the fade animation after 2 seconds
         setTimeout(() => {
@@ -260,6 +256,9 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
       }
     }
   });
+
+  await postPhotoObjectToDatabase(photoObject, user);
+
 }
 
 function check_if_image_exists(user) {

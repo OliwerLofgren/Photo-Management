@@ -4,7 +4,88 @@
         "username": "rabia",
         "password": "a",
         "uploaded_photos": [],
-        "saved_photos": [],
+        "saved_photos": [
+            {
+                "id": 16791418,
+                "photoObject": {
+                    "id": 16791418,
+                    "width": 4831,
+                    "height": 7238,
+                    "avg_color": "#5D473C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16791418\/pexels-photo-16791418.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Josue Velasquez",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@josue-velasquez-282193995",
+                    "photographer_id": 282193995,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16803741,
+                "photoObject": {
+                    "id": 16803741,
+                    "width": 3648,
+                    "height": 5472,
+                    "avg_color": "#696258",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16803741\/pexels-photo-16803741.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Yakup  Polat",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@yakup-polat-420882786",
+                    "photographer_id": 420882786,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16933700,
+                "photoObject": {
+                    "id": 16933700,
+                    "width": 2160,
+                    "height": 3840,
+                    "avg_color": "#4F453C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16933700\/pexels-photo-16933700.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Aykut Bing\u00fcl",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@aykutbingul",
+                    "photographer_id": 161193354,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16790833,
+                "photoObject": {
+                    "id": 16790833,
+                    "width": 2832,
+                    "height": 4240,
+                    "avg_color": "#9F9071",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16790833\/pexels-photo-16790833.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Josh Hild",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@josh-hild-1270765",
+                    "photographer_id": 1270765,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 16791655,
+                "photoObject": {
+                    "id": 16791655,
+                    "width": 4160,
+                    "height": 6240,
+                    "avg_color": "#6A655F",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16791655\/pexels-photo-16791655.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Ozan \u00c7ulha",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@ozanculha",
+                    "photographer_id": 1512687,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            }
+        ],
         "profile_picture": ""
     }
 ]
