@@ -38,7 +38,7 @@ if ($request_method == "POST") {
     //If you are trying to register with empty username/password, error message
     if($username == "" or $password == ""){
         $message = ["message" => "You cant register with an empty Username or Password"];
-        sendJSON($message, 404);
+        sendJSON($message, 400);
     }
     $id = empty($users) ? 1 : count($users) + 1;
     $new_user = [
@@ -62,5 +62,5 @@ if ($request_method == "POST") {
 
 }
 $message = ["message" => "Wrong kind of method"];
-sendJSON($message, 400);
+sendJSON($message, 405);
 ?>

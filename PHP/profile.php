@@ -50,7 +50,8 @@
                 $users[$logged_user_index]["saved_photos"][] = $new_data;
                 
                 file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
-                sendJSON("Your photo has successfully been added to your collection!");
+                $message = ["message" => "Your photo has successfully been added to your collection!"];
+                sendJSON($message);
             }else {
                 $message = ["message" => "Unable to add photo!"];
                 sendJSON($message, 400);
@@ -59,7 +60,7 @@
 
         }
             $message = ["message" => "Wrong kind of method!"];
-            sendJSON($message, 400);
+            sendJSON($message, 405);
         ?>
 
         

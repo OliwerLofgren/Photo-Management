@@ -17,8 +17,12 @@ if ($request_method == "POST") {
     $username = $input_data["username"];
     $password = $input_data["password"];
 
-    // add error message for empty username/password input here >
-
+    
+    //If you are trying to login with empty username/password, error message
+    if($username == "" or $password == ""){
+        $message = ["message" => "You cant login with an empty Username or Password"];
+        sendJSON($message, 400);
+    }
     foreach($users as $user){
     //If the usename that you typed in is the same username that is registerd in the database
         if ($user["username"] == $username && $user["password"]) {
@@ -28,7 +32,7 @@ if ($request_method == "POST") {
                 "profile_picture" => $user["profile_picture"],
             ];
             // $users[] = $logged_in_user;
-            sendJSON($user);
+            sendJSON($logged_in_user);
         }
     }
 //If the user dosent exist in the database = error message
@@ -36,7 +40,7 @@ if ($request_method == "POST") {
     sendJSON($message, 404);
 }
 $message = ["message" => "Wrong kind of method!"];
-sendJSON($message, 400);
+sendJSON($message, 405);
 
 
 ?>

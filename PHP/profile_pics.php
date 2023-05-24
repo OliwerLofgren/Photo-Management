@@ -76,5 +76,5 @@
     }
 
     $message = ["message" => "Wrong kind of method!"];
-    sendJSON($message, 400);
+    sendJSON($message, 405);
 ?>

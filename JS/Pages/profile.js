@@ -36,6 +36,7 @@ async function createProfileGalleryPage(user) {
       } else {
         profile_result.textContent =
           "Your profile picture has successfully been added";
+        console.log(data);
         user = updateLocalStorageObjectKey("user", "profile_picture", data);
         profile_div.innerHTML = "";
         let img = check_if_image_exists(user);
@@ -125,6 +126,7 @@ async function createProfileGalleryPage(user) {
       if (!response.ok) {
         result.textContent = "An error occurred: " + data.message;
       } else {
+        console.log(data);
         result.textContent = "Successfully uploaded the image";
         document.querySelector("#message_container").innerHTML = "";
         await get_one_images(user);

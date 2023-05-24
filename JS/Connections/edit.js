@@ -39,7 +39,6 @@ async function edit_saved_photo(photo_url, photo_id, user) {
       }),
     });
     const data = await response.json();
-    console.log(data.message);
     const result = document.getElementById("result");
     if (response.ok) {
       const photo_container = document.querySelector(
@@ -47,6 +46,7 @@ async function edit_saved_photo(photo_url, photo_id, user) {
       ).parentNode;
       // remove the deleted photo from the UI by finding its parent element and removing it
       photo_container.parentNode.removeChild(photo_container);
+      console.log(data);
       result.textContent = "The image was successfully removed!";
     } else {
       result.textContent = "Something went wrong:" + data.message;
