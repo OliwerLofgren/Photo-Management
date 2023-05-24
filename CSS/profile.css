@@ -8,11 +8,21 @@
 .user-page-header {
   position: fixed;
   width: calc(100vw - 85vw);
-  grid-column: 1;
-  grid-row: 1;
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+.nav-profile-collection {
+  display: flex;
+  transform: rotate(270deg);
+  margin: 60vh 0 0 10vh;
+}
+
+.allBtn {
+  border: none;
+  width: 120px;
+  font-size: 20px;
 }
 
 .user-page-main {
@@ -46,6 +56,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 .user-section-two nav button {
@@ -149,7 +160,6 @@
 }
 
 .user-page-photos {
-  width: 100%;
   margin: 0 auto;
   max-width: 800px;
   display: grid;
@@ -200,6 +210,7 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
 .discover_button {
   font-size: 11vw;
   padding: 5px;
@@ -211,6 +222,7 @@
 .discover_button:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
 #discover_profile_container {
   height: 80px;
 }

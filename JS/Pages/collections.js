@@ -33,30 +33,31 @@ async function createProfileCollectionsPage(user) {
 
     // NOTE: current profile page needs to be marked in css
     collectionsHeader.innerHTML = `
-  <H1>Photo Management</H1>
-    <nav>
-      <button id="discover-button">Discover</button>
-      <button id="logout-button">Logout</button>
-  </nav>
+   <H1>PHOTO MANAGMENT</H1>
+      <nav class="nav-profile-collection">
+        <button class="allBtn" id="discover-button">Discover</button>
+        <button class="allBtn "id="logout-button">Logout</button>
+    </nav>
  
 `;
     // added class collection
     collectionsPageMain.innerHTML = `
     <section id="collections-section-one" class="user-section-one">
-    <div id="profile-picture" class="profile-photo userPage"></div>
-    <h3>${user.username}</h3>
+      <div id="profile-picture" class="profile-photo userPage"></div>
+      <h3>${user.username}</h3>
     </section>
 
-  <section id="collections-section-two" class="section user-section-two"> 
+    <section id="collections-section-two" class="section user-section-two">
 
-  <nav  profile-or-collections-nav>
-  <button id="collections-button" class="activeBtn collections-button" onclick="btnFunc1()">Your Collections</button>      
-  <button id="profile-button"  class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Profile</button>      
+    <nav profile-or-collections-nav>
+        <button id="collections-button" class="activeBtn collections-button" onclick="btnFunc1()">Your
+            Collections</button>
+        <button id="profile-button" class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Profile</button>
     </nav>
-    <div id="result"></div> 
-    <div id="message_container"></div>  
-    <div id="collections-photos" class="user-page-photos"></div>
-  </section>`;
+      <div id="result"></div>
+      <div id="message_container"></div>
+      <div id="collections-photos" class="user-page-photos"></div>
+    </section>`;
   }
 
   async function displayprofileCollectionsPhotos(user) {

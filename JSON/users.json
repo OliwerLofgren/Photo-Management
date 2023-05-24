@@ -1,73 +1,28 @@
 [
     {
         "id": 1,
-        "username": "rabia",
-        "password": "a",
-        "uploaded_photos": [],
-        "saved_photos": [
+        "username": "Oliwer",
+        "password": "123",
+        "uploaded_photos": [
             {
-                "id": null,
-                "photoObject": {
-                    "avg_color": "#958E87",
-                    "photo": "https:\/\/images.pexels.com\/photos\/3212164\/pexels-photo-3212164.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "John Tekeridis",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@john-tekeridis-21837"
-                },
-                "bookmarked": false
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_1\/coffee-png-min.png"
             },
             {
-                "id": 3687770,
-                "photoObject": {
-                    "id": 3687770,
-                    "width": 5014,
-                    "height": 7358,
-                    "avg_color": "#AFA99F",
-                    "photo": "https:\/\/images.pexels.com\/photos\/3687770\/pexels-photo-3687770.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Tanika",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@tanika-1955201",
-                    "photographer_id": 1955201,
-                    "alt": "Brown Pomeranian Puppy on Grey Concrete Floor"
-                },
-                "bookmarked": false
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg-min.jpg"
             },
             {
-                "id": 16857628,
-                "photoObject": {
-                    "id": 16857628,
-                    "width": 4160,
-                    "height": 6240,
-                    "avg_color": "#793319",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16857628\/pexels-photo-16857628.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Evgeniy Petkevich",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@petkevich-evgeniy",
-                    "photographer_id": 216199181,
-                    "liked": false,
-                    "alt": "Free stock photo of abstract, beautiful flowers, blooming"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16872664,
-                "photoObject": {
-                    "id": 16872664,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#717157",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Tony  Wu",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
-                    "photographer_id": 2760503,
-                    "liked": false,
-                    "alt": ""
-                },
-                "bookmarked": false
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_1\/kitten-curten-png.png"
             }
         ],
-        "profile_picture": "..\/PHP\/my_photos\/photos_1\/homesection 3.jpg"
+        "saved_photos": [],
+        "profile_picture": "..\/PHP\/my_photos\/photos_1\/dog-ocean-jpeg-min.jpg"
     },
     {
         "id": 2,
-        "username": "Oliwer",
+        "username": "test",
         "password": "123",
         "uploaded_photos": [],
         "saved_photos": [],
