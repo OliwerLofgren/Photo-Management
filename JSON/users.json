@@ -27,5 +27,13 @@
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_picture": "..\/PHP\/my_photos\/photos_2\/brown-dog-jpeg-min.jpg"
+    },
+    {
+        "id": 3,
+        "username": "amelie",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": "..\/PHP\/my_photos\/photos_3\/pexels-andrea-piacquadio-774909(1).jpg"
     }
 ]

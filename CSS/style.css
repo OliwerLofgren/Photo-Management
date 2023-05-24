@@ -149,12 +149,12 @@ button {
     display: block;
 }
 
-.mini-profile-photo {
+/* .mini-profile-photo {
     background-color: palegreen;
     border-radius: 50%;
     width: 30px;
     height: 30px;
-}
+} */
 
 .activeBtn {
     background-color: black;
