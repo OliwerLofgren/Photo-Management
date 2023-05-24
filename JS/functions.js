@@ -133,6 +133,18 @@ function hideServerLoadingMessage() {
 }
 
 function displayPhotoInteractionIcons(photoObject, photoContainer) {
+
+  const userSavedPhotoIds = user.saved_photos.map(p => p.id);
+  console.log("this is the object", photoObject.id);
+  const photoId = photoObject.id;
+  let isBookmarked = false;
+  console.log(userSavedPhotoIds, photoId);
+  userSavedPhotoIds.forEach(userPhotoIds => {
+    if (userPhotoIds === photoId) {
+      isBookmarked = true;
+    }
+  });
+
   // create a container for some interactive buttons for api photos
   const photoInteractionsContainer = document.createElement("div");
   photoInteractionsContainer.classList.add("interaction-container");
@@ -150,7 +162,10 @@ function displayPhotoInteractionIcons(photoObject, photoContainer) {
   photoInteractionsContainer.append(collectBtn);
 
   collectBtn.classList.add("collect-btn");
+
+
   collectBtn.classList.add("fa-regular");
+
   collectBtn.classList.add("fa-bookmark");
   collectBtn.style.color = "#000000";
 

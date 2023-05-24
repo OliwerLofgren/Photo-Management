@@ -51,7 +51,6 @@ async function fetchCuratedPhotos(per_page, imgSize) {
       };
     });
     //hideServerLoadingMessage();
-    console.log(customPhotoDataArray);
     return customPhotoDataArray;
   } catch (error) {
     console.log(error);
