@@ -67,7 +67,10 @@ async function fetchCollectedPhotosfromDB(user) {
     }
 
     if (!response.ok) {
-      console.log("Something went wrong fetching the user's collected photos from internal database", response.statusText);
+      console.log(
+        "Something went wrong fetching the user's collected photos from internal database",
+        response.statusText
+      );
       return;
     } else {
       return logged_in_user;
