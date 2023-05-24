@@ -24,9 +24,6 @@ function clearElementAttributes(element) {
   element.removeAttribute("class");
 }
 
-// function removeElementAttributes(element, className) {
-//   element.removeAttribute("class", className);
-// }
 
 function setElementAttributes(element, id, className) {
   element.setAttribute("id", id);
@@ -134,11 +131,12 @@ function hideServerLoadingMessage() {
 
 function displayPhotoInteractionIcons(photoObject, photoContainer) {
 
+
   const userSavedPhotoIds = user.saved_photos.map(p => p.id);
   console.log("this is the object", photoObject.id);
   const photoId = photoObject.id;
   let isBookmarked = false;
-  console.log(userSavedPhotoIds, photoId);
+
   userSavedPhotoIds.forEach(userPhotoIds => {
     if (userPhotoIds === photoId) {
       isBookmarked = true;
@@ -238,7 +236,6 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
     );
     return;
   }
-  let user = getLocalStorageObject("user");
 
   await postPhotoObjectToDatabase(photoObject, user);
 

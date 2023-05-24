@@ -198,6 +198,7 @@
 
 #hover-message {
   cursor: pointer;
+  color: rgb(0, 149, 246);
 }
 
 #hover-message:hover {

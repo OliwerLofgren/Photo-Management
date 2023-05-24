@@ -80,7 +80,7 @@ async function createDiscoverPage(user) {
     document
       .getElementById("explore-button")
       .addEventListener("click", function () {
-        createSearchOrMediaCollectionsPage(null, user);
+        createSearchOrMediaCollectionsPage(null, null, user);
       });
 
     document
