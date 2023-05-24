@@ -122,6 +122,18 @@ button {
 }
 
 #home-photos :nth-child(5) {
+    margin-top: 80px;
+}
+
+#home-photos :nth-child(6) {
+    margin-top: 60px;
+}
+
+#home-photos :nth-child(7) {
+    margin-top: 60px;
+}
+
+#home-photos :nth-child(8) {
     margin-top: 40px;
 }
 

@@ -33,10 +33,10 @@ async function createProfileCollectionsPage(user) {
 
     // NOTE: current profile page needs to be marked in css
     collectionsHeader.innerHTML = `
-  <H1>Photo Management</H1>
-    <nav>
-      <button id="discover-button">Discover</button>
-      <button id="logout-button">Logout</button>
+  <H1>PHOTO MANAGMENT</H1>
+    <nav class="nav-profile-collection">
+      <button class="allBtn" id="discover-button">Discover</button>
+      <button class="allBtn "id="logout-button">Logout</button>
   </nav>
  
 `;

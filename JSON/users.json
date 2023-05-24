@@ -72,5 +72,13 @@
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_picture": ""
+    },
+    {
+        "id": 3,
+        "username": "test",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]
