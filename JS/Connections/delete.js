@@ -11,14 +11,12 @@ async function delete_user(logged_in_user) {
       });
 
       const data = await response.json();
-      console.log(data.message);
 
       if (response.ok) {
         // User deleted successfully
+        console.log(data);
         localStorage.removeItem("user");
-        console.log("User deleted");
         createHomePage();
-        console.log(response);
       }
     }
   } catch (error) {

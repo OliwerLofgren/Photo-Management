@@ -39,7 +39,7 @@ async function createDiscoverPage(user) {
         </div>
     </nav>
             `;
-    console.log("123");
+
     discoverMain.innerHTML = `
     <section id="discover-section-one">
         <h1>hej</h1>

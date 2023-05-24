@@ -25,7 +25,7 @@ $input_data = json_decode(file_get_contents("php://input"), true);
     sendJSON($message);
 }
 $message = ["message" => "Wrong kind of method!"];
-sendJSON($message, 400);
+sendJSON($message, 405);
 
 
 ?>

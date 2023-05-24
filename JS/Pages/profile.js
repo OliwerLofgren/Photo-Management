@@ -36,6 +36,7 @@ async function createProfileGalleryPage(user) {
       } else {
         profile_result.textContent =
           "Your profile picture has successfully been added";
+        console.log(data);
         user = updateLocalStorageObjectKey("user", "profile_picture", data);
         profile_div.innerHTML = "";
         let img = check_if_image_exists(user);
@@ -46,6 +47,7 @@ async function createProfileGalleryPage(user) {
     }
   });
 
+  //Display all of the images that the user has uploaded
   await get_all_images(user);
 
   function setupProfilePage() {
@@ -57,7 +59,6 @@ async function createProfileGalleryPage(user) {
       "user-page-header"
     );
 
-    // apply layout
     document.body.classList.add("body-layout");
 
     profilePageHeader.innerHTML = `
@@ -70,7 +71,6 @@ async function createProfileGalleryPage(user) {
   `;
 
     profilePageMain.innerHTML = `
-    <!-- Insert user profile section here -->
     <section id="profile-section-one" class="user-section-one">
 
         <div id="profile-picture" class="profile-photo userPage"></div>
@@ -108,10 +108,12 @@ async function createProfileGalleryPage(user) {
   const result = document.getElementById("result");
   const form = document.getElementById("form_upload");
   form.addEventListener("submit", async function (event) {
-    event.preventDefault();
     // Remove previously uploaded image
+    event.preventDefault();
     try {
+      //Collects all the input values within the form
       const formData = new FormData(form);
+      //Adding id of the user as a value for logged_in_id to the FormData
       formData.append("logged_in_id", user.id);
       const request = new Request("../PHP/upload.php", {
         method: "POST",
@@ -123,12 +125,14 @@ async function createProfileGalleryPage(user) {
       // This simply resets the form.
       form.reset();
 
-      if (!response.ok) {
-        result.textContent = "An error occurred: " + data.message;
-      } else {
+      if (response.ok) {
+        console.log(data);
         result.textContent = "Successfully uploaded the image";
         document.querySelector("#message_container").innerHTML = "";
+        //Display the latest image that has been uploaded
         await get_one_images(user);
+      } else {
+        result.textContent = "An error occurred: " + data.message;
       }
     } catch (error) {
       console.log("Error!", error);
@@ -141,13 +145,15 @@ async function createProfileGalleryPage(user) {
       const response = await fetch("../JSON/users.json");
       const data = await response.json();
 
+      //Checking if the id of each user object matches the id of the logged-in user passed in as the user argument.
       const logged_in_user = data.find((u) => u.id === user.id);
       if (!logged_in_user) {
         console.log("User not found!");
         return;
       }
-
+      //Uploaded photos from the user who is logged in
       const uploaded_photos = logged_in_user.uploaded_photos;
+      //Take out the latest photo uploaded from the array(uploaded_photos)
       const latest_uploaded_photo = uploaded_photos[uploaded_photos.length - 1];
       const container = document.querySelector("#profile-photos");
 
@@ -270,11 +276,3 @@ async function createProfileGalleryPage(user) {
       });
   }
 }
-
-//Display all images that are saved from discover
-
-//Display all images that you have uploaded
-
-//This php-code should is intended for index.html
-
-//Display your profile picture
