@@ -1,72 +1,36 @@
 [
     {
         "id": 1,
-        "username": "Oliwer",
-        "password": "123",
-        "uploaded_photos": [
-            {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg-min.jpg"
-            },
-            {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/photos_1\/maltese-portrait-dog-min.jpg"
-            },
-            {
-                "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/photos_1\/terrier-dog-jpeg-min.jpg"
-            }
-        ],
+        "username": "rabia",
+        "password": "a",
+        "uploaded_photos": [],
         "saved_photos": [
             {
-                "id": 16881314,
+                "id": null,
                 "photoObject": {
-                    "id": 16881314,
-                    "width": 2767,
-                    "height": 4919,
-                    "avg_color": "#644F3C",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16881314\/pexels-photo-16881314.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Alexander Paul",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@alexander-paul-568840608",
-                    "photographer_id": 568840608,
-                    "liked": false,
-                    "alt": "Happy Guys"
+                    "avg_color": "#958E87",
+                    "photo": "https:\/\/images.pexels.com\/photos\/3212164\/pexels-photo-3212164.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "John Tekeridis",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@john-tekeridis-21837"
                 },
                 "bookmarked": false
             },
             {
-                "id": 16881386,
+                "id": 3687770,
                 "photoObject": {
-                    "id": 16881386,
-                    "width": 3721,
-                    "height": 4651,
-                    "avg_color": "#746665",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16881386\/pexels-photo-16881386.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Alexander Paul",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@alexander-paul-568840608",
-                    "photographer_id": 568840608,
-                    "liked": false,
-                    "alt": "5-Stars Breakfast"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16872664,
-                "photoObject": {
-                    "id": 16872664,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#717157",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16872664\/pexels-photo-16872664.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Tony  Wu",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@tonywuphotography",
-                    "photographer_id": 2760503,
-                    "liked": false,
-                    "alt": ""
+                    "id": 3687770,
+                    "width": 5014,
+                    "height": 7358,
+                    "avg_color": "#AFA99F",
+                    "photo": "https:\/\/images.pexels.com\/photos\/3687770\/pexels-photo-3687770.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Tanika",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@tanika-1955201",
+                    "photographer_id": 1955201,
+                    "alt": "Brown Pomeranian Puppy on Grey Concrete Floor"
                 },
                 "bookmarked": false
             }
         ],
-        "profile_picture": "..\/PHP\/my_photos\/photos_1\/fluff-dog-jpeg-min.jpg"
+        "profile_picture": "..\/PHP\/my_photos\/photos_1\/homesection 3.jpg"
     }
 ]
