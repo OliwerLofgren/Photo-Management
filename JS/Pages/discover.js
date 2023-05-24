@@ -37,10 +37,11 @@ async function createDiscoverPage(user) {
 
             </nav>
             `;
-
+    console.log("123");
     discoverMain.innerHTML = `
-    <section id="discover-section-one" class="section">
-  </section>
+    <section id="discover-section-one">
+      <h1>hej</h1><p>hej</p>
+    </section>
     
     <section id="discover-section-two" class="section">
       <div id="discover-photos" class="api-photos"></div>

@@ -4,7 +4,33 @@
         "username": "rabia",
         "password": "a",
         "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": ""
+        "saved_photos": [
+            {
+                "id": null,
+                "photoObject": {
+                    "avg_color": "#958E87",
+                    "photo": "https:\/\/images.pexels.com\/photos\/3212164\/pexels-photo-3212164.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "John Tekeridis",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@john-tekeridis-21837"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 3687770,
+                "photoObject": {
+                    "id": 3687770,
+                    "width": 5014,
+                    "height": 7358,
+                    "avg_color": "#AFA99F",
+                    "photo": "https:\/\/images.pexels.com\/photos\/3687770\/pexels-photo-3687770.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Tanika",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@tanika-1955201",
+                    "photographer_id": 1955201,
+                    "alt": "Brown Pomeranian Puppy on Grey Concrete Floor"
+                },
+                "bookmarked": false
+            }
+        ],
+        "profile_picture": "..\/PHP\/my_photos\/photos_1\/homesection 3.jpg"
     }
 ]

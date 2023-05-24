@@ -16,7 +16,7 @@ function fetch_resource(request) {
 
 // returns array of select keys: photographer name, photourl, etc
 async function fetchCuratedPhotos(per_page, imgSize) {
-  displayServerLoadingMessage();
+  //displayServerLoadingMessage();
   const url = `${prefix}curated?per_page=${per_page}`;
   try {
     const response = await fetch_resource(new Request(url, { headers }));
@@ -50,7 +50,8 @@ async function fetchCuratedPhotos(per_page, imgSize) {
         alt: photo.alt,
       };
     });
-
+    //hideServerLoadingMessage();
+    console.log(customPhotoDataArray);
     return customPhotoDataArray;
   } catch (error) {
     console.log(error);
@@ -185,7 +186,6 @@ function createPhotoContainer(array) {
   const photoWrapper = document.querySelector(".api-photos");
   if (array === undefined || photoWrapper === null) {
     console.log("The array is undefined, or the page doesn't contain an element with the class .api-photos");
-    hideServerLoadingMessage();
     return;
   }
 
@@ -201,10 +201,6 @@ function createPhotoContainer(array) {
 
     const photoImage = document.createElement("img");
     photoContainer.append(photoImage);
-
-    photoImage.onload = function () {
-      hideServerLoadingMessage();
-    };
 
     photoImage.src = photoObject.photo;
     // add an alt attribute to the img element to improve accessibility

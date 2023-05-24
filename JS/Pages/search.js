@@ -15,9 +15,9 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
     addEventListeners();
 
-    await displaySearchSectionTwoPhotos();
+    await displaySearchSectionTwoPhotos(searchTerm);
 
-    async function displaySearchSectionTwoPhotos(searchTerm) {
+    async function displaySearchSectionTwoPhotos() {
       const searchPage = document.getElementById("search-page-main");
       if (searchPage) {
         document.querySelector(".api-photos").innerHTML = "";
@@ -85,6 +85,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     await displayMediaSectionTwoPhotos();
 
     async function displayMediaSectionTwoPhotos() {
+      createTitleButtons();
       const mediaKeys = await extractMediaTerms();
       const randomMediaId = mediaKeys.slice(1, 2);
       let title = randomMediaId[0].title;
@@ -95,7 +96,6 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       if (mediaPage) {
         document.querySelector(".api-photos").innerHTML = "";
         await displayMediaCollectionPhotos("photos", photosCount, id, "portrait");
-        createTitleButtons();
       }
 
       const mediaQueryinfo = document.querySelector(".search-query-info");
@@ -190,7 +190,8 @@ async function createTitleButtons() {
 
   clonedShuffledArray.forEach(collection => {
     const collectionTitleBtn = document.createElement("button");
-    collectionTitleBtn.textContent = collection.title;
+    let collectionTitle = collection.title;
+    collectionTitleBtn.textContent = collectionTitle;
     titleBtnsContainer.append(collectionTitleBtn);
   });
   /*console.log(`Current collection has the title: ${collection.title} with the id: ${collection.id} and contains ${collection.photosCount} photos`);*/
