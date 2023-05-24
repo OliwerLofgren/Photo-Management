@@ -27,26 +27,27 @@ async function createDiscoverPage(user) {
     discoverHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav>
-    <div id="button_container">
-    <button id="collections-button" class="discover_button">Your Collections</button>
-    <button id="logout-button" class="discover_button">Logout</button>
-    <button id="search-button" class="discover_button">Search</button>
-    <button id="explore-button" class="discover_button">Explore</button>
-    <div id="discover_profile_container">
-    <p>${user.username}</p>
-    <div class="mini-profile-photo"></div>
-    </div>
-    </div>
+        <div id="button_container">
+            <button id="collections-button" class="discover_button">Your Collections</button>
+            <button id="logout-button" class="discover_button">Logout</button>
+            <button id="search-button" class="discover_button">Search</button>
+            <button id="explore-button" class="discover_button">Explore</button>
+            <div id="discover_profile_container">
+                <p>${user.username}</p>
+                <div class="mini-profile-photo"></div>
+            </div>
+        </div>
     </nav>
             `;
     console.log("123");
     discoverMain.innerHTML = `
     <section id="discover-section-one">
-      <h1>hej</h1><p>hej</p>
+        <h1>hej</h1>
+        <p>hej</p>
     </section>
-    
+
     <section id="discover-section-two" class="section">
-      <div id="discover-photos" class="api-photos"></div>
+        <div id="discover-photos" class="api-photos"></div>
     </section>
         `;
   }

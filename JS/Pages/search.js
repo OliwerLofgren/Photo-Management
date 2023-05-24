@@ -40,32 +40,32 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       searchPageHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
       <form id="mini-search-form" class="search-form">
-        <label for="search-field"></label>
-        <input id="mini-search-field" class="search-field" name="search" type="text">
-        <button type="submit">Search</button>
+          <label for="search-field"></label>
+          <input id="mini-search-field" class="search-field" name="search" type="text">
+          <button type="submit">Search</button>
       </form>
   
       <nav id="navSearch">
-      <p>${user.username}</p>
-      <div class="mini-profile-photo"></div>
-        <button id="discoverBtn">Discover</button> /     
-        <button id="collectionsBtn">Your Collections</button> /     
-        <button id="profileBtn">Profile</button>  
-        <button id="explore-button">Explore</button>
-        <button id="logout-button">Logout</button>
+          <p>${user.username}</p>
+          <div class="mini-profile-photo"></div>
+          <button id="discoverBtn">Discover</button> /
+          <button id="collectionsBtn">Your Collections</button> /
+          <button id="profileBtn">Profile</button>
+          <button id="explore-button">Explore</button>
+          <button id="logout-button">Logout</button>
       </nav>
       `;
 
       searchPageMain.innerHTML = `
       <section id="search-section-one" class="section">
-        <div id="search-term-btns" class="title-buttons-container"></div>
+          <div id="search-term-btns" class="title-buttons-container"></div>
       </section>
-      
+
       <!--content of the first section -->
-        <section id="search-section-two" class="section">
+      <section id="search-section-two" class="section">
           <div id="search-page-query-info" class="search-query-info"></div>
           <div id="search-photos" class="api-photos"></div>
-        </section>
+      </section>
       `;
     }
 
@@ -117,29 +117,29 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
       // needs a check if logged in user or not!!
       mediaPageHeader.innerHTML = `
-  <H1>PHOTO MANAGEMENT</H1>
+      <H1>PHOTO MANAGEMENT</H1>
 
-  <nav id="navSearch">
-  <p>${user.username}</p>
-  <div class="mini-profile-photo"></div>
-    <button id="discoverBtn">Discover</button> /     
-    <button id="collectionsBtn">Your Collections</button> /     
-    <button id="profileBtn">Profile</button>  
-    <button id="logout-button">Logout</button>
-  </nav>
+      <nav id="navSearch">
+          <p>${user.username}</p>
+          <div class="mini-profile-photo"></div>
+          <button id="discoverBtn">Discover</button> /
+          <button id="collectionsBtn">Your Collections</button> /
+          <button id="profileBtn">Profile</button>
+          <button id="logout-button">Logout</button>
+      </nav>
   `;
 
       mediaPageMain.innerHTML = `
-  <!--content of the first section -->
-    <section id="media-section-one" class="section">
-      <div id="media-term-btns" class="title-buttons-container">
-    </div>
-  </section >
+      <!--content of the first section -->
+      <section id="media-section-one" class="section">
+          <div id="media-term-btns" class="title-buttons-container">
+          </div>
+      </section>
   
-    <section id="media-section-two" class="section">
-      <div id="media-page-info" class="search-query-info"></div>
-      <div id="media-photos" class="api-photos"></div>
-    </section>
+      <section id="media-section-two" class="section">
+          <div id="media-page-info" class="search-query-info"></div>
+          <div id="media-photos" class="api-photos"></div>
+      </section>
   `;
     }
   }

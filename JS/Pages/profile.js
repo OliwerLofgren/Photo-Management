@@ -62,45 +62,46 @@ async function createProfileGalleryPage(user) {
 
     profilePageHeader.innerHTML = `
     <H1>PHOTO MANAGMENT</H1>
-      <nav class="nav-profile-collection">
-      <button class="allBtn" id="discover-button">Discover</button>
-      <button class="allBtn" id="logout-button">Logout</button>
-      <button class="allBtn" id="delete-button">Delete your account</button>
-      </nav>
+    <nav class="nav-profile-collection">
+        <button class="allBtn" id="discover-button">Discover</button>
+        <button class="allBtn" id="logout-button">Logout</button>
+        <button class="allBtn" id="delete-button">Delete your account</button>
+    </nav>
   `;
 
     profilePageMain.innerHTML = `
     <!-- Insert user profile section here -->
     <section id="profile-section-one" class="user-section-one">
-    
-    <div id="profile-picture" class="profile-photo userPage"></div>
 
-    
-    <h3>${user.username}</h3>
-    <div id="profile_container">
-    <form id="form_profile_upload" action="../PHP/profile_pics.php" method="POST" enctype="multipart/form-data">
-      <input type="file"  name="upload">
-      <button type="submit" id="custom_upload_button">Upload</button>
-    </form> 
-    <div id="profile_result"></div>   
-    </div>
-    
-    </section >
-        <section id="profile-section-two" class="section user-section-two">
-      
-      <nav class="profile-or-collections-nav">
-      <button id="collections-button" class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Your Collections</button>      
-      <button id="profile-button" class="activeBtn profile-button" onclick="btnFunc1()">Profile</button>   
-      </nav>
-      <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
-        <input type="file"  name="upload">
-        <button type="submit" id="section_two_button">Upload</button>
-      </form>
-      <div id="result"></div>   
+        <div id="profile-picture" class="profile-photo userPage"></div>
+
+
+        <h3>${user.username}</h3>
+        <div id="profile_container">
+            <form id="form_profile_upload" action="../PHP/profile_pics.php" method="POST" enctype="multipart/form-data">
+                <input type="file" name="upload">
+                <button type="submit" id="custom_upload_button">Upload</button>
+            </form>
+            <div id="profile_result"></div>
+        </div>
+
+    </section>
+    <section id="profile-section-two" class="section user-section-two">
+
+        <nav class="profile-or-collections-nav">
+            <button id="collections-button" class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Your
+                Collections</button>
+            <button id="profile-button" class="activeBtn profile-button" onclick="btnFunc1()">Profile</button>
+        </nav>
+        <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="upload">
+            <button type="submit" id="section_two_button">Upload</button>
+        </form>
+        <div id="result"></div>
 
         <div id="message_container"></div>
         <div id="profile-photos" class="user-page-photos"></div>
-      </section>
+    </section>
     `;
   }
 

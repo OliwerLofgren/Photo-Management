@@ -12,34 +12,34 @@ async function createLoginPage() {
     document.body.classList.remove("body-layout");
 
     registerHeader.innerHTML = `
-        <h1>PHOTO MANAGEMENT</h1>
-        <nav class="nav-Register-Login">
+    <h1>PHOTO MANAGEMENT</h1>
+    <nav class="nav-Register-Login">
         <button id="go-back-home">Back to home</button>
-        </nav>`;
+    </nav>`;
 
     loginMain.innerHTML = ` 
-        <div class="box">
-        <section class="register-login-section" id="register-section"> 
+    <div class="box">
+        <section class="register-login-section" id="register-section">
             <h2 class="text-login-register">Welcome Back!</h2>
             <h3 class="text-login-register">Log In</h3>
 
             <p class="login-register-instead">Don't have an account? Sign up and get started</p>
 
             <p id="message"></p>
-    
+
             <form id="loginForm">
-            <div class ="input-field">
-                <input type=text class="input" id="username" placeholder=Username>
-                <i class="fa-solid fa-user" id="user" style="color: #000000;"></i>
+                <div class="input-field">
+                    <input type=text class="input" id="username" placeholder=Username>
+                    <i class="fa-solid fa-user" id="user" style="color: #000000;"></i>
                 </div>
                 <div class="input-field">
-                <input type=password class="input" id="password" placeholder=Password>
-                <i class="fa-solid fa-lock" id="lock" style="color: #000000;"></i>
+                    <input type=password class="input" id="password" placeholder=Password>
+                    <i class="fa-solid fa-lock" id="lock" style="color: #000000;"></i>
                 </div>
                 <button type=submit class="button-login-register">Log in</button>
             </form>
         </section>
-        </div>
+    </div>
         `;
   }
   function addEventListeners() {
