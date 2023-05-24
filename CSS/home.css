@@ -45,7 +45,7 @@ button {
     gap: 1vw;
     grid-auto-flow: dense;
     z-index: 1;
-    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 #home-photos>div img {
@@ -92,7 +92,9 @@ button {
 }
 
 .h1-two {
-    margin: 10px 0 10px 0;
+    width: 50%;
+    text-align: center;
+    margin: auto;
 }
 
 .h1-three,
@@ -146,8 +148,9 @@ button {
     opacity: 0;
     width: 80%;
     height: 80%;
-    padding: 110px 0 0 90px;
+    padding: 105px 0 0 70px;
     color: white;
+    font-size: x-large;
 }
 
 .circle-text:hover {
