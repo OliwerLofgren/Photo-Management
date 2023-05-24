@@ -27,8 +27,8 @@ if ($request_method == "POST") {
                 "username" => $username,
                 "profile_picture" => $user["profile_picture"],
             ];
-            $users[] = $logged_in_user;
-            sendJSON($logged_in_user);
+            // $users[] = $logged_in_user;
+            sendJSON($user);
         }
     }
 //If the user dosent exist in the database = error message

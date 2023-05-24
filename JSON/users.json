@@ -64,5 +64,13 @@
             }
         ],
         "profile_picture": "..\/PHP\/my_photos\/photos_1\/homesection 3.jpg"
+    },
+    {
+        "id": 2,
+        "username": "Oliwer",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]

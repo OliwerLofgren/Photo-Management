@@ -186,17 +186,6 @@
   margin-bottom: 10px;
 }
 
-#collections-photos > div img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-#collections-photos > div {
-  width: 100%;
-  height: auto;
-}
-
 #hover-message {
   cursor: pointer;
 }
