@@ -19,5 +19,13 @@
         ],
         "saved_photos": [],
         "profile_picture": "..\/PHP\/my_photos\/photos_1\/dog-ocean-jpeg-min.jpg"
+    },
+    {
+        "id": 2,
+        "username": "test",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]

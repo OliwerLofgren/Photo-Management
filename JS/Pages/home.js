@@ -52,9 +52,9 @@ function createHomePage() {
 
     <section id="home-section-four" class="section">
       <h1 class="h1-four">Collect your favorites so you can get back to them later</h1>
-
-      <div class="circle-home">
-          <p class="circle-text">Be inspired</p>
+      <div class="bookmarkHome">
+      <i class="fa-regular fa-bookmark" id="markHome" style="color: #000000;"></i>
+      <i class="fa-solid fa-bookmark" id="markHome" style="color: #f50000;"></i>
       </div>
     </section>
 
@@ -117,5 +117,7 @@ function createHomePage() {
 //         <div class="alt">Fire</div>
 //         <div class="alt">Mountain</div>
 //         </div>
-//<i class="fa-solid fa-bookmark" style="color: #f50000;"></i>
-//<i class="fa-regular fa-bookmark" style="color: #000000;"></i>
+
+//<div class="circle-home">
+// <p class="circle-text">Be inspired</p>
+//</div> 
