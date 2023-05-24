@@ -34,7 +34,7 @@ $input_data = json_decode(file_get_contents("php://input"), true);
                     //If the ID matches the id of the images you want to delete
                     if ($photo["photo_id"] == $photo_id) {
                         // Check if the photo is the same as the profile picture
-                    if ($photo["photo"] == $profile_picture) {
+                    if ($photo["photo"] == $profile_picture or $photo["photo"] == $photo["photo"]) {
                         array_splice($uploaded_photos, $index, 1);
                         $users[$logged_user_index]["uploaded_photos"] = $uploaded_photos;
                         
