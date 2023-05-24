@@ -73,7 +73,7 @@ async function createProfileGalleryPage(user) {
     <!-- Insert user profile section here -->
     <section id="profile-section-one" class="user-section-one">
     
-    <div id="profile-picture" class="profile-photo"></div>
+    <div id="profile-picture" class="profile-photo userPage"></div>
 
     
     <h3>${user.username}</h3>

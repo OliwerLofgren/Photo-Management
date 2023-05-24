@@ -25,11 +25,11 @@
   margin: 0 20px;
 }
 
-#discover-photos > div {
+#discover-photos>div {
   position: relative;
 }
 
-#discover-photos > div img {
+#discover-photos>div img {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -129,11 +129,13 @@
   height: 100%;
   object-fit: cover;
 }
+
 #button_container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
+
 .discover_button {
   font-size: 11px;
   padding: 5px;
@@ -144,4 +146,10 @@
 
 .discover_button:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#userIcon {
+  font-size: 2em;
+  padding-left: 8px;
+  padding-top: 2px;
 }

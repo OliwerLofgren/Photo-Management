@@ -40,10 +40,10 @@ async function createProfileCollectionsPage(user) {
   </nav>
  
 `;
-
+    // added class collection
     collectionsPageMain.innerHTML = `
     <section id="collections-section-one" class="user-section-one">
-    <div id="profile-picture" class="profile-photo"></div>
+    <div id="profile-picture" class="profile-photo userPage"></div>
     <h3>${user.username}</h3>
     </section>
 
