@@ -3,8 +3,6 @@ ini_set("display_errors", 1);
 require_once("functions.php");
 
 $filename = "../JSON/users.json";
-
-
 $input_data = json_decode(file_get_contents("php://input"), true);
 
 //If database-file dosent exist, create it otherwise decode it
@@ -40,6 +38,7 @@ if ($request_method == "POST") {
         $message = ["message" => "You cant register with an empty Username or Password"];
         sendJSON($message, 400);
     }
+
     $id = empty($users) ? 1 : count($users) + 1;
     $new_user = [
         "id" => $id,
@@ -49,8 +48,6 @@ if ($request_method == "POST") {
         "saved_photos" => [],
         "profile_picture" => ""
     ];
-
-    // add successfull registration message to user > 
     
     //Saving the new user in the database and send a response if everything went OK
     $users[] = $new_user;

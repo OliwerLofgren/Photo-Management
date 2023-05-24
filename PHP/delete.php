@@ -26,36 +26,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         }
     }
 
-    // If the user is found, remove it from the array
     if ($index !== null) {
         $user = $users[$index];
         $username = $user['username'];
+        //Foldermap for the user who is logged in
         $userFolderPath = "../PHP/my_photos/photos_" . $logged_in_id;
-        
-        array_splice($users, $index, 1);
         
         // Remove the user's folder and its contents
           if (is_dir($userFolderPath)) {
             removeDir($userFolderPath);
           } 
+        // If the user is found, remove it from the array
+        array_splice($users, $index, 1);
+        
             
-            $updatedUsersData = json_encode($users, JSON_PRETTY_PRINT);
-            file_put_contents('../JSON/users.json', $updatedUsersData);
-        //Add the username here.
-            $response = [
+        $updatedUsersData = json_encode($users, JSON_PRETTY_PRINT);
+        file_put_contents('../JSON/users.json', $updatedUsersData);
+        
+        $response = [
             'message' =>  $username .  ' has been deleted successfully'
         ];
+
         sendJSON($response);
     } else {
+        
         $response = [
             'message' =>  $username . " not found"
         ];
+        
         sendJSON($response, 404);
     }
-} else {
+
+    }else{
+    
     $response = [
-        'message' => 'Invalid request method'
+        'message' => 'Wrong kind of method'
     ];
+    
     sendJSON($response, 405);
 }
 

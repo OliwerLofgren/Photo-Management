@@ -1,1 +1,23 @@
-[]
+[
+    {
+        "id": 1,
+        "username": "Oliwer",
+        "password": "123",
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_1\/coffee-png-min.png"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg-min.jpg"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_1\/kitten-curten-png.png"
+            }
+        ],
+        "saved_photos": [],
+        "profile_picture": "..\/PHP\/my_photos\/photos_1\/dog-ocean-jpeg-min.jpg"
+    }
+]
