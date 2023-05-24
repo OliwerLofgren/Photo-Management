@@ -45,7 +45,7 @@ async function createDiscoverPage(user) {
     <section id="discover-section-one">
     <form id="big-search-form" class="search-form">
     <label for="search-field"></label>
-    <input id="big-search-field" class="search-field" name="search" type="text">
+    <input id="big-search-field" class="search-field" name="search" placeholder="Explore our library of photos" type="text">
     <button type="submit">Search</button>
 </form>
     </section>
