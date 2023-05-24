@@ -43,7 +43,6 @@ html {
 }
 
 body {
-    height: 100vh;
     width: 100vw;
     margin: 0;
     padding: 0;
@@ -158,13 +157,17 @@ button {
 }
 
 .activeBtn {
-    background-color: rgb(230, 206, 214);
+    background-color: black;
+    color: white;
+    border: none;
 }
 
-.btnDeactivated {
-    background-color: red;
-}
+/*.btnDeactivated {
+    background-color: rgb(244, 202, 202);
+}*/
 
 .deactiveBtn {
     background-color: rgb(255, 255, 255);
+    color: black;
+    border: none;
 }

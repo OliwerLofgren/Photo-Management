@@ -3,7 +3,6 @@
 
 // handles post request
 async function postPhotoObjectToDatabase(photoObject, user) {
-  console.log(user.id);
 
   // Fetch the collected photos from the JSON
   const logged_in_user = await fetchCollectedPhotosfromDB(user);
@@ -43,15 +42,15 @@ async function postPhotoObjectToDatabase(photoObject, user) {
 
     if (!response.ok) {
       console.log("Error posting photo object");
+      // add failed collected message here>
+      return;
     } else {
+      // add successfull collected message here>
       console.log(postedPhotoObject);
-
-      const testing = setLocalStorageObject("testing", postedPhotoObject);
-      console.log(testing);
       return postedPhotoObject; // return the newly created photo object
     }
   } catch (error) {
-    console.log("error posting photo object:", error);
+    console.log("Error posting photo object:", error);
   }
 }
 
@@ -68,7 +67,10 @@ async function fetchCollectedPhotosfromDB(user) {
     }
 
     if (!response.ok) {
-      console.log("Response not ok", response.statusText);
+      console.log(
+        "Something went wrong fetching the user's collected photos from internal database",
+        response.statusText
+      );
       return;
     } else {
       return logged_in_user;

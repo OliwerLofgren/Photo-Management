@@ -14,15 +14,22 @@
         if(isset($_FILES["upload"])){
             $tmp_name = $_FILES["upload"]["tmp_name"];
             $name = $_FILES["upload"]["name"];
+            $size = $_FILES["upload"]["size"];
             
             $allowed_extensions = ["jpg", "jpeg", "png", "gif"];
             $extension = pathinfo($name, PATHINFO_EXTENSION);
-    
+            
+            // Check if the file is allowed or not 
             if (!in_array(strtolower($extension), $allowed_extensions)) {
                 $message = ["message" => "Invalid file type"];
                 sendJSON($message, 400);
             }
-            
+             // Check if the file size exceeds the limit (50KB)
+             $file_size_limit = 50 * 1024; // Convert KB to bytes
+             if ($size > $file_size_limit) {
+                 $message = ["message" => "File size exceeds the limit of 50KB"];
+                 sendJSON($message, 400);
+             }
 
             $user_id = $_POST["logged_in_id"];
             $logged_user_index = null;

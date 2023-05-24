@@ -2,12 +2,13 @@
 let user = null;
 user = initializeObject("user"); // initialize the user
 
-document.addEventListener("DOMContentLoaded", () => {
-  if (user) {
-    createDiscoverPage(user);
-  } else {
-    createHomePage();
-  }
-});
+if (user) {
+  console.log(`Current logged in user is ${user.username}`, user);
+  createDiscoverPage(user);
+} else {
+  createHomePage();
+  console.log(user);
+}
 
-console.log(user);
+
+

@@ -3,10 +3,10 @@ const loginMain = document.querySelector("main");
 const loginHeader = document.querySelector("header");
 
 async function createLoginPage() {
-  setupPage();
+  setupLoginPage();
   addEventListeners();
 
-  function setupPage() {
+  function setupLoginPage() {
     setElementAttributes(loginMain, "login-main", "");
     setElementAttributes(loginHeader, "login-header", "");
     document.body.classList.remove("body-layout");
@@ -23,7 +23,7 @@ async function createLoginPage() {
             <h2 class="text-login-register">Welcome Back!</h2>
             <h3 class="text-login-register">Log In</h3>
 
-            <p id="login-register-instead">Don't have an account? Sign up and get started</p>
+            <p class="login-register-instead">Don't have an account? Sign up and get started</p>
 
             <p id="message"></p>
     
@@ -48,7 +48,7 @@ async function createLoginPage() {
     });
 
     document
-      .getElementById("login-register-instead")
+      .querySelector(".login-register-instead")
       .addEventListener("click", createRegisterPage);
 
     document
@@ -84,7 +84,6 @@ async function loginUser(event) {
     } else {
 
       user = setLocalStorageObject("user", user);
-      console.log(user);
 
       console.log("log in successful:", user);
       createDiscoverPage(user);

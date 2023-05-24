@@ -5,7 +5,7 @@ const profilePageHeader = document.querySelector("header");
 const section_two_main = document.querySelector(".profile-or-collections-nav");
 
 async function createProfileGalleryPage(user) {
-  setupPage();
+  setupProfilePage();
 
   addEventListeners();
 
@@ -40,7 +40,6 @@ async function createProfileGalleryPage(user) {
         profile_div.innerHTML = "";
         let img = check_if_image_exists(user);
         profile_div.append(img);
-        // update the user's profile picture
       }
     } catch (error) {
       profile_result.textContent = "An error occurred!" + error;
@@ -49,7 +48,7 @@ async function createProfileGalleryPage(user) {
 
   await get_all_images(user);
 
-  function setupPage() {
+  function setupProfilePage() {
     clearElementAttributes(profilePageMain);
     setElementAttributes(profilePageMain, "profile-main", "user-page-main");
     setElementAttributes(
@@ -65,7 +64,6 @@ async function createProfileGalleryPage(user) {
     <H1>Photo Management</H1>
       <nav>
       <button id="discover-button">Discover</button>
-      <button id="upload-button">Upload</button>
       <button id="logout-button">Logout</button>
       <button id="delete-button">Delete your account</button>
       </nav>
@@ -92,7 +90,7 @@ async function createProfileGalleryPage(user) {
       
       <nav class="profile-or-collections-nav">
       <button id="collections-button" class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Your Collections</button>      
-      <button id="profile-button" class="activeBtn" onclick="btnFunc1()">Profile</button>   
+      <button id="profile-button" class="activeBtn profile-button" onclick="btnFunc1()">Profile</button>   
       </nav>
       <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
         <input type="file"  name="upload">
@@ -227,6 +225,7 @@ async function createProfileGalleryPage(user) {
           button_delete.innerText = "Remove this image";
           button_delete.classList.add("delete");
           button_delete.addEventListener("click", () => {
+            // console.log("Deleted");
             edit_uploaded_photo(photo.photo_id, photo_url, user);
           });
           const photo_containers = document.createElement("div");

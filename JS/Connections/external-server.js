@@ -69,9 +69,12 @@ async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
     );
     const resource = await response.json();
 
+    if (response.status === 400) {
+      createSearchOrMediaCollectionsPage(null, user)
+      return;
+    }
     if (!response.ok) {
-      console.log("oops");
-      photoApiResponseCodes(resource);
+      console.log("Something went wrong with the search query request", response.status);
       return;
     }
     let photoResourceArray = resource.photos;
@@ -98,7 +101,6 @@ async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
   } catch (error) {
     console.log(error);
     return [];
-    // add message to user here
   }
 }
 
@@ -114,7 +116,6 @@ async function fetchFeaturedCollectionObjects(per_page) {
       photoApiResponseCodes(resource);
       return;
     }
-
     if (!resource || resource.length === 0) {
       console.log("No Collections found");
       return;
@@ -123,28 +124,18 @@ async function fetchFeaturedCollectionObjects(per_page) {
   } catch (error) {
     console.log(error);
     return [];
-    // add message to user here
   }
 }
 
 async function fetchCollectionsMedia(type, per_page, id, imgSize) {
-  // creates the ids with possible media collections >, select the ones we like
-  const collectionTitlesandIds = await getCollectionsIds();
-  console.log(collectionTitlesandIds);
-  collectionTitlesandIds.forEach(collection => {
-    console.log(collection.title);
-  });
-
   const url = `${prefix}collections/${id}?per_page=${per_page}&type=${type}`;
 
   try {
     const response = await fetch_resource(new Request(url, { headers }));
     const resource = await response.json();
 
-    console.log(resource);
-
     if (!response.ok) {
-      console.log("oops");
+      console.log("Something went wrong fetching collections media");
       photoApiResponseCodes(resource);
       return;
     }
@@ -163,29 +154,28 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize) {
         photographerUrl: media.photographer_url,
       };
     });
-
-    console.log(mediaCollectionObject);
+    return mediaCollectionObject;
   } catch (error) {
     console.log(error);
     return [];
-    // add message to user here
-  }
-
-  async function getCollectionsIds() {
-    let resource = await fetchFeaturedCollectionObjects(5);
-    const arrayOfCollectionObjects = resource.collections;
-
-    // array of ids and titles
-    const collections = arrayOfCollectionObjects.map((collection) => {
-      return {
-        id: collection.id,
-        title: collection.title,
-        photosCount: collection.photos_count,
-      };
-    });
-    return collections;
   }
 }
+
+async function getCollectionsIds() {
+  let resource = await fetchFeaturedCollectionObjects(40);
+  const arrayOfCollectionObjects = resource.collections;
+
+  // array of ids and titles
+  const collections = arrayOfCollectionObjects.map((collection) => {
+    return {
+      id: collection.id,
+      title: collection.title,
+      photosCount: collection.photos_count,
+    };
+  });
+  return collections;
+}
+
 
 /*** photo dom element creation and display ***/
 
@@ -194,20 +184,17 @@ function createPhotoContainer(array) {
 
   const photoWrapper = document.querySelector(".api-photos");
   if (array === undefined || photoWrapper === null) {
-    console.log("array is undefined");
+    console.log("The array is undefined, or the page doesn't contain an element with the class .api-photos");
+    hideServerLoadingMessage();
     return;
   }
-
-  let counter = 0;
 
   // create dom elements
   array.forEach((photoObject) => {
     const photoContainer = document.createElement("div");
 
-
     photoContainer.classList.add("card");
     photoContainer.classList.add("overlay");
-
     photoWrapper.append(photoContainer);
 
     photoContainer.dataset.id = photoObject.id; // add photo ID to the container's dataset
@@ -223,14 +210,12 @@ function createPhotoContainer(array) {
     // add an alt attribute to the img element to improve accessibility
     photoImage.alt = photoObject.alt;
 
-    const photoInteractionsContainer = displayPhotoInteractionIcons(
+    displayPhotoInteractionIcons(
       photoObject,
       photoContainer
     );
     return;
   });
-
-
 }
 
 async function displayCuratedPhotos(per_page, imgSize) {
@@ -246,8 +231,7 @@ async function displaySearchTermPhotos(per_page, imgSize) {
     searchForm.addEventListener("submit", async function (event) {
       event.preventDefault();
       let searchTerm = getElement(".search-field").value.trim();
-      createSearchOrMediaCollectionsPage(searchTerm);
-      console.log(searchTerm);
+      createSearchOrMediaCollectionsPage(searchTerm, user);
 
       // clear already loaded photos and display searched photos instead
       document.querySelector(".api-photos").innerHTML = "";
@@ -257,10 +241,13 @@ async function displaySearchTermPhotos(per_page, imgSize) {
         searchTerm
       );
 
+      if (customSearchPhotoDataArray === undefined) {
+        console.log("Either something went wrong with the search page query request or no query was input. Redirecting user to media page instead");
+        createSearchOrMediaCollectionsPage(null, user)
+        return;
+      }
       const matchingResults = customSearchPhotoDataArray.length;
-
       const searchQueryinfo = document.querySelector(".search-query-info");
-      console.log(searchQueryinfo);
       searchQueryinfo.innerHTML = `  
       <h3>${searchTerm}</h2>
       <p class="matching-results">${matchingResults} Photos Found</p>`;
@@ -268,6 +255,20 @@ async function displaySearchTermPhotos(per_page, imgSize) {
       return createPhotoContainer(customSearchPhotoDataArray);
     });
   }
+}
+
+async function displayMediaCollectionPhotos(type, per_page, id, imgSize) {
+
+  // clear already loaded photos and display collection photos instead
+  document.querySelector(".api-photos").innerHTML = "";
+  let collectionsMediaArray = await fetchCollectionsMedia(type, per_page, id, imgSize);
+
+  if (collectionsMediaArray === undefined) {
+    console.log("Something went wrong with the media page request, redirecting user to their collections page instead");
+    createProfileCollectionsPage(user)
+    return;
+  }
+  return createPhotoContainer(collectionsMediaArray);
 }
 
 async function displayApiBackgroundImage(per_page, imgSize, domElement) {
