@@ -110,7 +110,7 @@ function createHomePage() {
       .addEventListener("click", createAboutUsPage);
     document
       .querySelector(".RegisterBtn")
-      .addEventListener("click", createAboutUsPage);
+      .addEventListener("click", createRegisterPage);
   }
 }
 
