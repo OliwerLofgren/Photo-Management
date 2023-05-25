@@ -52,7 +52,7 @@ async function createLoginPage() {
       .addEventListener("click", createRegisterPage);
 
     document
-      .getElementById(".discover_button")
+      .querySelector(".discover_button")
       .addEventListener("click", createHomePage);
   }
 }

@@ -1,7 +1,6 @@
 "use strict";
 
 async function createSearchOrMediaCollectionsPage(searchTerm, user) {
-
   user = getLocalStorageObject("user");
   if (!user) {
     console.error("User data not found.");
@@ -21,7 +20,6 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
     await displaySearchSectionTwoPhotos();
 
-
     async function displaySearchSectionTwoPhotos() {
       const searchPage = document.getElementById("search-page-main");
       if (searchPage) {
@@ -36,7 +34,6 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
         console.error("Search page container not found.");
       }
     }
-
 
     function setupSearchPage() {
       const searchPageMain = document.querySelector("main");
@@ -59,11 +56,11 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       <nav id="navSearch">
           <p>${user.username}</p>
           <div class="mini-profile-photo"></div>
-          <button id="discoverBtn">Discover</button> /
-          <button id="collectionsBtn">Your Collections</button> /
-          <button id="profileBtn">Profile</button>
-          <button id="explore-button">Explore</button>
-          <button id="logout-button">Logout</button>
+          <button id="discoverBtn" class="discover_button">Discover</button> 
+          <button id="collectionsBtn" class="discover_button">Your Collections</button> 
+          <button id="profileBtn" class="discover_button">Profile</button>
+          <button id="explore-button" class="discover_button">Explore</button>
+          <button id="logout-button" class="discover_button">Logout</button>
       </nav>
       `;
 
@@ -88,7 +85,9 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
   }
 
   async function createMediaCollectionsPage(user) {
-    console.log("No query was input, user is redirected to media collections page.");
+    console.log(
+      "No query was input, user is redirected to media collections page."
+    );
 
     setupMediaPage();
     addEventListeners();
@@ -106,7 +105,13 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       const mediaPage = document.getElementById("media-section-one");
       if (mediaPage) {
         document.querySelector(".api-photos").innerHTML = "";
-        await displayMediaCollectionPhotos("photos", photosCount, id, "portrait", user);
+        await displayMediaCollectionPhotos(
+          "photos",
+          photosCount,
+          id,
+          "portrait",
+          user
+        );
       }
 
       const mediaQueryinfo = document.querySelector(".search-query-info");
@@ -165,13 +170,13 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     document
       .getElementById("collectionsBtn")
       .addEventListener("click", function () {
-        createProfileCollectionsPage(user)
+        createProfileCollectionsPage(user);
       });
 
     document
       .getElementById("profileBtn")
       .addEventListener("click", function () {
-        createProfileGalleryPage(user)
+        createProfileGalleryPage(user);
       });
 
     document
@@ -192,19 +197,17 @@ async function extractMediaTerms() {
   return clonedShuffledArray;
 }
 
-
 async function createTitleButtons() {
   // query select container for collection title buttons
   const titleBtnsContainer = document.querySelector(".title-buttons-container");
 
   let clonedShuffledArray = await extractMediaTerms();
 
-  clonedShuffledArray.forEach(collection => {
+  clonedShuffledArray.forEach((collection) => {
     const collectionTitleBtn = document.createElement("button");
     let collectionTitle = collection.title;
     collectionTitleBtn.textContent = collectionTitle;
     titleBtnsContainer.append(collectionTitleBtn);
-
   });
   /*console.log(`Current collection has the title: ${collection.title} with the id: ${collection.id} and contains ${collection.photosCount} photos`);*/
   return clonedShuffledArray;
