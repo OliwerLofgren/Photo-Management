@@ -3,6 +3,7 @@
 const aboutusHeader = document.querySelector("header");
 const aboutusMain = document.querySelector("main");
 
+//retrieve all current users
 async function getUsers() {
   let resource = null;
 
@@ -13,6 +14,7 @@ async function getUsers() {
     if (resource == null) {
       return;
     } else {
+      //if resource not null return resource
       return resource;
     }
   } catch (error) {
@@ -107,7 +109,7 @@ async function countUsers() {
   const resource = await getUsers();
   let userCount = 0;
 
-
+  // if users is an array with a lenth greater than zero it sets the UserCount to the length of the array
   if (Array.isArray(resource) && resource.length > 0) {
     userCount = resource.length;
   }
