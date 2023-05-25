@@ -34,9 +34,11 @@ async function createDiscoverPage(user) {
             <button id="search-button" class="discover_button">Search</button>
             <button id="explore-button" class="discover_button">Explore</button>
             <div id="discover_profile_container">
-                <p>${user.username}</p>
-                <div class="mini-profile-photo"></div>
-            </div>
+          </div>
+          <div class="mini_profile_container">
+            <div class="mini-profile-photo"></div>
+            <p>${user.username}</p>
+          </div>
         </div>
     </nav>
             `;
