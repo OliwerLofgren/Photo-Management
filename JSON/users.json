@@ -3,8 +3,21 @@
         "id": 1,
         "username": "Oliwer",
         "password": "123",
-        "uploaded_photos": [],
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_1\/kitten-curten-png.png"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/photos_1\/fluff-cat-png.png"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_1\/orange-cat.png"
+            }
+        ],
         "saved_photos": [],
-        "profile_picture": ""
+        "profile_picture": "..\/PHP\/my_photos\/photos_1\/maltese-portrait-dog-min.jpg"
     }
 ]
