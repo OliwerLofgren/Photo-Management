@@ -15,6 +15,8 @@
 
 .nav-profile-collection {
   margin: 60vh 0 0 10vh;
+  transform: rotate(270deg);
+  margin: 60vh 0 0 10vh;
 }
 
 .allBtn {
