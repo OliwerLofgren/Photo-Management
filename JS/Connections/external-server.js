@@ -219,7 +219,7 @@ async function displayCuratedPhotos(per_page, imgSize) {
 }
 
 // displays search term api photos
-async function displaySearchTermPhotos(per_page, imgSize) {
+async function fetchAndDisplaySearchedPhotos(per_page, imgSize) {
   let customSearchPhotoDataArray;
   let searchForm = document.querySelector(".search-form");
   if (searchForm != null) {

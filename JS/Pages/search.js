@@ -28,7 +28,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
         const apiPhotos = document.querySelector(".api-photos");
         if (apiPhotos) {
           apiPhotos.innerHTML = "";
-          await displaySearchTermPhotos(100, "portrait");
+          await fetchAndDisplaySearchedPhotos(100, "portrait");
         } else {
           console.error("API photos container not found.");
         }

@@ -12,7 +12,7 @@ async function createDiscoverPage(user) {
   thumbnailImg.append(img);
 
   await displayDiscoverSectionOnePhotos();
-  await ifSearchFormExists();
+  await handleDiscoverPageSearch();
 
   // add event listeners
   addEventListeners();
@@ -65,10 +65,10 @@ async function createDiscoverPage(user) {
     }
   }
 
-  async function ifSearchFormExists() {
+  async function handleDiscoverPageSearch() {
     let discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
-      await displaySearchTermPhotos(100, "portrait");
+      await fetchAndDisplaySearchedPhotos(100, "portrait");
     }
   }
 

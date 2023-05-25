@@ -102,8 +102,10 @@ function closeModalWindow() {
 }
 
 function displayServerLoadingMessage() {
-  // add the loading class to the .section element
-  const loadingPhotos = document.querySelector(".section");
+  // add the loading class to the element
+  const loadingPhotos = document.createElement("div");
+  document.querySelector("main").append(loadingPhotos);
+
   if (loadingPhotos == null) {
     return;
   } else {
@@ -121,7 +123,7 @@ function hideServerLoadingMessage() {
     loaderLine.remove();
   }
   // remove the loading class from the element
-  const loadingPhotos = document.querySelector(".section");
+  const loadingPhotos = document.querySelector(".loading");
   if (loadingPhotos == null) {
     return;
   } else {
