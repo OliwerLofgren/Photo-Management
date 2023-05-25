@@ -50,6 +50,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
         alt: photo.alt,
       };
     });
+    //hideServerLoadingMessage();
     return customPhotoDataArray;
   } catch (error) {
     console.log(error);

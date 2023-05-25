@@ -183,12 +183,24 @@
     margin-top: 5px;
     display: flex;
     justify-content: center;
+    gap: 4px;
 }
 
 #media-term-btns button {
-    /*background-image: linear-gradient(144deg, #d24955, #ab2b43 50%, #f3efe5);*/
+    background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
     box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
     max-width: 100%;
     min-width: 100px;
-    padding: 15px 20px;
+    padding: 9px 14px;
+    color: #FFFFFF;
+    border: 0;
+    display: inline-block;
+    outline: transparent;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+}
+
+#media-term-btns button:hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }

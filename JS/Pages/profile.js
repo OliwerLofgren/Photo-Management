@@ -62,11 +62,12 @@ async function createProfileGalleryPage(user) {
     document.body.classList.add("body-layout");
 
     profilePageHeader.innerHTML = `
-    <H1>PHOTO MANAGMENT</H1>
+    <H1>PHOTO MANAGEMENT</H1>
     <nav class="nav-profile-collection">
-        <button class="allBtn" id="discover-button">Discover</button>
-        <button class="allBtn" id="logout-button">Logout</button>
+       
         <button class="allBtn" id="delete-button">Delete your account</button>
+        <button class="allBtn" id="logout-button">Logout</button>
+        <button class="allBtn" id="discover-button">Discover</button>
     </nav>
   `;
 

@@ -3,28 +3,40 @@
 async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
   user = getLocalStorageObject("user");
+  if (!user) {
+    console.error("User data not found.");
+    return;
+  }
 
-  if (searchTerm == undefined || null || "") {
+  if (searchTerm == undefined || searchTerm == null || searchTerm === "") {
     createMediaCollectionsPage(user);
   } else {
     createSearchPage(searchTerm, user);
   }
 
-  async function createSearchPage(searchTerm, user) {
+  async function createSearchPage(user) {
     setupSearchPage();
 
     addEventListeners();
 
-    await displaySearchSectionTwoPhotos(searchTerm);
+    await displaySearchSectionTwoPhotos();
+
 
     async function displaySearchSectionTwoPhotos() {
       const searchPage = document.getElementById("search-page-main");
       if (searchPage) {
-        document.querySelector(".api-photos").innerHTML = "";
-        await displaySearchTermPhotos(100, "portrait");
-        // createTitleButtons(); > element is null
+        const apiPhotos = document.querySelector(".api-photos");
+        if (apiPhotos) {
+          apiPhotos.innerHTML = "";
+          await displaySearchTermPhotos(100, "portrait");
+        } else {
+          console.error("API photos container not found.");
+        }
+      } else {
+        console.error("Search page container not found.");
       }
     }
+
 
     function setupSearchPage() {
       const searchPageMain = document.querySelector("main");
@@ -36,7 +48,6 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
       document.body.classList.remove("body-layout");
 
-      // needs a check if logged in user or not!!
       searchPageHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
       <form id="mini-search-form" class="search-form">
@@ -177,7 +188,7 @@ async function extractMediaTerms() {
   const mediaCollectionsArray = await getCollectionsIds();
   shuffle(mediaCollectionsArray);
 
-  const clonedShuffledArray = mediaCollectionsArray.slice(1, 8);
+  const clonedShuffledArray = mediaCollectionsArray.slice(1, 15);
   return clonedShuffledArray;
 }
 
@@ -193,6 +204,7 @@ async function createTitleButtons() {
     let collectionTitle = collection.title;
     collectionTitleBtn.textContent = collectionTitle;
     titleBtnsContainer.append(collectionTitleBtn);
+
   });
   /*console.log(`Current collection has the title: ${collection.title} with the id: ${collection.id} and contains ${collection.photosCount} photos`);*/
   return clonedShuffledArray;
