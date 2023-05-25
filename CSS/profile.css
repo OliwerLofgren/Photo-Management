@@ -16,13 +16,14 @@
 .nav-profile-collection {
   display: flex;
   transform: rotate(270deg);
-  margin: 60vh 0 0 10vh;
+  margin: 50vh 0 0 10vh;
 }
 
 .allBtn {
   border: none;
   width: 120px;
   font-size: 20px;
+  background-color: #f0f0f0;
 }
 
 .user-page-main {
@@ -72,6 +73,8 @@
 
 .userPage #userIcon {
   font-size: 5em;
+  padding-left: unset;
+  padding-top: unset;
 }
 
 .user-section-one {
@@ -91,12 +94,6 @@
   overflow: hidden;
   margin-top: 10px;
 }
-
-/*.collections-button:hover,
-.profile-button:hover {
-  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
-  background-color: rgb(249, 250, 251);
-}*/
 
 #profile-picture img {
   height: 100%;
@@ -202,8 +199,7 @@
 }
 
 #hover-message:hover {
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  color: rgb(161, 119, 134);
+  text-shadow: 0 0 5px rgba(104, 104, 104, 0.3);
 }
 
 #button_container {

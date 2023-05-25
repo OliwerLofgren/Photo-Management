@@ -2,18 +2,20 @@
 /*** Helper functions ***/
 
 function shuffle(array) {
-  let currentIndex = array.length, randomIndex;
+  let currentIndex = array.length,
+    randomIndex;
 
   // while there remain elements to shuffle.
   while (currentIndex != 0) {
-
     // pick a remaining element
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
     // and swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
+      array[randomIndex],
+      array[currentIndex],
+    ];
   }
   return array;
 }
@@ -23,7 +25,6 @@ function clearElementAttributes(element) {
   element.removeAttribute("id");
   element.removeAttribute("class");
 }
-
 
 function setElementAttributes(element, id, className) {
   element.setAttribute("id", id);
@@ -102,22 +103,32 @@ function closeModalWindow() {
 }
 
 async function displayPhotoInteractionIcons(photoObject, photoContainer, user) {
-
   // Fetch the user data
   const currentUser = await fetchCollectedPhotosfromDB(user);
 
+  if (user == null || user == undefined) {
+    return;
+  } else {
+    const userSavedPhotoIds = currentUser.saved_photos.map((p) => p.id);
+    const photoId = photoObject.id;
+    let isBookmarked = false;
 
-  const userSavedPhotoIds = currentUser.saved_photos.map(p => p.id);
+    userSavedPhotoIds.forEach((userPhotoId) => {
+      if (userPhotoId === photoId) {
+        isBookmarked = true;
+      }
+    });
+  }
+
+  const userSavedPhotoIds = currentUser.saved_photos.map((p) => p.id);
   const photoId = photoObject.id;
   let isBookmarked = false;
 
-
-  userSavedPhotoIds.forEach(userPhotoId => {
+  userSavedPhotoIds.forEach((userPhotoId) => {
     if (userPhotoId === photoId) {
       isBookmarked = true;
     }
   });
-
 
   // create a container for some interactive buttons for api photos
   const photoInteractionsContainer = document.createElement("div");
@@ -198,8 +209,6 @@ async function toggleLikedStyleOnPhoto(photoContainer, photoObject) {
 }
 
 async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
-  console.log("you have bookmarked the photo!");
-
   // select all the bookmark icons
   const collectBtns = document.querySelectorAll(".collect-btn");
 
@@ -232,7 +241,6 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
   });
 
   await postPhotoObjectToDatabase(photoObject, user);
-
 }
 
 function check_if_image_exists(user) {
@@ -248,8 +256,6 @@ function check_if_image_exists(user) {
     return icon;
   }
 }
-
-
 
 /*function displayServerLoadingMessage() {
   // add the loading class to the element

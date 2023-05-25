@@ -1,5 +1,3 @@
-//Here is where the PATCH request is gonna be for the profile
-//This is where the PATCH-method should be located
 async function edit_uploaded_photo(photo_id, photo_url, logged_in_user) {
   try {
     const response = await fetch("../PHP/edit_uploaded.php", {
@@ -11,7 +9,6 @@ async function edit_uploaded_photo(photo_id, photo_url, logged_in_user) {
     });
 
     const data = await response.json();
-    console.log(data.message);
     const result = document.getElementById("result");
     if (response.ok) {
       // Find the corresponding photo container in section two
@@ -20,6 +17,7 @@ async function edit_uploaded_photo(photo_id, photo_url, logged_in_user) {
       ).parentNode;
       // Remove the photo container from the UI
       photo_container.parentNode.removeChild(photo_container);
+      console.log(data);
       result.textContent = "The image was successfully removed!";
     } else {
       result.textContent = "Something went wrong:" + data.message;
@@ -34,7 +32,7 @@ async function edit_saved_photo(photo_url, photo_id, user) {
     const response = await fetch("../PHP/edit_saved.php", {
       method: "PATCH",
       body: JSON.stringify({
-        logged_in_id: user,
+        logged_in_id: user.id,
         photo_id: photo_id,
       }),
     });

@@ -11,14 +11,14 @@
         //This section is for Collecting images for our profile
         $obj = $input_data["photoObject"];
         $id = $input_data["id"];
-        $bookmarked = $input_data["bookmarked"];
+        
             
-        if ($id == null && $obj == null && $bookmarked == null) {
+        if ($id == null && $obj == null) {
             $message = ["message" => "Array is null!"];
             sendJSON($message, 400);
         }
 
-        if ($id == "" && $obj == "" && $liked == "") {
+        if ($id == "" && $obj == "") {
             $message = ["message" => "Array is empty!"];
             sendJSON($message, 400);
         }
@@ -37,8 +37,6 @@
             $new_data = [
                 "id" => $id,
                 "photoObject" => $obj,
-                "bookmarked" => $bookmarked,
-                
             ];
                 
         $users[$logged_user_index]["saved_photos"][] = $new_data;

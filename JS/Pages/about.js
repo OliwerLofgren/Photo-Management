@@ -3,8 +3,7 @@
 const aboutusHeader = document.querySelector("header");
 const aboutusMain = document.querySelector("main");
 
-
-
+//retrieve all current users
 async function getUsers() {
   let resource = null;
 
@@ -13,18 +12,14 @@ async function getUsers() {
     resource = await response.json();
 
     if (resource == null) {
-      console.log("Response not ok");
       return;
     } else {
-      console.log("Response successful", resource);
+      //if resource not null return resource
       return resource;
     }
   } catch (error) {
-    console.log("Error", error);
   }
-
 }
-
 
 async function createAboutUsPage() {
   setupPage();
@@ -37,7 +32,7 @@ async function createAboutUsPage() {
     aboutusHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav class="registerNav">
-        <button id="registerBtn">REGISTER</button>
+        <button class="discover_button">REGISTER</button>
     </nav>
     `;
 
@@ -67,7 +62,7 @@ async function createAboutUsPage() {
             Wheter you are an individual looking to organize your personal photo or a photographer, we have you
             covered.</p>
 
-        <h2>Join us and register <button id="hereBtn">HERE</button></h2>
+        <h2>Join us and register <button class="discover_button hereBtn">HERE</button></h2>
 
         <p>Our team of dedicated experts is passionate about helping you unlock the true potential of your photos.
         </p>
@@ -102,11 +97,11 @@ let numberOfUsers = 0;
 
 function addEventListener() {
   document
-    .getElementById("registerBtn")
+    .querySelector("button")
     .addEventListener("click", createRegisterPage);
 
   document
-    .getElementById("hereBtn")
+    .querySelector(".hereBtn")
     .addEventListener("click", createRegisterPage);
 }
 
@@ -114,13 +109,11 @@ async function countUsers() {
   const resource = await getUsers();
   let userCount = 0;
 
-  // resource.forEach((user) => userCount++);
-
+  // if users is an array with a lenth greater than zero it sets the UserCount to the length of the array
   if (Array.isArray(resource) && resource.length > 0) {
     userCount = resource.length;
   }
   numberOfUsers = userCount;
-  console.log("Number of users:", userCount);
 }
 
 countUsers();

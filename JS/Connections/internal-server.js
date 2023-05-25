@@ -24,7 +24,6 @@ async function postPhotoObjectToDatabase(photoObject, user) {
     id: photoObject.id, // add id to the photo
     user_id: user.id, // add id to the user
     photoObject: photoObject,
-    bookmarked: false, // toggleable liked state
   };
 
   const post = {
@@ -54,6 +53,9 @@ async function postPhotoObjectToDatabase(photoObject, user) {
 
 /* fetch the collected photos */
 async function fetchCollectedPhotosfromDB(user) {
+  if (user == null || user == undefined) {
+    return;
+  }
   try {
     const response = await fetch("../JSON/users.json");
     const resource = await response.json();
@@ -78,18 +80,13 @@ async function fetchCollectedPhotosfromDB(user) {
   }
 }
 
-async function fetchUser() {
-
-}
-
 /* display the collected photos */
 async function displayCollectedPhotos(user) {
   const logged_in_user = await fetchCollectedPhotosfromDB(user);
-  if (!logged_in_user) {
+  if (!logged_in_user || user == null || user == undefined) {
     console.log("Failed to fetch user data");
     return;
   }
-
 
   const photoWrapper = document.getElementById("collections-photos");
   const messageContainer = document.getElementById("message_container");
@@ -103,7 +100,6 @@ async function displayCollectedPhotos(user) {
     const photoObject = savedPhoto.photoObject;
     const photoUrl = photoObject.photo;
     const photoId = savedPhoto.id;
-    const liked = savedPhoto.liked;
 
     // create an image element and set its source to the photo URL
     const image = document.createElement("img");
@@ -118,8 +114,7 @@ async function displayCollectedPhotos(user) {
     // add event listener to the delete button
     button_delete.addEventListener("click", handleDeleteClick);
     async function handleDeleteClick() {
-      console.log("Deleted");
-      await edit_saved_photo(photoUrl, photoId, user.id);
+      await edit_saved_photo(photoUrl, photoId, user);
     }
     photoContainer.append(button_delete);
     photoContainer.append(image);

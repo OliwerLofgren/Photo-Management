@@ -65,9 +65,9 @@ async function createProfileGalleryPage(user) {
     <H1>PHOTO MANAGEMENT</H1>
     <nav class="nav-profile-collection">
        
-        <button class="allBtn" id="delete-button">Delete your account</button>
-        <button class="allBtn" id="logout-button">Logout</button>
-        <button class="allBtn" id="discover-button">Discover</button>
+        <button class="allBtn discover_button" id="delete-button">Delete your account</button>
+        <button class="allBtn discover_button" id="logout-button">Logout</button>
+        <button class="allBtn discover_button" id="discover-button">Discover</button>
     </nav>
   `;
 
@@ -81,7 +81,7 @@ async function createProfileGalleryPage(user) {
         <div id="profile_container">
             <form id="form_profile_upload" action="../PHP/profile_pics.php" method="POST" enctype="multipart/form-data">
                 <input type="file" name="upload">
-                <button type="submit" id="custom_upload_button">Upload</button>
+                <button type="submit" class="discover_button">Upload</button>
             </form>
             <div id="profile_result"></div>
         </div>
@@ -96,7 +96,7 @@ async function createProfileGalleryPage(user) {
         </nav>
         <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
             <input type="file" name="upload">
-            <button type="submit" id="section_two_button">Upload</button>
+            <button type="submit" class="discover_button">Upload</button>
         </form>
         <div id="result"></div>
 

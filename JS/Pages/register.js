@@ -16,7 +16,7 @@ function createRegisterPage() {
     registerHeader.innerHTML = `
     <h1>PHOTO MANAGEMENT</h1>
     <nav class="nav-Register-Login">
-        <button id="go-back-home">Back to home</button>
+        <button class="discover_button">Back to home</button>
     </nav>
         `;
 
@@ -52,7 +52,7 @@ function createRegisterPage() {
       .addEventListener("click", createLoginPage);
 
     document
-      .getElementById("go-back-home")
+      .querySelector(".discover_button")
       .addEventListener("click", createHomePage);
 
     document.getElementById("regForm").addEventListener("submit", (event) => {

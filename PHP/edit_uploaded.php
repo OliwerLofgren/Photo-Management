@@ -52,8 +52,9 @@ $input_data = json_decode(file_get_contents("php://input"), true);
                     
             }
         }
+            
             file_put_contents($filename, json_encode($users, JSON_PRETTY_PRINT));
-            $message = ["message" => "Photo has successfully been deleted"];
+            $message = ["message" => basename($photo["photo"]) . " has successfully been deleted"];
             sendJSON($message);
 
         }else{
