@@ -73,6 +73,8 @@
 
 .userPage #userIcon {
   font-size: 5em;
+  padding-left: unset;
+  padding-top: unset;
 }
 
 .user-section-one {
