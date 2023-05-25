@@ -34,10 +34,7 @@ function createHomePage() {
     homeMain.innerHTML = `
     <section id="home-section-one" class="section bg-img">
     <!-- content of the first section -->
-
-      <h1>Unleash your creativity</h1>
-
-      <button>Learn more</button>
+      <h1 class="h1-one">Unleash your creativity</h1>
     </section>
 
     <section id="home-section-two" class="section">
