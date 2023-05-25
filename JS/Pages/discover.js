@@ -63,7 +63,7 @@ async function createDiscoverPage(user) {
     let discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
       // photo dom element creation
-      await displayCuratedPhotos(20, "portrait", user);
+      await displayCuratedPhotos(100, "portrait", user);
     }
   }
 

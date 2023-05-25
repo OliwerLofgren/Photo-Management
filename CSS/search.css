@@ -14,14 +14,29 @@
     gap: 50vw;
 }
 
-#search-section-one,
+
 #media-section-one {
     height: 20%;
 }
 
-#search-section-two,
+#search-section-one,
 #media-section-two {
     height: 80%;
+}
+
+.search-media-title {
+    color: pink;
+    font-family: "Neue Montreal-Medium";
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 2vh;
+}
+
+.matching-results {
+    font-family: "Neue Montreal-Medium";
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 2vh;
 }
 
 #search-photos,

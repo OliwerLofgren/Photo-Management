@@ -64,13 +64,9 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       </nav>
       `;
 
-      searchPageMain.innerHTML = `
-      <section id="search-section-one" class="section">
-          <div id="search-term-btns" class="title-buttons-container"></div>
-      </section>
-
+      searchPageMain.innerHTML = `     
       <!--content of the first section -->
-      <section id="search-section-two" class="section">
+      <section id="search-section-one" class="section">
           <div id="search-page-query-info" class="search-query-info"></div>
           <div id="search-photos" class="api-photos"></div>
       </section>
@@ -116,8 +112,8 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
       const mediaQueryinfo = document.querySelector(".search-query-info");
       mediaQueryinfo.innerHTML = `  
-      <h3>${title}</h2>
-      <p class="matching-results">${photosCount} Photos Found</p>`;
+      <h3>Pictures of ${title}</h2>
+      <p class="matching-results">Total results: ${photosCount} found</p>`;
     }
 
     function setupMediaPage() {
