@@ -15,9 +15,11 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
   async function createSearchPage(user) {
     setupSearchPage();
+
     const profile_div = document.querySelector(".mini-profile-photo");
     const img = check_if_image_exists(user);
     profile_div.append(img);
+
     addEventListeners();
 
     await displaySearchSectionTwoPhotos();
@@ -49,26 +51,30 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
       searchPageHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
-      <form id="mini-search-form" class="search-form">
-          <label for="search-field"></label>
-          <input id="mini-search-field" class="search-field" name="search" type="text">
-          <button type="submit">Search</button>
-      </form>
-  
+      
       <nav id="navSearch">
-          <p>${user.username}</p>
-          <div class="mini-profile-photo"></div>
+        <div id="button_container">
           <button id="discoverBtn" class="discover_button">Discover</button> 
           <button id="collectionsBtn" class="discover_button">Your Collections</button> 
           <button id="profileBtn" class="discover_button">Profile</button>
-          <button id="explore-button" class="discover_button">Explore</button>
           <button id="logout-button" class="discover_button">Logout</button>
+          
+          <div class="mini_profile_container">
+            <div class="mini-profile-photo"></div>
+            <p>${user.username}</p>
+          </div>
+        </div>
       </nav>
       `;
 
       searchPageMain.innerHTML = `
       <section id="search-section-one" class="section">
           <h1 class="h1-search">Here are some options to search for inspiration!</h1>
+          <form id="mini-search-form" class="search-form">
+            <label for="search-field"></label>
+            <input id="mini-search-field" class="search-field" name="search" type="text">
+            <button type="submit" class="discover_button">Search</button>
+          </form>
           <div id="search-term-btns" class="title-buttons-container"></div>
       </section>
 
@@ -79,7 +85,8 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       </section>
       `;
     }
-    document.querySelector("#media-section-one").innerHTML += '<h1 class="h1-search">Here are some options to search for inspiration!</h1>';
+    document.querySelector("#media-section-one").innerHTML +=
+      '<h1 class="h1-search">Here are some options to search for inspiration!</h1>';
 
     document
       .getElementById("explore-button")
@@ -94,12 +101,16 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     );
 
     setupMediaPage();
+
+    const profile_div = document.querySelector(".mini-profile-photo");
+    const img = check_if_image_exists(user);
+    profile_div.append(img);
+
     addEventListeners();
 
     await displayMediaSectionTwoPhotos();
 
     async function displayMediaSectionTwoPhotos() {
-
       const mediaSectionOne = document.querySelector("#media-section-one");
       mediaSectionOne.innerHTML += `<h1 class="h1-search">Here is inspiration for your collection</h1>`;
 
@@ -145,12 +156,16 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       <H1>PHOTO MANAGEMENT</H1>
 
       <nav id="navSearch">
-          <p>${user.username}</p>
-          <div class="mini-profile-photo"></div>
-          <button id="discoverBtn" class="discover_button">Discover</button> /
-          <button id="collectionsBtn" class="discover_button">Your Collections</button> /
+        <div id="button_container">
+          <button id="discoverBtn" class="discover_button">Discover</button> 
+          <button id="collectionsBtn" class="discover_button">Your Collections</button> 
           <button id="profileBtn" class="discover_button">Profile</button>
           <button id="logout-button" class="discover_button">Logout</button>
+      </div>
+        <div class="mini_profile_container">
+          <div class="mini-profile-photo"></div>
+          <p>${user.username}</p>
+        </div>
       </nav>
   `;
 
@@ -182,7 +197,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       });
 
     document
-      .getElementById("profileBtn")
+      .querySelector(".mini-profile-photo")
       .addEventListener("click", function () {
         createProfileGalleryPage(user);
       });

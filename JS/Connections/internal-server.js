@@ -24,7 +24,6 @@ async function postPhotoObjectToDatabase(photoObject, user) {
     id: photoObject.id, // add id to the photo
     user_id: user.id, // add id to the user
     photoObject: photoObject,
-    bookmarked: false, // toggleable liked state
   };
 
   const post = {
@@ -115,7 +114,6 @@ async function displayCollectedPhotos(user) {
     // add event listener to the delete button
     button_delete.addEventListener("click", handleDeleteClick);
     async function handleDeleteClick() {
-      console.log("Deleted");
       await edit_saved_photo(photoUrl, photoId, user);
     }
     photoContainer.append(button_delete);

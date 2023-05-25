@@ -34,11 +34,11 @@
   margin: 0 20px;
 }
 
-#discover-photos>div {
+#discover-photos > div {
   position: relative;
 }
 
-#discover-photos>div img {
+#discover-photos > div img {
   width: 100%;
   height: auto;
   object-fit: cover;

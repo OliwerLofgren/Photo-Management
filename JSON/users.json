@@ -6,5 +6,42 @@
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_picture": ""
+    },
+    {
+        "id": 2,
+        "username": "Benny",
+        "password": "123",
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_2\/dog-ocean-jpeg-min.jpg"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/photos_2\/dog-white-jpeg-more-50kb.jpg"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_2\/fluff-cat-png.png"
+            }
+        ],
+        "saved_photos": [
+            {
+                "id": 16790833,
+                "photoObject": {
+                    "id": 16790833,
+                    "width": 2832,
+                    "height": 4240,
+                    "avg_color": "#9F9071",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16790833\/pexels-photo-16790833.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Josh Hild",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@josh-hild-1270765",
+                    "photographer_id": 1270765,
+                    "liked": false,
+                    "alt": ""
+                }
+            }
+        ],
+        "profile_picture": "..\/PHP\/my_photos\/photos_2\/terrier-dog-jpeg-min.jpg"
     }
 ]
