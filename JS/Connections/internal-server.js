@@ -3,8 +3,6 @@
 
 // handles post request
 async function postPhotoObjectToDatabase(photoObject, user) {
-  console.log(user.id);
-
   // Fetch the collected photos from the JSON
   const logged_in_user = await fetchCollectedPhotosfromDB(user);
   if (!logged_in_user) {
@@ -16,7 +14,6 @@ async function postPhotoObjectToDatabase(photoObject, user) {
   const existingPhoto = logged_in_user.saved_photos.find(
     (savedPhoto) => savedPhoto.photoObject.id === photoObject.id
   );
-  console.log(existingPhoto);
   if (existingPhoto) {
     console.log("Photo object already exists");
     return existingPhoto;
@@ -68,7 +65,10 @@ async function fetchCollectedPhotosfromDB(user) {
     }
 
     if (!response.ok) {
-      console.log("Something went wrong fetching the user's collected photos from internal database", response.statusText);
+      console.log(
+        "Something went wrong fetching the user's collected photos from internal database",
+        response.statusText
+      );
       return;
     } else {
       return logged_in_user;
@@ -78,6 +78,10 @@ async function fetchCollectedPhotosfromDB(user) {
   }
 }
 
+async function fetchUser() {
+
+}
+
 /* display the collected photos */
 async function displayCollectedPhotos(user) {
   const logged_in_user = await fetchCollectedPhotosfromDB(user);
@@ -85,6 +89,7 @@ async function displayCollectedPhotos(user) {
     console.log("Failed to fetch user data");
     return;
   }
+
 
   const photoWrapper = document.getElementById("collections-photos");
   const messageContainer = document.getElementById("message_container");

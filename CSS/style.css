@@ -80,6 +80,7 @@ button {
     margin: 10px;
     font-size: small;
     color: rgb(244, 83, 24);
+    text-align: center;
 }
 
 /*Modal styles*/
@@ -149,21 +150,25 @@ button {
     display: block;
 }
 
-.mini-profile-photo {
+/* .mini-profile-photo {
     background-color: palegreen;
     border-radius: 50%;
     width: 30px;
     height: 30px;
-}
+} */
 
 .activeBtn {
-    background-color: rgb(230, 206, 214);
+    background-color: black;
+    color: white;
+    border: none;
 }
 
-.btnDeactivated {
-    background-color: red;
-}
+/*.btnDeactivated {
+    background-color: rgb(244, 202, 202);
+}*/
 
 .deactiveBtn {
     background-color: rgb(255, 255, 255);
+    color: black;
+    border: none;
 }

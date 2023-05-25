@@ -15,8 +15,8 @@ function fetch_resource(request) {
 /*** external api request handlers ***/
 
 // returns array of select keys: photographer name, photourl, etc
-async function fetchCuratedPhotos(per_page, imgSize) {
-  displayServerLoadingMessage();
+async function fetchCuratedPhotos(per_page, imgSize, user) {
+  //displayServerLoadingMessage();
   const url = `${prefix}curated?per_page=${per_page}`;
   try {
     const response = await fetch_resource(new Request(url, { headers }));
@@ -50,7 +50,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
         alt: photo.alt,
       };
     });
-
+    //hideServerLoadingMessage();
     return customPhotoDataArray;
   } catch (error) {
     console.log(error);
@@ -59,8 +59,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
   }
 }
 
-async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
-  displayServerLoadingMessage();
+async function fetchSearchedPhotos(per_page, imgSize, searchTerm, user) {
   const searchEndPointUrl = `${prefix}search?query=${searchTerm}&per_page=${per_page}`;
 
   try {
@@ -70,11 +69,14 @@ async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
     const resource = await response.json();
 
     if (response.status === 400) {
-      createSearchOrMediaCollectionsPage(null, user)
+      createSearchOrMediaCollectionsPage(null, user);
       return;
     }
     if (!response.ok) {
-      console.log("Something went wrong with the search query request", response.status);
+      console.log(
+        "Something went wrong with the search query request",
+        response.status
+      );
       return;
     }
     let photoResourceArray = resource.photos;
@@ -127,7 +129,7 @@ async function fetchFeaturedCollectionObjects(per_page) {
   }
 }
 
-async function fetchCollectionsMedia(type, per_page, id, imgSize) {
+async function fetchCollectionsMedia(type, per_page, id, imgSize, user) {
   const url = `${prefix}collections/${id}?per_page=${per_page}&type=${type}`;
 
   try {
@@ -176,16 +178,15 @@ async function getCollectionsIds() {
   return collections;
 }
 
-
 /*** photo dom element creation and display ***/
 
 // (NOTE: don't forget to add class .api-photos to dom element to display photos) creates photo dom element and handles buttons event listeners
-function createPhotoContainer(array) {
-
+function createPhotoContainer(array, user) {
   const photoWrapper = document.querySelector(".api-photos");
   if (array === undefined || photoWrapper === null) {
-    console.log("The array is undefined, or the page doesn't contain an element with the class .api-photos");
-    hideServerLoadingMessage();
+    console.log(
+      "The array is undefined, or the page doesn't contain an element with the class .api-photos"
+    );
     return;
   }
 
@@ -202,29 +203,22 @@ function createPhotoContainer(array) {
     const photoImage = document.createElement("img");
     photoContainer.append(photoImage);
 
-    photoImage.onload = function () {
-      hideServerLoadingMessage();
-    };
-
     photoImage.src = photoObject.photo;
     // add an alt attribute to the img element to improve accessibility
     photoImage.alt = photoObject.alt;
 
-    displayPhotoInteractionIcons(
-      photoObject,
-      photoContainer
-    );
+    displayPhotoInteractionIcons(photoObject, photoContainer, user);
     return;
   });
 }
 
-async function displayCuratedPhotos(per_page, imgSize) {
+async function displayCuratedPhotos(per_page, imgSize, user) {
   let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
-  createPhotoContainer(customPhotoDataArray);
+  createPhotoContainer(customPhotoDataArray, user);
 }
 
 // displays search term api photos
-async function displaySearchTermPhotos(per_page, imgSize) {
+async function fetchAndDisplaySearchedPhotos(per_page, imgSize, user) {
   let customSearchPhotoDataArray;
   let searchForm = document.querySelector(".search-form");
   if (searchForm != null) {
@@ -238,45 +232,52 @@ async function displaySearchTermPhotos(per_page, imgSize) {
       customSearchPhotoDataArray = await fetchSearchedPhotos(
         per_page,
         imgSize,
-        searchTerm
+        searchTerm, user
       );
 
       if (customSearchPhotoDataArray === undefined) {
-        console.log("Either something went wrong with the search page query request or no query was input. Redirecting user to media page instead");
-        createSearchOrMediaCollectionsPage(null, user)
+        console.log(
+          "Either something went wrong with the search page query request or no query was input. Redirecting user to media page instead"
+        );
+        createSearchOrMediaCollectionsPage(null, user);
         return;
       }
       const matchingResults = customSearchPhotoDataArray.length;
       const searchQueryinfo = document.querySelector(".search-query-info");
-      console.log(searchQueryinfo);
       searchQueryinfo.innerHTML = `  
       <h3>${searchTerm}</h2>
       <p class="matching-results">${matchingResults} Photos Found</p>`;
 
-      return createPhotoContainer(customSearchPhotoDataArray);
+      return createPhotoContainer(customSearchPhotoDataArray, user);
     });
   }
 }
 
-async function displayMediaCollectionPhotos(type, per_page, id, imgSize) {
-
+async function displayMediaCollectionPhotos(type, per_page, id, imgSize, user) {
   // clear already loaded photos and display collection photos instead
   document.querySelector(".api-photos").innerHTML = "";
-  let collectionsMediaArray = await fetchCollectionsMedia(type, per_page, id, imgSize);
+  let collectionsMediaArray = await fetchCollectionsMedia(
+    type,
+    per_page,
+    id,
+    imgSize
+  );
 
   if (collectionsMediaArray === undefined) {
-    console.log("Something went wrong with the media page request, redirecting user to their collections page instead");
-    createProfileCollectionsPage(user)
+    console.log(
+      "Something went wrong with the media page request, redirecting user to their collections page instead"
+    );
+    createProfileCollectionsPage(user);
     return;
   }
-  return createPhotoContainer(collectionsMediaArray);
+  return createPhotoContainer(collectionsMediaArray, user);
 }
 
 async function displayApiBackgroundImage(per_page, imgSize, domElement) {
   let customPhotoDataArray = await fetchCuratedPhotos(
     per_page,
     imgSize,
-    domElement
+    domElement, user
   );
   // set dom bg img
   customPhotoDataArray.forEach((photo) => {

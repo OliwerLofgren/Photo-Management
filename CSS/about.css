@@ -37,11 +37,10 @@
 
 .amountOfUsers {
     background-color: rgb(219, 212, 212);
-    width: 25%;
+    width: 40%;
     margin: 20px auto auto auto;
     padding: 20px 0 20px 0;
-    border-bottom: 2px inset black;
-    border-right: 2px inset black;
+    border-radius: 10px;
 }
 
 .team {
@@ -52,11 +51,13 @@
 .section-one {
     height: 80vh;
     padding-top: 40px;
+    scroll-snap-align: start;
 }
 
 .section-two {
     height: 90vh;
     padding-top: 40px;
+    scroll-snap-align: start;
 }
 
 

@@ -12,6 +12,7 @@ async function createDiscoverPage(user) {
   thumbnailImg.append(img);
 
   await displayDiscoverSectionOnePhotos();
+  await handleDiscoverPageSearch();
 
   // add event listeners
   addEventListeners();
@@ -27,35 +28,50 @@ async function createDiscoverPage(user) {
     discoverHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav>
-            <p>${user.username}</p>
-            <div class="mini-profile-photo"></div>
-            <button id="collections-button">Your Collections</button>
-            <button id="gallery-button">Profile</button>
-            <button id="logout-button">Logout</button>
-            <button id="search-button">search</button>
-            <button id="media-button">media</button>
-
-            </nav>
+        <div id="button_container">
+            <button id="collections-button" class="discover_button">Your Collections</button>
+            <button id="logout-button" class="discover_button">Logout</button>
+            <button id="search-button" class="discover_button">Search</button>
+            <button id="explore-button" class="discover_button">Explore</button>
+            <div id="discover_profile_container">
+                <p>${user.username}</p>
+                <div class="mini-profile-photo"></div>
+            </div>
+        </div>
+    </nav>
             `;
 
     discoverMain.innerHTML = `
-    <section id="discover-section-one" class="section">
-  </section>
-    
+    <section id="discover-section-one">
+    <form id="big-search-form" class="search-form">
+    <label for="search-field"></label>
+    <input id="big-search-field" class="search-field" name="search" placeholder="Explore our library of photos" type="text">
+    <button type="submit">Search</button>
+</form>
+    </section>
+
     <section id="discover-section-two" class="section">
-      <div id="discover-photos" class="api-photos"></div>
+        <div id="discover-photos" class="api-photos"></div>
     </section>
         `;
   }
 
   async function displayDiscoverSectionOnePhotos() {
     // check if current page is discover page
-    const discoverPage = document.getElementById("discover-main");
+    let discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
       // photo dom element creation
-      await displayCuratedPhotos(20, "portrait");
+      await displayCuratedPhotos(20, "portrait", user);
     }
   }
+
+  async function handleDiscoverPageSearch() {
+    let discoverPage = document.getElementById("discover-main");
+    if (discoverPage) {
+      await fetchAndDisplaySearchedPhotos(100, "portrait", user);
+    }
+  }
+
   function addEventListeners() {
     document
       .getElementById("collections-button")
@@ -63,7 +79,7 @@ async function createDiscoverPage(user) {
         createProfileCollectionsPage(user);
       });
     document
-      .getElementById("gallery-button")
+      .querySelector(".mini-profile-photo")
       .addEventListener("click", function () {
         createProfileGalleryPage(user);
       });
@@ -74,11 +90,10 @@ async function createDiscoverPage(user) {
       });
 
     document
-      .getElementById("media-button")
+      .getElementById("explore-button")
       .addEventListener("click", function () {
-        createSearchOrMediaCollectionsPage(null, user);
+        createSearchOrMediaCollectionsPage(null, null, user);
       });
-
 
     document
       .getElementById("logout-button")

@@ -18,11 +18,13 @@
     padding: 0 15px 0 15px;
 }
 
-#login-register-instead {
+.login-register-instead {
     padding: 10px 0 10px 0;
     font-size: small;
     display: flex;
     justify-content: center;
+    text-decoration: underline 1px black;
+    cursor: pointer;
 }
 
 .text-login-register {
@@ -34,9 +36,10 @@
 
 .button-login-register {
     width: 100px;
-    margin-left: 30%;
+    margin-left: 35%;
     border: none;
     background: rgb(185, 181, 181);
+
 }
 
 .input-field {

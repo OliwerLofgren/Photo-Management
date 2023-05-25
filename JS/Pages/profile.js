@@ -36,17 +36,18 @@ async function createProfileGalleryPage(user) {
       } else {
         profile_result.textContent =
           "Your profile picture has successfully been added";
+        console.log(data);
         user = updateLocalStorageObjectKey("user", "profile_picture", data);
         profile_div.innerHTML = "";
         let img = check_if_image_exists(user);
         profile_div.append(img);
-        // update the user's profile picture
       }
     } catch (error) {
       profile_result.textContent = "An error occurred!" + error;
     }
   });
 
+  //Display all of the images that the user has uploaded
   await get_all_images(user);
 
   function setupProfilePage() {
@@ -58,60 +59,62 @@ async function createProfileGalleryPage(user) {
       "user-page-header"
     );
 
-    // apply layout
     document.body.classList.add("body-layout");
 
     profilePageHeader.innerHTML = `
-    <H1>Photo Management</H1>
-      <nav>
-      <button id="discover-button">Discover</button>
-      <button id="logout-button">Logout</button>
-      <button id="delete-button">Delete your account</button>
-      </nav>
+    <H1>PHOTO MANAGEMENT</H1>
+    <nav class="nav-profile-collection">
+       
+        <button class="allBtn" id="delete-button">Delete your account</button>
+        <button class="allBtn" id="logout-button">Logout</button>
+        <button class="allBtn" id="discover-button">Discover</button>
+    </nav>
   `;
 
     profilePageMain.innerHTML = `
-    <!-- Insert user profile section here -->
     <section id="profile-section-one" class="user-section-one">
-    
-    <div id="profile-picture" class="profile-photo"></div>
 
-    
-    <h3>${user.username}</h3>
-    <div id="profile_container">
-    <form id="form_profile_upload" action="../PHP/profile_pics.php" method="POST" enctype="multipart/form-data">
-      <input type="file"  name="upload">
-      <button type="submit" id="custom_upload_button">Upload</button>
-    </form> 
-    <div id="profile_result"></div>   
-    </div>
-    
-    </section >
-        <section id="profile-section-two" class="section user-section-two">
-      
-      <nav class="profile-or-collections-nav">
-      <button id="collections-button" class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Your Collections</button>      
-      <button id="profile-button" class="activeBtn" onclick="btnFunc1()">Profile</button>   
-      </nav>
-      <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
-        <input type="file"  name="upload">
-        <button type="submit" id="section_two_button">Upload</button>
-      </form>
-      <div id="result"></div>   
+        <div id="profile-picture" class="profile-photo userPage"></div>
+
+
+        <h3>${user.username}</h3>
+        <div id="profile_container">
+            <form id="form_profile_upload" action="../PHP/profile_pics.php" method="POST" enctype="multipart/form-data">
+                <input type="file" name="upload">
+                <button type="submit" id="custom_upload_button">Upload</button>
+            </form>
+            <div id="profile_result"></div>
+        </div>
+
+    </section>
+    <section id="profile-section-two" class="section user-section-two">
+
+        <nav class="profile-or-collections-nav">
+            <button id="collections-button" class="deactiveBtn btnDeactivated" onclick="btnFunc2()">Your
+                Collections</button>
+            <button id="profile-button" class="activeBtn profile-button" onclick="btnFunc1()">Profile</button>
+        </nav>
+        <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="upload">
+            <button type="submit" id="section_two_button">Upload</button>
+        </form>
+        <div id="result"></div>
 
         <div id="message_container"></div>
         <div id="profile-photos" class="user-page-photos"></div>
-      </section>
+    </section>
     `;
   }
 
   const result = document.getElementById("result");
   const form = document.getElementById("form_upload");
   form.addEventListener("submit", async function (event) {
-    event.preventDefault();
     // Remove previously uploaded image
+    event.preventDefault();
     try {
+      //Collects all the input values within the form
       const formData = new FormData(form);
+      //Adding id of the user as a value for logged_in_id to the FormData
       formData.append("logged_in_id", user.id);
       const request = new Request("../PHP/upload.php", {
         method: "POST",
@@ -123,12 +126,14 @@ async function createProfileGalleryPage(user) {
       // This simply resets the form.
       form.reset();
 
-      if (!response.ok) {
-        result.textContent = "An error occurred: " + data.message;
-      } else {
+      if (response.ok) {
+        console.log(data);
         result.textContent = "Successfully uploaded the image";
         document.querySelector("#message_container").innerHTML = "";
+        //Display the latest image that has been uploaded
         await get_one_images(user);
+      } else {
+        result.textContent = "An error occurred: " + data.message;
       }
     } catch (error) {
       console.log("Error!", error);
@@ -141,13 +146,15 @@ async function createProfileGalleryPage(user) {
       const response = await fetch("../JSON/users.json");
       const data = await response.json();
 
+      //Checking if the id of each user object matches the id of the logged-in user passed in as the user argument.
       const logged_in_user = data.find((u) => u.id === user.id);
       if (!logged_in_user) {
         console.log("User not found!");
         return;
       }
-
+      //Uploaded photos from the user who is logged in
       const uploaded_photos = logged_in_user.uploaded_photos;
+      //Take out the latest photo uploaded from the array(uploaded_photos)
       const latest_uploaded_photo = uploaded_photos[uploaded_photos.length - 1];
       const container = document.querySelector("#profile-photos");
 
@@ -226,6 +233,7 @@ async function createProfileGalleryPage(user) {
           button_delete.innerText = "Remove this image";
           button_delete.classList.add("delete");
           button_delete.addEventListener("click", () => {
+            // console.log("Deleted");
             edit_uploaded_photo(photo.photo_id, photo_url, user);
           });
           const photo_containers = document.createElement("div");
@@ -269,11 +277,3 @@ async function createProfileGalleryPage(user) {
       });
   }
 }
-
-//Display all images that are saved from discover
-
-//Display all images that you have uploaded
-
-//This php-code should is intended for index.html
-
-//Display your profile picture

@@ -8,11 +8,21 @@
 .user-page-header {
   position: fixed;
   width: calc(100vw - 85vw);
-  grid-column: 1;
-  grid-row: 1;
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+.nav-profile-collection {
+  display: flex;
+  transform: rotate(270deg);
+  margin: 60vh 0 0 10vh;
+}
+
+.allBtn {
+  border: none;
+  width: 120px;
+  font-size: 20px;
 }
 
 .user-page-main {
@@ -46,6 +56,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 .user-section-two nav button {
@@ -54,10 +65,12 @@
   max-width: 150px;
   margin: 10px;
 }
+
 #form_upload {
   margin: 10px;
 }
-#userIcon {
+
+.userPage #userIcon {
   font-size: 5em;
 }
 
@@ -78,6 +91,12 @@
   overflow: hidden;
   margin-top: 10px;
 }
+
+/*.collections-button:hover,
+.profile-button:hover {
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  background-color: rgb(249, 250, 251);
+}*/
 
 #profile-picture img {
   height: 100%;
@@ -140,18 +159,11 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-.photo_image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .user-page-photos {
-  width: 100%;
   margin: 0 auto;
   max-width: 800px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: min-content;
   grid-gap: 10px;
   text-align: center;
@@ -160,8 +172,8 @@
 .photo_containers {
   margin: 0px 10px 10px 10px;
 
-  width: 100%;
-  height: 370px;
+  width: 250px;
+  height: 500px;
 
   display: flex;
 
@@ -170,27 +182,48 @@
   justify-content: space-between;
 }
 
+.photo_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 #message_container {
   text-align: center;
 }
+
 #result {
   margin-bottom: 10px;
 }
 
-#collections-photos > div img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-#collections-photos > div {
-  width: 100%;
-  height: auto;
-}
-
 #hover-message {
   cursor: pointer;
+  color: rgb(0, 149, 246);
 }
+
 #hover-message:hover {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   color: rgb(161, 119, 134);
+}
+
+#button_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.discover_button {
+  font-size: 11vw;
+  padding: 5px;
+  width: 10vw;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.discover_button:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#discover_profile_container {
+  height: 80px;
 }

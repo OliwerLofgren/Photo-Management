@@ -35,36 +35,37 @@ async function createAboutUsPage() {
     document.body.classList.remove("body-layout");
 
     aboutusHeader.innerHTML = `
-        <H1>PHOTO MANAGEMENT</H1>
-        <nav class="registerNav">
+    <H1>PHOTO MANAGEMENT</H1>
+    <nav class="registerNav">
         <button id="registerBtn">REGISTER</button>
-        </nav>
-        `;
+    </nav>
+    `;
 
     aboutusMain.innerHTML = `
-        <section class="section-one">
-        <div class="flex circle-wrapper">
-        <div class="flex circle"> 
-        <span class ="content">About us</span>
+    <section class="section-one">
+    <div class="flex circle-wrapper">
+        <div class="flex circle">
+            <span class="content">About us</span>
         </div>
-        </div>
+    </div>
 
-        <p class="paragraf">We love to inspire!
-         Join us on the journey</p>
+    <p class="paragraf">We love to inspire!
+        Join us on the journey</p>
 
-        <div class="amountOfUsers">
+    <div class="amountOfUsers">
         <p>Current amount of users</p>
         <div id="counter">${numberOfUsers}</div>
-        </div>
-        </section>
+    </div>
+    </section>
 
-        <section class="section-two">
-        <div class="text-aboutUs">
+    <section class="section-two">
+    <div class="text-aboutUs">
         <p>Here at PHOTO MANAGEMENT we understnad the importance of preserving and <br>
-        organizing your precious memories captured through photographs.
-        
-        Our website offers a wide range of sevices to cater to your specific needs. <br>
-        Wheter you are an individual looking to organize your personal photo or a photographer, we have you covered.</p>
+            organizing your precious memories captured through photographs.
+
+            Our website offers a wide range of sevices to cater to your specific needs. <br>
+            Wheter you are an individual looking to organize your personal photo or a photographer, we have you
+            covered.</p>
 
         <h2>Join us and register <button id="hereBtn">HERE</button></h2>
 
@@ -73,25 +74,27 @@ async function createAboutUsPage() {
 
 
         <p>Welcome to
-        PHOTO MANAGMENT</p>
+            PHOTO MANAGMENT</p>
 
         <p>Our team</p>
-        </div>
-        <div class="team">
+    </div>
+    <div class="team">
         <div>
-        <img src="media/pexels-moose-photos-1587009(1).jpg" alt="Amelie" class="img-aboutUs">
-        <h3>Amélie</h3>
-        </div><div>
-        <img src="media/pexels-andrea-piacquadio-774909(1).jpg" alt="Rabia" class="img-aboutUs">
-        <h3>Rabia</h3>
-        </div><div>
-        <img src="media/rsz_pexels-pixabay-220453.jpg" alt="Oliwer" class="img-aboutUs">
-        <h3>Oliwer</h3>
+            <img src="media/pexels-moose-photos-1587009(1).jpg" alt="Amelie" class="img-aboutUs">
+            <h3>Amélie</h3>
+        </div>
+        <div>
+            <img src="media/pexels-andrea-piacquadio-774909(1).jpg" alt="Rabia" class="img-aboutUs">
+            <h3>Rabia</h3>
+        </div>
+        <div>
+            <img src="media/rsz_pexels-pixabay-220453.jpg" alt="Oliwer" class="img-aboutUs">
+            <h3>Oliwer</h3>
         </div>
 
-        </div>
-        </section>
-        `;
+    </div>
+    </section>
+`;
   }
 }
 
