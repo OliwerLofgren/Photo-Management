@@ -3,67 +3,8 @@
         "id": 1,
         "username": "Oliwer",
         "password": "123",
-        "uploaded_photos": [
-            {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg-min.jpg"
-            },
-            {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/photos_1\/fluff-cat-png.png"
-            },
-            {
-                "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/photos_1\/maltese-portrait-dog-min.jpg"
-            }
-        ],
-        "saved_photos": [
-            {
-                "id": 1828875,
-                "photoObject": {
-                    "id": 1828875,
-                    "width": 3648,
-                    "height": 5472,
-                    "avg_color": "#8D8F9E",
-                    "photo": "https:\/\/images.pexels.com\/photos\/1828875\/pexels-photo-1828875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Matteo Petralli",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@photo4passion",
-                    "photographer_id": 869324,
-                    "alt": "Orange Tabby Cat on Back of Window Curtain"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 1404819,
-                "photoObject": {
-                    "id": 1404819,
-                    "width": 5000,
-                    "height": 3337,
-                    "avg_color": "#D2A364",
-                    "photo": "https:\/\/images.pexels.com\/photos\/1404819\/pexels-photo-1404819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Cong H",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@cong-h-613161",
-                    "photographer_id": 613161,
-                    "alt": "Calico Cat on Focus Photo"
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 1643457,
-                "photoObject": {
-                    "id": 1643457,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#9B9892",
-                    "photo": "https:\/\/images.pexels.com\/photos\/1643457\/pexels-photo-1643457.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Peng Louis",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@peng-louis-587527",
-                    "photographer_id": 587527,
-                    "alt": "Person Holding White Kitten With Flowers Necklace"
-                },
-                "bookmarked": false
-            }
-        ],
-        "profile_picture": "..\/PHP\/my_photos\/photos_1\/fluff-dog-jpeg-min.jpg"
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]

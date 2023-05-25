@@ -37,7 +37,7 @@ function createHomePage() {
 
       <h1>Unleash your creativity</h1>
 
-      <button>Learn more</button>
+      <button class="discover_button">Learn more</button>
     </section>
 
     <section id="home-section-two" class="section">

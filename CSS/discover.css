@@ -159,7 +159,7 @@
 .discover_button {
   font-size: 15px;
   border: none;
-  background-color: #f0f0f0;
+  background-color: transparent;
   width: 118px;
 }
 

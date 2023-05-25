@@ -14,7 +14,7 @@ async function createLoginPage() {
     registerHeader.innerHTML = `
     <h1>PHOTO MANAGEMENT</h1>
     <nav class="nav-Register-Login">
-        <button id="go-back-home">Back to home</button>
+        <button class="discover_button">Back to home</button>
     </nav>`;
 
     loginMain.innerHTML = ` 
@@ -52,7 +52,7 @@ async function createLoginPage() {
       .addEventListener("click", createRegisterPage);
 
     document
-      .getElementById("go-back-home")
+      .getElementById(".discover_button")
       .addEventListener("click", createHomePage);
   }
 }
@@ -66,7 +66,6 @@ async function loginUser(event) {
   const userData = {
     username: username,
     password: password,
-
   };
 
   const post = {
@@ -82,7 +81,6 @@ async function loginUser(event) {
     if (!response.ok) {
       displayDatabaseMessage(user);
     } else {
-
       user = setLocalStorageObject("user", user);
 
       console.log("log in successful:", user);

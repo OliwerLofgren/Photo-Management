@@ -3,8 +3,6 @@
 const aboutusHeader = document.querySelector("header");
 const aboutusMain = document.querySelector("main");
 
-
-
 async function getUsers() {
   let resource = null;
 
@@ -22,9 +20,7 @@ async function getUsers() {
   } catch (error) {
     console.log("Error", error);
   }
-
 }
-
 
 async function createAboutUsPage() {
   setupPage();
@@ -37,7 +33,7 @@ async function createAboutUsPage() {
     aboutusHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav class="registerNav">
-        <button id="registerBtn">REGISTER</button>
+        <button class="discover_button">REGISTER</button>
     </nav>
     `;
 
@@ -67,7 +63,7 @@ async function createAboutUsPage() {
             Wheter you are an individual looking to organize your personal photo or a photographer, we have you
             covered.</p>
 
-        <h2>Join us and register <button id="hereBtn">HERE</button></h2>
+        <h2>Join us and register <button class="discover_button hereBtn">HERE</button></h2>
 
         <p>Our team of dedicated experts is passionate about helping you unlock the true potential of your photos.
         </p>
@@ -102,11 +98,11 @@ let numberOfUsers = 0;
 
 function addEventListener() {
   document
-    .getElementById("registerBtn")
+    .querySelector("button")
     .addEventListener("click", createRegisterPage);
 
   document
-    .getElementById("hereBtn")
+    .querySelector(".hereBtn")
     .addEventListener("click", createRegisterPage);
 }
 
