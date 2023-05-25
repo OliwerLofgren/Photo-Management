@@ -142,34 +142,6 @@ button {
     display: none;
 }
 
-.circle-home {
-    margin: auto;
-    width: 250px;
-    height: 250px;
-    background-color: rgb(252, 174, 146);
-    border-radius: 50%;
-    transition: background-color 0.7s ease;
-}
-
-.circle-home:hover {
-    background-color: rgb(244, 83, 24);
-}
-
-.circle-text {
-    opacity: 0;
-    transition: opacity 0.7s ease;
-    opacity: 0;
-    width: 80%;
-    height: 80%;
-    padding: 105px 0 0 70px;
-    color: white;
-    font-size: x-large;
-}
-
-.circle-text:hover {
-    opacity: 1;
-}
-
 #home-section-three {
     display: flex;
     justify-content: center;
