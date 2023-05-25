@@ -107,7 +107,7 @@ function createHomePage() {
       .getElementById("aboutBtn")
       .addEventListener("click", createAboutUsPage);
     document
-      .querySelector("AboutBtn")
+      .querySelector(".AboutBtn")
       .addEventListener("click", createAboutUsPage);
   }
 }

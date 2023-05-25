@@ -65,5 +65,13 @@
             }
         ],
         "profile_picture": "..\/PHP\/my_photos\/photos_1\/fluff-dog-jpeg-min.jpg"
+    },
+    {
+        "id": 2,
+        "username": "amelie",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]
