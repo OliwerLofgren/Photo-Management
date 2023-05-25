@@ -34,8 +34,7 @@ function createHomePage() {
     homeMain.innerHTML = `
     <section id="home-section-one" class="section bg-img">
     <!-- content of the first section -->
-      <h1 class="h1-one">Unleash your creativity</h1>
-      <button class="AboutBtn discover_button">About Us</button>
+      <h1 class="h1-one">Unleash your creativity <button class="AboutBtn discover_button">ABOUT US</button></h1>
     </section>
 
     <section id="home-section-two" class="section">
@@ -57,7 +56,7 @@ function createHomePage() {
     </section>
 
     <section id="home-section-five" class="section bg-img">
-      <h1 class="h1-five">Sign up to get your ideas</h1>
+      <h1 class="h1-five">Sign up to get your ideas <button class="RegisterBtn discover_button">REGISTER</button></h1>
     </section>
 
     </section>
@@ -108,6 +107,9 @@ function createHomePage() {
       .addEventListener("click", createAboutUsPage);
     document
       .querySelector(".AboutBtn")
+      .addEventListener("click", createAboutUsPage);
+    document
+      .querySelector(".RegisterBtn")
       .addEventListener("click", createAboutUsPage);
   }
 }
