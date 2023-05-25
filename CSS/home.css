@@ -33,6 +33,13 @@ button {
     border-radius: 10px;
 }
 
+.AboutBtn,
+.RegisterBtn {
+    position: relative;
+    top: 8px;
+    left: 70%;
+}
+
 #navHome {
     display: flex;
     justify-content: flex-end;
