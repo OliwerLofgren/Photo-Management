@@ -35,11 +35,11 @@
   margin: 0 20px;
 }
 
-#discover-photos > div {
+#discover-photos>div {
   position: relative;
 }
 
-#discover-photos > div img {
+#discover-photos>div img {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -139,9 +139,11 @@
   height: 100%;
   object-fit: cover;
 }
+
 .mini-profile-photo:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
 .mini_profile_container {
   display: flex;
   flex-direction: column;
@@ -169,8 +171,8 @@
 
 #userIcon {
   font-size: 2em;
-  padding-left: 8px;
-  padding-top: 2px;
+  padding-left: 16px;
+  padding-top: 12px;
 }
 
 #big-search-form {
