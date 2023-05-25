@@ -52,7 +52,7 @@ function createRegisterPage() {
       .addEventListener("click", createLoginPage);
 
     document
-      .getElementById(".discover_button")
+      .querySelector(".discover_button")
       .addEventListener("click", createHomePage);
 
     document.getElementById("regForm").addEventListener("submit", (event) => {
