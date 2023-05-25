@@ -32,9 +32,6 @@ button {
 }
 
 #navHome {
-    position: relative;
-    top: 20px;
-    border: none;
     display: flex;
     justify-content: flex-end;
 }
@@ -118,31 +115,63 @@ button {
 }
 
 #home-photos :nth-child(2) {
-    margin-top: 40px;
+    margin-top: 5vh;
 }
 
 #home-photos :nth-child(3) {
-    margin-top: 60px;
+    margin-top: 8vh;
 }
 
 #home-photos :nth-child(4) {
-    margin-top: 60px;
+    margin-top: 10vh;
 }
 
 #home-photos :nth-child(5) {
-    margin-top: 80px;
+    margin-top: 12vh;
 }
 
 #home-photos :nth-child(6) {
-    margin-top: 60px;
+    margin-top: 10vh;
 }
 
 #home-photos :nth-child(7) {
-    margin-top: 60px;
+    margin-top: 8vh;
 }
 
 #home-photos :nth-child(8) {
-    margin-top: 40px;
+    margin-top: 5vh;
+}
+
+@media (max-width: 1000px) {
+    #home-photos :nth-child(2) {
+        margin-top: 5vh;
+    }
+
+    #home-photos :nth-child(3) {
+        margin-top: 8vh;
+    }
+
+    #home-photos :nth-child(4) {
+        margin-top: 5vh;
+    }
+
+    #home-photos :nth-child(5) {
+        margin-top: unset;
+    }
+
+    #home-photos :nth-child(6) {
+        margin-top: unset;
+    }
+
+    #home-photos :nth-child(7) {
+        margin-top: unset;
+    }
+
+    #home-photos :nth-child(8) {
+        margin-top: unset;
+    }
+
+
 }
 
 #home-photos>.card>.interaction-container>i {

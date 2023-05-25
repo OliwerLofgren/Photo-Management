@@ -27,7 +27,7 @@ function createHomePage() {
     <nav id="navHome">
         <button id="aboutBtn">About Us</button> /
         <button id="loginBtn">Log In</button> /
-        <button id="registerBtn">Sign Up</button>
+        <button id="registerBtn">Register</button>
     </nav>
     `;
 
