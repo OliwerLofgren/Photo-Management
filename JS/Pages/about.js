@@ -11,14 +11,11 @@ async function getUsers() {
     resource = await response.json();
 
     if (resource == null) {
-      console.log("Response not ok");
       return;
     } else {
-      console.log("Response successful", resource);
       return resource;
     }
   } catch (error) {
-    console.log("Error", error);
   }
 }
 
@@ -110,13 +107,11 @@ async function countUsers() {
   const resource = await getUsers();
   let userCount = 0;
 
-  // resource.forEach((user) => userCount++);
 
   if (Array.isArray(resource) && resource.length > 0) {
     userCount = resource.length;
   }
   numberOfUsers = userCount;
-  console.log("Number of users:", userCount);
 }
 
 countUsers();
