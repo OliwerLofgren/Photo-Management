@@ -8,9 +8,9 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
   }
 
   if (searchTerm == undefined || searchTerm == null || searchTerm === "") {
-    createMediaCollectionsPage(user);
+    await createMediaCollectionsPage(user);
   } else {
-    createSearchPage(searchTerm, user);
+    await createSearchPage(searchTerm, user);
   }
 
   async function createSearchPage(user) {
@@ -96,7 +96,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     await displayMediaSectionTwoPhotos();
 
     async function displayMediaSectionTwoPhotos() {
-      createTitleButtons();
+      await createTitleButtons();
       const mediaKeys = await extractMediaTerms();
       const randomMediaId = mediaKeys.slice(1, 2);
       let title = randomMediaId[0].title;

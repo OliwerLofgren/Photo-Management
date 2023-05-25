@@ -1,6 +1,6 @@
 "use strict";
 let user = null;
-user = initializeObject("user"); // initialize the user
+user = getLocalStorageObject("user"); // initialize the user
 
 if (user) {
   createDiscoverPage(user);
