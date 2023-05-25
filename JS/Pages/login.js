@@ -83,7 +83,7 @@ async function loginUser(event) {
     } else {
       user = setLocalStorageObject("user", user);
 
-      console.log("log in successful:", user);
+      console.log("Log in successful:", user);
       createDiscoverPage(user);
     }
   } catch (error) {
