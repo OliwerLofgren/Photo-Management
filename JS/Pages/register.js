@@ -9,9 +9,6 @@ function createRegisterPage() {
   function setupRegisterPage() {
     setElementAttributes(registerMain, "register-main", "");
     setElementAttributes(registerHeader, "register-header", "");
-    document.body.classList.remove("body-layout");
-    // setElementAttributes(registerHeader, "", "display-none");
-    // Vill ha header
 
     registerHeader.innerHTML = `
     <h1>PHOTO MANAGEMENT</h1>

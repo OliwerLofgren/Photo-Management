@@ -28,8 +28,6 @@ async function createProfileCollectionsPage(user) {
       "user-page-header"
     );
 
-    // apply layout
-    document.body.classList.add("body-layout");
 
     // NOTE: current profile page needs to be marked in css
     collectionsHeader.innerHTML = `

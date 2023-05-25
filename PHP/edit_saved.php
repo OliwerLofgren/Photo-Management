@@ -9,7 +9,7 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 $input_data = json_decode(file_get_contents("php://input"), true);
 
 //This section is for deleting a current image
-     if($request_method == "PATCH"){
+    if($request_method == "PATCH"){
         $logged_in_id = $input_data["logged_in_id"];
         $logged_user_index = null;
             

@@ -1,6 +1,6 @@
 "use strict";
 
-function createHomePage() {
+async function createHomePage() {
   const homeMain = document.querySelector("main");
   const homeHeader = document.querySelector("header");
 
@@ -8,10 +8,10 @@ function createHomePage() {
   setupHomePage();
 
   // display each section of the page
-  displaySectionOneBg();
-  displaySectionTwoPhotos();
-  displaySectionThreeBg();
-  displaySectionFiveBg();
+  await displaySectionOneBg();
+  await displaySectionTwoPhotos();
+  await displaySectionThreeBg();
+  await displaySectionFiveBg();
 
   // add event listeners
   addEventListeners();
@@ -63,11 +63,11 @@ function createHomePage() {
     `;
   }
 
-  function displaySectionOneBg() {
+  async function displaySectionOneBg() {
     let domElement = document.querySelector("#home-section-one");
     const homePage = document.getElementById("home-main");
     if (homePage) {
-      displayApiBackgroundImage(7, "original", domElement);
+      await displayApiBackgroundImage(7, "original", domElement);
     }
   }
 
@@ -79,19 +79,19 @@ function createHomePage() {
     }
   }
 
-  function displaySectionThreeBg() {
+  async function displaySectionThreeBg() {
     let domElement = document.querySelector("#home-section-three");
     const homePage = document.getElementById("home-main");
     if (homePage) {
-      displayApiBackgroundImage(1, "original", domElement, user);
+      await displayApiBackgroundImage(1, "original", domElement, user);
     }
   }
 
-  function displaySectionFiveBg() {
+  async function displaySectionFiveBg() {
     let domElement = document.querySelector("#home-section-five");
     const homePage = document.getElementById("home-main");
     if (homePage) {
-      displayApiBackgroundImage(6, "original", domElement);
+      await displayApiBackgroundImage(6, "original", domElement);
     }
   }
 

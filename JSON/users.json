@@ -4,7 +4,24 @@
         "username": "rabia",
         "password": "a",
         "uploaded_photos": [],
-        "saved_photos": [],
+        "saved_photos": [
+            {
+                "id": 16821086,
+                "photoObject": {
+                    "id": 16821086,
+                    "width": 4024,
+                    "height": 6048,
+                    "avg_color": "#242D32",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16821086\/pexels-photo-16821086.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Luke Miller",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@lukemillerphotograph",
+                    "photographer_id": 2498658,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            }
+        ],
         "profile_picture": ""
     }
 ]

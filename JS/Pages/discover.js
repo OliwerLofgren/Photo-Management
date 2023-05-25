@@ -23,8 +23,6 @@ async function createDiscoverPage(user) {
     clearElementAttributes(discoverHeader);
     setElementAttributes(discoverHeader, "discover-header", "");
 
-    document.body.classList.remove("body-layout");
-
     discoverHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav>
@@ -62,7 +60,7 @@ async function createDiscoverPage(user) {
     let discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
       // photo dom element creation
-      await displayCuratedPhotos(100, "portrait", user);
+      await displayCuratedPhotos(80, "portrait", user);
     }
   }
 
