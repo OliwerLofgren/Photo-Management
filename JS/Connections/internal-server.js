@@ -24,7 +24,6 @@ async function postPhotoObjectToDatabase(photoObject, user) {
     id: photoObject.id, // add id to the photo
     user_id: user.id, // add id to the user
     photoObject: photoObject,
-    bookmarked: false, // toggleable liked state
   };
 
   const post = {

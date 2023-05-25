@@ -26,17 +26,16 @@ async function createDiscoverPage(user) {
     discoverHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav>
-        <div id="button_container">
-            <button id="collections-button" class="discover_button">Your Collections</button>
-            <button id="logout-button" class="discover_button">Logout</button>
-            <button id="explore-button" class="discover_button">Explore</button>
-            <div id="discover_profile_container">
-          </div>
-          <div class="mini_profile_container">
-            <div class="mini-profile-photo"></div>
-            <p>${user.username}</p>
-          </div>
+      <div id="button_container">
+        <button id="collections-button" class="discover_button">Your Collections</button>
+        <button id="logout-button" class="discover_button">Logout</button>
+        <button id="explore-button" class="discover_button">Explore</button>
+            
+        <div class="mini_profile_container">
+          <div class="mini-profile-photo"></div>
+          <p>${user.username}</p>
         </div>
+      </div>
     </nav>
             `;
 
@@ -45,7 +44,7 @@ async function createDiscoverPage(user) {
     <form id="big-search-form" class="search-form">
     <label for="search-field"></label>
     <input id="big-search-field" class="search-field" name="search" placeholder="Explore our library of photos" type="text">
-    <button type="submit">Search</button>
+    <button type="submit" class="discover_button">Search</button>
 </form>
     </section>
 

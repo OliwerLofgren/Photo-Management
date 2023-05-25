@@ -1,6 +1,7 @@
 "use strict";
 
 async function createSearchOrMediaCollectionsPage(searchTerm, user) {
+
   user = getLocalStorageObject("user");
   if (!user) {
     console.error("User data not found.");
@@ -24,6 +25,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
     await displaySearchSectionTwoPhotos();
 
+
     async function displaySearchSectionTwoPhotos() {
       const searchPage = document.getElementById("search-page-main");
       if (searchPage) {
@@ -38,6 +40,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
         console.error("Search page container not found.");
       }
     }
+
 
     function setupSearchPage() {
       const searchPageMain = document.querySelector("main");
@@ -58,20 +61,24 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       <nav id="navSearch">
           <p>${user.username}</p>
           <div class="mini-profile-photo"></div>
-          <button id="discoverBtn" class="discover_button">Discover</button> 
-          <button id="collectionsBtn" class="discover_button">Your Collections</button> 
-          <button id="profileBtn" class="discover_button">Profile</button>
-          <button id="explore-button" class="discover_button">Explore</button>
-          <button id="logout-button" class="discover_button">Logout</button>
+          <button id="discoverBtn">Discover</button> /
+          <button id="collectionsBtn">Your Collections</button> /
+          <button id="profileBtn">Profile</button>
+          <button id="explore-button">Explore</button>
+          <button id="logout-button">Logout</button>
       </nav>
       `;
 
-      searchPageMain.innerHTML = `     
-      <!--content of the first section -->
-      <section id="search-section-one" class="section">
+      searchPageMain.innerHTML = `
+        < section id = "search-section-one" class="section" >
+          <div id="search-term-btns" class="title-buttons-container"></div>
+      </section >
+
+      < !--content of the first section-- >
+        <section id="search-section-one" class="section">
           <div id="search-page-query-info" class="search-query-info"></div>
           <div id="search-photos" class="api-photos"></div>
-      </section>
+        </section>
       `;
     }
 
@@ -83,6 +90,8 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
   }
 
   async function createMediaCollectionsPage(user) {
+    console.log("No query was input, user is redirected to media collections page.");
+
     setupMediaPage();
 
     const profile_div = document.querySelector(".mini-profile-photo");
@@ -94,7 +103,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     await displayMediaSectionTwoPhotos();
 
     async function displayMediaSectionTwoPhotos() {
-      await createTitleButtons();
+      createTitleButtons();
       const mediaKeys = await extractMediaTerms();
       const randomMediaId = mediaKeys.slice(1, 2);
       let title = randomMediaId[0].title;
@@ -104,19 +113,13 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       const mediaPage = document.getElementById("media-section-one");
       if (mediaPage) {
         document.querySelector(".api-photos").innerHTML = "";
-        await displayMediaCollectionPhotos(
-          "photos",
-          photosCount,
-          id,
-          "portrait",
-          user
-        );
+        await displayMediaCollectionPhotos("photos", photosCount, id, "portrait", user);
       }
 
       const mediaQueryinfo = document.querySelector(".search-query-info");
-      mediaQueryinfo.innerHTML = `  
-      <h3>Pictures of ${title}</h2>
-      <p class="matching-results">Total results: ${photosCount} found</p>`;
+      mediaQueryinfo.innerHTML = `
+        < h3 > Pictures of ${title}</h2 >
+          <p class="matching-results">Total results: ${photosCount} found</p>`;
     }
 
     function setupMediaPage() {
@@ -130,33 +133,29 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
       // needs a check if logged in user or not!!
       mediaPageHeader.innerHTML = `
-      <H1>PHOTO MANAGEMENT</H1>
+            < H1 > PHOTO MANAGEMENT</H1 >
 
-      <nav id="navSearch">
-        <div id="button_container">
-          <button id="discoverBtn" class="discover_button">Discover</button> 
-          <button id="collectionsBtn" class="discover_button">Your Collections</button> 
-          <button id="profileBtn" class="discover_button">Profile</button>
-          <button id="logout-button" class="discover_button">Logout</button>
-        </div>
-        <div class="mini_profile_container">
-          <div class="mini-profile-photo"></div>
+              <nav id="navSearch">
           <p>${user.username}</p>
-        </div>
-      </nav>
-  `;
+          <div class="mini-profile-photo"></div>
+          <button id="discoverBtn">Discover</button> /
+          <button id="collectionsBtn">Your Collections</button> /
+          <button id="profileBtn">Profile</button>
+          <button id="logout-button">Logout</button>
+      </nav >
+        `;
 
       mediaPageMain.innerHTML = `
-      <section id="media-section-one" class="section">
+        < section id = "media-section-one" class="section" >
           <div id="media-term-btns" class="title-buttons-container">
           </div>
-      </section>
-  
-      <section id="media-section-two" class="section">
+      </section >
+
+        <section id="media-section-two" class="section">
           <div id="media-page-info" class="search-query-info"></div>
           <div id="media-photos" class="api-photos"></div>
-      </section>
-  `;
+        </section>
+      `;
     }
   }
 
@@ -170,13 +169,13 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     document
       .getElementById("collectionsBtn")
       .addEventListener("click", function () {
-        createProfileCollectionsPage(user);
+        createProfileCollectionsPage(user)
       });
 
     document
       .querySelector(".mini-profile-photo")
       .addEventListener("click", function () {
-        createProfileGalleryPage(user);
+        createProfileGalleryPage(user)
       });
 
     document
@@ -197,17 +196,19 @@ async function extractMediaTerms() {
   return clonedShuffledArray;
 }
 
+
 async function createTitleButtons() {
   // query select container for collection title buttons
   const titleBtnsContainer = document.querySelector(".title-buttons-container");
 
   let clonedShuffledArray = await extractMediaTerms();
 
-  clonedShuffledArray.forEach((collection) => {
+  clonedShuffledArray.forEach(collection => {
     const collectionTitleBtn = document.createElement("button");
     let collectionTitle = collection.title;
     collectionTitleBtn.textContent = collectionTitle;
     titleBtnsContainer.append(collectionTitleBtn);
+
   });
 
   return clonedShuffledArray;
