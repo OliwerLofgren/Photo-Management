@@ -6,5 +6,13 @@
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_picture": ""
+    },
+    {
+        "id": 2,
+        "username": "ra",
+        "password": "ra",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]

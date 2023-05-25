@@ -25,7 +25,6 @@ async function createAboutUsPage() {
 
   function setupPage() {
     setElementAttributes(aboutusMain, "about-us-main", "");
-    document.body.classList.remove("body-layout");
 
     aboutusHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>

@@ -9,7 +9,6 @@ async function createLoginPage() {
   function setupLoginPage() {
     setElementAttributes(loginMain, "login-main", "");
     setElementAttributes(loginHeader, "login-header", "");
-    document.body.classList.remove("body-layout");
 
     registerHeader.innerHTML = `
     <h1>PHOTO MANAGEMENT</h1>

@@ -47,8 +47,6 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       clearElementAttributes(searchPageHeader);
       setElementAttributes(searchPageHeader, "search-page-header", "");
 
-      document.body.classList.remove("body-layout");
-
       searchPageHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
       <form id="mini-search-form" class="search-form">
@@ -129,8 +127,6 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
       setElementAttributes(mediaPageMain, "media-page-main", "");
       setElementAttributes(mediaPageHeader, "media-page-header", "");
-
-      document.body.classList.remove("body-layout");
 
       // needs a check if logged in user or not!!
       mediaPageHeader.innerHTML = `

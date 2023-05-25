@@ -67,7 +67,6 @@ async function createProfileCollectionsPage(user) {
   }
 
   function addEventListeners() {
-    // remove flex layout when navigating to other pages
 
     document
       .getElementById("profile-button")

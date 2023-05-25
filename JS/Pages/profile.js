@@ -59,8 +59,6 @@ async function createProfileGalleryPage(user) {
       "user-page-header"
     );
 
-    document.body.classList.add("body-layout");
-
     profilePageHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav class="nav-profile-collection">

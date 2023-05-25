@@ -20,7 +20,6 @@ async function createHomePage() {
     setElementAttributes(homeMain, "home-main", "");
     clearElementAttributes(homeHeader);
     setElementAttributes(homeHeader, "home-header", "");
-    document.body.classList.remove("body-layout");
 
     homeHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
