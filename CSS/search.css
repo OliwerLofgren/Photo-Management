@@ -22,7 +22,6 @@
 #search-section-two,
 #media-section-two {
     height: 80%;
-    overflow: hidden;
 }
 
 #search-photos,
@@ -38,6 +37,7 @@
 #search-photos>div,
 #media-photos>div {
     position: relative;
+    overflow: hidden;
 }
 
 #search-photos>div img,
