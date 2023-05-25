@@ -54,6 +54,9 @@ async function postPhotoObjectToDatabase(photoObject, user) {
 
 /* fetch the collected photos */
 async function fetchCollectedPhotosfromDB(user) {
+  if (user == null || user == undefined) {
+    return;
+  }
   try {
     const response = await fetch("../JSON/users.json");
     const resource = await response.json();
@@ -78,14 +81,10 @@ async function fetchCollectedPhotosfromDB(user) {
   }
 }
 
-async function fetchUser() {
-
-}
-
 /* display the collected photos */
 async function displayCollectedPhotos(user) {
   const logged_in_user = await fetchCollectedPhotosfromDB(user);
-  if (!logged_in_user) {
+  if (!logged_in_user || user == null || user == undefined) {
     console.log("Failed to fetch user data");
     return;
   }
