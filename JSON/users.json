@@ -4,7 +4,24 @@
         "username": "rabia",
         "password": "a",
         "uploaded_photos": [],
-        "saved_photos": [],
+        "saved_photos": [
+            {
+                "id": 16803741,
+                "photoObject": {
+                    "id": 16803741,
+                    "width": 3648,
+                    "height": 5472,
+                    "avg_color": "#696258",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16803741\/pexels-photo-16803741.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Yakup  Polat",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@yakup-polat-420882786",
+                    "photographer_id": 420882786,
+                    "liked": false,
+                    "alt": ""
+                },
+                "bookmarked": false
+            }
+        ],
         "profile_picture": ""
     }
 ]

@@ -78,7 +78,7 @@ function createHomePage() {
     const homePage = document.getElementById("home-main");
     if (homePage) {
       // photo dom element creation
-      await displayCuratedPhotos(18, "portrait");
+      await displayCuratedPhotos(18, "portrait", user);
     }
   }
 
@@ -86,7 +86,7 @@ function createHomePage() {
     let domElement = document.querySelector("#home-section-three");
     const homePage = document.getElementById("home-main");
     if (homePage) {
-      displayApiBackgroundImage(1, "original", domElement);
+      displayApiBackgroundImage(1, "original", domElement, user);
     }
   }
 

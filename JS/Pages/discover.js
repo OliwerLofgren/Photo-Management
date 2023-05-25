@@ -61,14 +61,14 @@ async function createDiscoverPage(user) {
     let discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
       // photo dom element creation
-      await displayCuratedPhotos(20, "portrait");
+      await displayCuratedPhotos(20, "portrait", user);
     }
   }
 
   async function handleDiscoverPageSearch() {
     let discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
-      await fetchAndDisplaySearchedPhotos(100, "portrait");
+      await fetchAndDisplaySearchedPhotos(100, "portrait", user);
     }
   }
 

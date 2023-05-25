@@ -15,7 +15,7 @@ function fetch_resource(request) {
 /*** external api request handlers ***/
 
 // returns array of select keys: photographer name, photourl, etc
-async function fetchCuratedPhotos(per_page, imgSize) {
+async function fetchCuratedPhotos(per_page, imgSize, user) {
   //displayServerLoadingMessage();
   const url = `${prefix}curated?per_page=${per_page}`;
   try {
@@ -59,8 +59,7 @@ async function fetchCuratedPhotos(per_page, imgSize) {
   }
 }
 
-async function fetchSearchedPhotos(per_page, imgSize, searchTerm) {
-  displayServerLoadingMessage();
+async function fetchSearchedPhotos(per_page, imgSize, searchTerm, user) {
   const searchEndPointUrl = `${prefix}search?query=${searchTerm}&per_page=${per_page}`;
 
   try {
@@ -130,7 +129,7 @@ async function fetchFeaturedCollectionObjects(per_page) {
   }
 }
 
-async function fetchCollectionsMedia(type, per_page, id, imgSize) {
+async function fetchCollectionsMedia(type, per_page, id, imgSize, user) {
   const url = `${prefix}collections/${id}?per_page=${per_page}&type=${type}`;
 
   try {
@@ -182,7 +181,7 @@ async function getCollectionsIds() {
 /*** photo dom element creation and display ***/
 
 // (NOTE: don't forget to add class .api-photos to dom element to display photos) creates photo dom element and handles buttons event listeners
-function createPhotoContainer(array) {
+function createPhotoContainer(array, user) {
   const photoWrapper = document.querySelector(".api-photos");
   if (array === undefined || photoWrapper === null) {
     console.log(
@@ -208,18 +207,18 @@ function createPhotoContainer(array) {
     // add an alt attribute to the img element to improve accessibility
     photoImage.alt = photoObject.alt;
 
-    displayPhotoInteractionIcons(photoObject, photoContainer);
+    displayPhotoInteractionIcons(photoObject, photoContainer, user);
     return;
   });
 }
 
-async function displayCuratedPhotos(per_page, imgSize) {
+async function displayCuratedPhotos(per_page, imgSize, user) {
   let customPhotoDataArray = await fetchCuratedPhotos(per_page, imgSize);
-  createPhotoContainer(customPhotoDataArray);
+  createPhotoContainer(customPhotoDataArray, user);
 }
 
 // displays search term api photos
-async function fetchAndDisplaySearchedPhotos(per_page, imgSize) {
+async function fetchAndDisplaySearchedPhotos(per_page, imgSize, user) {
   let customSearchPhotoDataArray;
   let searchForm = document.querySelector(".search-form");
   if (searchForm != null) {
@@ -233,7 +232,7 @@ async function fetchAndDisplaySearchedPhotos(per_page, imgSize) {
       customSearchPhotoDataArray = await fetchSearchedPhotos(
         per_page,
         imgSize,
-        searchTerm
+        searchTerm, user
       );
 
       if (customSearchPhotoDataArray === undefined) {
@@ -249,12 +248,12 @@ async function fetchAndDisplaySearchedPhotos(per_page, imgSize) {
       <h3>${searchTerm}</h2>
       <p class="matching-results">${matchingResults} Photos Found</p>`;
 
-      return createPhotoContainer(customSearchPhotoDataArray);
+      return createPhotoContainer(customSearchPhotoDataArray, user);
     });
   }
 }
 
-async function displayMediaCollectionPhotos(type, per_page, id, imgSize) {
+async function displayMediaCollectionPhotos(type, per_page, id, imgSize, user) {
   // clear already loaded photos and display collection photos instead
   document.querySelector(".api-photos").innerHTML = "";
   let collectionsMediaArray = await fetchCollectionsMedia(
@@ -271,14 +270,14 @@ async function displayMediaCollectionPhotos(type, per_page, id, imgSize) {
     createProfileCollectionsPage(user);
     return;
   }
-  return createPhotoContainer(collectionsMediaArray);
+  return createPhotoContainer(collectionsMediaArray, user);
 }
 
 async function displayApiBackgroundImage(per_page, imgSize, domElement) {
   let customPhotoDataArray = await fetchCuratedPhotos(
     per_page,
     imgSize,
-    domElement
+    domElement, user
   );
   // set dom bg img
   customPhotoDataArray.forEach((photo) => {

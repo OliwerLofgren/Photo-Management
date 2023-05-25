@@ -101,40 +101,11 @@ function closeModalWindow() {
   document.querySelector(".modal").remove();
 }
 
-function displayServerLoadingMessage() {
-  // add the loading class to the element
-  const loadingPhotos = document.createElement("div");
-  document.querySelector("main").append(loadingPhotos);
-
-  if (loadingPhotos == null) {
-    return;
-  } else {
-    loadingPhotos.classList.add("loading");
-    // create the loader line element
-    loadingPhotos.innerHTML = `
-    <div class="loader-line"></div>
-  `;
-  }
-}
-function hideServerLoadingMessage() {
-  // remove the loader line element when photos are loaded
-  const loaderLine = document.querySelector(".loader-line");
-  if (loaderLine) {
-    loaderLine.remove();
-  }
-  // remove the loading class from the element
-  const loadingPhotos = document.querySelector(".loading");
-  if (loadingPhotos == null) {
-    return;
-  } else {
-    loadingPhotos.classList.remove("loading");
-  }
-}
-
-async function displayPhotoInteractionIcons(photoObject, photoContainer) {
+async function displayPhotoInteractionIcons(photoObject, photoContainer, user) {
 
   // Fetch the user data
   const currentUser = await fetchCollectedPhotosfromDB(user);
+
 
   const userSavedPhotoIds = currentUser.saved_photos.map(p => p.id);
   const photoId = photoObject.id;
@@ -146,6 +117,7 @@ async function displayPhotoInteractionIcons(photoObject, photoContainer) {
       isBookmarked = true;
     }
   });
+
 
   // create a container for some interactive buttons for api photos
   const photoInteractionsContainer = document.createElement("div");
@@ -276,3 +248,35 @@ function check_if_image_exists(user) {
     return icon;
   }
 }
+
+
+
+/*function displayServerLoadingMessage() {
+  // add the loading class to the element
+  const loadingPhotos = document.createElement("div");
+  document.querySelector("main").append(loadingPhotos);
+
+  if (loadingPhotos == null) {
+    return;
+  } else {
+    loadingPhotos.classList.add("loading");
+    // create the loader line element
+    loadingPhotos.innerHTML = `
+    <div class="loader-line"></div>
+  `;
+  }
+}
+function hideServerLoadingMessage() {
+  // remove the loader line element when photos are loaded
+  const loaderLine = document.querySelector(".loader-line");
+  if (loaderLine) {
+    loaderLine.remove();
+  }
+  // remove the loading class from the element
+  const loadingPhotos = document.querySelector(".loading");
+  if (loadingPhotos == null) {
+    return;
+  } else {
+    loadingPhotos.classList.remove("loading");
+  }
+}*/
