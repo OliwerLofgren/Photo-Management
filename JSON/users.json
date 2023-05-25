@@ -6,5 +6,81 @@
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_picture": ""
+    },
+    {
+        "id": 2,
+        "username": "b",
+        "password": "b",
+        "uploaded_photos": [],
+        "saved_photos": [
+            {
+                "id": null,
+                "photoObject": {
+                    "avg_color": "#C3C0C5",
+                    "photo": "https:\/\/images.pexels.com\/photos\/4482900\/pexels-photo-4482900.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Anna Shvets",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@shvetsa"
+                }
+            },
+            {
+                "id": 2248516,
+                "photoObject": {
+                    "id": 2248516,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#A3958F",
+                    "photo": "https:\/\/images.pexels.com\/photos\/2248516\/pexels-photo-2248516.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Andrew Neel",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@andrew",
+                    "photographer_id": 977589,
+                    "alt": "Dog Resting on Pet Bed"
+                }
+            },
+            {
+                "id": 16933700,
+                "photoObject": {
+                    "id": 16933700,
+                    "width": 2160,
+                    "height": 3840,
+                    "avg_color": "#4F453C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16933700\/pexels-photo-16933700.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Aykut Bing\u00fcl",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@aykutbingul",
+                    "photographer_id": 161193354,
+                    "liked": false,
+                    "alt": ""
+                }
+            },
+            {
+                "id": 14420089,
+                "photoObject": {
+                    "id": 14420089,
+                    "width": 8272,
+                    "height": 6200,
+                    "avg_color": "#352F31",
+                    "photo": "https:\/\/images.pexels.com\/photos\/14420089\/pexels-photo-14420089.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Egor Komarov",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@egorkomarov",
+                    "photographer_id": 4849252,
+                    "liked": false,
+                    "alt": "Free stock photo of poznan"
+                }
+            },
+            {
+                "id": 895259,
+                "photoObject": {
+                    "id": 895259,
+                    "width": 3648,
+                    "height": 5052,
+                    "avg_color": "#C3B7AF",
+                    "photo": "https:\/\/images.pexels.com\/photos\/895259\/pexels-photo-895259.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Dominika Roseclay",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@punchbrandstock",
+                    "photographer_id": 215243,
+                    "alt": "Soft Focus Photo of Dachshund"
+                }
+            }
+        ],
+        "profile_picture": ""
     }
 ]

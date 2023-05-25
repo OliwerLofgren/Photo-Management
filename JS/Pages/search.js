@@ -4,11 +4,11 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
   user = getLocalStorageObject("user");
   if (!user) {
-    console.error("User data not found.");
+    console.error("Failed to retrieve user data from local storage.");
     return;
   }
 
-  if (searchTerm == undefined || searchTerm == null || searchTerm === "") {
+  if (searchTerm === undefined || searchTerm === null || searchTerm === "") {
     createMediaCollectionsPage(user);
   } else {
     createSearchPage(searchTerm, user);
@@ -17,10 +17,13 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
   async function createSearchPage(user) {
     setupSearchPage();
 
+    const thumbnailImg = document.querySelector(".mini-profile-photo");
+    const img = check_if_image_exists(user);
+    thumbnailImg.append(img);
+
     addEventListeners();
 
     await displaySearchSectionTwoPhotos();
-
 
     async function displaySearchSectionTwoPhotos() {
       const searchPage = document.getElementById("search-page-main");
@@ -57,13 +60,15 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       </form>
   
       <nav id="navSearch">
-          <p>${user.username}</p>
+        <div class="mini_profile_container">
           <div class="mini-profile-photo"></div>
-          <button id="discoverBtn">Discover</button> /
-          <button id="collectionsBtn">Your Collections</button> /
-          <button id="profileBtn">Profile</button>
-          <button id="explore-button">Explore</button>
-          <button id="logout-button">Logout</button>
+          <p>${user.username}</p>
+        </div>
+        <button id="discoverBtn">Discover</button> /
+        <button id="collectionsBtn">Your Collections</button> /
+        <button id="profileBtn">Profile</button>
+        <button id="explore-button">Explore</button>
+        <button id="logout-button">Logout</button>
       </nav>
       `;
 
@@ -91,17 +96,22 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     console.log("No query was input, user is redirected to media collections page.");
 
     setupMediaPage();
+
+    const thumbnailImg = document.querySelector(".mini-profile-photo");
+    const img = check_if_image_exists(user);
+    thumbnailImg.append(img);
+
     addEventListeners();
 
     await displayMediaSectionTwoPhotos();
 
     async function displayMediaSectionTwoPhotos() {
-      createTitleButtons();
+      await createTitleButtons();
       const mediaKeys = await extractMediaTerms();
       const randomMediaId = mediaKeys.slice(1, 2);
-      let title = randomMediaId[0].title;
-      let id = randomMediaId[0].id;
-      let photosCount = randomMediaId[0].photosCount;
+      const title = randomMediaId[0].title;
+      const id = randomMediaId[0].id;
+      const photosCount = randomMediaId[0].photosCount;
 
       const mediaPage = document.getElementById("media-section-one");
       if (mediaPage) {
@@ -111,7 +121,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
       const mediaQueryinfo = document.querySelector(".search-query-info");
       mediaQueryinfo.innerHTML = `  
-      <h3>${title}</h2>
+      <h2>Photos of ${title}</h2>
       <p class="matching-results">${photosCount} Photos Found</p>`;
     }
 
@@ -126,7 +136,6 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
       document.body.classList.remove("body-layout");
 
-      // needs a check if logged in user or not!!
       mediaPageHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
 
@@ -138,7 +147,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
           <button id="profileBtn">Profile</button>
           <button id="logout-button">Logout</button>
       </nav>
-  `;
+      `;
 
       mediaPageMain.innerHTML = `
       <!--content of the first section -->
@@ -151,7 +160,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
           <div id="media-page-info" class="search-query-info"></div>
           <div id="media-photos" class="api-photos"></div>
       </section>
-  `;
+    `;
     }
   }
 
@@ -184,7 +193,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 }
 
 async function extractMediaTerms() {
-  // creates the ids with possible media collections
+  // creates the ids with random media collections
   const mediaCollectionsArray = await getCollectionsIds();
   shuffle(mediaCollectionsArray);
 
@@ -193,19 +202,22 @@ async function extractMediaTerms() {
 }
 
 
+// create buttons for each collection
 async function createTitleButtons() {
   // query select container for collection title buttons
   const titleBtnsContainer = document.querySelector(".title-buttons-container");
 
-  let clonedShuffledArray = await extractMediaTerms();
+  const clonedShuffledArray = await extractMediaTerms();
 
   clonedShuffledArray.forEach(collection => {
     const collectionTitleBtn = document.createElement("button");
-    let collectionTitle = collection.title;
+    const photosCount = collection.photosCount;
+    const collectionId = collection.id;
+    const collectionTitle = collection.title;
     collectionTitleBtn.textContent = collectionTitle;
-    titleBtnsContainer.append(collectionTitleBtn);
 
+    titleBtnsContainer.append(collectionTitleBtn);
   });
-  /*console.log(`Current collection has the title: ${collection.title} with the id: ${collection.id} and contains ${collection.photosCount} photos`);*/
   return clonedShuffledArray;
 }
+
