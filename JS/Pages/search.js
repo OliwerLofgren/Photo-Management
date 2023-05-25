@@ -89,10 +89,6 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
   }
 
   async function createMediaCollectionsPage(user) {
-    console.log(
-      "No query was input, user is redirected to media collections page."
-    );
-
     setupMediaPage();
 
     const profile_div = document.querySelector(".mini-profile-photo");
@@ -186,7 +182,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       });
 
     document
-      .getElementById("profileBtn")
+      .querySelector(".mini-profile-photo")
       .addEventListener("click", function () {
         createProfileGalleryPage(user);
       });
@@ -221,6 +217,6 @@ async function createTitleButtons() {
     collectionTitleBtn.textContent = collectionTitle;
     titleBtnsContainer.append(collectionTitleBtn);
   });
-  /*console.log(`Current collection has the title: ${collection.title} with the id: ${collection.id} and contains ${collection.photosCount} photos`);*/
+
   return clonedShuffledArray;
 }
