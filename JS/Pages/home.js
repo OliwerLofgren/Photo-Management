@@ -35,6 +35,7 @@ function createHomePage() {
     <section id="home-section-one" class="section bg-img">
     <!-- content of the first section -->
       <h1 class="h1-one">Unleash your creativity</h1>
+      <button class="AboutBtn">About Us</button>
     </section>
 
     <section id="home-section-two" class="section">
@@ -104,6 +105,9 @@ function createHomePage() {
       .addEventListener("click", createRegisterPage);
     document
       .getElementById("aboutBtn")
+      .addEventListener("click", createAboutUsPage);
+    document
+      .getElementById("AboutBtn")
       .addEventListener("click", createAboutUsPage);
   }
 }
