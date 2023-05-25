@@ -95,30 +95,5 @@
             }
         ],
         "profile_picture": "..\/PHP\/my_photos\/photos_1\/maltese-portrait-dog-min.jpg"
-    },
-    {
-        "id": 2,
-        "username": "thea",
-        "password": "thea",
-        "uploaded_photos": [],
-        "saved_photos": [
-            {
-                "id": 16933700,
-                "photoObject": {
-                    "id": 16933700,
-                    "width": 2160,
-                    "height": 3840,
-                    "avg_color": "#4F453C",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16933700\/pexels-photo-16933700.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Aykut Bing\u00fcl",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@aykutbingul",
-                    "photographer_id": 161193354,
-                    "liked": false,
-                    "alt": ""
-                },
-                "bookmarked": false
-            }
-        ],
-        "profile_picture": ""
     }
 ]

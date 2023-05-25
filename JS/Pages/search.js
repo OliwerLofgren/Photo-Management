@@ -66,6 +66,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
       searchPageMain.innerHTML = `
       <section id="search-section-one" class="section">
+          <h1 class="h1-search">Here are some options to search for inspiration!</h1>
           <div id="search-term-btns" class="title-buttons-container"></div>
       </section>
 
@@ -76,6 +77,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       </section>
       `;
     }
+    document.querySelector("#media-section-one").innerHTML += '<h1 class="h1-search">Here are some options to search for inspiration!</h1>';
 
     document
       .getElementById("explore-button")
@@ -96,6 +98,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
     async function displayMediaSectionTwoPhotos() {
       createTitleButtons();
+      document.querySelector("#media-section-one").innerHTML = `<h1>HEK</h1>`;
       const mediaKeys = await extractMediaTerms();
       const randomMediaId = mediaKeys.slice(1, 2);
       let title = randomMediaId[0].title;
