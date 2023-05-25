@@ -113,4 +113,3 @@ function createHomePage() {
       .addEventListener("click", createRegisterPage);
   }
 }
-
