@@ -199,8 +199,7 @@
 }
 
 #hover-message:hover {
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  color: rgb(161, 119, 134);
+  text-shadow: 0 0 5px rgba(104, 104, 104, 0.3);
 }
 
 #button_container {

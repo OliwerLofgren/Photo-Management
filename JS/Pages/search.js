@@ -138,10 +138,10 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       <nav id="navSearch">
           <p>${user.username}</p>
           <div class="mini-profile-photo"></div>
-          <button id="discoverBtn">Discover</button> /
-          <button id="collectionsBtn">Your Collections</button> /
-          <button id="profileBtn">Profile</button>
-          <button id="logout-button">Logout</button>
+          <button id="discoverBtn" class="discover_button">Discover</button> /
+          <button id="collectionsBtn" class="discover_button">Your Collections</button> /
+          <button id="profileBtn" class="discover_button">Profile</button>
+          <button id="logout-button" class="discover_button">Logout</button>
       </nav>
   `;
 

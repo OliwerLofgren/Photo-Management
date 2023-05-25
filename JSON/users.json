@@ -17,7 +17,83 @@
                 "photo": "..\/PHP\/my_photos\/photos_1\/orange-cat.png"
             }
         ],
-        "saved_photos": [],
+        "saved_photos": [
+            {
+                "id": 1695052,
+                "photoObject": {
+                    "id": 1695052,
+                    "width": 6123,
+                    "height": 4082,
+                    "avg_color": "#4B3836",
+                    "photo": "https:\/\/images.pexels.com\/photos\/1695052\/pexels-photo-1695052.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Igor Haritanovich",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@igor-haritanovich-814387",
+                    "photographer_id": 814387,
+                    "alt": "Coffee Beans"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 2836945,
+                "photoObject": {
+                    "id": 2836945,
+                    "width": 5757,
+                    "height": 3838,
+                    "avg_color": "#A39793",
+                    "photo": "https:\/\/images.pexels.com\/photos\/2836945\/pexels-photo-2836945.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Content Pixie",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@content-pixie-1405717",
+                    "photographer_id": 1405717,
+                    "alt": "Photo Of White Ceramic Teacup"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 3556686,
+                "photoObject": {
+                    "id": 3556686,
+                    "width": 3674,
+                    "height": 5653,
+                    "avg_color": "#B2AEAD",
+                    "photo": "https:\/\/images.pexels.com\/photos\/3556686\/pexels-photo-3556686.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Anastasia Belousova",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@natureday",
+                    "photographer_id": 1250603,
+                    "alt": "Glass Cup With Liquid"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 2130133,
+                "photoObject": {
+                    "id": 2130133,
+                    "width": 2176,
+                    "height": 2720,
+                    "avg_color": "#A38F85",
+                    "photo": "https:\/\/images.pexels.com\/photos\/2130133\/pexels-photo-2130133.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Viktoria Alipatova",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@viktoria-alipatova-1083711",
+                    "photographer_id": 1083711,
+                    "alt": "Person Holding Clear Glass Pitcher"
+                },
+                "bookmarked": false
+            },
+            {
+                "id": 3491211,
+                "photoObject": {
+                    "id": 3491211,
+                    "width": 3718,
+                    "height": 5940,
+                    "avg_color": "#3B342D",
+                    "photo": "https:\/\/images.pexels.com\/photos\/3491211\/pexels-photo-3491211.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Kamshotthat",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@kampratt",
+                    "photographer_id": 1088345,
+                    "alt": "Coffee Cup on Brown Wooden Table"
+                },
+                "bookmarked": false
+            }
+        ],
         "profile_picture": "..\/PHP\/my_photos\/photos_1\/maltese-portrait-dog-min.jpg"
     },
     {
