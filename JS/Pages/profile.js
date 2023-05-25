@@ -65,9 +65,9 @@ async function createProfileGalleryPage(user) {
     <H1>PHOTO MANAGEMENT</H1>
     <nav class="nav-profile-collection">
        
-        <button class="allBtn" id="delete-button">Delete your account</button>
-        <button class="allBtn" id="logout-button">Logout</button>
-        <button class="allBtn" id="discover-button">Discover</button>
+        <button class="allBtn discover_button" id="delete-button">Delete your account</button>
+        <button class="allBtn discover_button" id="logout-button">Logout</button>
+        <button class="allBtn discover_button" id="discover-button">Discover</button>
     </nav>
   `;
 
