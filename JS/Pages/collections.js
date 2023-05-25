@@ -35,7 +35,7 @@ async function createProfileCollectionsPage(user) {
     collectionsHeader.innerHTML = `
    <H1>PHOTO MANAGEMENT</H1>
       <nav class="nav-profile-collection">
-        <button class="allBtn discover_button"id="logout-button">Logout</button>
+        <button class="allBtn discover_button "id="logout-button">Logout</button>
         <button class="allBtn discover_button" id="discover-button">Discover</button>
     </nav>
  

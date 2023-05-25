@@ -107,18 +107,8 @@ function createHomePage() {
       .getElementById("aboutBtn")
       .addEventListener("click", createAboutUsPage);
     document
-      .getElementById("AboutBtn")
+      .querySelector(".AboutBtn")
       .addEventListener("click", createAboutUsPage);
   }
 }
 
-//  <div class="trendingContainer">
-//         <h3 id="" class="trending">Trending:</h3>
-//         <div class="alt">Dog</div>
-//         <div class="alt">Fire</div>
-//         <div class="alt">Mountain</div>
-//         </div>
-
-//<div class="circle-home">
-// <p class="circle-text">Be inspired</p>
-//</div>

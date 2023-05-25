@@ -14,13 +14,16 @@
 }
 
 .nav-profile-collection {
-  margin: 60vh 0 0 10vh;
+  display: flex;
+  transform: rotate(270deg);
+  margin: 50vh 0 0 10vh;
 }
 
 .allBtn {
   border: none;
   width: 120px;
   font-size: 20px;
+  background-color: #f0f0f0;
 }
 
 .user-page-main {
@@ -70,6 +73,8 @@
 
 .userPage #userIcon {
   font-size: 5em;
+  padding-left: unset;
+  padding-top: unset;
 }
 
 .user-section-one {
