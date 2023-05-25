@@ -82,6 +82,7 @@ async function loginUser(event) {
       displayDatabaseMessage(user);
     } else {
       user = setLocalStorageObject("user", user);
+      console.log(user);
 
       console.log("Log in successful:", user);
       createDiscoverPage(user);
