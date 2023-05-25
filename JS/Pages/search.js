@@ -16,6 +16,10 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
   async function createSearchPage(user) {
     setupSearchPage();
 
+    const profile_div = document.querySelector(".mini-profile-photo");
+    const img = check_if_image_exists(user);
+    profile_div.append(img);
+
     addEventListeners();
 
     await displaySearchSectionTwoPhotos();
@@ -90,6 +94,11 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     );
 
     setupMediaPage();
+
+    const profile_div = document.querySelector(".mini-profile-photo");
+    const img = check_if_image_exists(user);
+    profile_div.append(img);
+
     addEventListeners();
 
     await displayMediaSectionTwoPhotos();
@@ -136,17 +145,20 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       <H1>PHOTO MANAGEMENT</H1>
 
       <nav id="navSearch">
-          <p>${user.username}</p>
-          <div class="mini-profile-photo"></div>
-          <button id="discoverBtn" class="discover_button">Discover</button> /
-          <button id="collectionsBtn" class="discover_button">Your Collections</button> /
+        <div id="button_container">
+          <button id="discoverBtn" class="discover_button">Discover</button> 
+          <button id="collectionsBtn" class="discover_button">Your Collections</button> 
           <button id="profileBtn" class="discover_button">Profile</button>
           <button id="logout-button" class="discover_button">Logout</button>
+        </div>
+        <div class="mini_profile_container">
+          <div class="mini-profile-photo"></div>
+          <p>${user.username}</p>
+        </div>
       </nav>
   `;
 
       mediaPageMain.innerHTML = `
-      <!--content of the first section -->
       <section id="media-section-one" class="section">
           <div id="media-term-btns" class="title-buttons-container">
           </div>

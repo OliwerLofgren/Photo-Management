@@ -31,7 +31,6 @@ async function createDiscoverPage(user) {
         <div id="button_container">
             <button id="collections-button" class="discover_button">Your Collections</button>
             <button id="logout-button" class="discover_button">Logout</button>
-            <button id="search-button" class="discover_button">Search</button>
             <button id="explore-button" class="discover_button">Explore</button>
             <div id="discover_profile_container">
           </div>
@@ -84,11 +83,6 @@ async function createDiscoverPage(user) {
       .querySelector(".mini-profile-photo")
       .addEventListener("click", function () {
         createProfileGalleryPage(user);
-      });
-    document
-      .getElementById("search-button")
-      .addEventListener("click", function () {
-        createSearchOrMediaCollectionsPage(user);
       });
 
     document

@@ -89,7 +89,6 @@ async function displayCollectedPhotos(user) {
     return;
   }
 
-
   const photoWrapper = document.getElementById("collections-photos");
   const messageContainer = document.getElementById("message_container");
   // iterate over each user object
@@ -102,7 +101,6 @@ async function displayCollectedPhotos(user) {
     const photoObject = savedPhoto.photoObject;
     const photoUrl = photoObject.photo;
     const photoId = savedPhoto.id;
-    const liked = savedPhoto.liked;
 
     // create an image element and set its source to the photo URL
     const image = document.createElement("img");
@@ -118,7 +116,7 @@ async function displayCollectedPhotos(user) {
     button_delete.addEventListener("click", handleDeleteClick);
     async function handleDeleteClick() {
       console.log("Deleted");
-      await edit_saved_photo(photoUrl, photoId, user.id);
+      await edit_saved_photo(photoUrl, photoId, user);
     }
     photoContainer.append(button_delete);
     photoContainer.append(image);
