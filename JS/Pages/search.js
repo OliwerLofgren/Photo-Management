@@ -69,13 +69,13 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
       searchPageMain.innerHTML = `
       <section id="search-section-one" class="section">
-          <h1 class="h1-search">Here are some options to search for inspiration!</h1>
-          <form id="mini-search-form" class="search-form">
-            <label for="search-field"></label>
-            <input id="mini-search-field" class="search-field" name="search" type="text">
-            <button type="submit" class="discover_button">Search</button>
-          </form>
-          <div id="search-term-btns" class="title-buttons-container"></div>
+        <h1 class="h1-search">Here are some options to search for inspiration!</h1>
+        <form id="mini-search-form" class="search-form">
+          <label for="search-field"></label>
+          <input id="mini-search-field" class="search-field" name="search" type="text">
+          <button type="submit" class="discover_button">Search</button>
+        </form>
+        <div id="search-term-btns" class="title-buttons-container"></div>
       </section>
 
       <!--content of the first section -->

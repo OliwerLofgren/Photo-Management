@@ -59,7 +59,9 @@
   height: auto;
   object-fit: cover;
 }
-
+#media-section-one h1 {
+  margin-left: 35%;
+}
 /* Card Design */
 .card {
   position: relative;

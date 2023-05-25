@@ -43,5 +43,63 @@
             }
         ],
         "profile_picture": "..\/PHP\/my_photos\/photos_2\/terrier-dog-jpeg-min.jpg"
+    },
+    {
+        "id": 3,
+        "username": "Johnny",
+        "password": "123",
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_3\/kitten-curten-png.png"
+            }
+        ],
+        "saved_photos": [
+            {
+                "id": 16791418,
+                "photoObject": {
+                    "id": 16791418,
+                    "width": 4831,
+                    "height": 7238,
+                    "avg_color": "#5D473C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16791418\/pexels-photo-16791418.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Josue Velasquez",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@josue-velasquez-282193995",
+                    "photographer_id": 282193995,
+                    "liked": false,
+                    "alt": ""
+                }
+            },
+            {
+                "id": 16933700,
+                "photoObject": {
+                    "id": 16933700,
+                    "width": 2160,
+                    "height": 3840,
+                    "avg_color": "#4F453C",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16933700\/pexels-photo-16933700.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Aykut Bing\u00fcl",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@aykutbingul",
+                    "photographer_id": 161193354,
+                    "liked": false,
+                    "alt": ""
+                }
+            },
+            {
+                "id": 15653011,
+                "photoObject": {
+                    "id": 15653011,
+                    "width": 2820,
+                    "height": 1880,
+                    "avg_color": "#141311",
+                    "photo": "https:\/\/images.pexels.com\/photos\/15653011\/pexels-photo-15653011.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Moussa Idrissi",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@mographe",
+                    "photographer_id": 311244,
+                    "alt": "anim"
+                }
+            }
+        ],
+        "profile_picture": "..\/PHP\/my_photos\/photos_3\/dog-ocean-jpeg-min.jpg"
     }
 ]
