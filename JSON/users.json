@@ -19,5 +19,13 @@
         ],
         "saved_photos": [],
         "profile_picture": "..\/PHP\/my_photos\/photos_1\/maltese-portrait-dog-min.jpg"
+    },
+    {
+        "id": 2,
+        "username": "thea",
+        "password": "thea",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]
