@@ -35,10 +35,6 @@ function clearBackgroundImage() {
   document.querySelector("main").style.backgroundImage = "";
 }
 
-function initializeObject(key) {
-  return getLocalStorageObject(key);
-}
-
 function getLocalStorageObject(key) {
   const item = window.localStorage.getItem(key);
   return item ? JSON.parse(item) : null;

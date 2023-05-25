@@ -38,8 +38,7 @@ async function createProfileCollectionsPage(user) {
         <button class="allBtn discover_button "id="logout-button">Logout</button>
         <button class="allBtn discover_button" id="discover-button">Discover</button>
     </nav>
- 
-`;
+    `;
     // added class collection
     collectionsPageMain.innerHTML = `
     <section id="collections-section-one" class="user-section-one">

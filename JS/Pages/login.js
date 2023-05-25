@@ -76,12 +76,12 @@ async function loginUser(event) {
 
   try {
     const response = await fetch("/PHP/login.php", post);
-    let user = await response.json();
+    let resource = await response.json();
 
     if (!response.ok) {
       displayDatabaseMessage(user);
     } else {
-      user = setLocalStorageObject("user", user);
+      let user = setLocalStorageObject("user", resource);
       console.log(user);
 
       console.log("Log in successful:", user);
