@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 12vh);
-  overflow-y: scroll;
   gap: 2vh;
 }
 
