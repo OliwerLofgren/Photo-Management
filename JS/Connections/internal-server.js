@@ -78,6 +78,10 @@ async function fetchCollectedPhotosfromDB(user) {
   }
 }
 
+async function fetchUser() {
+
+}
+
 /* display the collected photos */
 async function displayCollectedPhotos(user) {
   const logged_in_user = await fetchCollectedPhotosfromDB(user);
@@ -85,6 +89,7 @@ async function displayCollectedPhotos(user) {
     console.log("Failed to fetch user data");
     return;
   }
+
 
   const photoWrapper = document.getElementById("collections-photos");
   const messageContainer = document.getElementById("message_container");

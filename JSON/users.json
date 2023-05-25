@@ -1,91 +1,69 @@
 [
     {
         "id": 1,
-        "username": "rabia",
-        "password": "a",
-        "uploaded_photos": [],
+        "username": "Oliwer",
+        "password": "123",
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_1\/brown-dog-jpeg-min.jpg"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/photos_1\/fluff-cat-png.png"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_1\/maltese-portrait-dog-min.jpg"
+            }
+        ],
         "saved_photos": [
             {
-                "id": 16791418,
+                "id": 1828875,
                 "photoObject": {
-                    "id": 16791418,
-                    "width": 4831,
-                    "height": 7238,
-                    "avg_color": "#5D473C",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16791418\/pexels-photo-16791418.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Josue Velasquez",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@josue-velasquez-282193995",
-                    "photographer_id": 282193995,
-                    "liked": false,
-                    "alt": ""
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16803741,
-                "photoObject": {
-                    "id": 16803741,
+                    "id": 1828875,
                     "width": 3648,
                     "height": 5472,
-                    "avg_color": "#696258",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16803741\/pexels-photo-16803741.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Yakup  Polat",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@yakup-polat-420882786",
-                    "photographer_id": 420882786,
-                    "liked": false,
-                    "alt": ""
+                    "avg_color": "#8D8F9E",
+                    "photo": "https:\/\/images.pexels.com\/photos\/1828875\/pexels-photo-1828875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Matteo Petralli",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@photo4passion",
+                    "photographer_id": 869324,
+                    "alt": "Orange Tabby Cat on Back of Window Curtain"
                 },
                 "bookmarked": false
             },
             {
-                "id": 16933700,
+                "id": 1404819,
                 "photoObject": {
-                    "id": 16933700,
-                    "width": 2160,
-                    "height": 3840,
-                    "avg_color": "#4F453C",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16933700\/pexels-photo-16933700.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Aykut Bing\u00fcl",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@aykutbingul",
-                    "photographer_id": 161193354,
-                    "liked": false,
-                    "alt": ""
+                    "id": 1404819,
+                    "width": 5000,
+                    "height": 3337,
+                    "avg_color": "#D2A364",
+                    "photo": "https:\/\/images.pexels.com\/photos\/1404819\/pexels-photo-1404819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Cong H",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@cong-h-613161",
+                    "photographer_id": 613161,
+                    "alt": "Calico Cat on Focus Photo"
                 },
                 "bookmarked": false
             },
             {
-                "id": 16790833,
+                "id": 1643457,
                 "photoObject": {
-                    "id": 16790833,
-                    "width": 2832,
-                    "height": 4240,
-                    "avg_color": "#9F9071",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16790833\/pexels-photo-16790833.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Josh Hild",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@josh-hild-1270765",
-                    "photographer_id": 1270765,
-                    "liked": false,
-                    "alt": ""
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16791655,
-                "photoObject": {
-                    "id": 16791655,
-                    "width": 4160,
-                    "height": 6240,
-                    "avg_color": "#6A655F",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16791655\/pexels-photo-16791655.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Ozan \u00c7ulha",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@ozanculha",
-                    "photographer_id": 1512687,
-                    "liked": false,
-                    "alt": ""
+                    "id": 1643457,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#9B9892",
+                    "photo": "https:\/\/images.pexels.com\/photos\/1643457\/pexels-photo-1643457.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Peng Louis",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@peng-louis-587527",
+                    "photographer_id": 587527,
+                    "alt": "Person Holding White Kitten With Flowers Necklace"
                 },
                 "bookmarked": false
             }
         ],
-        "profile_picture": ""
+        "profile_picture": "..\/PHP\/my_photos\/photos_1\/fluff-dog-jpeg-min.jpg"
     }
 ]

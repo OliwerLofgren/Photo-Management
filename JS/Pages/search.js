@@ -28,7 +28,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
         const apiPhotos = document.querySelector(".api-photos");
         if (apiPhotos) {
           apiPhotos.innerHTML = "";
-          await displaySearchTermPhotos(100, "portrait");
+          await fetchAndDisplaySearchedPhotos(100, "portrait", user);
         } else {
           console.error("API photos container not found.");
         }
@@ -106,7 +106,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       const mediaPage = document.getElementById("media-section-one");
       if (mediaPage) {
         document.querySelector(".api-photos").innerHTML = "";
-        await displayMediaCollectionPhotos("photos", photosCount, id, "portrait");
+        await displayMediaCollectionPhotos("photos", photosCount, id, "portrait", user);
       }
 
       const mediaQueryinfo = document.querySelector(".search-query-info");

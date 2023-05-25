@@ -20,13 +20,15 @@
 
 #home-header {
     height: calc(100vh - 89vh);
-    gap: 56vw;
-    padding-left: 6vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 button {
-    background: none;
-    /*border: none;, placeholder styles>*/
+    /* background: none; */
     padding: 3px;
     border-radius: 10px;
 }
@@ -49,43 +51,6 @@ button {
     height: 100%;
     width: 100%;
     object-fit: cover;
-}
-
-#search-form {
-    position: relative;
-    width: 50%;
-    align-self: center;
-    display: flex;
-    gap: 1vw;
-}
-
-#search-field {
-    color: rgba(0, 0, 0, .87);
-    border-bottom-color: rgba(0, 0, 0, .42);
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: .009375em;
-    text-decoration: inherit;
-    text-transform: inherit;
-    align-self: flex-end;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 10px 16px 6px;
-    transition: opacity;
-    border: none;
-    /* border-bottom: 1px solid; */
-    border-radius: 4px 4px 0 0;
-    background: rgb(245, 245, 245);
-    height: 46px;
-}
-
-#search-field:hover {
-    border-bottom-color: rgba(0, 0, 0, .87);
-    background: #ececec;
-}
-
-#search-field:focus {
-    border-color: #5902d2;
 }
 
 .h1-one {
@@ -171,11 +136,62 @@ button {
         margin-top: unset;
     }
 
+}
 
+#home-photos :nth-child(3) {
+    margin-top: 60px;
+}
+
+#home-photos :nth-child(4) {
+    margin-top: 60px;
+}
+
+#home-photos :nth-child(5) {
+    margin-top: 80px;
+}
+
+#home-photos :nth-child(6) {
+    margin-top: 60px;
+}
+
+#home-photos :nth-child(7) {
+    margin-top: 60px;
+}
+
+#home-photos :nth-child(8) {
+    margin-top: 40px;
 }
 
 #home-photos>.card>.interaction-container>i {
     display: none;
+}
+
+.circle-home {
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    background-color: rgb(252, 174, 146);
+    border-radius: 50%;
+    transition: background-color 0.7s ease;
+}
+
+.circle-home:hover {
+    background-color: rgb(244, 83, 24);
+}
+
+.circle-text {
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    opacity: 0;
+    width: 80%;
+    height: 80%;
+    padding: 105px 0 0 70px;
+    color: white;
+    font-size: x-large;
+}
+
+.circle-text:hover {
+    opacity: 1;
 }
 
 #home-section-three {

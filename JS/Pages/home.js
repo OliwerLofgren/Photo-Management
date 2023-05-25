@@ -25,9 +25,9 @@ function createHomePage() {
     homeHeader.innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav id="navHome">
-        <button id="aboutBtn">About Us</button> /
-        <button id="loginBtn">Log In</button> /
-        <button id="registerBtn">Register</button>
+        <button id="aboutBtn" class="discover_button">About Us</button> 
+        <button id="loginBtn" class="discover_button">Log In</button> 
+        <button id="registerBtn" class="discover_button">Sign Up</button>
     </nav>
     `;
 
@@ -76,7 +76,7 @@ function createHomePage() {
     const homePage = document.getElementById("home-main");
     if (homePage) {
       // photo dom element creation
-      await displayCuratedPhotos(18, "portrait");
+      await displayCuratedPhotos(18, "portrait", user);
     }
   }
 
@@ -84,7 +84,7 @@ function createHomePage() {
     let domElement = document.querySelector("#home-section-three");
     const homePage = document.getElementById("home-main");
     if (homePage) {
-      displayApiBackgroundImage(1, "original", domElement);
+      displayApiBackgroundImage(1, "original", domElement, user);
     }
   }
 
@@ -121,4 +121,4 @@ function createHomePage() {
 
 //<div class="circle-home">
 // <p class="circle-text">Be inspired</p>
-//</div> 
+//</div>
