@@ -79,7 +79,7 @@ async function registerUser(event) {
   };
 
   try {
-    const response = await fetch("../PHP/register.php", post);
+    const response = await fetch("PHP/register.php", post);
     let user = await response.json();
 
     if (response.ok) {
