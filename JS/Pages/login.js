@@ -82,7 +82,9 @@ async function loginUser(event) {
     if (!response.ok) {
       displayDatabaseMessage(user);
     } else {
-      let user = setLocalStorageObject("user", resource);
+      user = setLocalStorageObject("user", resource);
+      user = JSON.parse(localStorage.getItem("user"));
+
       console.log(user);
 
       console.log("Log in successful:", user);
