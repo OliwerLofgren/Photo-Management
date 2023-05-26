@@ -143,7 +143,7 @@ async function createProfileGalleryPage(user) {
 
   async function get_one_images(user) {
     try {
-      const response = await fetch("../JSON/users.json");
+      const response = await fetch("../Photo-Management/JSON/users.json");
       const data = await response.json();
 
       //Checking if the id of each user object matches the id of the logged-in user passed in as the user argument.
@@ -198,8 +198,8 @@ async function createProfileGalleryPage(user) {
   }
   async function get_all_images(user) {
     try {
-      const response = await fetch("../JSON/users.json");
-      // const response = await fetch("../PHOTO-MANAGEMENT/JSON/users.json");
+      const response = await fetch("../Photo-Management/JSON/users.json");
+      // const response = await fetch("../Photo-Management/JSON/users.json");
       // htt_22/Dig_cave/photomangement/json/getUsers.json
       const data = await response.json();
 
