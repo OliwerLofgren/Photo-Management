@@ -107,6 +107,7 @@ async function displayPhotoInteractionIcons(photoObject, photoContainer, user) {
   } else {
     const userSavedPhotoIds = currentUser.saved_photos.map((p) => p.id);
     const photoId = photoObject.id;
+    let isBookmarked = false;
 
     userSavedPhotoIds.forEach((userPhotoId) => {
       if (userPhotoId === photoId) {
@@ -114,16 +115,6 @@ async function displayPhotoInteractionIcons(photoObject, photoContainer, user) {
       }
     });
   }
-
-  const userSavedPhotoIds = currentUser.saved_photos.map((p) => p.id);
-  const photoId = photoObject.id;
-  let isBookmarked = false;
-
-  userSavedPhotoIds.forEach((userPhotoId) => {
-    if (userPhotoId === photoId) {
-      isBookmarked = true;
-    }
-  });
 
   // create a container for some interactive buttons for api photos
   const photoInteractionsContainer = document.createElement("div");
