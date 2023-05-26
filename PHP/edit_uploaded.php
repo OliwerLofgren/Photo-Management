@@ -37,7 +37,7 @@ $input_data = json_decode(file_get_contents("php://input"), true);
                 }else{
                     //Returns trailing name component of path. Example: my_photos/dog.jpg => dog.jpg
                     $photo_file = basename($photo["photo"]);
-                    $photo_path = "../PHP/my_photos/photos_" . $user_id . "/" . $photo_file;
+                    $photo_path = "../Photo-Management/PHP/my_photos/photos_" . $user_id . "/" . $photo_file;
                         
                     if (file_exists($photo_path)) {
                         //If the file exist delete the file

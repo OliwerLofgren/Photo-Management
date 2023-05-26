@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         $user = $users[$index];
         $username = $user['username'];
         //Foldermap for the user who is logged in
-        $userFolderPath = "../PHP/my_photos/photos_" . $logged_in_id;
+        $userFolderPath = "../Photo-Management/PHP/my_photos/photos_" . $logged_in_id;
 
         // Remove the user's folder and its contents
         if (is_dir($userFolderPath)) {
