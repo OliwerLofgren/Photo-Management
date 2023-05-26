@@ -1,6 +1,6 @@
 "use strict";
 let user = null;
-user = initializeObject("user"); // initialize the user
+user = JSON.parse(localStorage.getItem("user")); // initialize the user
 console.log(user);
 if (user) {
   console.log(user);

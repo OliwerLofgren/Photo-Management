@@ -31,15 +31,13 @@ async function createProfileCollectionsPage(user) {
     // apply layout
     document.body.classList.add("body-layout");
 
-    // NOTE: current profile page needs to be marked in css
     collectionsHeader.innerHTML = `
    <H1>PHOTO MANAGEMENT</H1>
       <nav class="nav-profile-collection">
         <button class="allBtn discover_button "id="logout-button">Logout</button>
         <button class="allBtn discover_button" id="discover-button">Discover</button>
     </nav>
- 
-`;
+    `;
     // added class collection
     collectionsPageMain.innerHTML = `
     <section id="collections-section-one" class="user-section-one">

@@ -67,7 +67,7 @@ function createHomePage() {
     let domElement = document.querySelector("#home-section-one");
     const homePage = document.getElementById("home-main");
     if (homePage) {
-      displayApiBackgroundImage(7, "original", domElement);
+      displayApiBackgroundImage(10, "original", domElement);
     }
   }
 

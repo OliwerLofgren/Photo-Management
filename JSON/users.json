@@ -1,73 +1,39 @@
 [
     {
         "id": 1,
-        "username": "Oliwer",
-        "password": "123",
+        "username": "rabia",
+        "password": "a",
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_picture": ""
     },
     {
         "id": 2,
-        "username": "Benny",
-        "password": "123",
-        "uploaded_photos": [
-            {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_2\/dog-ocean-jpeg-min.jpg"
-            },
-            {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/photos_2\/dog-white-jpeg-more-50kb.jpg"
-            },
-            {
-                "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/photos_2\/fluff-cat-png.png"
-            }
-        ],
+        "username": "b",
+        "password": "b",
+        "uploaded_photos": [],
         "saved_photos": [
             {
-                "id": 16790833,
+                "id": null,
                 "photoObject": {
-                    "id": 16790833,
-                    "width": 2832,
-                    "height": 4240,
-                    "avg_color": "#9F9071",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16790833\/pexels-photo-16790833.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Josh Hild",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@josh-hild-1270765",
-                    "photographer_id": 1270765,
-                    "liked": false,
-                    "alt": ""
+                    "avg_color": "#C3C0C5",
+                    "photo": "https:\/\/images.pexels.com\/photos\/4482900\/pexels-photo-4482900.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Anna Shvets",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@shvetsa"
                 }
-            }
-        ],
-        "profile_picture": "..\/PHP\/my_photos\/photos_2\/terrier-dog-jpeg-min.jpg"
-    },
-    {
-        "id": 3,
-        "username": "Johnny",
-        "password": "123",
-        "uploaded_photos": [
+            },
             {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_3\/kitten-curten-png.png"
-            }
-        ],
-        "saved_photos": [
-            {
-                "id": 16791418,
+                "id": 2248516,
                 "photoObject": {
-                    "id": 16791418,
-                    "width": 4831,
-                    "height": 7238,
-                    "avg_color": "#5D473C",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16791418\/pexels-photo-16791418.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Josue Velasquez",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@josue-velasquez-282193995",
-                    "photographer_id": 282193995,
-                    "liked": false,
-                    "alt": ""
+                    "id": 2248516,
+                    "width": 4000,
+                    "height": 6000,
+                    "avg_color": "#A3958F",
+                    "photo": "https:\/\/images.pexels.com\/photos\/2248516\/pexels-photo-2248516.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Andrew Neel",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@andrew",
+                    "photographer_id": 977589,
+                    "alt": "Dog Resting on Pet Bed"
                 }
             },
             {
@@ -86,17 +52,32 @@
                 }
             },
             {
-                "id": 15653011,
+                "id": 14420089,
                 "photoObject": {
-                    "id": 15653011,
-                    "width": 2820,
-                    "height": 1880,
-                    "avg_color": "#141311",
-                    "photo": "https:\/\/images.pexels.com\/photos\/15653011\/pexels-photo-15653011.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Moussa Idrissi",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@mographe",
-                    "photographer_id": 311244,
-                    "alt": "anim"
+                    "id": 14420089,
+                    "width": 8272,
+                    "height": 6200,
+                    "avg_color": "#352F31",
+                    "photo": "https:\/\/images.pexels.com\/photos\/14420089\/pexels-photo-14420089.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Egor Komarov",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@egorkomarov",
+                    "photographer_id": 4849252,
+                    "liked": false,
+                    "alt": "Free stock photo of poznan"
+                }
+            },
+            {
+                "id": 895259,
+                "photoObject": {
+                    "id": 895259,
+                    "width": 3648,
+                    "height": 5052,
+                    "avg_color": "#C3B7AF",
+                    "photo": "https:\/\/images.pexels.com\/photos\/895259\/pexels-photo-895259.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Dominika Roseclay",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@punchbrandstock",
+                    "photographer_id": 215243,
+                    "alt": "Soft Focus Photo of Dachshund"
                 }
             },
             {
@@ -130,6 +111,6 @@
                 }
             }
         ],
-        "profile_picture": "..\/PHP\/my_photos\/photos_3\/dog-ocean-jpeg-min.jpg"
+        "profile_picture": ""
     }
 ]

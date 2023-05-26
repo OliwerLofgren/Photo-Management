@@ -39,21 +39,21 @@ async function createDiscoverPage(user) {
         </div>
       </div>
     </nav>
-            `;
+    `;
 
     discoverMain.innerHTML = `
     <section id="discover-section-one">
-    <form id="big-search-form" class="search-form">
-    <label for="search-field"></label>
-    <input id="big-search-field" class="search-field" name="search" placeholder="Explore our library of photos" type="text">
-    <button type="submit" class="discover_button">Search</button>
-</form>
+      <form id="big-search-form" class="search-form">
+        <label for="search-field"></label>
+        <input id="big-search-field" class="search-field" name="search" placeholder="Explore our library of photos" type="text">
+        <button type="submit" class="discover_button">Search</button>
+      </form>
     </section>
 
     <section id="discover-section-two" class="section">
         <div id="discover-photos" class="api-photos"></div>
     </section>
-        `;
+    `;
   }
 
   async function displayDiscoverSectionOnePhotos() {
