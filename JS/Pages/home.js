@@ -1,7 +1,9 @@
 "use strict";
-const homeMain = document.querySelector("main");
-const homeHeader = document.querySelector("header");
+
 function createHomePage() {
+
+  const homeMain = document.querySelector("main");
+  const homeHeader = document.querySelector("header");
 
   // setup page
   setupHomePage();
@@ -16,12 +18,15 @@ function createHomePage() {
   addEventListeners();
 
   function setupHomePage() {
+    //clearElementAttributes(homeHeader);
 
-    homeMain.id = "home-main";
+    // homeMain.setAttribute("id", "home-main");
+
+    //homeHeader.setAttribute("id", "home-header");
+
 
     //setElementAttributes(homeMain, "home-main", "");
-    clearElementAttributes(homeHeader);
-    setElementAttributes(homeHeader, "home-header", "");
+    //setElementAttributes(homeHeader, "home-header", "");
     document.body.classList.remove("body-layout");
 
     homeHeader.innerHTML = `
