@@ -2,7 +2,7 @@
 ini_set("display_errors", 1);
 require_once("functions.php");
 
-$filename = "../Photo-Management/JSON/users.json";
+$filename = "Photo-Management/JSON/users.json";
 $users = [];
 
 $users = json_decode(file_get_contents($filename), true);
