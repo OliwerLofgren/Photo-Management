@@ -8,7 +8,7 @@ async function getUsers() {
   let resource = null;
 
   try {
-    const response = await fetch("../Photo-Management/JSON/users.json");
+    const response = await fetch("../Photo-Management/PHP/JSON/users.json");
     resource = await response.json();
 
     if (resource == null) {
@@ -17,7 +17,7 @@ async function getUsers() {
       //if resource not null return resource
       return resource;
     }
-  } catch (error) {}
+  } catch (error) { }
 }
 
 async function createAboutUsPage() {

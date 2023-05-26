@@ -57,7 +57,7 @@ async function fetchCollectedPhotosfromDB(user) {
     return;
   }
   try {
-    const response = await fetch("../Photo-Management/JSON/users.json");
+    const response = await fetch("../Photo-Management/PHP/JSON/users.json");
     const resource = await response.json();
 
     const logged_in_user = resource.find((u) => u.id === user.id);
