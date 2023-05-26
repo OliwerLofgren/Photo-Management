@@ -21,7 +21,7 @@ async function createProfileGalleryPage(user) {
 
     const formData = new FormData(profile_form);
     formData.append("logged_in_id", user.id);
-    const request = new Request("../PHP/profile_pics.php", {
+    const request = new Request("../Photo-Management/PHP/profile_pics.php", {
       method: "POST",
       body: formData,
     });
@@ -116,7 +116,7 @@ async function createProfileGalleryPage(user) {
       const formData = new FormData(form);
       //Adding id of the user as a value for logged_in_id to the FormData
       formData.append("logged_in_id", user.id);
-      const request = new Request("../PHP/upload.php", {
+      const request = new Request("../Photo-Management/PHP/upload.php", {
         method: "POST",
         body: formData,
       });
