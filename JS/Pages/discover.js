@@ -1,5 +1,7 @@
 "use strict";
 
+
+
 async function createDiscoverPage(user) {
 
   const discoverMain = document.querySelector("main");

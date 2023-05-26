@@ -73,7 +73,7 @@ async function loginUser(event) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userData),
   };
-
+  let user = null;
   try {
     const response = await fetch("/PHP/login.php", post);
     let resource = await response.json();
@@ -81,7 +81,9 @@ async function loginUser(event) {
     if (!response.ok) {
       displayDatabaseMessage(user);
     } else {
-      user = setLocalStorageObject("user", resource);
+      let user = setLocalStorageObject("user", resource);
+      user = JSON.parse(localStorage.getItem("user"));
+
       console.log(user);
 
       console.log("Log in successful:", user);

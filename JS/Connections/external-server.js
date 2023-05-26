@@ -1,4 +1,5 @@
 "use strict";
+
 // API stuff
 const prefix = "https://api.pexels.com/v1/";
 const apiKey = "4Gkq0ZuJgevDtGOJesppgO5V4tZZ4TZLTBvtO1aX6fgmzxPXGIxmkFg0";
