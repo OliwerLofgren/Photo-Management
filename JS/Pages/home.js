@@ -29,7 +29,7 @@ function createHomePage() {
     //setElementAttributes(homeHeader, "home-header", "");
     document.body.classList.remove("body-layout");
 
-    homeHeader.innerHTML = `
+    document.querySelector("header").innerHTML = `
     <H1>PHOTO MANAGEMENT</H1>
     <nav id="navHome">
         <button id="aboutBtn" class="discover_button">About Us</button> 
