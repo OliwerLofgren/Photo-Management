@@ -45,6 +45,7 @@ async function createLoginPage() {
   function addEventListeners() {
     document.getElementById("loginForm").addEventListener("submit", (event) => {
       loginUser(event);
+      location.reload();
     });
 
     document
