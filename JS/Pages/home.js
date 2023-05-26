@@ -20,9 +20,9 @@ function createHomePage() {
   function setupHomePage() {
     //clearElementAttributes(homeHeader);
 
-    homeMain.setAttribute("id", "home-main");
+    // homeMain.setAttribute("id", "home-main");
 
-    homeHeader.setAttribute("id", "home-header");
+    //homeHeader.setAttribute("id", "home-header");
 
 
     //setElementAttributes(homeMain, "home-main", "");
