@@ -199,6 +199,8 @@ async function createProfileGalleryPage(user) {
   async function get_all_images(user) {
     try {
       const response = await fetch("../JSON/users.json");
+      // const response = await fetch("../PHOTO-MANAGEMENT/JSON/users.json");
+      // htt_22/Dig_cave/photomangement/json/getUsers.json
       const data = await response.json();
 
       const logged_in_user = data.find((u) => u.id === user.id);
