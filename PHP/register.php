@@ -2,7 +2,7 @@
 ini_set("display_errors", 1);
 require_once("functions.php");
 
-$filename = "../JSON/users.json";
+$filename = "/JSON/users.json";
 $input_data = json_decode(file_get_contents("php://input"), true);
 
 //If database-file dosent exist, create it otherwise decode it
