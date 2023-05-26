@@ -1,7 +1,9 @@
 "use strict";
-const homeMain = document.querySelector("main");
-const homeHeader = document.querySelector("header");
+
 function createHomePage() {
+
+  const homeMain = document.querySelector("main");
+  const homeHeader = document.querySelector("header");
 
   // setup page
   setupHomePage();
