@@ -45,6 +45,7 @@ async function createLoginPage() {
   function addEventListeners() {
     document.getElementById("loginForm").addEventListener("submit", (event) => {
       loginUser(event);
+      location.reload();
     });
 
     document
@@ -75,7 +76,7 @@ async function loginUser(event) {
   };
 
   try {
-    const response = await fetch("/PHP/login.php", post);
+    const response = await fetch("../PHP/login.php", post);
     let user = await response.json();
 
     if (!response.ok) {

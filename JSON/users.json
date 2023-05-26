@@ -4,56 +4,6 @@
         "username": "Oliwer",
         "password": "123",
         "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": ""
-    },
-    {
-        "id": 2,
-        "username": "Benny",
-        "password": "123",
-        "uploaded_photos": [
-            {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_2\/dog-ocean-jpeg-min.jpg"
-            },
-            {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/photos_2\/dog-white-jpeg-more-50kb.jpg"
-            },
-            {
-                "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/photos_2\/fluff-cat-png.png"
-            }
-        ],
-        "saved_photos": [
-            {
-                "id": 16790833,
-                "photoObject": {
-                    "id": 16790833,
-                    "width": 2832,
-                    "height": 4240,
-                    "avg_color": "#9F9071",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16790833\/pexels-photo-16790833.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Josh Hild",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@josh-hild-1270765",
-                    "photographer_id": 1270765,
-                    "liked": false,
-                    "alt": ""
-                }
-            }
-        ],
-        "profile_picture": "..\/PHP\/my_photos\/photos_2\/terrier-dog-jpeg-min.jpg"
-    },
-    {
-        "id": 3,
-        "username": "Johnny",
-        "password": "123",
-        "uploaded_photos": [
-            {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_3\/kitten-curten-png.png"
-            }
-        ],
         "saved_photos": [
             {
                 "id": 16791418,
@@ -69,67 +19,64 @@
                     "liked": false,
                     "alt": ""
                 }
+            }
+        ],
+        "profile_picture": ""
+    },
+    {
+        "id": 2,
+        "username": "Benny",
+        "password": "123",
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_2\/dog-ocean-jpeg-min.jpg"
             },
             {
-                "id": 16933700,
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/photos_2\/fluff-cat-png.png"
+            }
+        ],
+        "saved_photos": [
+            {
+                "id": 16821075,
                 "photoObject": {
-                    "id": 16933700,
-                    "width": 2160,
-                    "height": 3840,
-                    "avg_color": "#4F453C",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16933700\/pexels-photo-16933700.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Aykut Bing\u00fcl",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@aykutbingul",
-                    "photographer_id": 161193354,
+                    "id": 16821075,
+                    "width": 3895,
+                    "height": 5854,
+                    "avg_color": "#9C7765",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16821075\/pexels-photo-16821075.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Luke Miller",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@lukemillerphotograph",
+                    "photographer_id": 2498658,
                     "liked": false,
                     "alt": ""
                 }
             },
             {
-                "id": 15653011,
+                "id": 16821086,
                 "photoObject": {
-                    "id": 15653011,
-                    "width": 2820,
-                    "height": 1880,
-                    "avg_color": "#141311",
-                    "photo": "https:\/\/images.pexels.com\/photos\/15653011\/pexels-photo-15653011.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Moussa Idrissi",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@mographe",
-                    "photographer_id": 311244,
-                    "alt": "anim"
-                }
-            },
-            {
-                "id": 16929994,
-                "photoObject": {
-                    "id": 16929994,
-                    "width": 3805,
-                    "height": 4893,
-                    "avg_color": "#545547",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16929994\/pexels-photo-16929994.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Lany-Jade Mondou",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@lany",
-                    "photographer_id": 135943481,
-                    "liked": false,
-                    "alt": "Free stock photo of 35mm, aesthetic, afro american"
-                }
-            },
-            {
-                "id": 16791655,
-                "photoObject": {
-                    "id": 16791655,
-                    "width": 4160,
-                    "height": 6240,
-                    "avg_color": "#6A655F",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16791655\/pexels-photo-16791655.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Ozan \u00c7ulha",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@ozanculha",
-                    "photographer_id": 1512687,
+                    "id": 16821086,
+                    "width": 4024,
+                    "height": 6048,
+                    "avg_color": "#242D32",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16821086\/pexels-photo-16821086.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Luke Miller",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@lukemillerphotograph",
+                    "photographer_id": 2498658,
                     "liked": false,
                     "alt": ""
                 }
             }
         ],
-        "profile_picture": "..\/PHP\/my_photos\/photos_3\/dog-ocean-jpeg-min.jpg"
+        "profile_picture": "..\/PHP\/my_photos\/photos_2\/brown-dog-jpeg-min.jpg"
+    },
+    {
+        "id": 3,
+        "username": "Johnny",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]

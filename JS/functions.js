@@ -256,33 +256,3 @@ function check_if_image_exists(user) {
     return icon;
   }
 }
-
-/*function displayServerLoadingMessage() {
-  // add the loading class to the element
-  const loadingPhotos = document.createElement("div");
-  document.querySelector("main").append(loadingPhotos);
-
-  if (loadingPhotos == null) {
-    return;
-  } else {
-    loadingPhotos.classList.add("loading");
-    // create the loader line element
-    loadingPhotos.innerHTML = `
-    <div class="loader-line"></div>
-  `;
-  }
-}
-function hideServerLoadingMessage() {
-  // remove the loader line element when photos are loaded
-  const loaderLine = document.querySelector(".loader-line");
-  if (loaderLine) {
-    loaderLine.remove();
-  }
-  // remove the loading class from the element
-  const loadingPhotos = document.querySelector(".loading");
-  if (loadingPhotos == null) {
-    return;
-  } else {
-    loadingPhotos.classList.remove("loading");
-  }
-}*/
