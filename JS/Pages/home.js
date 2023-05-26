@@ -16,7 +16,7 @@ function createHomePage() {
   addEventListeners();
 
   function setupHomePage() {
-    clearElementAttributes(homeHeader);
+    //clearElementAttributes(homeHeader);
 
     homeMain.setAttribute("id", "home-main");
 
