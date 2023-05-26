@@ -34,7 +34,7 @@ async function postPhotoObjectToDatabase(photoObject, user) {
 
   // post the data to database
   try {
-    const response = await fetch("../PHP/profile.php", post);
+    const response = await fetch("../Photo-Management/PHP/profile.php", post);
     const postedPhotoObject = await response.json();
 
     if (!response.ok) {
