@@ -52,7 +52,38 @@
         "username": "g",
         "password": "g",
         "uploaded_photos": [],
-        "saved_photos": [],
+        "saved_photos": [
+            {
+                "id": 16821086,
+                "photoObject": {
+                    "id": 16821086,
+                    "width": 4024,
+                    "height": 6048,
+                    "avg_color": "#242D32",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16821086\/pexels-photo-16821086.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Luke Miller",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@lukemillerphotograph",
+                    "photographer_id": 2498658,
+                    "liked": false,
+                    "alt": ""
+                }
+            },
+            {
+                "id": 14420089,
+                "photoObject": {
+                    "id": 14420089,
+                    "width": 8272,
+                    "height": 6200,
+                    "avg_color": "#352F31",
+                    "photo": "https:\/\/images.pexels.com\/photos\/14420089\/pexels-photo-14420089.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Egor Komarov",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@egorkomarov",
+                    "photographer_id": 4849252,
+                    "liked": false,
+                    "alt": "Free stock photo of poznan"
+                }
+            }
+        ],
         "profile_picture": ""
     },
     {
@@ -176,6 +207,38 @@
                 }
             }
         ],
+        "profile_picture": "..\/PHP\/my_photos\/photos_7\/Screenshot 2023-05-17 005209.png"
+    },
+    {
+        "id": 8,
+        "username": "fa",
+        "password": "f",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": "..\/PHP\/my_photos\/photos_8\/Screenshot 2023-05-17 005209.png"
+    },
+    {
+        "id": 9,
+        "username": "b",
+        "password": "b",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
+    },
+    {
+        "id": 10,
+        "username": "na",
+        "password": "n",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
+    },
+    {
+        "id": 11,
+        "username": "w",
+        "password": "w",
+        "uploaded_photos": [],
+        "saved_photos": [],
         "profile_picture": ""
     }
 ]
