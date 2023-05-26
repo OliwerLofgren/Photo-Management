@@ -98,6 +98,36 @@
                     "photographer_id": 311244,
                     "alt": "anim"
                 }
+            },
+            {
+                "id": 16929994,
+                "photoObject": {
+                    "id": 16929994,
+                    "width": 3805,
+                    "height": 4893,
+                    "avg_color": "#545547",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16929994\/pexels-photo-16929994.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Lany-Jade Mondou",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@lany",
+                    "photographer_id": 135943481,
+                    "liked": false,
+                    "alt": "Free stock photo of 35mm, aesthetic, afro american"
+                }
+            },
+            {
+                "id": 16791655,
+                "photoObject": {
+                    "id": 16791655,
+                    "width": 4160,
+                    "height": 6240,
+                    "avg_color": "#6A655F",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16791655\/pexels-photo-16791655.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Ozan \u00c7ulha",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@ozanculha",
+                    "photographer_id": 1512687,
+                    "liked": false,
+                    "alt": ""
+                }
             }
         ],
         "profile_picture": "..\/PHP\/my_photos\/photos_3\/dog-ocean-jpeg-min.jpg"
