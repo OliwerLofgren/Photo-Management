@@ -69,7 +69,6 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
         </div>
         <div class="mini_profile_container">
           <div class="mini-profile-photo"></div>
-          <p>${user.username}</p>
         </div>
       </nav>
       `;
@@ -180,6 +179,12 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       .getElementById("discoverBtn")
       .addEventListener("click", function () {
         createDiscoverPage(user);
+      });
+
+    document
+      .querySelector(".mini-profile-photo")
+      .addEventListener("click", function () {
+        createProfileGalleryPage(user);
       });
 
     document
