@@ -2,7 +2,7 @@
 ini_set("display_errors", 1);
 require_once("functions.php");
 
-$filename = "../JSON/users.json";
+$filename = "JSON/users.json";
 $users = json_decode(file_get_contents($filename), true);
    
 $request_method = $_SERVER["REQUEST_METHOD"];

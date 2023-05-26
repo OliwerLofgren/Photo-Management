@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
 
 
 
-    $usersData = file_get_contents('../JSON/users.json');
+    $usersData = file_get_contents('JSON/users.json');
 
     //decodes the user data JSON into a PHP array of users
     $users = json_decode($usersData, true);
