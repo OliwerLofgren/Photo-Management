@@ -1,10 +1,11 @@
 "use strict";
-let user = null;
-user = JSON.parse(localStorage.getItem("user")); // initialize the user
-console.log(user);
-if (user) {
-  console.log(user);
-  createDiscoverPage(user);
-} else {
-  createHomePage();
-}
+
+window.onload = function () {
+  let user = localStorage.getItem("user");
+  if (user) {
+    createDiscoverPage(user);
+  } else {
+    let user = null;
+    createHomePage();
+  }
+};

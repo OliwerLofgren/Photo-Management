@@ -8,10 +8,10 @@ function createHomePage() {
   setupHomePage();
 
   // display each section of the page
-  displaySectionOneBg();
-  displaySectionTwoPhotos();
-  displaySectionThreeBg();
-  displaySectionFiveBg();
+  /* displaySectionOneBg();
+   displaySectionTwoPhotos();
+   displaySectionThreeBg();
+   displaySectionFiveBg();*/
 
   // add event listeners
   addEventListeners();
@@ -63,37 +63,37 @@ function createHomePage() {
     `;
   }
 
-  function displaySectionOneBg() {
+  /*function displaySectionOneBg() {
     let domElement = document.querySelector("#home-section-one");
     const homePage = document.getElementById("home-main");
     if (homePage) {
       displayApiBackgroundImage(10, "original", domElement);
     }
-  }
+  }*/
 
-  async function displaySectionTwoPhotos() {
+  /*async function displaySectionTwoPhotos() {
     const homePage = document.getElementById("home-main");
     if (homePage) {
       // photo dom element creation
       await displayCuratedPhotos(18, "portrait", user);
     }
-  }
+  }*/
 
-  function displaySectionThreeBg() {
+  /*function displaySectionThreeBg() {
     let domElement = document.querySelector("#home-section-three");
     const homePage = document.getElementById("home-main");
     if (homePage) {
       displayApiBackgroundImage(1, "original", domElement, user);
     }
-  }
+  }*/
 
-  function displaySectionFiveBg() {
+  /*function displaySectionFiveBg() {
     let domElement = document.querySelector("#home-section-five");
     const homePage = document.getElementById("home-main");
     if (homePage) {
       displayApiBackgroundImage(6, "original", domElement);
     }
-  }
+  }*/
 
   function addEventListeners() {
     document
