@@ -246,7 +246,7 @@ async function fetchAndDisplaySearchedPhotos(per_page, imgSize, user) {
       const matchingResults = customSearchPhotoDataArray.length;
       const searchQueryinfo = document.querySelector(".search-query-info");
       searchQueryinfo.innerHTML = `  
-      <h3>${searchTerm}</h2>
+      <h2 class="h2-results">${searchTerm}</h2>
       <p class="matching-results">${matchingResults} Photos Found</p>`;
 
       return createPhotoContainer(customSearchPhotoDataArray, user);

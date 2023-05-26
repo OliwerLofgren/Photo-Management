@@ -60,15 +60,17 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       </form>
   
       <nav id="navSearch">
+        <div id="button_container"> 
+          <button id="discoverBtn" class="discover_button">Discover</button> 
+          <button id="collectionsBtn" class="discover_button">Your Collections</button> 
+          <button id="profileBtn" class="discover_button">Profile</button>
+          <button id="explore-button" class="discover_button">Explore</button>
+          <button id="logout-button" class="discover_button">Logout</button>
+        </div>
         <div class="mini_profile_container">
           <div class="mini-profile-photo"></div>
-          <p></p>
+          <p>${user.username}/p>
         </div>
-        <button id="discoverBtn">Discover</button> /
-        <button id="collectionsBtn">Your Collections</button> /
-        <button id="profileBtn">Profile</button>
-        <button id="explore-button">Explore</button>
-        <button id="logout-button">Logout</button>
       </nav>
       `;
 
@@ -124,7 +126,8 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
         return;
       }
       mediaQueryinfo.innerHTML = `  
-      <h2>Photos of ${title}</h2>
+      <h1 class="h1-explore">Explore a Curated Photo Collection<h1>
+      <h2 class="h2-results">Photos of ${title}</h2>
       <p class="matching-results">${photosCount} Photos Found</p>`;
     }
 
@@ -142,13 +145,18 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       mediaPageHeader.innerHTML = `
       <H1>PHOTO MANAGEMENT</H1>
 
+
       <nav id="navSearch">
-          <p>${user.username}</p>
+        <div id="button_container"> 
+          <button id="discoverBtn" class="discover_button">Discover</button> 
+          <button id="collectionsBtn" class="discover_button">Your Collections</button> 
+          <button id="profileBtn" class="discover_button">Profile</button>
+          <button id="logout-button" class="discover_button">Logout</button>
+        </div>
+        <div class="mini_profile_container">
           <div class="mini-profile-photo"></div>
-          <button id="discoverBtn">Discover</button> /
-          <button id="collectionsBtn">Your Collections</button> /
-          <button id="profileBtn">Profile</button>
-          <button id="logout-button">Logout</button>
+          <p>${user.username}/p>
+        </div>
       </nav>
       `;
 

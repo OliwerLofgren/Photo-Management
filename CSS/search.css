@@ -47,21 +47,23 @@
   margin: 0 20px;
 }
 
-#search-photos > div,
-#media-photos > div {
+#search-photos>div,
+#media-photos>div {
   position: relative;
   overflow: hidden;
 }
 
-#search-photos > div img,
-#media-photos > div img {
+#search-photos>div img,
+#media-photos>div img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
+
 #media-section-one h1 {
   margin-left: 35%;
 }
+
 /* Card Design */
 .card {
   position: relative;
@@ -155,6 +157,7 @@
   height: 100%;
   object-fit: cover;
 }
+
 #mini-search-form {
   display: flex;
   justify-content: center;
@@ -162,6 +165,7 @@
   margin-top: 10px;
   margin-left: 100px;
 }
+
 #mini-search-field {
   color: rgba(0, 0, 0, 0.87);
   border-bottom-color: rgba(0, 0, 0, 0.42);
@@ -226,4 +230,33 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#button_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.h1-explore {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.h2-results {
+  font-size: 24px;
+  font-weight: bold;
+  color: #666;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.matching-results {
+  font-size: 16px;
+  color: #888;
+  text-align: center;
+  margin-top: 10px;
 }
