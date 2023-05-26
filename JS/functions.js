@@ -241,7 +241,7 @@ async function toggleBookmarkStyleOnPhoto(photoContainer, photoObject) {
 function check_if_image_exists(user) {
   if (!user.profile_picture == "") {
     const img = document.createElement("img");
-    img.src = "../Photo-Management/PHP/" + user.profile_picture;
+    img.src = `../Photo-Management/PHP/${user.profile_picture}`;
     return img;
   } else {
     const icon = document.createElement("i");
