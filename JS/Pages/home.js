@@ -1,8 +1,7 @@
 "use strict";
-
+const homeMain = document.querySelector("main");
+const homeHeader = document.querySelector("header");
 function createHomePage() {
-  const homeMain = document.querySelector("main");
-  const homeHeader = document.querySelector("header");
 
   // setup page
   setupHomePage();
@@ -17,7 +16,10 @@ function createHomePage() {
   addEventListeners();
 
   function setupHomePage() {
-    setElementAttributes(homeMain, "home-main", "");
+
+    homeMain.id = "home-main";
+
+    //setElementAttributes(homeMain, "home-main", "");
     clearElementAttributes(homeHeader);
     setElementAttributes(homeHeader, "home-header", "");
     document.body.classList.remove("body-layout");
