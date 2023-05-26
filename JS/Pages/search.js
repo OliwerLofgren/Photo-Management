@@ -14,7 +14,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     createSearchPage(searchTerm, user);
   }
 
-  async function createSearchPage(user) {
+  async function createSearchPage(searchTerm, user) {
     setupSearchPage();
 
     const thumbnailImg = document.querySelector(".mini-profile-photo");
@@ -69,6 +69,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
         </div>
         <div class="mini_profile_container">
           <div class="mini-profile-photo"></div>
+          <p>${user.username}</p>
         </div>
       </nav>
       `;
