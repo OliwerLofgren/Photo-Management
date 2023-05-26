@@ -101,13 +101,13 @@ function closeModalWindow() {
 async function displayPhotoInteractionIcons(photoObject, photoContainer, user) {
   // Fetch the user data
   const currentUser = await fetchCollectedPhotosfromDB(user);
+  let isBookmarked = false;
 
   if (user == null || user == undefined) {
     return;
   } else {
     const userSavedPhotoIds = currentUser.saved_photos.map((p) => p.id);
     const photoId = photoObject.id;
-    let isBookmarked = false;
 
     userSavedPhotoIds.forEach((userPhotoId) => {
       if (userPhotoId === photoId) {
