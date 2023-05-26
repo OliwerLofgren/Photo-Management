@@ -38,7 +38,7 @@ if ($request_method == "POST") {
         }
         if ($logged_user_index !== null) {
             //This is the path for user's folder where the file will be stored.
-            $user_folder = "/PHP/my_photos/photos_" . $user_id;
+            $user_folder = "PHP/my_photos/photos_" . $user_id;
             // Create the user-specific folder if it doesn't exist
             if (!file_exists($user_folder)) {
                  mkdir($user_folder, 0777, true);
