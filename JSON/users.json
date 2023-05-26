@@ -248,5 +248,44 @@
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_picture": ""
+    },
+    {
+        "id": 13,
+        "username": "rabiag",
+        "password": "a",
+        "uploaded_photos": [],
+        "saved_photos": [
+            {
+                "id": 14420089,
+                "photoObject": {
+                    "id": 14420089,
+                    "width": 8272,
+                    "height": 6200,
+                    "avg_color": "#352F31",
+                    "photo": "https:\/\/images.pexels.com\/photos\/14420089\/pexels-photo-14420089.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Egor Komarov",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@egorkomarov",
+                    "photographer_id": 4849252,
+                    "liked": false,
+                    "alt": "Free stock photo of poznan"
+                }
+            },
+            {
+                "id": 16821086,
+                "photoObject": {
+                    "id": 16821086,
+                    "width": 4024,
+                    "height": 6048,
+                    "avg_color": "#242D32",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16821086\/pexels-photo-16821086.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Luke Miller",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@lukemillerphotograph",
+                    "photographer_id": 2498658,
+                    "liked": false,
+                    "alt": ""
+                }
+            }
+        ],
+        "profile_picture": "..\/PHP\/my_photos\/photos_13\/homesection 3.jpg"
     }
 ]
