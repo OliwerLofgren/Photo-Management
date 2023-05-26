@@ -69,7 +69,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
         </div>
         <div class="mini_profile_container">
           <div class="mini-profile-photo"></div>
-          <p>${user.username}/p>
+          <p>${user.username}</p>
         </div>
       </nav>
       `;
