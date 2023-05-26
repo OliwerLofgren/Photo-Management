@@ -79,37 +79,25 @@ function createHomePage() {
     }
   }*/
 
-  /*function displaySectionThreeBg() {
-    let domElement = document.querySelector("#home-section-three");
-    const homePage = document.getElementById("home-main");
-    if (homePage) {
-      displayApiBackgroundImage(1, "original", domElement, user);
-    }
-  }*/
+  //   /*function displaySectionThreeBg() {
+  //     let domElement = document.querySelector("#home-section-three");
+  //     const homePage = document.getElementById("home-main");
 
-  /*function displaySectionFiveBg() {
-    let domElement = document.querySelector("#home-section-five");
-    const homePage = document.getElementById("home-main");
-    if (homePage) {
-      displayApiBackgroundImage(6, "original", domElement);
-    }
-  }*/
-
-  function addEventListeners() {
-    document
-      .getElementById("loginBtn")
-      .addEventListener("click", createLoginPage);
-    document
-      .getElementById("registerBtn")
-      .addEventListener("click", createRegisterPage);
-    document
-      .getElementById("aboutBtn")
-      .addEventListener("click", createAboutUsPage);
-    document
-      .querySelector(".AboutBtn")
-      .addEventListener("click", createAboutUsPage);
-    document
-      .querySelector(".RegisterBtn")
-      .addEventListener("click", createRegisterPage);
-  }
+  //   function addEventListeners() {
+  //     document
+  //       .getElementById("loginBtn")
+  //       .addEventListener("click", createLoginPage);
+  //     document
+  //       .getElementById("registerBtn")
+  //       .addEventListener("click", createRegisterPage);
+  //     document
+  //       .getElementById("aboutBtn")
+  //       .addEventListener("click", createAboutUsPage);
+  //     document
+  //       .querySelector(".AboutBtn")
+  //       .addEventListener("click", createAboutUsPage);
+  //     document
+  //       .querySelector(".RegisterBtn")
+  //       .addEventListener("click", createRegisterPage);
+  //   }
 }

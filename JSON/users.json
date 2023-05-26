@@ -240,5 +240,13 @@
         "uploaded_photos": [],
         "saved_photos": [],
         "profile_picture": ""
+    },
+    {
+        "id": 12,
+        "username": "Oliwer",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]
