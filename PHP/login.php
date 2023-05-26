@@ -7,6 +7,7 @@ $users = [];
 
 $users = json_decode(file_get_contents($filename), true);
 $input_data = json_decode(file_get_contents("php://input"), true);
+sendJSON($users);
 
 $request_method = $_SERVER["REQUEST_METHOD"];
 //Check if method is POST otherwise error message
