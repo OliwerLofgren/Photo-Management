@@ -76,7 +76,7 @@ async function loginUser(event) {
   };
 
   try {
-    const response = await fetch("/PHP/login.php", post);
+    const response = await fetch("../PHP/login.php", post);
     let resource = await response.json();
 
     if (!response.ok) {
