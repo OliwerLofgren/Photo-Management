@@ -176,7 +176,7 @@ async function createProfileGalleryPage(user) {
         const photo_url = latest_uploaded_photo.photo;
         const img = document.createElement("img");
         img.classList.add("photo_image");
-        img.src = photo_url;
+        img.src = `../Photo-Management/PHP/${photo_url}`;
 
         const button_delete = document.createElement("button");
         button_delete.innerText = "Remove this image";
