@@ -79,7 +79,7 @@ async function createProfileGalleryPage(user) {
 
         <h3>${user.username}</h3>
         <div id="profile_container">
-            <form id="form_profile_upload" action="../PHP/profile_pics.php" method="POST" enctype="multipart/form-data">
+            <form id="form_profile_upload" action="../Photo-Management/PHP/profile_pics.php" method="POST" enctype="multipart/form-data">
                 <input type="file" name="upload">
                 <button type="submit" class="discover_button">Upload</button>
             </form>
@@ -94,7 +94,7 @@ async function createProfileGalleryPage(user) {
                 Collections</button>
             <button id="profile-button" class="activeBtn profile-button" onclick="btnFunc1()">Profile</button>
         </nav>
-        <form id="form_upload" action="../PHP/upload.php" method="POST" enctype="multipart/form-data">
+        <form id="form_upload" action="../Photo-Management/PHP/upload.php" method="POST" enctype="multipart/form-data">
             <input type="file" name="upload">
             <button type="submit" class="discover_button">Upload</button>
         </form>
