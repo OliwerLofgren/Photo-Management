@@ -62,7 +62,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       <nav id="navSearch">
         <div class="mini_profile_container">
           <div class="mini-profile-photo"></div>
-          <p>${user.username}</p>
+          <p></p>
         </div>
         <button id="discoverBtn">Discover</button> /
         <button id="collectionsBtn">Your Collections</button> /
@@ -120,6 +120,9 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       }
 
       const mediaQueryinfo = document.querySelector(".search-query-info");
+      if (mediaQueryinfo === undefined || mediaQueryinfo === null) {
+        return;
+      }
       mediaQueryinfo.innerHTML = `  
       <h2>Photos of ${title}</h2>
       <p class="matching-results">${photosCount} Photos Found</p>`;
