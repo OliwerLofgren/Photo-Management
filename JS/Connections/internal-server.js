@@ -24,7 +24,6 @@ async function postPhotoObjectToDatabase(photoObject, user) {
     id: photoObject.id, // add id to the photo
     user_id: user.id, // add id to the user
     photoObject: photoObject,
-    bookmarked: false, // toggleable liked state
   };
 
   const post = {
@@ -114,10 +113,12 @@ async function displayCollectedPhotos(user) {
     button_delete.classList.add("delete");
     // add event listener to the delete button
     button_delete.addEventListener("click", handleDeleteClick);
+
     async function handleDeleteClick() {
       console.log("Deleted");
       await edit_saved_photo(photoUrl, photoId, user);
     }
+
     photoContainer.append(button_delete);
     photoContainer.append(image);
   });
@@ -139,36 +140,5 @@ async function displayCollectedPhotos(user) {
     });
 
     messageContainer.append(message1, message2, message3);
-  }
-}
-
-// patch posted photo object
-// NOTE: needs to receive the posted object in some way
-async function patchPhotoObjectToDatabase(postedPhotoObject) {
-  // patch data
-  const new_value = true;
-  const photoObjectForDatabase = {
-    id: postedPhotoObject.id, // id of the object
-    liked: new_value,
-  };
-
-  const options = {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(photoObjectForDatabase),
-  };
-
-  try {
-    const response = await fetch(`/PHP/edit.php?id=${options.id}`, options); // url includes id of the photo
-    const patchedPhotoObject = await response.json();
-
-    if (!response.ok) {
-      console.log("Error patching photo object", response.statusText);
-    } else {
-      console.log("Photo object patched successfully:", patchedPhotoObject);
-      return patchedPhotoObject; // return the newly patched object
-    }
-  } catch (error) {
-    console.error("Error patching photo object:", error);
   }
 }

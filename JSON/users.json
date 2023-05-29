@@ -3,6 +3,7 @@
         "id": 1,
         "username": "Oliwer",
         "password": "123",
+<<<<<<< Updated upstream
         "uploaded_photos": [],
         "saved_photos": [
             {
@@ -71,5 +72,23 @@
             }
         ],
         "profile_picture": ""
+=======
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_1\/Japan-fashion.jpeg"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/photos_1\/Japan-street.jpeg"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_1\/Japan-tree.jpeg"
+            }
+        ],
+        "saved_photos": [],
+        "profile_picture": "..\/PHP\/my_photos\/photos_1\/dog-ocean-jpeg-min.jpg"
+>>>>>>> Stashed changes
     }
 ]

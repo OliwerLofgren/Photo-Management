@@ -76,7 +76,7 @@ async function loginUser(event) {
 
   try {
     const response = await fetch("/PHP/login.php", post);
-    let user = await response.json();
+    user = await response.json();
 
     if (!response.ok) {
       displayDatabaseMessage(user);
