@@ -17,8 +17,7 @@ async function getUsers() {
       //if resource not null return resource
       return resource;
     }
-  } catch (error) {
-  }
+  } catch (error) {}
 }
 
 async function createAboutUsPage() {
@@ -108,11 +107,12 @@ function addEventListener() {
 async function countUsers() {
   const resource = await getUsers();
   let userCount = 0;
-
-  // if users is an array with a lenth greater than zero it sets the UserCount to the length of the array
+  // Check if the resource is an array with a length greater than zero
   if (Array.isArray(resource) && resource.length > 0) {
+    // Set the userCount to the length of the array
     userCount = resource.length;
   }
+  // Update the numberOfUsers variable with the userCount value
   numberOfUsers = userCount;
 }
 
