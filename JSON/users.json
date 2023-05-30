@@ -11,8 +11,38 @@
         "id": 2,
         "username": "Tommy",
         "password": "123",
-        "uploaded_photos": [],
-        "saved_photos": [],
-        "profile_picture": ""
+        "uploaded_photos": [
+            {
+                "photo_id": 1,
+                "photo": "..\/PHP\/my_photos\/photos_2\/nature-3.jpeg"
+            },
+            {
+                "photo_id": 2,
+                "photo": "..\/PHP\/my_photos\/photos_2\/nature-1.jpeg"
+            },
+            {
+                "photo_id": 3,
+                "photo": "..\/PHP\/my_photos\/photos_2\/nature-2.jpeg"
+            }
+        ],
+        "saved_photos": [
+            {
+                "id": 16884192,
+                "photoObject": {
+                    "id": 16884192,
+                    "width": 4928,
+                    "height": 3264,
+                    "avg_color": "#8B8C64",
+                    "photo": "https:\/\/images.pexels.com\/photos\/16884192\/pexels-photo-16884192.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
+                    "photographerName": "Klaudia Lorenc",
+                    "photographerUrl": "https:\/\/www.pexels.com\/@klaudia-lorenc-569395691",
+                    "photographer_id": 569395691,
+                    "liked": false,
+                    "alt": "Lady in red"
+                },
+                "bookmarked": null
+            }
+        ],
+        "profile_picture": "..\/PHP\/my_photos\/photos_2\/benny.png"
     }
 ]

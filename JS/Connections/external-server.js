@@ -51,12 +51,12 @@ async function fetchCuratedPhotos(per_page, imgSize, user) {
         alt: photo.alt,
       };
     });
-    //hideServerLoadingMessage();
+    //Return twice?
     return customPhotoDataArray;
   } catch (error) {
     console.log(error);
+    //If something went wrong return empty array instead so the webpage still works
     return [];
-    // add message to user here
   }
 }
 
@@ -147,7 +147,7 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize, user) {
       console.log("No collection media found");
       return;
     }
-    console.log("hej");
+
     const arrayOfMediaObjects = resource.media;
     const mediaCollectionObject = arrayOfMediaObjects.map((media) => {
       return {
@@ -244,6 +244,7 @@ async function fetchAndDisplaySearchedPhotos(per_page, imgSize, user) {
         createSearchOrMediaCollectionsPage(null, user);
         return;
       }
+      //This is for displaying your searchterm and the length of the array (containg images of your search)
       const matchingResults = customSearchPhotoDataArray.length;
       const searchQueryinfo = document.querySelector(".search-query-info");
       searchQueryinfo.innerHTML = `  
@@ -274,7 +275,7 @@ async function displayMediaCollectionPhotos(type, per_page, id, imgSize, user) {
   }
   return createPhotoContainer(collectionsMediaArray, user);
 }
-
+//Displaying images for homepage, setting them as background image.
 async function displayApiBackgroundImage(per_page, imgSize, domElement) {
   let customPhotoDataArray = await fetchCuratedPhotos(
     per_page,
@@ -290,6 +291,7 @@ async function displayApiBackgroundImage(per_page, imgSize, domElement) {
   });
 }
 
+//Handles the response codes but we are using the resource instead of response
 function photoApiResponseCodes(resource) {
   switch (resource.status) {
     case 401:
