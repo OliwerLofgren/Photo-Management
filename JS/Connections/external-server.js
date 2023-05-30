@@ -21,7 +21,6 @@ async function fetchCuratedPhotos(per_page, imgSize, user) {
   try {
     const response = await fetch_resource(new Request(url, { headers }));
     const resource = await response.json();
-    console.log(resource);
     if (!response.ok) {
       console.log("oops");
       //Logs different status code but send resource instead of response?
@@ -59,7 +58,7 @@ async function fetchCuratedPhotos(per_page, imgSize, user) {
     return [];
   }
 }
-
+//Fetching photos from extenal API with search
 async function fetchSearchedPhotos(per_page, imgSize, searchTerm, user) {
   const searchEndPointUrl = `${prefix}search?query=${searchTerm}&per_page=${per_page}`;
 
@@ -85,7 +84,7 @@ async function fetchSearchedPhotos(per_page, imgSize, searchTerm, user) {
       console.log("No photos found");
       return;
     }
-
+    //Takes out relvant information from the external API
     let customSearchPhotoDataArray = photoResourceArray.map((photo) => {
       return {
         id: photo.id,
@@ -129,7 +128,7 @@ async function fetchFeaturedCollectionObjects(per_page) {
     return [];
   }
 }
-
+//This function is for display random images in Explore page
 async function fetchCollectionsMedia(type, per_page, id, imgSize, user) {
   const url = `${prefix}collections/${id}?per_page=${per_page}&type=${type}`;
 
@@ -163,9 +162,10 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize, user) {
     return [];
   }
 }
-
+//Take out relevant information for the photos to display in Explore
 async function getCollectionsIds() {
   let resource = await fetchFeaturedCollectionObjects(40);
+  console.log(resource);
   const arrayOfCollectionObjects = resource.collections;
 
   // array of ids and titles

@@ -6,7 +6,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     console.error("User data not found.");
     return;
   }
-
+  //If your try to search with empty value show Explore page, else show Search page with the search value
   if (searchTerm == undefined || searchTerm == null || searchTerm === "") {
     createMediaCollectionsPage(user);
   } else {

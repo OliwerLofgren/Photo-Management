@@ -1,1 +1,26 @@
-[]
+[
+    {
+        "id": 1,
+        "username": "Oliwer",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
+    },
+    {
+        "id": 2,
+        "username": "Benny",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
+    },
+    {
+        "id": 3,
+        "username": "Johnny",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
+    }
+]
