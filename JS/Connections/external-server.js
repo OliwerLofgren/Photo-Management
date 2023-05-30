@@ -105,7 +105,7 @@ async function fetchSearchedPhotos(per_page, imgSize, searchTerm, user) {
     return [];
   }
 }
-
+//This is for displaying different titles for Explore (orange buttons)
 async function fetchFeaturedCollectionObjects(per_page) {
   const url = `${prefix}collections/featured?per_page=${per_page}`;
 
@@ -128,14 +128,14 @@ async function fetchFeaturedCollectionObjects(per_page) {
     return [];
   }
 }
-
+//Fetching images from Extenal API for Explore Page
 async function fetchCollectionsMedia(type, per_page, id, imgSize, user) {
   const url = `${prefix}collections/${id}?per_page=${per_page}&type=${type}`;
 
   try {
     const response = await fetch_resource(new Request(url, { headers }));
     const resource = await response.json();
-
+    console.log(resource);
     if (!response.ok) {
       console.log("Something went wrong fetching collections media");
       photoApiResponseCodes(resource);
@@ -146,7 +146,7 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize, user) {
       console.log("No collection media found");
       return;
     }
-
+    console.log("hej");
     const arrayOfMediaObjects = resource.media;
     const mediaCollectionObject = arrayOfMediaObjects.map((media) => {
       return {
@@ -162,7 +162,7 @@ async function fetchCollectionsMedia(type, per_page, id, imgSize, user) {
     return [];
   }
 }
-
+//Takes out relevant information for Explore page
 async function getCollectionsIds() {
   let resource = await fetchFeaturedCollectionObjects(40);
   const arrayOfCollectionObjects = resource.collections;
@@ -232,7 +232,8 @@ async function fetchAndDisplaySearchedPhotos(per_page, imgSize, user) {
       customSearchPhotoDataArray = await fetchSearchedPhotos(
         per_page,
         imgSize,
-        searchTerm, user
+        searchTerm,
+        user
       );
 
       if (customSearchPhotoDataArray === undefined) {
@@ -277,7 +278,8 @@ async function displayApiBackgroundImage(per_page, imgSize, domElement) {
   let customPhotoDataArray = await fetchCuratedPhotos(
     per_page,
     imgSize,
-    domElement, user
+    domElement,
+    user
   );
   // set dom bg img
   customPhotoDataArray.forEach((photo) => {

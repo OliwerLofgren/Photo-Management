@@ -79,7 +79,8 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       </section>
       `;
     }
-    document.querySelector("#media-section-one").innerHTML += '<h1 class="h1-search">Here are some options to search for inspiration!</h1>';
+    document.querySelector("#media-section-one").innerHTML +=
+      '<h1 class="h1-search">Here are some options to search for inspiration!</h1>';
 
     document
       .getElementById("explore-button")
@@ -99,7 +100,6 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
     await displayMediaSectionTwoPhotos();
 
     async function displayMediaSectionTwoPhotos() {
-
       const mediaSectionOne = document.querySelector("#media-section-one");
       mediaSectionOne.innerHTML += `<h1 class="h1-search">Here is inspiration for your collection</h1>`;
 
@@ -195,13 +195,13 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       });
   }
 }
-
+//Take out 14 random title to display for the orange buttons in Explore page
 async function extractMediaTerms() {
   // creates the ids with possible media collections
   const mediaCollectionsArray = await getCollectionsIds();
   shuffle(mediaCollectionsArray);
-
   const clonedShuffledArray = mediaCollectionsArray.slice(1, 15);
+
   return clonedShuffledArray;
 }
 

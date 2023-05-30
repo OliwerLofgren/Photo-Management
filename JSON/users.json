@@ -1,94 +1,18 @@
 [
     {
         "id": 1,
-        "username": "Oliwer",
+        "username": "123",
         "password": "123",
-<<<<<<< Updated upstream
         "uploaded_photos": [],
-        "saved_photos": [
-            {
-                "id": 16803741,
-                "photoObject": {
-                    "id": 16803741,
-                    "width": 3648,
-                    "height": 5472,
-                    "avg_color": "#696258",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16803741\/pexels-photo-16803741.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Yakup  Polat",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@yakup-polat-420882786",
-                    "photographer_id": 420882786,
-                    "liked": false,
-                    "alt": ""
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16896231,
-                "photoObject": {
-                    "id": 16896231,
-                    "width": 4000,
-                    "height": 6000,
-                    "avg_color": "#A19684",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16896231\/pexels-photo-16896231.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Aldo Vigo",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@aldo-vigo-570160851",
-                    "photographer_id": 570160851,
-                    "liked": false,
-                    "alt": "Madre campesina "
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16932257,
-                "photoObject": {
-                    "id": 16932257,
-                    "width": 2686,
-                    "height": 3358,
-                    "avg_color": "#4F5855",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16932257\/pexels-photo-16932257.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Mehmet Turgut  Kirkgoz",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@tkirkgoz",
-                    "photographer_id": 2891577,
-                    "liked": false,
-                    "alt": ""
-                },
-                "bookmarked": false
-            },
-            {
-                "id": 16929994,
-                "photoObject": {
-                    "id": 16929994,
-                    "width": 3805,
-                    "height": 4893,
-                    "avg_color": "#545547",
-                    "photo": "https:\/\/images.pexels.com\/photos\/16929994\/pexels-photo-16929994.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800",
-                    "photographerName": "Lany-Jade Mondou",
-                    "photographerUrl": "https:\/\/www.pexels.com\/@lany",
-                    "photographer_id": 135943481,
-                    "liked": false,
-                    "alt": "Free stock photo of 35mm, aesthetic, afro american"
-                },
-                "bookmarked": false
-            }
-        ],
-        "profile_picture": ""
-=======
-        "uploaded_photos": [
-            {
-                "photo_id": 1,
-                "photo": "..\/PHP\/my_photos\/photos_1\/Japan-fashion.jpeg"
-            },
-            {
-                "photo_id": 2,
-                "photo": "..\/PHP\/my_photos\/photos_1\/Japan-street.jpeg"
-            },
-            {
-                "photo_id": 3,
-                "photo": "..\/PHP\/my_photos\/photos_1\/Japan-tree.jpeg"
-            }
-        ],
         "saved_photos": [],
-        "profile_picture": "..\/PHP\/my_photos\/photos_1\/dog-ocean-jpeg-min.jpg"
->>>>>>> Stashed changes
+        "profile_picture": ""
+    },
+    {
+        "id": 2,
+        "username": "Tommy",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]
