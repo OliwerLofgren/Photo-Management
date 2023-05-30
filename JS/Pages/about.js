@@ -17,8 +17,7 @@ async function getUsers() {
       //if resource not null return resource
       return resource;
     }
-  } catch (error) {
-  }
+  } catch (error) {}
 }
 
 async function createAboutUsPage() {
@@ -113,6 +112,7 @@ async function countUsers() {
   if (Array.isArray(resource) && resource.length > 0) {
     userCount = resource.length;
   }
+  // Update the numberOfUsers variable with the userCount value
   numberOfUsers = userCount;
 }
 
