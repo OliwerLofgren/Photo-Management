@@ -14,7 +14,7 @@ function fetch_resource(request) {
 
 /*** external api request handlers ***/
 
-// returns array of select keys: photographer name, photourl, etc
+// returns array of select keys: photographer name, photourl, etc - (Discover Page)
 async function fetchCuratedPhotos(per_page, imgSize, user) {
   //displayServerLoadingMessage();
   const url = `${prefix}curated?per_page=${per_page}`;
@@ -27,7 +27,7 @@ async function fetchCuratedPhotos(per_page, imgSize, user) {
       photoApiResponseCodes(resource);
       return;
     }
-
+    //An Array with 20 different photos (object) from external API
     let photoResourceArray = resource.photos;
     // console.log(photoResourceArray);
     if (!photoResourceArray || photoResourceArray.length === 0) {
