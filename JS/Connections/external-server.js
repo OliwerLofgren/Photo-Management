@@ -21,15 +21,16 @@ async function fetchCuratedPhotos(per_page, imgSize, user) {
   try {
     const response = await fetch_resource(new Request(url, { headers }));
     const resource = await response.json();
-
+    console.log(resource);
     if (!response.ok) {
       console.log("oops");
+      //Logs different status code but send resource instead of response?
       photoApiResponseCodes(resource);
       return;
     }
-
+    //An Array with 20 different photos (object) from external API
     let photoResourceArray = resource.photos;
-    // console.log(photoResourceArray);
+
     if (!photoResourceArray || photoResourceArray.length === 0) {
       console.log("No photos found");
       return;
@@ -50,12 +51,12 @@ async function fetchCuratedPhotos(per_page, imgSize, user) {
         alt: photo.alt,
       };
     });
-    //hideServerLoadingMessage();
+    //Returning twice?
     return customPhotoDataArray;
   } catch (error) {
     console.log(error);
+    //If something went wrong return empty array instead so the webpage still works
     return [];
-    // add message to user here
   }
 }
 
@@ -232,7 +233,8 @@ async function fetchAndDisplaySearchedPhotos(per_page, imgSize, user) {
       customSearchPhotoDataArray = await fetchSearchedPhotos(
         per_page,
         imgSize,
-        searchTerm, user
+        searchTerm,
+        user
       );
 
       if (customSearchPhotoDataArray === undefined) {
@@ -277,7 +279,8 @@ async function displayApiBackgroundImage(per_page, imgSize, domElement) {
   let customPhotoDataArray = await fetchCuratedPhotos(
     per_page,
     imgSize,
-    domElement, user
+    domElement,
+    user
   );
   // set dom bg img
   customPhotoDataArray.forEach((photo) => {
