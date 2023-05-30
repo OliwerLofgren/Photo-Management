@@ -8,7 +8,6 @@ function sendJSON($data, $status_code = 200){
 
 function removeDir($dir) {
     // Get all files and directories within the given directory
-    // Get all files and directories within the given directory
     // Glob Find pathnames matching a pattern
     // "my_photos/photos_" . (id) . /* (all files)
     
