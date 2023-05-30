@@ -24,6 +24,7 @@ async function fetchCuratedPhotos(per_page, imgSize, user) {
 
     if (!response.ok) {
       console.log("oops");
+      //Logs different status code but send resource instead of response?
       photoApiResponseCodes(resource);
       return;
     }
