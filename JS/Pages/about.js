@@ -110,6 +110,7 @@ async function countUsers() {
 
   // if users is an array with a lenth greater than zero it sets the UserCount to the length of the array
   if (Array.isArray(resource) && resource.length > 0) {
+    // Set the userCount to the length of the array
     userCount = resource.length;
   }
   // Update the numberOfUsers variable with the userCount value
