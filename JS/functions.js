@@ -38,17 +38,17 @@ function clearBackgroundImage() {
 function initializeObject(key) {
   return getLocalStorageObject(key);
 }
-
+//Get localstorage
 function getLocalStorageObject(key) {
   const item = window.localStorage.getItem(key);
   return item ? JSON.parse(item) : null;
 }
-
+//Save the new value to our localstorage
 function setLocalStorageObject(key, value) {
   window.localStorage.setItem(key, JSON.stringify(value));
   return value;
 }
-
+//ObejctKey = User, Key = The key we want to change the value of, Value = the new value we want. If the is no user return null
 function updateLocalStorageObjectKey(objectKey, key, value) {
   const object = getLocalStorageObject(objectKey);
   if (object) {
@@ -80,7 +80,7 @@ function displayDatabaseMessage(data) {
   const serverMessage = document.querySelector("#message");
   serverMessage.textContent = data.message;
 }
-
+//Pop-up, this happens when you register
 function displayModalWindow(message) {
   // the modal bg
   let modalOverlay = document.createElement("div");
@@ -97,11 +97,11 @@ function displayModalWindow(message) {
     `;
   document.querySelector("main").appendChild(modalOverlay);
 }
-
+//Close the pop-up
 function closeModalWindow() {
   document.querySelector(".modal").remove();
 }
-
+//This is for bookmark icon
 async function displayPhotoInteractionIcons(photoObject, photoContainer, user) {
   // Fetch the user data
   const currentUser = await fetchCollectedPhotosfromDB(user);
@@ -256,33 +256,3 @@ function check_if_image_exists(user) {
     return icon;
   }
 }
-
-/*function displayServerLoadingMessage() {
-  // add the loading class to the element
-  const loadingPhotos = document.createElement("div");
-  document.querySelector("main").append(loadingPhotos);
-
-  if (loadingPhotos == null) {
-    return;
-  } else {
-    loadingPhotos.classList.add("loading");
-    // create the loader line element
-    loadingPhotos.innerHTML = `
-    <div class="loader-line"></div>
-  `;
-  }
-}
-function hideServerLoadingMessage() {
-  // remove the loader line element when photos are loaded
-  const loaderLine = document.querySelector(".loader-line");
-  if (loaderLine) {
-    loaderLine.remove();
-  }
-  // remove the loading class from the element
-  const loadingPhotos = document.querySelector(".loading");
-  if (loadingPhotos == null) {
-    return;
-  } else {
-    loadingPhotos.classList.remove("loading");
-  }
-}*/

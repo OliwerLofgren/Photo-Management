@@ -106,11 +106,15 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
       createTitleButtons();
 
       const mediaKeys = await extractMediaTerms();
+
       const randomMediaId = mediaKeys.slice(1, 2);
+
       let title = randomMediaId[0].title;
       let id = randomMediaId[0].id;
       let photosCount = randomMediaId[0].photosCount;
 
+      //If explore page exist take out one random term and display it for the photos
+      //This happens three times thats my we are getting three different categories for explore
       const mediaPage = document.getElementById("media-section-one");
       if (mediaPage) {
         document.querySelector(".api-photos").innerHTML = "";
@@ -123,6 +127,7 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
         );
       }
 
+      //The latest fetch is the one for displaying the title
       const mediaQueryinfo = document.querySelector(".search-query-info");
       mediaQueryinfo.innerHTML = `  
       <h3>${title}</h2>

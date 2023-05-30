@@ -65,7 +65,7 @@ async function createDiscoverPage(user) {
       await displayCuratedPhotos(20, "portrait", user);
     }
   }
-
+  //Get 100 pictures of the search value, but why are we calling the function top of the discover page
   async function handleDiscoverPageSearch() {
     let discoverPage = document.getElementById("discover-main");
     if (discoverPage) {
