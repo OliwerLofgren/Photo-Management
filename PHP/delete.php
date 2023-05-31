@@ -30,16 +30,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         }
     }
 
+    //If nott null the user matching the logged_in_id was found
     if ($index !== null) {
         $user = $users[$index];
         $username = $user['username'];
         //Foldermap for the user who is logged in
-        $userFolderPath = "../Photo-Management/PHP/my_photos/photos_" . $logged_in_id;
+        $userFolderPath = "my_photos/photos_" . $logged_in_id;
 
         // Remove the user's folder and its contents
         if (is_dir($userFolderPath)) {
             removeDir($userFolderPath);
         }
+
         // If the user is found, remove it from the array
         array_splice($users, $index, 1);
 
