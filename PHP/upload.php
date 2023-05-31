@@ -16,6 +16,7 @@ if ($request_method == "POST") {
          // Get the name of the uploaded file
         $name = $_FILES["upload"]["name"];
         $allowed_extensions = ["jpg", "jpeg", "png", "gif"];
+        //Extracts the last part of the file dog.jpg => .jpg
         $extension = pathinfo($name, PATHINFO_EXTENSION);
         // Check if the file is allowed or not    
         if (!in_array(strtolower($extension), $allowed_extensions)) {
