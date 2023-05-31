@@ -9,7 +9,9 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
   }
 
   if (searchTerm === undefined || searchTerm === null || searchTerm === "") {
-    createMediaCollectionsPage(user);
+    // redirect to discover page if no search query 
+    createDiscoverPage(user);
+    return;
   } else {
     createSearchPage(searchTerm, user);
   }
@@ -107,9 +109,10 @@ async function createSearchOrMediaCollectionsPage(searchTerm, user) {
 
     await displayMediaSectionTwoPhotos();
 
+    const mediaKeys = await extractMediaTerms();
+
     async function displayMediaSectionTwoPhotos() {
       await createTitleButtons();
-      const mediaKeys = await extractMediaTerms();
       const randomMediaId = mediaKeys.slice(1, 2);
       const title = randomMediaId[0].title;
       const id = randomMediaId[0].id;

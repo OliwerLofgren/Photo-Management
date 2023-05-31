@@ -17,8 +17,9 @@ async function createProfileGalleryPage(user) {
   const profile_result = document.getElementById("profile_result");
   profile_form.addEventListener("submit", async function (event) {
     event.preventDefault();
-    // Remove previously uploaded image
 
+
+    // Remove previously uploaded image
     const formData = new FormData(profile_form);
     formData.append("logged_in_id", user.id);
     const request = new Request("../Photo-Management/PHP/profile_pics.php", {

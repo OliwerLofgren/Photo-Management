@@ -236,11 +236,16 @@ async function fetchAndDisplaySearchedPhotos(per_page, imgSize, user) {
         searchTerm, user
       );
 
-      if (customSearchPhotoDataArray === undefined) {
-        console.log(
-          "Either something went wrong with the search page query request or no query was input. Redirecting user to media page instead"
+      if (customSearchPhotoDataArray === undefined || searchTerm === null) {
+
+        // display message if no search query was input
+        displayModalWindow(
+          "Please enter a search query"
         );
-        createSearchOrMediaCollectionsPage(null, user);
+
+        document
+          .querySelector(".modal-button")
+          .addEventListener("click", closeModalWindow);
         return;
       }
       const matchingResults = customSearchPhotoDataArray.length;
