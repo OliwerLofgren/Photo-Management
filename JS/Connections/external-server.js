@@ -226,21 +226,34 @@ async function fetchAndDisplaySearchedPhotos(per_page, imgSize, user) {
     searchForm.addEventListener("submit", async function (event) {
       event.preventDefault();
       let searchTerm = getElement(".search-field").value.trim();
-      createSearchOrMediaCollectionsPage(searchTerm, user);
 
-      // clear already loaded photos and display searched photos instead
-      document.querySelector(".api-photos").innerHTML = "";
-      customSearchPhotoDataArray = await fetchSearchedPhotos(
-        per_page,
-        imgSize,
-        searchTerm, user
-      );
 
-      if (customSearchPhotoDataArray === undefined || searchTerm === null) {
-
+      if (searchTerm === undefined || searchTerm === null) {
         // display message if no search query was input
         displayModalWindow(
           "Please enter a search query"
+        );
+
+        document
+          .querySelector(".modal-button")
+          .addEventListener("click", closeModalWindow);
+        return;
+      } else {
+        createSearchOrMediaCollectionsPage(searchTerm, user);
+
+        // clear already loaded photos and display searched photos instead
+        document.querySelector(".api-photos").innerHTML = "";
+        customSearchPhotoDataArray = await fetchSearchedPhotos(
+          per_page,
+          imgSize,
+          searchTerm, user
+        );
+      }
+
+      if (customSearchPhotoDataArray === undefined) {
+        // display modal window message 
+        displayModalWindow(
+          "Something went wrong, please try again"
         );
 
         document
