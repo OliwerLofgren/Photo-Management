@@ -18,13 +18,8 @@ function createHomePage() {
 
   function setupHomePage() {
     clearElementAttributes(homeHeader);
-
     homeMain.setAttribute("id", "home-main");
-
     homeHeader.setAttribute("id", "home-header");
-
-    //setElementAttributes(homeMain, "home-main", "");
-    //setElementAttributes(homeHeader, "home-header", "");
     document.body.classList.remove("body-layout");
 
     document.querySelector("header").innerHTML = `
