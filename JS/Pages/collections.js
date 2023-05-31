@@ -84,6 +84,7 @@ async function createProfileCollectionsPage(user) {
     document
       .getElementById("logout-button")
       .addEventListener("click", function () {
+        location.reload();
         localStorage.removeItem("user");
         createHomePage();
       });
