@@ -7,13 +7,6 @@ function createHomePage() {
   // setup page
   setupHomePage();
 
-  // display each section of the page
-  /* displaySectionOneBg();
-   displaySectionTwoPhotos();
-   displaySectionThreeBg();
-   displaySectionFiveBg();*/
-
-  // add event listeners
   addEventListeners();
 
   function setupHomePage() {
