@@ -44,5 +44,13 @@
             }
         ],
         "profile_picture": "..\/PHP\/my_photos\/photos_2\/benny.png"
+    },
+    {
+        "id": 3,
+        "username": "Oliwer",
+        "password": "123",
+        "uploaded_photos": [],
+        "saved_photos": [],
+        "profile_picture": ""
     }
 ]

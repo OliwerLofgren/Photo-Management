@@ -17,8 +17,8 @@ function createHomePage() {
   addEventListeners();
 
   function setupHomePage() {
+    // clearElementAttributes(homeHeader);
     setElementAttributes(homeMain, "home-main", "");
-    clearElementAttributes(homeHeader);
     setElementAttributes(homeHeader, "home-header", "");
     document.body.classList.remove("body-layout");
 
